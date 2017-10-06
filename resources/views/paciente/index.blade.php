@@ -24,19 +24,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
-                        <a href="#patient" data-toggle="collapse">{{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}</a>
+                        <a href="paciente/{{{$paciente->id}}}">{{$paciente->id}}</a>
+                        {{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}
                     </h4>
-                </div>
-                <div id="patient" class="panel-collapse collapse" role="tabpanel">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="personal_info">
-                                <p>Nombre completo:{{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}</p>
-                                <p>Edad:{{$paciente->fecha_nacimiento}}</p>
-                                <a class="btn btn-info">Ver mas información</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div> <!-- Complete patient info -->
             @endforeach
