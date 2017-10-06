@@ -24,7 +24,7 @@
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
                         <a href="#patient1" data-toggle="collapse">Adriana Valenzuela</a>
-                        <h4>
+                    </h4>
                 </div>
                 <div id="patient1" class="panel-collapse collapse" role="tabpanel">
                     <div class="row">
@@ -42,7 +42,7 @@
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
                         <a href="#patient2" data-toggle="collapse">Roberto Reyes</a>
-                        <h4>
+                        </h4>
                 </div>
                 <div id="patient2" class="panel-collapse collapse" role="tabpanel">
                     <div class="row">
@@ -59,5 +59,27 @@
         </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->
     <hr>
+@stop
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            showPacientes();
+        });
+
+        function showPacientes() {
+            //Prepare the validation data.
+            var ajax_data = {
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "paciente/show",
+                data: ajax_data
+            }).done(function (response) {
+                console.log(response.item);
+            });
+        }
+    </script>
 @stop
 

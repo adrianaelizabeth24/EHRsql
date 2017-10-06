@@ -45,8 +45,8 @@ return [
             'database' => 'ehr',
             'username' => 'root',
             'password' => '',
-            'charset' => 'utf08',
-            'collation' => 'utf08_unicode_ci',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
         ],
 

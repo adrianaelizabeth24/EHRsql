@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('paciente', function()
-{
-    return view('paciente');
+Route::get('/paciente', function (){
+    return view('paciente.index');
 });
+
+Route::resource('paciente', 'PacienteController');
