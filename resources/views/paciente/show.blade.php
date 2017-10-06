@@ -45,6 +45,7 @@
                             <input name="_method" type="hidden" value="DELETE">
                             <button class="btn btn-danger" type="submit">Borrar</button>
                         </form>
+                        <a href="/paciente/{{{$paciente->id}}}/edit" class="btn btn-warning">Editar</a>
                     </div>
                 </div> <!-- Complete patient info -->
         </div> <!-- div_pacientes -->

@@ -5,8 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="/">Home</a></li>
-      <li class="#"><a href="#">Nuevo Paciente</a></li>
-      <li><a href="/paciente">Ver pacientes</a></li>
+      <li><a href="/paciente">Pacientes</a></li>
     </ul>
   </div>
 </nav>
