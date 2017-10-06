@@ -40,6 +40,11 @@
                             </div>
                         </div>
                         <a href="/paciente" class="btn btn-info">Regresar</a>
+                        <form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post">
+                            {{csrf_field()}}
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button class="btn btn-danger" type="submit">Borrar</button>
+                        </form>
                     </div>
                 </div> <!-- Complete patient info -->
         </div> <!-- div_pacientes -->
