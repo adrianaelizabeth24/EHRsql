@@ -29,8 +29,11 @@
                     </h4>
                 </div>
             </div> <!-- Complete patient info -->
+
             @endforeach
+            <a href="/paciente/create" class="btn btn-info">Nuevo Paciente</a>
         </div> <!-- div_pacientes -->
+
     </div> <!-- jumbotron -->
     <hr>
 @stop
