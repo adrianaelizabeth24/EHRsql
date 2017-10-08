@@ -380,6 +380,25 @@ CREATE TABLE `substancias` (
 
 LOCK TABLES `substancias` WRITE;
 /*!40000 ALTER TABLE `substancias` DISABLE KEYS */;
+
+INSERT INTO `substancias` VALUES 
+
+(1,'Alcohol'),
+(2,'Anfetaminas'),
+(3,'Marihuana'),
+(4,'Cocaína / Crack'),
+(5,'Alucinógenos'),
+(6,'Inhalantes'),
+(7,'Opiáceos / Heroína'),
+(8,'PCP'),
+(9,'Sedantes, hipnóticos, ansiolíticos')
+
+;
+/*!40000 ALTER TABLE `substancias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
 /*!40000 ALTER TABLE `substancias` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -393,3 +412,103 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-10-06  0:35:17
+
+
+
+
+DROP TABLE IF EXISTS `antecedentes_pat_nopats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `antecedentes_pat_nopats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `antecedente` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `antecedentes_pat_nopats` WRITE;
+/*!40000 ALTER TABLE `antecedentes_pat_nopats` DISABLE KEYS */;
+INSERT INTO `antecedentes_pat_nopats` VALUES 
+
+(1,'Del SNC (No psiquiátricas)'),
+(2,'Trastornos convulsivos'),
+(3,'Respiratorias'),
+(4,'Cardiovasculares'),
+(5,'Hematopoyéticas/linfáticas'),
+(6,'De ojos/oídos/nariz/garganta'),
+(7,'Hepáticas'),
+(8,'Dermatológicas/del tejido conectivo'),
+(9,'Músculo-esqueléticas'),
+(10,'Endocrinas/metabólicas'),
+(11,'Gastrointestinales'),
+(12,'Renales/genitourinarias'),
+(13,'Cáncer'),
+(14,'Alergia o hipersensibilidad a medicamentos'),
+(15,'Intervenciones quirúrgicas mayores')
+
+;
+/*!40000 ALTER TABLE `antecedentes_pat_nopats` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `tabaquismo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tabaquismo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nivel` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `tabaquismo` WRITE;
+/*!40000 ALTER TABLE `tabaquismo` DISABLE KEYS */;
+INSERT INTO `tabaquismo` VALUES 
+
+(1,'No fumador'),
+(2,'Ocasional'),
+(3,'Leve'),
+(4,'Moderado'),
+(5,'Alto')
+
+;
+/*!40000 ALTER TABLE `tabaquismo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `bebidas_alcoholicas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bebidas_alcoholicas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(50) NOT NULL,
+  `texto` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `bebidas_alcoholicas` WRITE;
+/*!40000 ALTER TABLE `bebidas_alcoholicas` DISABLE KEYS */;
+INSERT INTO `bebidas_alcoholicas` VALUES 
+
+(0,'frecuencia','Nunca'),
+(1,'frecuencia','Una vez al mes o menos'),
+(2,'frecuencia','Entre dos y cuatro veces al mes'),
+(3,'frecuencia','Entre dos y tres veces por semana'),
+(4,'frecuencia','Cuatro o más veces por semana'),
+
+(10,'cantidad','Ninguna'),
+(11,'cantidad','1 ó 2'),
+(12,'cantidad','3 ó 4'),
+(13,'cantidad','5 ó 6'),
+(14,'cantidad','7 ó 9'),
+(15,'cantidad','10 ó más')
+
+;
+/*!40000 ALTER TABLE `bebidas_alcoholicas` ENABLE KEYS */;
+UNLOCK TABLES;

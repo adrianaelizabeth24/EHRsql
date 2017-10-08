@@ -42,7 +42,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="datetime-local" placeholder="Fecha de Nacimiento" name="nacimiento" required/>
+                <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" required/>
             </div>
         </div>
         <div class="row">
