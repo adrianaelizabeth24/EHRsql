@@ -154,7 +154,7 @@ class PacienteController extends Controller
         $paciente->bebidas_alcoholicas = $bebidas_alcoholicas;
         $paciente->dudas_alcoholismo = $dudas_alcoholismo;
         $paciente->edad = $edad;
-        
+
         $paciente->save();
         return redirect()->action('PacienteController@show', $id);
     }

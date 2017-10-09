@@ -19,6 +19,11 @@ Route::get('/paciente', function (){
     return view('paciente.index');
 });
 
+Route::get('/exploracion_fisica', function (){
+    return view('exploracion_fisica.index');
+});
+
+
 Route::get('/peea', function () {
     return view('peea');
 });
@@ -38,3 +43,4 @@ Route::get('/pat_nopat', function () {
 });
 
 Route::resource('paciente', 'PacienteController');
+Route::resource('exploracion_fisica', 'ExploracionFisicaController');

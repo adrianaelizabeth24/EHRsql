@@ -61,7 +61,7 @@
           <th scope="row">  <input type="text" id="otro" class="form-control mx-sm-3" placeholder="Otro"> </th>
 
           <td>
-            <input type="text" id="otro" class="form-control mx-sm-3"
+            <input type="text" id="otro" class="form-control mx-sm-3"/>
           </td>
 
           <td>

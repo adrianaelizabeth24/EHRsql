@@ -25,6 +25,9 @@ DROP TABLE IF EXISTS `abuso_de_substancias`;
 CREATE TABLE `abuso_de_substancias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_paciente` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_paciente_idx` (`id_paciente`),
@@ -61,6 +64,9 @@ CREATE TABLE `antecedentes_ginecobstetricos` (
   `lactancia` tinyint(4) DEFAULT NULL,
   `posibilidad_embarazo` tinyint(4) DEFAULT NULL,
   `histerectomia` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `fk_pacien_idx` (`id_paciente`),
   CONSTRAINT `fk_pacien` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -92,6 +98,9 @@ CREATE TABLE `ehr` (
   `tratamientos_anteriores` longtext,
   `antecedentes_psicologicos` longtext,
   `notas_antecedentes` longtext,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `fk_p_idx` (`id_paciente`),
   KEY `fk_tratamiento_idx` (`id_tratamiento`),
@@ -125,6 +134,9 @@ CREATE TABLE `examen_mental` (
   `diagnostico_primario` longtext,
   `diagnostico_secundario` longtext,
   `pla_tratamiento` longtext,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_paciente_idx` (`id_paciente`),
@@ -167,6 +179,9 @@ CREATE TABLE `exploracion_fisica` (
   `higado` mediumtext,
   `musculo_esqueletico` mediumtext,
   `neurologico` mediumtext,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `fk_paciente_idx` (`id_paciente`),
   CONSTRAINT `fk_pa` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -207,6 +222,9 @@ CREATE TABLE `historia_psiquiatrica_fam` (
   `demencia` tinyint(4) DEFAULT NULL,
   `retraso_mental` tinyint(4) DEFAULT NULL,
   `transtorno_personalidad` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `fk_paciente_idx` (`id_paciente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -238,6 +256,9 @@ CREATE TABLE `historial_tratamiento` (
   `duracion_hospitalizacion` varchar(45) DEFAULT NULL,
   `motivo_hospitalizacion` varchar(90) DEFAULT NULL,
   `tratamiento` varchar(45) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_pac_idx` (`id_paciente`),
@@ -277,11 +298,15 @@ CREATE TABLE `paciente` (
   `ocupacion_sustento` varchar(45) DEFAULT NULL,
   `ocupacion_paciente` varchar(45) DEFAULT NULL,
   `cafe_te_numero_tasas` int(11) NOT NULL,
-  `bebidas_alocoholicas` varchar(45) DEFAULT NULL,
+  `bebidas_alcoholicas` varchar(45) DEFAULT NULL,
   `dudas_alcoholismo` varchar(45) DEFAULT NULL,
+  `edad` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,6 +315,7 @@ CREATE TABLE `paciente` (
 
 LOCK TABLES `paciente` WRITE;
 /*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
+INSERT INTO `paciente` VALUES (4,'Roberto','Ruiz','Reyes','H','direccion1','8915739','0000-00-00 00:00:00','soltero','ateo','licenciatura','nadie','ninguna','programador',20,'ningina','ninguna',23,'2017-10-06 05:09:25','0000-00-00 00:00:00','0000-00-00 00:00:00'),(5,'Adrian','Martinez','Gonzalez','H','direccion1','8915739','0000-00-00 00:00:00','soltero','ateo','licenciatura','nadie','ninguna','programador',20,'ningina','ninguna',22,'2017-10-06 05:09:25','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,'Javier','Cuellar','Sandoval','H','direccion1','8915739','0000-00-00 00:00:00','soltero','ateo','licenciatura','nadie','ninguna','programador',20,'ningina','ninguna',23,'2017-10-06 05:09:25','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,'Mayra','Ruiz','Rodriguez','M','hjjkl','23456789','4927-03-31 23:59:00','Soltero','budismo','licenciatura','Padres','trabaja','programacion',4,'tequila','que es el vodka',23,'2017-10-06 10:16:56','2017-10-06 10:16:56','0000-00-00 00:00:00'),(8,'Myriam','Gutierrez','Aburto','M','fghjk','567890','1999-04-02 12:59:00','Soltero','cristianismo','licenciatura','Padres','trabaja','desarrollo',9,'vodka','no',20,'2017-10-06 10:21:38','2017-10-06 10:21:38','0000-00-00 00:00:00'),(10,'Norma','Hernandez','Flores','O','hjjkl','7890','2016-08-10 10:39:00','Viudo','ateo','secundaria','Parientes','no se','apostar',7,'todo','no',29,'2017-10-06 10:30:35','2017-10-06 10:30:35','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,6 +338,9 @@ CREATE TABLE `reporte_consulta` (
   `tratamiento_actual` varchar(256) DEFAULT NULL,
   `tratamiento_anterior` varchar(200) DEFAULT NULL,
   `id_paciente` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_paciente_idx` (`id_paciente`),
@@ -338,6 +367,9 @@ DROP TABLE IF EXISTS `substancia_abusada`;
 CREATE TABLE `substancia_abusada` (
   `id_abuso_de_substancias` int(11) NOT NULL,
   `id_substancia` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id_abuso_de_substancias`,`id_substancia`),
   KEY `fk_substancia_idx` (`id_substancia`),
   CONSTRAINT `fk_abuso_de_substancia` FOREIGN KEY (`id_abuso_de_substancias`) REFERENCES `abuso_de_substancias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -387,4 +419,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-04 22:47:08
+-- Dump completed on 2017-10-09  6:38:42
