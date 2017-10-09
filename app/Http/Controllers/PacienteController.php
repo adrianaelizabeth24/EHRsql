@@ -115,9 +115,12 @@ class PacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $paciente = paciente::find($id);
+
+
+       $paciente = paciente::find($id);
         //get campos
         //obitene los campos
+
         $nombre = $request->input('nombre');
         $apellido_paterno = $request->input('apellido_paterno');
         $apellido_materno = $request->input('apellido_materno');
@@ -156,7 +159,10 @@ class PacienteController extends Controller
         $paciente->edad = $edad;
 
         $paciente->save();
-        return redirect()->action('PacienteController@show', $id);
+
+
+       return redirect()->action('PacienteController@index');
+
     }
 
     /**
