@@ -19,28 +19,44 @@ Route::get('/paciente', function (){
     return view('paciente.index');
 });
 
-Route::get('/exploracion_fisica', function (){
-    return view('exploracion_fisica.index');
-});
-
-
 Route::get('/peea', function () {
-    return view('peea');
+
+	// Crear variables para las opciones de las preguntas correspondientes
+
+	$ep_actual = App\opciones_preguntas::where('pregunta','ep_actual') -> pluck('opcion');
+	$inicio_sintomas = App\opciones_preguntas::where('pregunta','inicio_sintomas') -> pluck('opcion');
+	$tratamiento = App\opciones_preguntas::where('pregunta','tratamiento') -> pluck('opcion');
+
+	// Mandarle las variables a la vista
+
+    return view('peea')->with(  
+    	compact(
+    		'ep_actual',
+    		'inicio_sintomas',
+    		'tratamiento'
+    		))  ;
 });
 
 Route::get('/pat_nopat', function () {
 
-	$antecedentes = App\antecedentes_pat_nopat::pluck('antecedente');
+	// Crear variables para las opciones de las preguntas correspondientes
 
-	$tabaquismo = App\tabaquismo::pluck('nivel');
+	$antecedentes = App\opciones_preguntas::where('pregunta','antecedentes_pat_nopats') -> pluck('opcion');
+	$tabaquismo = App\opciones_preguntas::where('pregunta','tabaquismo') -> pluck('opcion');
+	$bebidas_frecuencia = App\opciones_preguntas::where('pregunta','bebidas_alcoholicas_frecuencia') -> pluck('opcion');
+	$bebidas_cantidad = App\opciones_preguntas::where('pregunta','bebidas_alcoholicas_cantidad') -> pluck('opcion');
+	$substancias = App\opciones_preguntas::where('pregunta','substancias') -> pluck('opcion');
 
-	$bebidas_frecuencia = App\bebidas_alcoholicas::where('categoria','frecuencia')->pluck('texto');
-	$bebidas_cantidad = App\bebidas_alcoholicas::where('categoria','cantidad')->pluck('texto');
-
-	$substancias = App\substancias::pluck('nombre');
-
-    return view('pat_nopat')->with(  compact('antecedentes', 'tabaquismo', 'bebidas_frecuencia', 'bebidas_cantidad','substancias'))  ;
+	// Mandarle las variables a la vista
+	
+    return view('pat_nopat')->with(  
+    	compact(
+    		'antecedentes',
+    		'tabaquismo',
+    		'bebidas_frecuencia',
+    		'bebidas_cantidad',
+    		'substancias'
+    		))  ;
 });
 
 Route::resource('paciente', 'PacienteController');
-Route::resource('exploracion_fisica', 'ExploracionFisicaController');
