@@ -47,11 +47,23 @@
                         </form>
                         <a href="/paciente/{{{$paciente->id}}}/edit" class="btn btn-warning">Editar</a>
                         <br/>
+
+                        <div class="container">
+                            <h2>Examenes del paciente</h2>
+
+
                         @if ($paciente->id_exploracion_fisica == 0)
                             <a href="/exploracion_fisica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen Exploracion Fisica</a>
                         @else
                             <a href="/exploracion_fisica/{{{$paciente->id_exploracion_fisica}}}" class="btn btn-info">Ver Examen Exploracion Fisica</a>
                         @endif
+
+                            @if ($paciente->id_examen_mental == 0)
+                                <a href="/examen_mental/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen Mental</a>
+                            @else
+                                <a href="/examen_mental/{{{$paciente->id_exploracion_fisica}}}" class="btn btn-info">Ver Examen Mental</a>
+                            @endif
+                        </div>
                     </div>
                 </div> <!-- Complete patient info -->
         </div> <!-- div_pacientes -->

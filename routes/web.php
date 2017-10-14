@@ -60,5 +60,9 @@ Route::get('/pat_nopat', function () {
 });
 
 Route::resource('paciente', 'PacienteController');
+
 Route::get('exploracion_fisica/paciente/{paciente}', 'ExploracionFisicaController@create');
 Route::resource('exploracion_fisica','ExploracionFisicaController');
+
+Route::get('examen_mental/paciente/{paciente}', 'ExamenMentalController@create');
+Route::resource('examen_mental', 'ExamenMentalController');
