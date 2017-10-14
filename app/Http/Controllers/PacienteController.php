@@ -115,8 +115,6 @@ class PacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
        $paciente = paciente::find($id);
         //get campos
         //obitene los campos

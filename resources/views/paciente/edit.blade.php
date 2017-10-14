@@ -216,7 +216,7 @@
                 <input type="checkbox" name="sustento" value="Pension">Pension<br>
                 <input type="checkbox" name="sustento" value="Otro">Otro<br>
             @break
-            @case('Compañero)
+            @case('Compañero')
                 <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
                 <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
                 <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
