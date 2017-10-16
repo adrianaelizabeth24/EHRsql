@@ -11,15 +11,19 @@
             <h2>Datos Generales</h2>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" placeholder="Nombre Completo" name="nombre" value="{{$paciente->nombre}}"/>
-                    <input type="text" placeholder="Apellido Paterno" name="apellido_paterno"
+					<label>Nombre(s)</label>
+                    <input class="form-control" type="text" placeholder="Nombre Completo" name="nombre" value="{{$paciente->nombre}}"/>
+					<label>Apellido Paterno</label>
+                    <input class="form-control" type="text" placeholder="Apellido Paterno" name="apellido_paterno"
                            value = {{$paciente->apellido_paterno}} required/>
-                    <input type="text" placeholder="Apellido Materno" name="apellido_materno"
+					<label>Apellido Materno</label>
+                    <input class="form-control" type="text" placeholder="Apellido Materno" name="apellido_materno"
                            value="{{$paciente->apellido_materno}}" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
+					<label>Sexo</label>
                     <select name="sexo" required>
                         @switch($paciente->sexo)
                             @case('H')
@@ -42,34 +46,46 @@
                         @endswitch
 
                     </select>
-                    <input type="text" placeholder="Motivo de consulta" name="motivo_consulta"/>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-md-12">
+					<label>Motivo de consulta</label>
+                    <input class="form-control" type="text" placeholder="Motivo de consulta" name="motivo_consulta"/>
+				</div>
+			</div>
+			
+            <div class="row">
+                <div class="col-md-12">
+					<label>Edad</label>
+                    <input class="form-control" type="number" placeholder="Edad" name="edad" value="{{$paciente->edad}}" required/>
+					<label>Referido por</label>
+                    <input class="form-control" type="text" placeholder="Referido por" name="referido"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="number" placeholder="Edad" name="edad" value="{{$paciente->edad}}" required/>
-                    <input type="text" placeholder="Referido por" name="referido"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="text" class="allwidth" placeholder="Direccion" name="direccion"
+					<label>Dirección</label>
+                    <input class="form-control" type="text" class="allwidth" placeholder="Direccion" name="direccion"
                            value="{{$paciente->direccion}}" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" class="allwidth" placeholder="Telefono" name="telefono"
+					<label>Telefono</label>
+                    <input class="form-control" type="text" class="allwidth" placeholder="Telefono" name="telefono"
                           value="{{$paciente->telefono}}" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" value="{{$paciente->nacimiento}}" required/>
+					<label>Fecha de nacimiento</label>
+                    <input class="form-control" type="date" placeholder="Fecha de Nacimiento" name="nacimiento" value="{{$paciente->nacimiento}}" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
+					<label>Lugar de Residencia</label>
                     <select name="residencia">
                         <option value="0">Lugar de Residencia</option>
                         <option value="Monterrey">Monterrey</option>
@@ -146,8 +162,10 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" placeholder="Religion" name="religion" value="{{$paciente->religion}}" required/>
-                    <input type="text" placeholder="Escolaridad" name="escolaridad" value="{{$paciente->escolaridad}}" required/>
+					<label>Religion</label>
+                    <input class="form-control" type="text" placeholder="Religion" name="religion" value="{{$paciente->religion}}" required/>
+					<label>Escolaridad</label>
+                    <input class="form-control" type="text" placeholder="Escolaridad" name="escolaridad" value="{{$paciente->escolaridad}}" required/>
                 </div>
             </div>
 
@@ -254,9 +272,11 @@
             @break
         @endswitch
             <br>
-            <input type="text" class="allwidth" placeholder="Ocupación del jefe de familia" name="ocupacion_sustento"
+			<label>Ocupación del jefe de familia</label>
+            <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del jefe de familia" name="ocupacion_sustento"
                    value="{{$paciente->ocupacion_sustento}}" required/>
-            <input type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente"
+			<label>Ocupación del paciente</label>
+            <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente"
                    value="{{$paciente->ocupacion_paciente}}" required/>
         </div>
 
@@ -265,6 +285,7 @@
 
             <div class="row">
                 <div class="col-md-12">
+					<label>Número de tazas de té o café consumidas diariamente</label>
                     <input type="number" placeholder="Número de Tasas de té o café consumidas diariamente"
                            name="cafe_te_numero_tasas" value="{{$paciente->cafe_te_numero_tasas}}" required/>
 
@@ -273,9 +294,11 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" placeholder="Bebidas Alcoholicas" name="bebidas_alcoholicas"
+					<label>Bebidas alcoholicas</label>
+                    <input class="form-control" type="text" placeholder="Bebidas Alcoholicas" name="bebidas_alcoholicas"
                            value="{{$paciente->bebidas_alcoholicas}}" required/>
-                    <input type="text" placeholder="Dudas Alcoholismo" name="dudas_alcoholismo"
+					<label>Dudas alcoholismo</label>
+                    <input class="form-control" type="text" placeholder="Dudas Alcoholismo" name="dudas_alcoholismo"
                            value="{{$paciente->dudas_alcoholismo}}" required/>
                 </div>
             </div>
