@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
+	<link href="{{ asset('css/paciente.css') }}" rel="stylesheet">
+
+<div class="jumbotron">
     <form method="post" action="{{action('PacienteController@update', $id)}}">
         {{csrf_field()}}
         <input name="_method" type="hidden" value="PATCH"/>
@@ -281,4 +284,5 @@
         <br/>
         <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
     </form>
+</div>
 @stop

@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Main jumbotron for a primary marketing message or call to action -->
-
+	<link href="{{ asset('css/paciente.css') }}" rel="stylesheet">
 
     <div class="jumbotron">
         <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
@@ -17,15 +17,13 @@
             <h2>Lista de Pacientes</h2>
         </div>
 
-
-
         <div id="div_pacientes" class="container">
             @foreach($pacientes as $paciente)
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
-                        <a href="paciente/{{{$paciente->id}}}">{{$paciente->id}}</a>
-                        {{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}
+                        <a href="paciente/{{{$paciente->id}}}">{{$paciente->id}}
+                        {{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}</a>
                     </h4>
                 </div>
             </div> <!-- Complete patient info -->
