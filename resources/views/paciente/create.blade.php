@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+<link href="{{ asset('css/paciente.css')}}" rel="stylesheet">
+
 <form class="jumbotron" method="post" action="{{url('paciente')}}">
     {{csrf_field()}}
 
@@ -8,45 +10,47 @@
         <h2>Datos Generales</h2>
         <div class="row">
             <div class="col-md-12">
-                <input type="text" placeholder="Nombre Completo" name="nombre" required/>
-                <input type="text" placeholder="Apellido Paterno" name="apellido_paterno" required/>
-                <input type="text" placeholder="Apellido Materno" name="apellido_materno" required/>
+                <input class="form-control" type="text" placeholder="Nombre Completo" name="nombre" required/>
+                <input class="form-control" type="text" placeholder="Apellido Paterno" name="apellido_paterno" required/>
+                <input class="form-control" type="text" placeholder="Apellido Materno" name="apellido_materno" required/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
+				<label>Sexo: </label>
                 <select name="sexo" required>
                     <option value="0" Sexo></option>
                     <option value="H">Hombre</option>
                     <option value="M">Mujer</option>
                     <option value="O">Otro</option>
                 </select>
-                <input type="text" placeholder="Motivo de consulta" name="motivo_consulta"/>
+                <input class="form-control" type="text" placeholder="Motivo de consulta" name="motivo_consulta"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="number" placeholder="Edad" name="edad" required/>
-                <input type="text" placeholder="Referido por" name="referido"/>
+                <input class="form-control" type="number" placeholder="Edad" name="edad" required/>
+                <input class="form-control" type="text" placeholder="Referido por" name="referido"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="text" class="allwidth" placeholder="Direccion" name="direccion" required/>
+                <input class="form-control" type="text" class="allwidth" placeholder="Direccion" name="direccion" required/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="text" class="allwidth" placeholder="Telefono" name="telefono" required/>
+                <input class="form-control" type="text" class="allwidth" placeholder="Telefono" name="telefono" required/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" required/>
+                <input class="form-control" type="date" placeholder="Fecha de Nacimiento" name="nacimiento" required/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
+				<label>Lugar de residencia: </label>
                 <select name="residencia">
                     <option value="0">Lugar de Residencia</option>
                     <option value="Monterrey">Monterrey</option>
@@ -79,8 +83,8 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <input type="text" placeholder="Religion" name="religion" required/>
-                <input type="text" placeholder="Escolaridad" name="escolaridad" required/>
+                <input class="form-control" type="text" placeholder="Religion" name="religion" required/>
+                <input class="form-control" type="text" placeholder="Escolaridad" name="escolaridad" required/>
             </div>
         </div>
 
@@ -95,8 +99,8 @@
         <input type="checkbox" name="sustento" value="Pension">Pension<br>
         <input type="checkbox" name="sustento" value="Otro">Otro<br>
         <br>
-        <input type="text" class="allwidth" placeholder="Ocupación del jefe de familia" name="ocupacion_sustento" required/>
-        <input type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente" required/>
+        <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del jefe de familia" name="ocupacion_sustento" required/>
+        <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente" required/>
     </div>
 
     <div class="container">
@@ -104,6 +108,7 @@
 
         <div class="row">
             <div class="col-md-12">
+				<label>Número de Tasas de té o café consumidas diariamente: </label>
                 <input type="number" placeholder="Número de Tasas de té o café consumidas diariamente" name="cafe_te_numero_tasas" required/>
 
             </div>
@@ -111,8 +116,8 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <input type="text" placeholder="Bebidas Alcoholicas" name="bebidas_alcoholicas" required/>
-                <input type="text" placeholder="Dudas Alcoholismo" name="dudas_alcoholismo" required/>
+                <input class="form-control" type="text" placeholder="Bebidas Alcoholicas" name="bebidas_alcoholicas" required/>
+                <input class="form-control" type="text" placeholder="Dudas Alcoholismo" name="dudas_alcoholismo" required/>
             </div>
         </div>
 
