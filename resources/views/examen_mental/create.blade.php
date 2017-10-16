@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <form class="jumbotron" method="post" action="{{url('exploracion_fisica')}}">
+    <form class="jumbotron" method="post" action="{{url('examen_mental')}}">
         {{csrf_field()}}
 
         <div class="jumbotron">
@@ -10,7 +10,7 @@
 
 
             <div class="row">
-                div class="col-md-8">
+                <div class="col-md-8">
                 <label>{{$paciente->id}}</label>
                 <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
                 <label>{{$paciente->nombre}}</label>
