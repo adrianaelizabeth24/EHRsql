@@ -3,7 +3,18 @@
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 
-<div class="jumbotron">
+<form class="jumbotron" method="post" action="{{url('peea')}}">
+    {{csrf_field()}}
+
+    <div class="row">
+                <div class="col-md-8">
+                    <label>{{$paciente->id}}</label>
+                    <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
+                    <label>{{$paciente->nombre}}</label>
+                    <label>{{$paciente->apellido_paterno}}</label>
+                    <label>{{$paciente->apellido_materno}}</label>
+                </div>
+            </div>
 
   <div class="container">
     <h2>PEEA del Episodio Actual</h2>
@@ -16,7 +27,7 @@
 
         <div class="form-group col-xs-6">
           <label for="ep_actual">El episodio actual es:</label>
-          <select class="form-control" id="ep_actual">
+          <select class="form-control" name="ep_actual">
             @foreach($ep_actual as $ep)
             <option> {{$ep}} </option>
             @endforeach
@@ -25,12 +36,12 @@
 
         <div class="form-group col-xs-3">
           <label for="epPrevios">Número de episodios previos:</label>
-          <input type="number" class="form-control input-group-lg" id="epPrevios">
+          <input type="number" class="form-control input-group-lg" name="epPrevios">
         </div>
 
         <div class="form-group col-xs-3">
           <label for="epPrevios">Edad de inicio del primer episodio:</label>
-          <input type="number" class="form-control input-group-lg" id="edadIni">
+          <input type="number" class="form-control input-group-lg" name="edadIni">
         </div>
 
       </div>
@@ -40,7 +51,7 @@
 
         <div class="form-group col-xs-6">
           <label for="inicio_sintomas">Inicio de los sintomas el episodio actual:</label>
-          <select class="form-control" id="inicio_sintomas">
+          <select class="form-control" name="inicio_sintomas">
             @foreach($inicio_sintomas as $ini)
             <option> {{$ini}} </option>
             @endforeach
@@ -50,7 +61,7 @@
 
         <div class="form-group row  col-xs-4">
           <label for="inicioEpisodio" class="col-6 col-form-label">Fecha probable de inicio del actual episodio:</label>
-          <input class="form-control" type="date" id="inicioEpisodio">
+          <input class="form-control" type="date" name="inicioEpisodio">
         </div>
 
       </div>
@@ -64,7 +75,7 @@
           @for($i=0; $i < count($tratamiento)/2 ; $i++)
 
           <div class="form-check">
-            <label class="form-check-label"><input class="form-check-input" type="checkbox" name="tratamiento" id="$tratamiento[$i]">
+            <label class="form-check-label"><input class="form-check-input" type="checkbox" name="tratamiento[]" value="{{ $tratamiento[$i] }}">
               {{ $tratamiento[$i] }}
             </label>
           </div>
@@ -79,14 +90,14 @@
           @for($i=count($tratamiento)/2 + 1; $i < count($tratamiento); $i++)
 
           <div class="form-check">
-            <label class="form-check-label"><input class="form-check-input" type="checkbox" name="tratamiento" id="$tratamiento[$i]">
+            <label class="form-check-label"><input class="form-check-input" type="checkbox" name="tratamiento[]" value="{{ $tratamiento[$i] }}">
               {{ $tratamiento[$i] }}
             </label>
           </div>
           @endfor
 
           <div class="form-check">
-            <label class="form-check-label"><input type="text" class="form-control input-group-lg" id="epPrevios" placeholder="Otro ¿cuál?">
+            <label class="form-check-label"><input type="text" class="form-control input-group-lg" name="tratamiento[]" placeholder="Otro ¿cuál?">
             </label>
           </div>
 
@@ -96,7 +107,7 @@
 
       <div class="form-group">
         <label>Psicofármacos Empleados para el Episodio Actual:</label>
-        <textarea class="form-control" id="Psicofármacos" rows="3"></textarea>
+        <textarea class="form-control" name="psicofármacos" rows="3"></textarea>
       </div>
 
 
@@ -110,10 +121,7 @@
           <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
         </div>
       </div>
-
-    </form>
-
   </div>
 
-</div> <!-- jumbotron -->
+</form> <!-- jumbotron -->
 @stop

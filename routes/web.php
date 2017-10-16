@@ -19,6 +19,8 @@ Route::get('/paciente', function (){
     return view('paciente.index');
 });
 
+/*
+
 Route::get('/peea', function () {
 
 	// Crear variables para las opciones de las preguntas correspondientes
@@ -37,6 +39,9 @@ Route::get('/peea', function () {
     		))  ;
 });
 
+*/
+
+/*
 Route::get('/pat_nopat', function () {
 
 	// Crear variables para las opciones de las preguntas correspondientes
@@ -59,6 +64,8 @@ Route::get('/pat_nopat', function () {
     		))  ;
 });
 
+*/
+
 Route::resource('paciente', 'PacienteController');
 
 Route::get('exploracion_fisica/paciente/{paciente}', 'ExploracionFisicaController@create');
@@ -66,3 +73,10 @@ Route::resource('exploracion_fisica','ExploracionFisicaController');
 
 Route::get('examen_mental/paciente/{paciente}', 'ExamenMentalController@create');
 Route::resource('examen_mental', 'ExamenMentalController');
+
+
+
+/* PEEA */
+Route::get('peea/paciente/{paciente}', 'PeeaController@create');
+Route::resource('peea','PeeaController');
+

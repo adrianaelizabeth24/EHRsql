@@ -15,7 +15,8 @@
 
 
 
-<div class="jumbotron">
+<form class="jumbotron" method="post" action="{{url('pat_nopat')}}">
+    {{csrf_field()}}
   <div class="container">
 
     <h2>Antecedentes Personales Patológicos y no Patológicos</h2>
@@ -287,6 +288,8 @@
         <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
       </div>
     </div>
+
+    </div> <!-- container -->
 
   </form>
 

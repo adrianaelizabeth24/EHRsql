@@ -304,6 +304,7 @@ CREATE TABLE `paciente` (
   `edad` int(11) NOT NULL,
   `id_exploracion_fisica` int(11) DEFAULT '0',
   `id_examen_mental` int(11) DEFAULT '0',
+  `id_peea` int(11) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -318,7 +319,12 @@ CREATE TABLE `paciente` (
 
 LOCK TABLES `paciente` WRITE;
 /*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
-INSERT INTO `paciente` VALUES (4,'Roberto','Ruiz','Reyes','H','direccion1','8915739','0000-00-00','soltero','ateo','licenciatura','Padres','ninguna','programador',20,'ningina','ninguna',23,2,0,'2017-10-06 05:09:25','0000-00-00 00:00:00','0000-00-00 00:00:00'),(5,'Adrian','Martinez','Gonzalez','H','direccion1','8915739','0000-00-00','soltero','ateo','licenciatura','Padres','ninguna','programador',20,'ningina','ninguna',22,0,0,'2017-10-06 05:09:25','2017-10-14 08:11:14','0000-00-00 00:00:00'),(6,'Javier','Cuellar','Sandoval','H','direccion1','8915739','2017-10-11','Casado','ateo','licenciatura','Igualmente compartido','ninguna','programador',20,'ningina','ninguna',23,0,0,'2017-10-06 05:09:25','2017-10-10 03:31:53','0000-00-00 00:00:00'),(7,'Mayra','Ruiz','Rodriguez','M','hjjkl','23456789','4927-03-31','Soltero','budismo','licenciatura','Padres','trabaja','programacion',4,'tequila','que es el vodka',23,0,0,'2017-10-06 10:16:56','2017-10-06 10:16:56','0000-00-00 00:00:00'),(8,'Myriam','Gutierrez','Aburto','M','fghjk','567890','1999-04-02','Soltero','cristianismo','licenciatura','Padres','trabaja','desarrollo',9,'vodka','no',20,4,0,'2017-10-06 10:21:38','2017-10-14 08:02:00','0000-00-00 00:00:00');
+INSERT INTO `paciente` VALUES
+(4,'Roberto','Ruiz','Reyes','H','direccion1','8915739','0000-00-00','soltero','ateo','licenciatura','Padres','ninguna','programador',20,'ningina','ninguna',23,2,0,0,'2017-10-06 05:09:25','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(5,'Adrian','Martinez','Gonzalez','H','direccion1','8915739','0000-00-00','soltero','ateo','licenciatura','Padres','ninguna','programador',20,'ningina','ninguna',22,0,0,0,'2017-10-06 05:09:25','2017-10-14 08:11:14','0000-00-00 00:00:00'),
+(6,'Javier','Cuellar','Sandoval','H','direccion1','8915739','2017-10-11','Casado','ateo','licenciatura','Igualmente compartido','ninguna','programador',20,'ningina','ninguna',23,0,0,0,'2017-10-06 05:09:25','2017-10-10 03:31:53','0000-00-00 00:00:00'),
+(7,'Mayra','Ruiz','Rodriguez','M','hjjkl','23456789','4927-03-31','Soltero','budismo','licenciatura','Padres','trabaja','programacion',4,'tequila','que es el vodka',23,0,0,0,'2017-10-06 10:16:56','2017-10-06 10:16:56','0000-00-00 00:00:00'),
+(8,'Myriam','Gutierrez','Aburto','M','fghjk','567890','1999-04-02','Soltero','cristianismo','licenciatura','Padres','trabaja','desarrollo',9,'vodka','no',20,4,0,0,'2017-10-06 10:21:38','2017-10-14 08:02:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -423,3 +429,29 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-10-13 22:34:13
+
+
+
+
+DROP TABLE IF EXISTS `peea`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `peea` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_paciente` int(11) NOT NULL,
+  `ep_actual` mediumtext,
+  `epPrevios` mediumtext,
+  `edadIni` mediumtext,
+  `inicio_sintomas` mediumtext,
+  `inicioEpisodio` mediumtext,
+  `tratamiento` mediumtext,
+  `psicofármacos` mediumtext,
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `fk_paciente_idx` (`id_paciente`),
+  CONSTRAINT `fk_paciente_peea` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
