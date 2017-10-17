@@ -65,14 +65,20 @@ Route::get('/pat_nopat', function () {
 });
 
 */
-
+//pacientes
 Route::resource('paciente', 'PacienteController');
 
+//examen exploración física
 Route::get('exploracion_fisica/paciente/{paciente}', 'ExploracionFisicaController@create');
 Route::resource('exploracion_fisica','ExploracionFisicaController');
 
+//examen mental
 Route::get('examen_mental/paciente/{paciente}', 'ExamenMentalController@create');
 Route::resource('examen_mental', 'ExamenMentalController');
+
+//historia psiquiatrica familiar
+Route::get('historia_psiquiatrica/paciente/{paciente}', 'HistoriaPsiquiatricaFamiliarController@create');
+Route::resource('historia_psiquiatrica', 'HistoriaPsiquiatricaFamiliarController');
 
 
 

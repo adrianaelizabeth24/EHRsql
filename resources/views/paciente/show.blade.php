@@ -45,7 +45,7 @@
 				<br/>
 
 				<h2>Examenes del paciente</h2>
-				</br>
+				<br/>
 
 				@if ($paciente->id_exploracion_fisica == 0)
 					<a href="/exploracion_fisica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen Exploracion Fisica</a>
@@ -57,6 +57,12 @@
 					<a href="/examen_mental/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen Mental</a>
 				@else
 					<a href="/examen_mental/{{{$paciente->id_examen_mental}}}" class="btn btn-info">Ver Examen Mental</a>
+				@endif
+
+				@if ($paciente->id_historia_psiquiatrica_fam == 0)
+					<a href="/historia_psiquiatrica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historial Psiquiatrico</a>
+				@else
+					<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}" class="btn btn-info">Ver Historial Psiquiatrico</a>
 				@endif
 			</div>
         </div> <!-- div_pacientes -->
