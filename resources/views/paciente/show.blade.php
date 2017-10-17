@@ -56,7 +56,7 @@
 				@if ($paciente->id_examen_mental == 0)
 					<a href="/examen_mental/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen Mental</a>
 				@else
-					<a href="/examen_mental/{{{$paciente->id_exploracion_fisica}}}" class="btn btn-info">Ver Examen Mental</a>
+					<a href="/examen_mental/{{{$paciente->id_examen_mental}}}" class="btn btn-info">Ver Examen Mental</a>
 				@endif
 			</div>
         </div> <!-- div_pacientes -->

@@ -26,6 +26,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="personal_info">
+                            <label>Escalas : </label><p>{{$examen->escalas}}</p>
                             <label>Hallazgos :</label><p>{{$examen->hallazgos}}</p>
                             <label>Diágnostico Primario :</label><p>{{$examen->diagnostico_primario}}</p>
                             <label>Diágnostico Secundario :</label><p>{{$examen->diagnostico_secundario}}</p>

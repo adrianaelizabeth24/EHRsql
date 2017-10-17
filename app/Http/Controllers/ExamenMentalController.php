@@ -45,12 +45,16 @@ class ExamenMentalController extends Controller
         $diagnostico_primario = $request->input('diagnostico_primario');
         $diagnostico_secundario = $request->input('diagnostico_secundario');
         $plan_tratamiento = $request->input('plan_tratamiento');
+        $id_paciente = $request->input('id_paciente');
+        $escalas = $request->input('escalas');
 
         //guarda los campos del form en el querybuiler
+        $examen_mental->escalas = $escalas;
+        $examen_mental->id_paciente = $id_paciente;
         $examen_mental->hallazgos = $hallazgos;
         $examen_mental->diagnostico_primario = $diagnostico_primario;
         $examen_mental->diagnostico_secundario = $diagnostico_secundario;
-        $examen_mental->pla_tratamiento = $plan_tratamiento;
+        $examen_mental->plan_tratamiento = $plan_tratamiento;
         $examen_mental->save();
 
         $paciente = paciente::find($id_paciente);
@@ -95,17 +99,17 @@ class ExamenMentalController extends Controller
         $examen_mental = examen_mental::find($id);
 
         //obtiene los campos
+        $escalas = $request->input('escalas');
 		$hallazgos = $request->input('hallazgos');
         $diagnostico_primario = $request->input('diagnostico_primario');
         $diagnostico_secundario = $request->input('diagnostico_secundario');
         $plan_tratamiento = $request->input('plan_tratamiento');
 
-        //guarda los campos del form en el querybuiler
-		//guarda los campos del form en el querybuiler
+        $examen_mental->escalas = $escalas;
         $examen_mental->hallazgos = $hallazgos;
         $examen_mental->diagnostico_primario = $diagnostico_primario;
         $examen_mental->diagnostico_secundario = $diagnostico_secundario;
-        $examen_mental->pla_tratamiento = $plan_tratamiento;
+        $examen_mental->plan_tratamiento = $plan_tratamiento;
         $examen_mental->save();
 
         $paciente = paciente::find($examen_mental->id_paciente);
