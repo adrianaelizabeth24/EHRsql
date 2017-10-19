@@ -64,6 +64,11 @@
 				@else
 					<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}" class="btn btn-info">Ver Historial Psiquiatrico</a>
 				@endif
+				@if ($paciente->id_historial_tratamiento == 0)
+					<a href="/historial_tratamiento/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historial Tratamiento</a>
+				@else
+					<a href="/historial_tratamiento/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historial Tratamiento</a>
+				@endif
 			</div>
         </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->

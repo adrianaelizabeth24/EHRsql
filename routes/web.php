@@ -80,6 +80,9 @@ Route::resource('examen_mental', 'ExamenMentalController');
 Route::get('historia_psiquiatrica/paciente/{paciente}', 'HistoriaPsiquiatricaFamiliarController@create');
 Route::resource('historia_psiquiatrica', 'HistoriaPsiquiatricaFamiliarController');
 
+//historial tratamiento
+Route::get('historial_tratamiento/paciente/{paciente}', 'HistorialTratamientoController@create');
+Route::resource('historial_tratamiento', 'HistorialTratamientoController');
 
 
 /* PEEA */
