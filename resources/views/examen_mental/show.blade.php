@@ -15,13 +15,7 @@
         <div class="container">
             <h2>Examen Exploracion Fisica</h2>
         </div>
-        <div class="container">
-            <h2>Información del Paciente</h2>
-            <div class="row">
-            </div>
-        </div>
         <div id="div_pacientes" class="container">
-            <h2>Resultados del Examen</h2>
             <div id="patient" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">

@@ -84,6 +84,9 @@ Route::resource('historia_psiquiatrica', 'HistoriaPsiquiatricaFamiliarController
 Route::get('historial_tratamiento/paciente/{paciente}', 'HistorialTratamientoController@create');
 Route::resource('historial_tratamiento', 'HistorialTratamientoController');
 
+//antecedentes ginecobstetricos
+Route::get('antecedentes_ginecobstetricos/paciente/{paciente}', 'AntecedentesGinecobstetricosController@create');
+Route::resource('antecedentes_ginecobstetricos', 'AntecedentesGinecobstetricosController');
 
 /* PEEA */
 Route::get('peea/paciente/{paciente}', 'PeeaController@create');

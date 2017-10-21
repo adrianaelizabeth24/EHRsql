@@ -69,6 +69,11 @@
 				@else
 					<a href="/historial_tratamiento/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historial Tratamiento</a>
 				@endif
+				@if ($paciente->id_antecedentes_ginecobstetricos == 0)
+					<a href="/antecedentes_ginecobstetricos/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Antecedentes Ginecobstetricos</a>
+				@else
+					<a href="/antecedentes_ginecobstetricos/{{{$paciente->id_antecedentes_ginecobstetricos}}}" class="btn btn-info">Ver Antecedentes Ginecobstetricos</a>
+				@endif
 			</div>
         </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->
