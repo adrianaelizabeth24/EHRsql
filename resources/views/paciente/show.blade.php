@@ -74,6 +74,11 @@
 				@else
 					<a href="/antecedentes_ginecobstetricos/{{{$paciente->id_antecedentes_ginecobstetricos}}}" class="btn btn-info">Ver Antecedentes Ginecobstetricos</a>
 				@endif
+				@if ($paciente->id_ehr == 0)
+					<a href="/ehr/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar EHR</a>
+				@else
+					<a href="/ehr/{{{$paciente->id_ehr}}}" class="btn btn-info">Ver EHR</a>
+				@endif
 			</div>
         </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->

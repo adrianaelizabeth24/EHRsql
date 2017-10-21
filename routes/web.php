@@ -88,6 +88,10 @@ Route::resource('historial_tratamiento', 'HistorialTratamientoController');
 Route::get('antecedentes_ginecobstetricos/paciente/{paciente}', 'AntecedentesGinecobstetricosController@create');
 Route::resource('antecedentes_ginecobstetricos', 'AntecedentesGinecobstetricosController');
 
+//ehr
+Route::get('ehr/paciente/{paciente}', 'EHRController@create');
+Route::resource('ehr', 'EHRController');
+
 /* PEEA */
 Route::get('peea/paciente/{paciente}', 'PeeaController@create');
 Route::resource('peea','PeeaController');
