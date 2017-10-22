@@ -8,7 +8,7 @@
         <div class="jumbotron">
 
             <div class="container">
-                <h2>Exploración Física</h2>
+                <h2>Examen Mental</h2>
             </div>
             <div class="row">
                 <div class="col-md-12">
