@@ -18,22 +18,20 @@
                         <label>{{$paciente->apellido_materno}}</label>
                     </div>
                 </div>
-                <div class="container">
-                    <h2>Examen mental</h2>
-                </div>
+                <h2>Examen mental</h2>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="text" placeholder="Escalas" name="escalas"/>
+                        <input class="form-control" type="text" placeholder="Escalas" name="escalas"/>
                         <br/>
-                        <textarea placeholder="hallazgos" rows="3" cols="50" name="hallazgos"></textarea>
+                        <textarea class="form-control" placeholder="hallazgos" rows="3" cols="50" name="hallazgos"></textarea>
                         <br/>
-                        <textarea placeholder="Diágnostico Primario" cols="100" rows="8"
+                        <textarea class="form-control" placeholder="Diágnostico Primario" cols="100" rows="8"
                                   name="diagnostico_primario"></textarea>
                         <br/>
-                        <textarea placeholder="Diágnostico Secundario" cols="100" rows="8"
+                        <textarea class="form-control" placeholder="Diágnostico Secundario" cols="100" rows="8"
                                   name="diagnostico_secundario"></textarea>
                         <br/>
-                        <textarea placeholder="Plan de Tratamiento" cols="100" rows="8"
+                        <textarea class="form-control" placeholder="Plan de Tratamiento" cols="100" rows="8"
                                   name="plan_tratamiento"></textarea>
                     </div>
                     <br/>
