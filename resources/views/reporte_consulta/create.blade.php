@@ -25,7 +25,7 @@
             <h2>Reporte de Consulta</h2>
             <div class="row">
                 <div class="col-md-12">
-                    <input class="form-control" type="text" placeholder="Fecha Actual" name="fecha" required/>
+                    <input class="form-control" type="date" placeholder="Fecha Actual" name="fecha" required/>
                     <input class="form-control" type="text" placeholder="Interrogatorio" name="interrogatorio" required/>
                     <input class="form-control" type="text" placeholder="Motivo" name="motivo" required/>
 

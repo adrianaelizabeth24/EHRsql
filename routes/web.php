@@ -92,6 +92,10 @@ Route::resource('antecedentes_ginecobstetricos', 'AntecedentesGinecobstetricosCo
 Route::get('ehr/paciente/{paciente}', 'EHRController@create');
 Route::resource('ehr', 'EHRController');
 
+//reporte_consulta
+Route::get('reporte_consulta/paciente/{paciente}', 'ReporteConsultaController@create');
+Route::resource('reporte_consulta', 'ReporteConsultaController');
+
 /* PEEA */
 Route::get('peea/paciente/{paciente}', 'PeeaController@create');
 Route::resource('peea','PeeaController');
