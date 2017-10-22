@@ -36,11 +36,11 @@
 				</br>
 				<a href="/paciente" class="btn btn-info">Regresar</a>
 				<a href="/paciente/{{{$paciente->id}}}/edit" class="btn btn-warning">Editar Datos</a>
-				<form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post" style="display: unset;">
-					{{csrf_field()}}
-					<input name="_method" type="hidden" value="DELETE">
-					<a class="btn btn-danger" type="submit">Borrar Paciente</a>
-				</form>
+                <form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post">
+                    {{csrf_field()}}
+                    <input name="_method" type="hidden" value="DELETE">
+                    <button class="btn btn-danger" type="submit">Borrar</button>
+                </form>
 
 				<br/>
 

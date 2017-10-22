@@ -19,6 +19,10 @@ Route::get('/paciente', function (){
     return view('paciente.index');
 });
 
+Route::get('/substancias', function (){
+    return view('substancias.index');
+});
+
 /*
 
 Route::get('/peea', function () {
@@ -67,6 +71,9 @@ Route::get('/pat_nopat', function () {
 */
 //pacientes
 Route::resource('paciente', 'PacienteController');
+
+//substancias
+Route::resource('substancias', 'SubstanciasController');
 
 //examen exploración física
 Route::get('exploracion_fisica/paciente/{paciente}', 'ExploracionFisicaController@create');
