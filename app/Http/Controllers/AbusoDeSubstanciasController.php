@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\abuso_de_substancias;
+use App\substancia_abusada;
+use App\paciente;
+use App\substancias;
 
 class AbusoDeSubstanciasController extends Controller
 {
@@ -13,7 +17,7 @@ class AbusoDeSubstanciasController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -21,9 +25,11 @@ class AbusoDeSubstanciasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $paciente = paciente::find($id);
+        $substancias = substancias::all();
+        return view('abuso_de_substancias.create', ['paciente' => $paciente, 'substancias' => $substancias]);
     }
 
     /**
@@ -34,7 +40,26 @@ class AbusoDeSubstanciasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $abuso_de_substancias = new abuso_de_substancias();
+        $abuso_de_substancias->id_paciente = $request->input('id_paciente');
+        $abuso_de_substancias->save();
+
+        $substancias = substancias::all();
+
+        foreach($substancias as $susbtancia) {
+            if ($request->input($susbtancia->id) == 1) {
+
+                $substancia_abusada = new substancia_abusada();
+                $substancia_abusada->id = $abuso_de_substancias->id;
+                $substancia_abusada->id_substancia = $request->input($susbtancia->id);
+                $substancia_abusada->save();
+            }
+        }
+        $paciente = paciente::find($abuso_de_substancias->id_paciente);
+        $paciente->id_abuso_de_substancias = $abuso_de_substancias->id;
+        $paciente->save();
+        return view('paciente.show', ['paciente' => $paciente]);
+
     }
 
     /**

@@ -84,6 +84,11 @@
 				@else
 					<a href="/reporte_consulta/{{{$paciente->id_reporte_consulta}}}" class="btn btn-info">Ver Reporte Consulta</a>
 				@endif
+                @if ($paciente->id_abuso_de_substancias == 0)
+                    <a href="/abuso_de_substancias/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Reporte Substancias</a>
+                @else
+                    <a href="/abuso_de_substancias/{{{$paciente->id_abuso_de_substancias}}}" class="btn btn-info">Ver Reporte Substancias</a>
+                @endif
 			</div>
         </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->

@@ -103,6 +103,10 @@ Route::resource('ehr', 'EHRController');
 Route::get('reporte_consulta/paciente/{paciente}', 'ReporteConsultaController@create');
 Route::resource('reporte_consulta', 'ReporteConsultaController');
 
+//absuo_de_substancias
+Route::get('abuso_de_substancias/paciente/{paciente}', 'AbusoDeSubstanciasController@create');
+Route::resource('abuso_de_substancias', 'AbusoDeSubstanciasController');
+
 /* PEEA */
 Route::get('peea/paciente/{paciente}', 'PeeaController@create');
 Route::resource('peea','PeeaController');
