@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="container">
-            <h2>Examen Exploracion Fisica</h2>
+            <h2>Examen Mental</h2>
         </div>
         <div id="div_pacientes" class="container">
             <div id="patient" role="tabpanel">
@@ -29,12 +29,12 @@
                     </div>
                 </div>
                 <a href="/paciente/{{{$examen->id_paciente}}}" class="btn btn-info">Regresar</a>
-                <form action="{{action('ExamenMentalController@destroy', $examen->id)}}" method="post">
+				<a href="/examen_mental/{{{$examen->id}}}/edit" class="btn btn-warning">Editar</a>
+                <form action="{{action('ExamenMentalController@destroy', $examen->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Borrar</button>
                 </form>
-                <a href="/examen_mental/{{{$examen->id}}}/edit" class="btn btn-warning">Editar</a>
             </div>
         </div> <!-- Complete patient info -->
     </div> <!-- div_pacientes -->

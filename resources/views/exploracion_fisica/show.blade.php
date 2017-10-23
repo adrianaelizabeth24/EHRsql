@@ -15,11 +15,6 @@
         <div class="container">
             <h2>Examen Exploracion Fisica</h2>
         </div>
-        <div class="container">
-            <h2>Información del Paciente</h2>
-            <div class="row">
-            </div>
-        </div>
         <div id="div_pacientes" class="container">
             <h2>Resultados del Examen</h2>
             <div id="patient" role="tabpanel">
@@ -43,12 +38,12 @@
                     </div>
                 </div>
                 <a href="/paciente/{{{$examen->id_paciente}}}" class="btn btn-info">Regresar</a>
-                <form action="{{action('ExploracionFisicaController@destroy', $examen->id)}}" method="post">
+				<a href="/exploracion_fisica/{{{$examen->id}}}/edit" class="btn btn-warning">Editar Datos</a>
+                <form action="{{action('ExploracionFisicaController@destroy', $examen->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
-                    <button class="btn btn-danger" type="submit">Borrar</button>
+                    <button class="btn btn-danger" type="submit">Borrar Examen</button>
                 </form>
-                <a href="/exploracion_fisica/{{{$examen->id}}}/edit" class="btn btn-warning">Editar</a>
             </div>
         </div> <!-- Complete patient info -->
     </div> <!-- div_pacientes -->
