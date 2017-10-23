@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group col-xs-3">
-          <label for="epPrevios">Edad de inicio del primer episodio:</label>
+          <label for="edadIni">Edad de inicio del primer episodio:</label>
           <input type="number" class="form-control input-group-lg" name="edadIni">
         </div>
 

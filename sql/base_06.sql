@@ -311,6 +311,7 @@ CREATE TABLE `paciente` (
   `id_ehr` int(11) DEFAULT '0',
   `id_reporte_consulta` int(11) DEFAULT '0',
   `id_abuso_de_substancias` int(11) DEFAULT '0',
+  `id_peea` int(11) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -434,3 +435,28 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-10-22 20:36:48
+
+
+
+DROP TABLE IF EXISTS `peea`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `peea` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_paciente` int(11) NOT NULL,
+  `ep_actual` mediumtext,
+  `epPrevios` mediumtext,
+  `edadIni` mediumtext,
+  `inicio_sintomas` mediumtext,
+  `inicioEpisodio` mediumtext,
+  `tratamiento` mediumtext,
+  `psicofármacos` mediumtext,
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `fk_paciente_idx` (`id_paciente`),
+  CONSTRAINT `fk_paciente_peea` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;

@@ -67,7 +67,6 @@
 			
 				<div id="historial">
 
-<<<<<<< HEAD
 				@if ($paciente->id_historia_psiquiatrica_fam == 0)
 					<a href="/historia_psiquiatrica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historial Psiquiatrico</a>
 				@else
@@ -98,17 +97,17 @@
                 @else
                     <a href="/abuso_de_substancias/{{{$paciente->id_abuso_de_substancias}}}" class="btn btn-info">Ver Reporte Substancias</a>
                 @endif
-=======
-					@if ($paciente->id_historia_psiquiatrica_fam == 0)
-						<a href="/historia_psiquiatrica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historial Psiquiatrico</a>
-					@else
-						<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}" class="btn btn-info">Ver Historial Psiquiatrico</a>
-					@endif
-					@if ($paciente->id_historial_tratamiento == 0)
-						<a href="/historial_tratamiento/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historial Tratamiento</a>
-					@else
-						<a href="/historial_tratamiento/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historial Tratamiento</a>
-					@endif
+
+
+
+
+                @if ($paciente->id_peea == 0)
+                    <a href="/peea/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar PEEA</a>
+                @else
+                    <a href="/peea/{{{$paciente->id_peea}}}" class="btn btn-info">Ver PEEA</a>
+                @endif
+
+
 				</div>
 			
 				<h3>Antecedentes y consultas</h3>
@@ -132,7 +131,6 @@
 						<a href="/reporte_consulta/{{{$paciente->id_reporte_consulta}}}" class="btn btn-info">Ver Reporte Consulta</a>
 					@endif
 				</div>
->>>>>>> 86e42ba573afd5afe6b3fc3f0ea5cb348f4b2a7e
 			</div>
         </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->

@@ -65,8 +65,6 @@ class PeeaController extends Controller
         $inicio_sintomas = $request->input('inicio_sintomas');
         $inicioEpisodio = $request->input('inicioEpisodio');
 
-
-        //$tratamiento = $request->input('tratamiento');
         $tratamiento = implode(",",$_POST["tratamiento"]);
 
         $psicofármacos = $request->input('psicofármacos');
@@ -96,7 +94,8 @@ class PeeaController extends Controller
      */
     public function show($id)
     {
-        //
+        $peea = peea::find($id);
+        return view('peea.show', ['peea' => $peea]);
     }
 
     /**
@@ -130,6 +129,11 @@ class PeeaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $peea = peea::find($id);
+        $paciente = paciente::find($peea->id_paciente);
+        $paciente->id_peea = 0;
+        $paciente->save();
+        $peea->delete();
+        return redirect()->action('PacienteController@index');
     }
 }
