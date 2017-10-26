@@ -4,14 +4,6 @@
 
 
     <div class="jumbotron">
-        <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
-            <input type="text" class="form-control" placeholder="Buscar paciente">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
         <div class="container">
             <h2>Examen Mental</h2>
         </div>

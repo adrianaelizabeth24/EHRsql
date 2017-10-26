@@ -4,14 +4,6 @@
 
 
     <div class="jumbotron">
-        <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
-            <input type="text" class="form-control" placeholder="Buscar paciente">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
         <div id="div_pacientes" class="container">
             <h2>Historia Psiquiatrica Familiar</h2>
             <div id="patient" role="tabpanel">
@@ -37,12 +29,13 @@
                     </div>
                 </div>
                 <a href="/paciente/{{{$historia->id_paciente}}}" class="btn btn-info">Regresar</a>
-                <form action="{{action('HistoriaPsiquiatricaFamiliarController@destroy', $historia->id)}}" method="post">
+				<a href="/historia_psiquiatrica/{{{$historia->id}}}/edit" class="btn btn-warning">Editar</a>
+                <form action="{{action('HistoriaPsiquiatricaFamiliarController@destroy', $historia->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Borrar</button>
                 </form>
-                <a href="/historia_psiquiatrica/{{{$historia->id}}}/edit" class="btn btn-warning">Editar</a>
+                
             </div>
         </div> <!-- Complete patient info -->
     </div> <!-- div_pacientes -->

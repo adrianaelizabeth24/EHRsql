@@ -4,23 +4,21 @@
     <form class="jumbotron" method="post" action="{{url('historia_psiquiatrica_previa')}}">
         {{csrf_field()}}
 
-        <div class="jumbotron">
-            <div class="container">
-                <h2>Datos del paciente</h2>
-            </div>
+
+        <div class="container">
+            <h2>Datos del paciente</h2>
 
             <div class="row">
                 <div class="col-md-8">
-                    <label>{{$paciente->id}}</label>
                     <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
                     <label>{{$paciente->nombre}}</label>
                     <label>{{$paciente->apellido_paterno}}</label>
                     <label>{{$paciente->apellido_materno}}</label>
                 </div>
             </div>
-            <div class="container">
-                <h2>Historial Tratamiento</h2>
-            </div>
+
+            <h2>Historial Tratamiento</h2>
+
             <div class="row">
                 <div class="col-md-12">
                     <input type="text" name="tratamiento_previo" placeholder="Tratamiento previo por problemas emocionales"/>
@@ -39,21 +37,26 @@
                     <input type="radio" name="hospitalizacion" value="0"/> No<br/>
                     <br/>
 
-                    <input type="number" name="primera_hospitalizacion" placeholder="Edad Primera Hospitalizacion"/>
+                    <input class="form-control" type="date" name="primera_hospitalizacion" placeholder="Fecha Primera Hospitalizacion"/>
+
                     <br/>
 
-                    <input type="number" name="no_hospitalizaciones" placeholder="Número de Hospitalizaciones"/>
+                    <input class="form-control" type="number" name="no_hospitalizaciones" placeholder="Número de Hospitalizaciones"/>
                     <br/>
 
-                    <input type="number" name="duracion_hospitalizacion" placeholder="Duración de la última hospitalizacion"/>
+                    <input class="form-control" type="number" name="duracion_hospitalizacion" placeholder="Duración de la última hospitalizacion"/>
                     <br/>
 
-                    <input type="text" name="motivo_hospitalizacion" placeholder="Motivo última hospitalizacion"/>
+                    <input class="form-control" type="text" name="motivo_hospitalizacion" placeholder="Motivo última hospitalizacion"/>
                     <br/>
+
+
+                    <input class="form-control" type="text" name="tratamiento" placeholder="Tratamiento"/>
 
                     <textarea name="tratamiento" placeholder="Cronología de todos los episodios pasados de enfermedad mental y sus tratamientos, incluyendo los síndromes psiquiátricos no formalmente diagnosticados en ese tiempo, diagnósticos previos establecidos, tratamientos ofrecidos y respuestas a los mismos.
 Consigne dosis, duración, eficacia, efectos secundarios y adherencia del paciente a los medicamentos prescritos.
 "></textarea>
+
                     <br/>
 
                 </div>
