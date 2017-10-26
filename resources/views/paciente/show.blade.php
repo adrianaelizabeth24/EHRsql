@@ -72,10 +72,10 @@
 				@else
 					<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}" class="btn btn-info">Ver Historial Psiquiatrico</a>
 				@endif
-				@if ($paciente->id_historial_tratamiento == 0)
+				@if ($paciente->id_historia_previa == 0)
 					<a href="/historia_psiquiatrica_previa/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historia Psiquiatrica Previa</a>
 				@else
-					<a href="/historia_psiquiatrica_previa/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historia Psiquiatrica Previa</a>
+					<a href="/historia_psiquiatrica_previa/{{{$paciente->id_historia_previa}}}" class="btn btn-info">Ver Historia Psiquiatrica Previa</a>
 				@endif
 				
 				

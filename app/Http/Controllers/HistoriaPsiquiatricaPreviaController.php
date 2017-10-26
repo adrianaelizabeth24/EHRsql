@@ -26,7 +26,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function create($id)
     {
         $paciente = paciente::find($id);
-        return view('historiapsiquiatricaprevia.create', ['paciente' => $paciente]);
+        return view('historia_psiquiatrica_previa.create', ['paciente' => $paciente]);
     }
 
     /**
@@ -66,7 +66,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $historial_tratamiento->save();
 
         $paciente = paciente::find($id_paciente);
-        $paciente->id_historial_tratamiento = $historial_tratamiento->id;
+        $paciente->id_historia_previa = $historial_tratamiento->id;
         $paciente->save();
         return view('paciente.show', ['paciente' => $paciente]);
     }
@@ -80,7 +80,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function show($id)
     {
         $historial_tratamiento = historia_psiquiatrica_previa::find($id);
-        return view('historiapsiquiatricaprevia.show', ['historial' => $historial_tratamiento]);
+        return view('historia_psiquiatrica_previa.show', ['historial' => $historial_tratamiento]);
     }
 
     /**
@@ -92,7 +92,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function edit($id)
     {
         $historial_tratamiento = historia_psiquiatrica_previa::find($id);
-        return view('historiapsiquiatricaprevia.edit', ['historial' => $historial_tratamiento, 'id' => $id]);
+        return view('historia_psiquiatrica_previa.edit', ['historial' => $historial_tratamiento, 'id' => $id]);
     }
 
     /**
@@ -144,7 +144,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     {
         $historial_tratamiento = historia_psiquiatrica_previa::find($id);
         $paciente = paciente::find($historial_tratamiento->id_paciente);
-        $paciente->id_historial_tratamiento = 0;
+        $paciente->id_historia_previa = 0;
         $paciente->save();
         $historial_tratamiento->delete();
         return redirect()->action('PacienteController@index');
