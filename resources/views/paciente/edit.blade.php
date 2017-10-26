@@ -86,17 +86,112 @@
             <div class="row">
                 <div class="col-md-12">
 					<label>Lugar de Residencia</label>
-                    <select name="residencia">
-                        <option value="0">Lugar de Residencia</option>
-                        <option value="Monterrey">Monterrey</option>
-                        <option value="Guadalupe">Guadalupe</option>
-                        <option value="San Nicolás">San Nicolás</option>
-                        <option value="Garza García">Garza García</option>
-                        <option value="Apodaca">Apodaca</option>
-                        <option value="Escobedo">Escobedo</option>
-                        <option value="OtroMun">Otro (Mun. N.L.)</option>
-                        <option value="OtroEst">Otro Estado</option>
-                    </select>
+                    @switch($paciente->lugar_residencia)
+                        @case('Monterrey')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey" selected>Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('Guadalupe)
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe" selected>Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('San Nicolás')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás" selected>San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('Garza García')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García" selected>Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('Apodaca')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca" selected>Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('Escobedo')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo" selected>Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('Otro (Mun. N.L.)')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun" selected>Otro (Mun. N.L.)</option>
+                            <option value="OtroEst">Otro Estado</option>
+                        </select>
+                        @break
+                        @case('Otro Estado')
+                        <select name="residencia">
+                            <option value="0">Lugar de Residencia</option>
+                            <option value="Monterrey">Monterrey</option>
+                            <option value="Guadalupe">Guadalupe</option>
+                            <option value="San Nicolás">San Nicolás</option>
+                            <option value="Garza García">Garza García</option>
+                            <option value="Apodaca">Apodaca</option>
+                            <option value="Escobedo">Escobedo</option>
+                            <option value="OtroMun">Otro (Mun. N.L.)</option>
+                            <option value="OtroEst" selected>Otro Estado</option>
+                        </select>
+                        @break
+                        @endswitch
                 </div>
             </div>
         </div>
