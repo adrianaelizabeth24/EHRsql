@@ -29,12 +29,12 @@
                     </div>
                 </div>
                 <a href="/paciente/{{{$historial->id_paciente}}}" class="btn btn-info">Regresar</a>
-                <form action="{{action('HistorialTratamientoController@destroy', $historial->id)}}" method="post">
+				<a href="/historial_tratamiento/{{{$historial->id}}}/edit" class="btn btn-warning">Editar</a>
+                <form action="{{action('HistorialTratamientoController@destroy', $historial->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Borrar</button>
-                </form>
-                <a href="/historial_tratamiento/{{{$historial->id}}}/edit" class="btn btn-warning">Editar</a>
+				</form>
                 <!--
                @if ($historial->id_ehr == 0)
                     <a href="/exploracion_fisica/paciente/{{{$historial->id}}}" class="btn btn-info">Agregar Examen Exploracion Fisica</a>

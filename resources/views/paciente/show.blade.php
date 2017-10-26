@@ -36,7 +36,7 @@
 				</br>
 				<a href="/paciente" class="btn btn-info">Regresar</a>
 				<a href="/paciente/{{{$paciente->id}}}/edit" class="btn btn-warning">Editar Datos</a>
-                <form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post">
+                <form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Borrar</button>
@@ -77,21 +77,8 @@
 				@else
 					<a href="/historial_tratamiento/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historial Tratamiento</a>
 				@endif
-				@if ($paciente->id_antecedentes_ginecobstetricos == 0)
-					<a href="/antecedentes_ginecobstetricos/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Antecedentes Ginecobstetricos</a>
-				@else
-					<a href="/antecedentes_ginecobstetricos/{{{$paciente->id_antecedentes_ginecobstetricos}}}" class="btn btn-info">Ver Antecedentes Ginecobstetricos</a>
-				@endif
-				@if ($paciente->id_ehr == 0)
-					<a href="/ehr/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar EHR</a>
-				@else
-					<a href="/ehr/{{{$paciente->id_ehr}}}" class="btn btn-info">Ver EHR</a>
-				@endif
-				@if ($paciente->id_reporte_consulta == 0)
-					<a href="/reporte_consulta/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Reporte Consulta</a>
-				@else
-					<a href="/reporte_consulta/{{{$paciente->id_reporte_consulta}}}" class="btn btn-info">Ver Reporte Consulta</a>
-				@endif
+				
+				
                 @if ($paciente->id_abuso_de_substancias == 0)
                     <a href="/abuso_de_substancias/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Reporte Substancias</a>
                 @else

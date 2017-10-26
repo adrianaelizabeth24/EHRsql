@@ -25,12 +25,12 @@
         </div>
     </div>
         <a href="/paciente/{{{$abuso_de_substancias->id_paciente}}}" class="btn btn-info">Regresar</a>
-        <form action="{{action('AbusoDeSubstanciasController@destroy', $abuso_de_substancias->id)}}" method="post">
+		<a href="/abuso_de_substancias/{{{$abuso_de_substancias->id}}}/edit" class="btn btn-warning">Editar</a>
+        <form action="{{action('AbusoDeSubstanciasController@destroy', $abuso_de_substancias->id)}}" method="post" style="display: unset;">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Borrar</button>
         </form>
-        <a href="/abuso_de_substancias/{{{$abuso_de_substancias->id}}}/edit" class="btn btn-warning">Editar</a>
     </div> <!-- jumbotron -->
 
 
