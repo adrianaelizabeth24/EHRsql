@@ -57,6 +57,10 @@ class PacienteController extends Controller
         $bebidas_alcoholicas = $request->input('bebidas_alcoholicas');
         $dudas_alcoholismo = $request->input('dudas_alcoholismo');
         $edad = $request->input('edad');
+        $motivo_consulta = $request->input('motivo_consulta');
+        $referido_por = $request->input('referido');
+        $lugar_residencia = $request->input('residencia');
+
 
         //guarda los campos del form en el querybuiler
         $paciente->nombre = $nombre;
@@ -76,6 +80,9 @@ class PacienteController extends Controller
         $paciente->bebidas_alcoholicas = $bebidas_alcoholicas;
         $paciente->dudas_alcoholismo = $dudas_alcoholismo;
         $paciente->edad = $edad;
+        $paciente->motivo_consulta = $motivo_consulta;
+        $paciente->referido_por = $referido_por;
+        $paciente->lugar_residencia = $lugar_residencia;
 
         $paciente->save();
 
@@ -136,6 +143,9 @@ class PacienteController extends Controller
         $bebidas_alcoholicas = $request->input('bebidas_alcoholicas');
         $dudas_alcoholismo = $request->input('dudas_alcoholismo');
         $edad = $request->input('edad');
+        $motivo_consulta = $request->input('motivo_consulta');
+        $referido_por = $request->input('referido');
+        $lugar_residencia = $request->input('residencia');
 
         //guarda los campos del form en el querybuiler
         $paciente->nombre = $nombre;
@@ -155,6 +165,9 @@ class PacienteController extends Controller
         $paciente->bebidas_alcoholicas = $bebidas_alcoholicas;
         $paciente->dudas_alcoholismo = $dudas_alcoholismo;
         $paciente->edad = $edad;
+        $paciente->motivo_consulta = $motivo_consulta;
+        $paciente->referido_por = $referido_por;
+        $paciente->lugar_residencia = $lugar_residencia;
 
         $paciente->save();
 

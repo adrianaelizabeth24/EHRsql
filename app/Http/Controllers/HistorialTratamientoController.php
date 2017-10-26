@@ -42,6 +42,7 @@ class HistorialTratamientoController extends Controller
 
         //obitene los campos
         $id_paciente = $request->input('id_paciente');
+        $tratamiento_previo = $request->input('tratamiento_previo');
         $quien_lo_trato = $request->input('quien_lo_trato');
         $hospitalizacion = $request->input('hospitalizacion');
         $primera_hospitalizacion = $request->input('primera_hospitalizacion');
@@ -53,6 +54,7 @@ class HistorialTratamientoController extends Controller
 
         //guarda los campos del form en el querybuiler
         $historial_tratamiento->id_paciente = $id_paciente;
+        $historial_tratamiento->tratamiento_previo = $tratamiento_previo;
         $historial_tratamiento->quien_lo_trato = $quien_lo_trato;
         $historial_tratamiento->hospitalizacion = $hospitalizacion;
         $historial_tratamiento->primera_hospitalizacion = $primera_hospitalizacion;
@@ -106,6 +108,7 @@ class HistorialTratamientoController extends Controller
         $historial_tratamiento = historial_tratamiento::find($id);
 
         //obitene los campos
+        $tratamiento_previo = $request->input('tratamiento_previo');
         $quien_lo_trato = $request->input('quien_lo_trato');
         $hospitalizacion = $request->input('hospitalizacion');
         $primera_hospitalizacion = $request->input('primera_hospitalizacion');
@@ -116,6 +119,7 @@ class HistorialTratamientoController extends Controller
 
 
         //guarda los campos del form en el querybuiler
+        $historial_tratamiento->tratamiento_previo = $tratamiento_previo;
         $historial_tratamiento->quien_lo_trato = $quien_lo_trato;
         $historial_tratamiento->hospitalizacion = $hospitalizacion;
         $historial_tratamiento->primera_hospitalizacion = $primera_hospitalizacion;
