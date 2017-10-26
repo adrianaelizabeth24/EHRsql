@@ -18,9 +18,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="personal_info">
+                            <label>Tratamiento Previo</label><p>{{$historial->tratamiento_previo}}</p>
                             <label>Quien lo trató :</label><p>{{$historial->quien_lo_trato}}</p>
                             <label>Alguna hospitalizacion :</label><p>@if($historial->hospitalizacion == 1) Si @else No @endif</p>
-                            <label>Fecha de Primera Hospitalizacion :</label><p>{{$historial->primera_hospitalizacion}}</p>
+                            <label>Edad de Primera Hospitalizacion :</label><p>{{$historial->primera_hospitalizacion}}</p>
                             <label>Número de hospitalizaciones hasta la actualidad :</label><p>{{$historial->no_hospitalizaciones}}</p>
                             <label>Duración de la última hospitalización :</label><p>{{$historial->duracion_hospitalizacion}}</p>
                             <label>Motivo de su última hospitalizacion :</label><p>{{$historial->motivo_hospitalizacion}}</p>
