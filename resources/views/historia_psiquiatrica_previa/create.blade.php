@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <form class="jumbotron" method="post" action="{{url('historial_tratamiento')}}">
+    <form class="jumbotron" method="post" action="{{url('historia_psiquiatrica_previa')}}">
         {{csrf_field()}}
 
         <div class="jumbotron">

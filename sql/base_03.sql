@@ -240,7 +240,7 @@ LOCK TABLES `historia_psiquiatrica_fam` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `historial_tratamiento`
+-- Table structure for table `historiapsiquiatricaprevia`
 --
 
 DROP TABLE IF EXISTS `historial_tratamiento`;
@@ -267,7 +267,7 @@ CREATE TABLE `historial_tratamiento` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historial_tratamiento`
+-- Dumping data for table `historiapsiquiatricaprevia`
 --
 
 LOCK TABLES `historial_tratamiento` WRITE;

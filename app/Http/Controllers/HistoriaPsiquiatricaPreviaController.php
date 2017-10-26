@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\historial_tratamiento;
+use App\historia_psiquiatrica_previa;
 use App\paciente;
 
-class HistorialTratamientoController extends Controller
+class HistoriaPsiquiatricaPreviaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,19 +26,19 @@ class HistorialTratamientoController extends Controller
     public function create($id)
     {
         $paciente = paciente::find($id);
-        return view('historial_tratamiento.create', ['paciente' => $paciente]);
+        return view('historiapsiquiatricaprevia.create', ['paciente' => $paciente]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\aRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //crea el nuevo paciente a insertar en la base de datos
-        $historial_tratamiento = new historial_tratamiento();
+        $historial_tratamiento = new historia_psiquiatrica_previa();
 
         //obitene los campos
         $id_paciente = $request->input('id_paciente');
@@ -79,8 +79,8 @@ class HistorialTratamientoController extends Controller
      */
     public function show($id)
     {
-        $historial_tratamiento = historial_tratamiento::find($id);
-        return view('historial_tratamiento.show', ['historial' => $historial_tratamiento]);
+        $historial_tratamiento = historia_psiquiatrica_previa::find($id);
+        return view('historiapsiquiatricaprevia.show', ['historial' => $historial_tratamiento]);
     }
 
     /**
@@ -91,8 +91,8 @@ class HistorialTratamientoController extends Controller
      */
     public function edit($id)
     {
-        $historial_tratamiento = historial_tratamiento::find($id);
-        return view('historial_tratamiento.edit', ['historial' => $historial_tratamiento, 'id' => $id]);
+        $historial_tratamiento = historia_psiquiatrica_previa::find($id);
+        return view('historiapsiquiatricaprevia.edit', ['historial' => $historial_tratamiento, 'id' => $id]);
     }
 
     /**
@@ -105,7 +105,7 @@ class HistorialTratamientoController extends Controller
     public function update(Request $request, $id)
     {
         //crea el nuevo paciente a insertar en la base de datos
-        $historial_tratamiento = historial_tratamiento::find($id);
+        $historial_tratamiento = historia_psiquiatrica_previa::find($id);
 
         //obitene los campos
         $tratamiento_previo = $request->input('tratamiento_previo');
@@ -142,7 +142,7 @@ class HistorialTratamientoController extends Controller
      */
     public function destroy($id)
     {
-        $historial_tratamiento = historial_tratamiento::find($id);
+        $historial_tratamiento = historia_psiquiatrica_previa::find($id);
         $paciente = paciente::find($historial_tratamiento->id_paciente);
         $paciente->id_historial_tratamiento = 0;
         $paciente->save();

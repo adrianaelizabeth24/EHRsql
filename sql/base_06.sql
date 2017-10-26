@@ -240,7 +240,7 @@ INSERT INTO `historia_psiquiatrica_fam` VALUES (2,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 UNLOCK TABLES;
 
 --
--- Table structure for table `historial_tratamiento`
+-- Table structure for table `historiapsiquiatricaprevia`
 --
 
 DROP TABLE IF EXISTS `historial_tratamiento`;
@@ -268,13 +268,13 @@ CREATE TABLE `historial_tratamiento` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historial_tratamiento`
+-- Dumping data for table `historiapsiquiatricaprevia`
 --
 
 LOCK TABLES `historial_tratamiento` WRITE;
-/*!40000 ALTER TABLE `historial_tratamiento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `historiapsiquiatricaprevia` DISABLE KEYS */;
 INSERT INTO `historial_tratamiento` VALUES (1,4,'nadie por que es tan feo que asust+o a todos',1,'2017-10-03',4,'5','por que es feo','cirugia plastica',0,'2017-10-19 21:36:28','2017-10-19 21:43:29','0000-00-00 00:00:00');
-/*!40000 ALTER TABLE `historial_tratamiento` ENABLE KEYS */;
+/*!40000 ALTER TABLE `historiapsiquiatricaprevia` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

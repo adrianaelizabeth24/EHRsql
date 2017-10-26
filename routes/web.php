@@ -88,8 +88,8 @@ Route::get('historia_psiquiatrica/paciente/{paciente}', 'HistoriaPsiquiatricaFam
 Route::resource('historia_psiquiatrica', 'HistoriaPsiquiatricaFamiliarController');
 
 //historial tratamiento
-Route::get('historial_tratamiento/paciente/{paciente}', 'HistorialTratamientoController@create');
-Route::resource('historial_tratamiento', 'HistorialTratamientoController');
+Route::get('historia_psiquiatrica_previa/paciente/{paciente}', 'HistoriaPsiquiatricaPreviaController@create');
+Route::resource('historia_psiquiatrica_previa', 'HistoriaPsiquiatricaPreviaController');
 
 //antecedentes ginecobstetricos
 Route::get('antecedentes_ginecobstetricos/paciente/{paciente}', 'AntecedentesGinecobstetricosController@create');

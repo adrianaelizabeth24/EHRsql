@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <form method="post" action="{{action('HistorialTratamientoController@update', $id)}}">
+    <form method="post" action="{{action('HistoriaPsiquiatricaPreviaController@update', $id)}}">
         {{csrf_field()}}
         <input name="_method" type="hidden" value="PATCH"/>
         <div class="jumbotron">

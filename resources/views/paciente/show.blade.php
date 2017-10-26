@@ -73,9 +73,9 @@
 					<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}" class="btn btn-info">Ver Historial Psiquiatrico</a>
 				@endif
 				@if ($paciente->id_historial_tratamiento == 0)
-					<a href="/historial_tratamiento/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historial Tratamiento</a>
+					<a href="/historia_psiquiatrica_previa/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Historia Psiquiatrica Previa</a>
 				@else
-					<a href="/historial_tratamiento/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historial Tratamiento</a>
+					<a href="/historia_psiquiatrica_previa/{{{$paciente->id_historial_tratamiento}}}" class="btn btn-info">Ver Historia Psiquiatrica Previa</a>
 				@endif
 				@if ($paciente->id_antecedentes_ginecobstetricos == 0)
 					<a href="/antecedentes_ginecobstetricos/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Antecedentes Ginecobstetricos</a>
