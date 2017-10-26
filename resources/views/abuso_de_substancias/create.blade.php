@@ -20,7 +20,7 @@
             </div>
 
             <div class="container">
-                <h2>Historia Psiquiatrica Familiar</h2>
+                <h2>Reporte Abuso de Substancias</h2>
             </div>
             <div class="row">
                 <div class="col-md-12">
