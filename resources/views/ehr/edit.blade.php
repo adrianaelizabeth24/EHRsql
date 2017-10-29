@@ -9,31 +9,29 @@
 
             <div class="container">
                 <h2>EHR</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="number" name="numero_de_episodios" placeholder="Número de Episodios" value="{{$ehr->numero_de_episodios}}"/>
-                    <br/>
+				<div class="row">
+					<div class="col-md-12">
+						<input class="form-control" type="number" name="numero_de_episodios" placeholder="Número de Episodios" value="{{$ehr->numero_de_episodios}}"/>
+						<br/>
 
-                    <textarea name="problemas_psiquiatricos" placeholder="Problemas Psiquiatricos">{{$ehr->problemas_psiquiatricos}}</textarea>
-                    <br/>
+						<textarea class="form-control" name="problemas_psiquiatricos" placeholder="Problemas Psiquiatricos" rows="6" cols="100">{{$ehr->problemas_psiquiatricos}}</textarea>
+						<br/>
 
-                    <textarea name="tratamientos_anteriores" placeholder="Tratamientos Anteriores">{{$ehr->tratamientos_anteriores}}</textarea>
-                    <br/>
+						<textarea class="form-control" name="tratamientos_anteriores" placeholder="Tratamientos Anteriores" rows="6" cols="100">{{$ehr->tratamientos_anteriores}}</textarea>
+						<br/>
 
-                    <textarea name="antecedentes_psicologicos" placeholder="Antecedentes Psicologicos">{{$ehr->antecedentes_psicologicos}}</textarea>
-                    <br/>
+						<textarea class="form-control" name="antecedentes_psicologicos" placeholder="Antecedentes Psicologicos" rows="6" cols="100">{{$ehr->antecedentes_psicologicos}}</textarea>
+						<br/>
 
-                    <textarea name="notas_antecedentes" placeholder="Notas Antecedentes">{{$ehr->notas_antecedentes}}</textarea>
-                    <br/>
+						<textarea class="form-control" name="notas_antecedentes" placeholder="Notas Antecedentes" rows="6" cols="100">{{$ehr->notas_antecedentes}}</textarea>
+						<br/>
+						
+						<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
 
-                </div>
-            </div>
-
+					</div>
+				</div>
+			</div>
 
         </div> <!-- jumbotron -->
-
-        <br/>
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
     </form>
 @stop

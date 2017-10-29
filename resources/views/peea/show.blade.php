@@ -6,10 +6,11 @@
 <div class="jumbotron">
 	<div class="container">
     	<h2>PEEA del Episodio Actual</h2>
-
-    	<div class="row">
-    		<label>El episodio actual es: </label><br>{{$peea->ep_actual}}
-    	</div>
+		
+		<div class="row">
+			<label>El episodio actual es: </label>
+			{{$peea->ep_actual}}
+		</div>
 
     	<div class="row">
     		<label>Número de episodios previos: </label><br>{{$peea->epPrevios}}
@@ -49,7 +50,7 @@
 
 
     	<a href="/paciente/{{{$peea->id_paciente}}}" class="btn btn-info">Regresar</a>
-        <form action="{{action('PeeaController@destroy', $peea->id)}}" method="post">
+        <form action="{{action('PeeaController@destroy', $peea->id)}}" method="post" style="display:unset;">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Borrar</button>
