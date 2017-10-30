@@ -7,31 +7,44 @@
             <div class="container">
                 <h2>Reporte de Consulta</h2>
                 <div class="row">
-                    <div class="col-md-12">
-                        <label>Fecha Actual :</label>{{$reporte->fecha}}
-                        <label>Interrogatorio:  </label>{{$reporte->interrogatorio}}
-                        <label>Motivo: </label>{{$reporte->motivo}}
+                    <div class="col-md-6">
+                        <label>Fecha Actual :</label>
+						<p>{{$reporte->fecha}}</p>
+						
+                        <label>Motivo: </label>
+						<p>{{$reporte->motivo}}</p>
+						
+                        <label>Número de Episodios</label>
+						<p>{{$reporte->numero_de_episodios}}</p>             
 
-                        <label>Tuvo Episodio</label>{{$reporte->episodio}}
-                        <br/>
-                        <label>Número de Episodios</label>{{$reporte->numero_de_episodios}}
+                        <label>Fecha último episodio</label> 
+						<p>{{$reporte->fecha_ultimo_episodio}}</p>
 
-                        <label>Edad Primer Episodio</label> {{$reporte->edad_primer_episodio}}
-
-                        <label>Fecha último episodio</label> {{$reporte->fecha_ultimo_episodio}}
-
-                        <label>tratamiento actual</label> {{$reporte->tratamiento_actual}}
-
-                        <label>tratamiento anterior</label>{{$reporte->tratamiento_anterior}}
+                        <label>Tratamiento anterior</label>
+						<p>{{$reporte->tratamiento_anterior}}</p>
                     </div>
+					<div class="col-md-6">
+						<label>Interrogatorio:  </label>
+						<p>{{$reporte->interrogatorio}}</p>
+						
+						<label>Tuvo Episodio</label>
+						<p>{{$reporte->episodio}}</p>
+						
+						<label>Edad Primer Episodio</label> 
+						<p>{{$reporte->edad_primer_episodio}}</p>
+						
+						<label>Tratamiento actual</label> 
+						<p>{{$reporte->tratamiento_actual}}</p>
+					</div>
                 </div>
                 <a href="/paciente/{{{$reporte->id_paciente}}}" class="btn btn-info">Regresar</a>
-                <form action="{{action('ReporteConsultaController@destroy', $reporte->id)}}" method="post">
+				<a href="/reporte_consulta/{{{$reporte->id}}}/edit" class="btn btn-warning">Editar</a>
+                <form action="{{action('ReporteConsultaController@destroy', $reporte->id)}}" method="post" style="display:unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Borrar</button>
                 </form>
-                <a href="/reporte_consulta/{{{$reporte->id}}}/edit" class="btn btn-warning">Editar</a>
+                
             </div>
 
 

@@ -4,52 +4,51 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 
 <form class="jumbotron" method="post" action="{{url('peea')}}">
-    {{csrf_field()}}
+	<div class="container">
+    	{{csrf_field()}}
 
-    <div class="row">
-                <div class="col-md-8">
-                    <label>{{$paciente->id}}</label>
-                    <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-                    <label>{{$paciente->nombre}}</label>
-                    <label>{{$paciente->apellido_paterno}}</label>
-                    <label>{{$paciente->apellido_materno}}</label>
-                </div>
-            </div>
+		<div class="row">
+			<div class="col-md-8">
+				<label>{{$paciente->id}}</label>
+				<input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
+				<label>{{$paciente->nombre}}</label>
+				<label>{{$paciente->apellido_paterno}}</label>
+				<label>{{$paciente->apellido_materno}}</label>
+			</div>
+		</div>
 
-  <div class="container">
-    <h2>PEEA del Episodio Actual</h2>
 
-    <form>
+    	<h2>PEEA del Episodio Actual</h2>
+
+   		<form>
+
+
+		  <div class="row">
+			<div class="form-group col-md-12">
+			  <label for="ep_actual">El episodio actual es:</label>
+			  <select class="form-control" name="ep_actual">
+				@foreach($ep_actual as $ep)
+				<option> {{$ep}} </option>
+				@endforeach
+			  </select>
+			</div>
+		  </div>
+			<div class="row">
+				<div class="form-group col-md-6">
+				  <label for="epPrevios">Número de episodios previos:</label>
+				  <input type="number" class="form-control input-group-lg" name="epPrevios">
+				</div>
+
+				<div class="form-group col-md-6">
+				  <label for="edadIni">Edad de inicio del primer episodio:</label>
+				  <input type="number" class="form-control input-group-lg" name="edadIni">
+				</div>
+			</div>
 
 
       <div class="row">
 
-
-        <div class="form-group col-xs-6">
-          <label for="ep_actual">El episodio actual es:</label>
-          <select class="form-control" name="ep_actual">
-            @foreach($ep_actual as $ep)
-            <option> {{$ep}} </option>
-            @endforeach
-          </select>
-        </div>
-
-        <div class="form-group col-xs-3">
-          <label for="epPrevios">Número de episodios previos:</label>
-          <input type="number" class="form-control input-group-lg" name="epPrevios">
-        </div>
-
-        <div class="form-group col-xs-3">
-          <label for="edadIni">Edad de inicio del primer episodio:</label>
-          <input type="number" class="form-control input-group-lg" name="edadIni">
-        </div>
-
-      </div>
-
-
-      <div class="row">
-
-        <div class="form-group col-xs-6">
+        <div class="form-group col-md-6">
           <label for="inicio_sintomas">Inicio de los sintomas el episodio actual:</label>
           <select class="form-control" name="inicio_sintomas">
             @foreach($inicio_sintomas as $ini)
@@ -59,7 +58,7 @@
         </div>
 
 
-        <div class="form-group row  col-xs-4">
+        <div class="form-group col-md-6">
           <label for="inicioEpisodio" class="col-6 col-form-label">Fecha probable de inicio del actual episodio:</label>
           <input class="form-control" type="date" name="inicioEpisodio">
         </div>
