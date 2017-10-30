@@ -37,7 +37,7 @@
                     <input type="radio" name="hospitalizacion" value="0"/> No<br/>
                     <br/>
 
-                    <input class="form-control" type="date" name="primera_hospitalizacion" placeholder="Fecha Primera Hospitalizacion"/>
+                    <input class="form-control" type="number" name="primera_hospitalizacion" placeholder="Edad Primera Hospitalizacion"/>
 
                     <br/>
 

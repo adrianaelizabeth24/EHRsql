@@ -24,7 +24,7 @@
 						@endif
 						<br/>
 
-						<input class="form-control" type="date" name="primera_hospitalizacion" placeholder="Fecha Primera Hospitalizacion" value="{{$historial->primera_hospitalizacion}}"/>
+						<input class="form-control" type="number" name="primera_hospitalizacion" placeholder="Edad Primera Hospitalizacion" value="{{$historial->primera_hospitalizacion}}"/>
 						<br/>
 
 						<input class="form-control" type="number" name="no_hospitalizaciones" placeholder="Número de Hospitalizaciones" value="{{$historial->no_hospitalizaciones}}"/>
