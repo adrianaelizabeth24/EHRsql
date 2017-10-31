@@ -312,6 +312,7 @@ CREATE TABLE `paciente` (
   `id_reporte_consulta` int(11) DEFAULT '0',
   `id_abuso_de_substancias` int(11) DEFAULT '0',
   `id_peea` int(11) DEFAULT '0',
+  `id_pat_nopat` int(11) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',

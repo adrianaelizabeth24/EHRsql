@@ -87,11 +87,18 @@
 
 
 
-
                 @if ($paciente->id_peea == 0)
                     <a href="/peea/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar PEEA</a>
                 @else
                     <a href="/peea/{{{$paciente->id_peea}}}" class="btn btn-info">Ver PEEA</a>
+                @endif
+
+
+
+                @if ($paciente->id_pat_nopat == 0)
+                    <a href="/pat_nopat/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Antecedentes Patológicos</a>
+                @else
+                    <a href="/pat_nopat/{{{$paciente->id_peea}}}" class="btn btn-info">Ver Antecedentes Patológicos</a>
                 @endif
 
 
@@ -117,6 +124,7 @@
 					@else
 						<a href="/reporte_consulta/{{{$paciente->id_reporte_consulta}}}" class="btn btn-info">Ver Reporte Consulta</a>
 					@endif
+
 				</div>
 			</div>
         </div> <!-- div_pacientes -->
