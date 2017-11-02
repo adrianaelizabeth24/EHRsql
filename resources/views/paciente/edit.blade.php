@@ -374,31 +374,6 @@
             <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente"
                    value="{{$paciente->ocupacion_paciente}}" required/>
         </div>
-
-        <div class="container">
-            <h2>Alcoholismo</h2>
-
-            <div class="row">
-                <div class="col-md-12">
-					<label>Número de tazas de té o café consumidas diariamente</label>
-                    <input type="number" placeholder="Número de Tasas de té o café consumidas diariamente"
-                           name="cafe_te_numero_tasas" value="{{$paciente->cafe_te_numero_tasas}}" required/>
-
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-					<label>Bebidas alcoholicas</label>
-                    <input class="form-control" type="text" placeholder="Bebidas Alcoholicas" name="bebidas_alcoholicas"
-                           value="{{$paciente->bebidas_alcoholicas}}" required/>
-					<label>Dudas alcoholismo</label>
-                    <input class="form-control" type="text" placeholder="Dudas Alcoholismo" name="dudas_alcoholismo"
-                           value="{{$paciente->dudas_alcoholismo}}" required/>
-                </div>
-            </div>
-
-        </div>
         <br/>
         <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
     </form>

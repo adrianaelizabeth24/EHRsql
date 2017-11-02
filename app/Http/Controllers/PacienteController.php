@@ -53,9 +53,6 @@ class PacienteController extends Controller
         $sustento = $request->input('sustento');
         $ocupacion_sustento = $request->input('ocupacion_sustento');
         $ocuapcion_paciente = $request->input('ocupacion_paciente');
-        $cafe_te_numero_tasas = $request->input('cafe_te_numero_tasas');
-        $bebidas_alcoholicas = $request->input('bebidas_alcoholicas');
-        $dudas_alcoholismo = $request->input('dudas_alcoholismo');
         $edad = $request->input('edad');
         $motivo_consulta = $request->input('motivo_consulta');
         $referido_por = $request->input('referido');
@@ -76,9 +73,6 @@ class PacienteController extends Controller
         $paciente->sustento = $sustento;
         $paciente->ocupacion_sustento = $ocupacion_sustento;
         $paciente->ocupacion_paciente = $ocuapcion_paciente;
-        $paciente->cafe_te_numero_tasas = $cafe_te_numero_tasas;
-        $paciente->bebidas_alcoholicas = $bebidas_alcoholicas;
-        $paciente->dudas_alcoholismo = $dudas_alcoholismo;
         $paciente->edad = $edad;
         $paciente->motivo_consulta = $motivo_consulta;
         $paciente->referido_por = $referido_por;
@@ -139,9 +133,6 @@ class PacienteController extends Controller
         $sustento = $request->input('sustento');
         $ocupacion_sustento = $request->input('ocupacion_sustento');
         $ocuapcion_paciente = $request->input('ocupacion_paciente');
-        $cafe_te_numero_tasas = $request->input('cafe_te_numero_tasas');
-        $bebidas_alcoholicas = $request->input('bebidas_alcoholicas');
-        $dudas_alcoholismo = $request->input('dudas_alcoholismo');
         $edad = $request->input('edad');
         $motivo_consulta = $request->input('motivo_consulta');
         $referido_por = $request->input('referido');
@@ -161,9 +152,6 @@ class PacienteController extends Controller
         $paciente->sustento = $sustento;
         $paciente->ocupacion_sustento = $ocupacion_sustento;
         $paciente->ocupacion_paciente = $ocuapcion_paciente;
-        $paciente->cafe_te_numero_tasas = $cafe_te_numero_tasas;
-        $paciente->bebidas_alcoholicas = $bebidas_alcoholicas;
-        $paciente->dudas_alcoholismo = $dudas_alcoholismo;
         $paciente->edad = $edad;
         $paciente->motivo_consulta = $motivo_consulta;
         $paciente->referido_por = $referido_por;

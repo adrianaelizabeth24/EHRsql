@@ -28,8 +28,6 @@
 							<label>Religion :</label><p>{{$paciente->religion}}</p>
 							<label>Escolaridad :</label><p>{{$paciente->escolaridad}}</p>
 							<label>Ocupación del sustento</label><p>{{$paciente->ocupacion_sustento}}</p>
-							<label>Número de tasas de té y/o café diarias :</label><p>{{$paciente->cafe_te_numero_tasas}}</p>
-							<label>Dudas relacionadas con el alcoholismo:</label><p>{{$paciente->dudas_alcoholismo}}</p>
 						</div>
 					</div>
 				</div>
