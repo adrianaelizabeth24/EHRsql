@@ -8,37 +8,332 @@
         <div class="jumbotron">
             <div class="container">
                 <h2>Exploración Física</h2>
-				<div class="row">
-					<div class="col-md-12">
-						<textarea class="form-control" name="condicion_general" placeholder="Condición general" rows="6" cols="100">{{$examen->condicion_general}}</textarea>
-						<br/>
-						<textarea class="form-control" name="piel" placeholder="Estado de piel" rows="6" cols="100">{{$examen->piel}}</textarea>
-						<br/>
-						<textarea class="form-control" name="cabeza" placeholder="Estado de cabeza" rows="6" cols="100">{{$examen->cabeza}}</textarea>
-						<br/>
-						<textarea class="form-control" name="ojos" placeholder="Estado de ojos" rows="6" cols="100">{{$examen->ojos}}</textarea>
-						<br/>
-						<textarea class="form-control" name="oidos_nariz_garganta" placeholder="Estado de oídos, nariz y garganta" rows="6" cols="100">{{$examen->oidos_nariz_garganta}}</textarea>
-						<br/>
-						<textarea class="form-control" name="cuello_tiroides" placeholder="Estado de cuello y tiroides" rows="6" cols="100">{{$examen->cuello_tiroides}}</textarea>
-						<br/>
-						<textarea class="form-control" name="pulmones" placeholder="Estado de pulmones" rows="6" cols="100">{{$examen->pulmones}}</textarea>
-						<br/>
-						<textarea class="form-control" name="corazon" placeholder="Estado de corazón" rows="6" cols="100">{{$examen->corazon}}</textarea>
-						<br/>
-						<textarea class="form-control" name="gastro" placeholder="Estado Gastrointestinal" rows="6" cols="100">{{$examen->gastro}}</textarea>
-						<br/>
-						<textarea class="form-control" name="lineaticos" placeholder="Estado de lineáticos" rows="6" cols="100">{{$examen->lineaticos}}</textarea>
-						<br/>
-						<textarea class="form-control" name="higado" placeholder="Estado del hígado" rows="6" cols="100">{{$examen->higado}}</textarea>
-						<br/>
-						<textarea class="form-control" name="musculo_esqueletico" placeholder="Estado del músculo esquelético" rows="6" cols="100"{{$examen->musculo_esqueletico}}></textarea>
-						<br/>
-						<textarea class="form-control" name="neurologico" placeholder="Estado neurológico" rows="6" cols="100">{{$examen->neurologico}}</textarea>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <label>Condición general</label><br/>
+                        @if($historia->condicion_general == 2)
+                            <input type="radio" name="condicion_general" value="2" checked> Normal<br/>
+                            <input type="radio" name="condicion_general" value="1"> Anormal<br/>
+                            <input type="radio" name="condicion_general" value="0"> No examinado<br/>
+                        @elseif($historia->condicion_general == 1)
+                            <input type="radio" name="condicion_general" value="2"> Normal<br/>
+                            <input type="radio" name="condicion_general" value="1" checked> Anormal<br/>
+                            <input type="radio" name="condicion_general" value="0"> No examinado<br/>
+                        @else
+                            <input type="radio" name="condicion_general" value="2"> Normal<br/>
+                            <input type="radio" name="condicion_general" value="1"> Anormal<br/>
+                            <input type="radio" name="condicion_general" value="0" checked> No examinado<br/>
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_condicion_general"
+                               placeholder="Especifique condición general del paciente"
+                               value="{{$historia->txt_condicion_general}}"/>
+                        <br/>
+
+                        <label>Estado de piel</label><br/>
+                        @if($historia->piel == 2)
+                            <input type="radio" name="piel" value="2" checked> Normal<br/>
+                            <input type="radio" name="piel" value="1"> Anormal<br/>
+                            <input type="radio" name="piel" value="0"> No examinado<br/>
+                        @elseif($historia->piel == 1)
+                            <input type="radio" name="piel" value="2"> Normal<br/>
+                            <input type="radio" name="piel" value="1" checked> Anormal<br/>
+                            <input type="radio" name="piel" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="piel" value="2"> Normal<br/>
+                            <input type="radio" name="piel" value="1"> Anormal<br/>
+                            <input type="radio" name="piel" value="0" checked> No examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_piel"
+                               placeholder="Especifique la condición de la piel del paciente"
+                               value="{{$historia->txt_piel}}"/>
+                        <br/>
+
+                        <label>Estado de cabeza</label><br/>
+                        @if($historia->cabeza == 2)
+                            <input type="radio" name="cabeza" value="2" checked> Normal<br/>
+                            <input type="radio" name="cabeza" value="1"> Anormal<br/>
+                            <input type="radio" name="cabeza" value="0"> No examinado<br/>
+
+                        @elseif($historia->cabeza == 1)
+                            <input type="radio" name="cabeza" value="2"> Normal<br/>
+                            <input type="radio" name="cabeza" value="1" checked> Anormal<br/>
+                            <input type="radio" name="cabeza" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="cabeza" value="2"> Normal<br/>
+                            <input type="radio" name="cabeza" value="1"> Anormal<br/>
+                            <input type="radio" name="cabeza" value="0" checked> No examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_cabeza"
+                               placeholder="Especifique la condición de la cabeza del paciente"
+                               value="{{$historia->txt_cabeza}}"/>
+                        <br/>
+
+                        <label>Estado de ojos</label><br/>
+                        @if($historia->ojos == 2)
+                            <input type="radio" name="ojos" value="2" checked> Normal<br/>
+                            <input type="radio" name="ojos" value="1"> Anormal<br/>
+                            <input type="radio" name="ojos" value="0"> No examinado<br/>
+
+                        @elseif($historia->ojos == 1)
+                            <input type="radio" name="ojos" value="2"> Normal<br/>
+                            <input type="radio" name="ojos" value="1" checked> Anormal<br/>
+                            <input type="radio" name="ojos" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="ojos" value="2"> Normal<br/>
+                            <input type="radio" name="ojos" value="1"> Anormal<br/>
+                            <input type="radio" name="ojos" value="0" checked> No examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_ojos"
+                               placeholder="Especifique la condición de los ojos del paciente"
+                               value="{{$historia->txt_ojos}}"/>
+                        <br/>
+
+
+                        <label>Estado de oídos, nariz y garganta</label><br/>
+                        @if($historia->oidos_nariz_garganta == 2)
+                            <input type="radio" name="oidos_nariz_garganta" value="2" checked> Normal<br/>
+                            <input type="radio" name="oidos_nariz_garganta" value="1"> Anormal<br/>
+                            <input type="radio" name="oidos_nariz_garganta" value="0"> No examinado<br/>
+
+                        @elseif($historia->ojos_nariz_garganta == 1)
+                            <input type="radio" name="oidos_nariz_garganta" value="2"> Normal<br/>
+                            <input type="radio" name="oidos_nariz_garganta" value="1" checked> Anormal<br/>
+                            <input type="radio" name="oidos_nariz_garganta" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="oidos_nariz_garganta" value="2"> Normal<br/>
+                            <input type="radio" name="oidos_nariz_garganta" value="1"> Anormal<br/>
+                            <input type="radio" name="oidos_nariz_garganta" value="0" checked> No examinado<br/>
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_oidos_nariz_garganta"
+                               placeholder="Especifique la condición de los oídos, nariz y garganta del paciente"
+                               value="{{$historia->txt_oidos_nariz_garganta}}"/>
+                        <br/>
+
+                        <label>Estado de cuello y tiroides</label><br/>
+                        @if($historia->cuello_tiroides == 2)
+                            <input type="radio" name="cuello_tiroides" value="2" checked> Normal<br/>
+                            <input type="radio" name="cuello_tiroides" value="1"> Anormal<br/>
+                            <input type="radio" name="cuello_tiroides" value="0"> No examinado<br/>
+
+                        @elseif($historia->cuello_tiroides == 1)
+                            <input type="radio" name="cuello_tiroides" value="2"> Normal<br/>
+                            <input type="radio" name="cuello_tiroides" value="1" checked> Anormal<br/>
+                            <input type="radio" name="cuello_tiroides" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="cuello_tiroides" value="2"> Normal<br/>
+                            <input type="radio" name="cuello_tiroides" value="1"> Anormal<br/>
+                            <input type="radio" name="cuello_tiroides" value="0" checked> No examinado
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_cuello_tiroides"
+                               placeholder="Especifique la condición del cuello y tiroides del paciente"
+                               value="{{$historia->txt_cuello_tiroides}}"/>
+                        <br/>
+
+                        <label>Estado de pulmones</label><br/>
+                        @if($historia->pulmones == 2)
+                            <input type="radio" name="pulmones" value="2" checked> Normal<br/>
+                            <input type="radio" name="pulmones" value="1"> Anormal<br/>
+                            <input type="radio" name="pulmones" value="0"> No examinado<br/>
+
+                        @elseif($historia->pulmones == 1)
+                            <input type="radio" name="pulmones" value="2"> Normal<br/>
+                            <input type="radio" name="pulmones" value="1" checked> Anormal<br/>
+                            <input type="radio" name="pulmones" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="pulmones" value="2"> Normal<br/>
+                            <input type="radio" name="pulmones" value="1"> Anormal<br/>
+                            <input type="radio" name="pulmones" value="0" checked> No examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_pulmones"
+                               placeholder="Especifique la condición de los pulmones del paciente"
+                               value="{{$historia->txt_pulmones}}"/>
+                        <br/>
+
+
+                        <label>Estado de corazón</label><br/>
+                        @if($historia->corazon == 2)
+                            <input type="radio" name="corazon" value="2" checked> Normal<br/>
+                            <input type="radio" name="corazon" value="1"> Anormal<br/>
+                            <input type="radio" name="corazon" value="0"> No examinado<br/>
+
+                        @elseif($historia->corazon == 1)
+                            <input type="radio" name="corazon" value="2"> Normal<br/>
+                            <input type="radio" name="corazon" value="1" checked> Anormal<br/>
+                            <input type="radio" name="corazon" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="corazon" value="2"> Normal<br/>
+                            <input type="radio" name="corazon" value="1"> Anormal<br/>
+                            <input type="radio" name="corazon" value="0" checked> No examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_corazon"
+                               placeholder="Especifique la condición del corazón del paciente"
+                               value="{{$historia->txt_corazon}}"/>
+                        <br/>
+
+                        <label>Estado Gastrointestinal</label><br/>
+                        @if($historia->gastro == 2)
+                            <input type="radio" name="gastro" value="2" checked> Normal<br/>
+                            <input type="radio" name="gastro" value="1"> Anormal<br/>
+                            <input type="radio" name="gastro" value="0"> No examinado<br/>
+
+                        @elseif($historia->gastro == 1)
+                            <input type="radio" name="gastro" value="2"> Normal<br/>
+                            <input type="radio" name="gastro" value="1" checked> Anormal<br/>
+                            <input type="radio" name="gastro" value="0"> No examinado<br/>
+
+                        @else
+                            <input type="radio" name="gastro" value="2"> Normal<br/>
+                            <input type="radio" name="gastro" value="1"> Anormal<br/>
+                            <input type="radio" name="gastro" value="0" checked> No
+                            examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_gastro"
+                               placeholder="Especifique la condición gastrointestinal del paciente"
+                               value="{{$historia->txt_gastro}}"/>
+                        <br/>
+
+
+                        <label>Estado de lineáticos</label><br/>
+                        @if($historia->lineaticos == 2)
+                            <input type="radio" name="lineaticos" value="2" checked> Normal
+                            <br/>
+                            <input type="radio" name="lineaticos" value="1"> Anormal<br/>
+                            <input type="radio" name="lineaticos" value="0"> No examinado
+                            <br/>
+                        @elseif($historia->lineaticos == 1)
+                            <input type="radio" name="lineaticos" value="2"> Normal<br/>
+                            <input type="radio" name="lineaticos" value="1" checked> Anormal
+                            <br/>
+                            <input type="radio" name="lineaticos" value="0"> No examinado
+                            <br/>
+
+                        @else
+                            <input type="radio" name="lineaticos" value="2"> Normal<br/>
+                            <input type="radio" name="lineaticos" value="1"> Anormal
+                            <br/>
+                            <input type="radio" name="lineaticos" value="0" checked> No
+                            examinado<br/>
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_lineaticos"
+                               placeholder="Especifique la condición lineática del paciente"
+                               value="{{$historia->txt_lineaticos}}"/>
+                        <br/>
+
+                        <label>Estado del hígado</label><br/>
+                        @if($historia->higado == 2)
+                            <input type="radio" name="higado" value="2" checked> Normal
+                            <br/>
+                            <input type="radio" name="higado" value="1"> Anormal<br/>
+                            <input type="radio" name="higado" value="0"> No examinado
+                            <br/>
+                        @elseif($historia->higado == 1)
+                            <input type="radio" name="higado" value="2"> Normal<br/>
+                            <input type="radio" name="higado" value="1" checked> Anormal
+                            <br/>
+                            <input type="radio" name="higado" value="0"> No examinado
+                            <br/>
+                        @else
+                            <input type="radio" name="higado" value="2"> Normal<br/>
+                            <input type="radio" name="higado" value="1"> Anormal
+                            <br/>
+                            <input type="radio" name="higado" value="0" checked> No
+                            examinado<br/>
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_higado"
+                               placeholder="Especifique la condición del hígado del paciente"
+                               value="{{$historia->txt_higado}}"/>
+                        <br/>
+
+                        <label>Estado del músculo esquelético</label><br/>
+                        @if($historia->musculo_esqueletico == 2)
+                            <input type="radio" name="musculo_esqueletico" value="2"
+                                   checked> Normal<br/>
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="1"> Anormal<br/>
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="0"> No examinado<br/>
+                        @elseif($historia->musculo_esqueletico == 1)
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="2"> Normal<br/>
+                            <input type="radio" name="musculo_esqueletico" value="1"
+                                   checked> Anormal<br/>
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="0"> No examinado<br/>
+                        @else
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="2"> Normal<br/>
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="1"> Anormal<br/>
+                            <input type="radio" name="musculo_esqueletico"
+                                   value="0" checked> No examinado<br/>
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_musculo_esqueletico"
+                               placeholder="Especifique la condición del musculo esquelético del paciente"
+                               value="{{$historia->txt_musculo_esqueletico}}"/>
+                        <br/>
+
+                        <label>Estado neurológico</label><br/>
+                        @if($historia->neurologico == 2)
+                            <input type="radio" name="neurologico" value="2"
+                                   checked> Normal<br/>
+                            <input type="radio" name="neurologico" value="1">
+                            Anormal<br/>
+                            <input type="radio" name="neurologico" value="0"> No
+                            examinado<br/>
+                        @elseif($historia->neurologico == 1)
+                            <input type="radio" name="neurologico" value="2">
+                            Normal<br/>
+                            <input type="radio" name="neurologico" value="1"
+                                   checked> Anormal<br/>
+                            <input type="radio" name="neurologico" value="0"> No
+                            examinado<br/>
+
+                        @else
+                            <input type="radio" name="neurologico"
+                                   value="2"> Normal<br/>
+                            <input type="radio" name="neurologico"
+                                   value="1"> Anormal<br/>
+                            <input type="radio" name="neurologico" value="0"
+                                   checked> No examinado<br/>
+
+                        @endif
+                        <br/>
+                        <input type="text" name="txt_neurologico"
+                               placeholder="Especifique la condición neurológica del paciente"
+                               value="{{$historia->txt_neurologico}}"/>
+                        <br/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         </div> <!-- jumbotron -->

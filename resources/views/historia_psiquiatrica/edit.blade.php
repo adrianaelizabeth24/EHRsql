@@ -178,11 +178,11 @@
 						@if($historia->fobia_social == 1)
 							<input type="radio" name="fobia_social" value="1" checked>Si<br/>
 							<input type="radio" name="fobia_social" value="0">No<br/>
-							<input type="radio" name="fobia_social" value="2" checked>No Sé<br/>
+							<input type="radio" name="fobia_social" value="2">No Sé<br/>
 						@elseif($historia->fobia_social == 0)
 							<input type="radio" name="fobia_social" value="1">Si<br/>
 							<input type="radio" name="fobia_social" value="0" checked>No<br/>
-							<input type="radio" name="fobia_social" value="2" checked>No Sé<br/>
+							<input type="radio" name="fobia_social" value="2">No Sé<br/>
 						@else
 							<input type="radio" name="fobia_social" value="1">Si<br/>
 							<input type="radio" name="fobia_social" value="0">No<br/>
@@ -197,11 +197,11 @@
 						@if($historia->fobia_especifica == 1)
 							<input type="radio" name="fobia_especifica" value="1" checked>Sí<br/>
 							<input type="radio" name="fobia_especifica" value="0">No<br/>
-							<input type="radio" name="fobia_especifica" value="2" checked>No Sé<br/>
+							<input type="radio" name="fobia_especifica" value="2">No Sé<br/>
 						@elseif($historia->fobia_especifica == 0)
 							<input type="radio" name="fobia_especifica" value="1">Sí<br/>
 							<input type="radio" name="fobia_especifica" value="0" checked>No<br/>
-							<input type="radio" name="fobia_especifica" value="2" checked>No Sé<br/>
+							<input type="radio" name="fobia_especifica" value="2">No Sé<br/>
 						@else
 							<input type="radio" name="fobia_especifica" value="1">Sí<br/>
 							<input type="radio" name="fobia_especifica" value="0">No<br/>
@@ -252,11 +252,11 @@
 						@if($historia->retraso_mental == 1)
 							<input type="radio" name="retraso_mental" value="1" checked>Si<br/>
 							<input type="radio" name="retraso_mental" value="0">No<br/>
-							<input type="radio" name="retraso_mental" value="2" checked>No Sabe<br/>
+							<input type="radio" name="retraso_mental" value="2">No Sabe<br/>
 						@elseif($historia->retraso_mental == 0)
 							<input type="radio" name="retraso_mental" value="1">Si<br/>
 							<input type="radio" name="retraso_mental" value="0" checked>No<br/>
-							<input type="radio" name="retraso_mental" value="2" checked>No Sabe<br/>
+							<input type="radio" name="retraso_mental" value="2">No Sabe<br/>
 						@else
 							<input type="radio" name="retraso_mental" value="1">Si<br/>
 							<input type="radio" name="retraso_mental" value="0">No<br/>
