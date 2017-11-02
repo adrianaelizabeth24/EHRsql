@@ -46,10 +46,8 @@
     	<div class="row">
     		<label>Psicofármacos Empleados para el Episodio Actual: </label><br>{{$peea->psicofármacos}}
     	</div>
-
-
-
     	<a href="/paciente/{{{$peea->id_paciente}}}" class="btn btn-info">Regresar</a>
+        <a href="/peea/{{{$peea->id}}}/edit" class="btn btn-warning">Editar</a>
         <form action="{{action('PeeaController@destroy', $peea->id)}}" method="post" style="display:unset;">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">

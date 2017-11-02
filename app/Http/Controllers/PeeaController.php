@@ -106,7 +106,28 @@ class PeeaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $opciones = new opciones_preguntas();
+
+        // Crear variables para las opciones de las preguntas correspondientes
+
+        $ep_actual = $opciones::where('pregunta','ep_actual') -> pluck('opcion');
+        $inicio_sintomas = $opciones::where('pregunta','inicio_sintomas') -> pluck('opcion');
+        $tratamiento = $opciones::where('pregunta','tratamiento') -> pluck('opcion');
+
+        $paciente = paciente::find($id);
+
+        $peea = peea::find($id);
+
+        // Mandarle las variables a la vista
+        return view('peea.edit')->with(  
+            compact(
+                'ep_actual',
+                'inicio_sintomas',
+                'tratamiento',
+                'paciente',
+                'peea',
+                'id'
+                ))  ;
     }
 
     /**
@@ -118,7 +139,31 @@ class PeeaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //crea el nuevo paciente a insertar en la base de datos
+        $datos_peea = peea::find($id);
+
+        $ep_actual = $request->input('ep_actual');
+        $epPrevios = $request->input('epPrevios');
+        $edadIni = $request->input('edadIni');
+        $inicio_sintomas = $request->input('inicio_sintomas');
+        $inicioEpisodio = $request->input('inicioEpisodio');
+
+        $tratamiento = implode(",",$_POST["tratamiento"]);
+
+        $psicofármacos = $request->input('psicofármacos');
+
+        //guarda los campos del form en el querybuiler
+        $datos_peea->ep_actual = $ep_actual;
+        $datos_peea->epPrevios = $epPrevios;
+        $datos_peea->edadIni = $edadIni;
+        $datos_peea->inicio_sintomas = $inicio_sintomas;
+        $datos_peea->inicioEpisodio = $inicioEpisodio;
+        $datos_peea->tratamiento = $tratamiento;
+        $datos_peea->psicofármacos = $psicofármacos;
+        $datos_peea->save();
+
+        $paciente = paciente::find($datos_peea->id_paciente);
+        return view('paciente.show', ['paciente' => $paciente]);
     }
 
     /**
