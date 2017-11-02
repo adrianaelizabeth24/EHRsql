@@ -111,3 +111,6 @@ Route::resource('abuso_de_substancias', 'AbusoDeSubstanciasController');
 Route::get('peea/paciente/{paciente}', 'PeeaController@create');
 Route::resource('peea','PeeaController');
 
+/* Antecedentes patológicos y no patológicos */
+Route::get('pat_nopat/paciente/{paciente}', 'PatnoPatController@create');
+Route::resource('pat_nopat','PatnoPatController');

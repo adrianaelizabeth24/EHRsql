@@ -1,4 +1,4 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -21,6 +21,8 @@
 
     <h2>Antecedentes Personales Patológicos y no Patológicos</h2>
 
+    <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
+
     <table class="table">
       <thead>
         <tr>
@@ -39,19 +41,19 @@
           <th scope="row">  {{$antecedente}} </th>
 
           <td>
-            <input type="text" id="{{$antecedente}}" class="form-control mx-sm-3">
+            <input type="text" name="{{$antecedente}}_detalles" class="form-control mx-sm-3">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="NO">
+            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="NO" value="no">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="SE DESCONOCE">
+            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="SE DESCONOCE" value="se desconoce">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="SI">
+            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="SI" value="si">
           </td>
 
         </tr>
@@ -59,22 +61,22 @@
         @endforeach
 
         <tr>
-          <th scope="row">  <input type="text" id="otro" class="form-control mx-sm-3" placeholder="Otro"> </th>
+          <th scope="row">  <input type="text" name="otro_detalles" class="form-control mx-sm-3" placeholder="Otro"> </th>
 
           <td>
             <input type="text" id="otro" class="form-control mx-sm-3"/>
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="NO">
+            <input class="form-check-input" type="radio" name="otro" id="NO" value="no">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="SE DESCONOCE">
+            <input class="form-check-input" type="radio" name="otro" id="SE DESCONOCE" value="se desconoce">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="{{$antecedente}}" id="SI">
+            <input class="form-check-input" type="radio" name="otro" id="SI" value="si">
           </td>
 
         </tr>
@@ -85,14 +87,14 @@
     <div class="row">
       <div class="form-group">
         <label>NOTAS DE ANTECEDENTES PERSONALES PATOLÓGICOS Y NO PATOLÓGICOS:</label>
-        <textarea class="form-control" id="Psicofármacos" rows="3"></textarea>
+        <textarea class="form-control" name="antecedentes_notas" rows="3"></textarea>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group col-xs-3">
         <label for="tazasCafé">No. de tazas de café o té negro al día:</label>
-        <input type="number" class="form-control input-group-lg" id="tazasCafé">
+        <input type="number" class="form-control input-group-lg" name="tazasCafé">
       </div>
     </div>
 
@@ -103,7 +105,7 @@
     <div class="row">
       <div class="form-group col-xs-3">
         <label for="tabaquismo">Nivel</label>
-        <select class="form-control" id="tabaquismo">
+        <select class="form-control" name="tabaquismo">
           @foreach($tabaquismo as $nivel)
           <option> {{$nivel}} </option>
           @endforeach
@@ -112,7 +114,7 @@
 
       <div class="form-group form-inline col-xs-3">
         <label for="consumoDiario">Consumo diario de tabaco</label>
-        <input type="number" class="form-control input-group-lg" id="consumoDiario">
+        <input type="number" class="form-control input-group-lg" name="consumoDiario">
         <small>
           Cigarros por día
         </small>
@@ -122,17 +124,17 @@
     <div class="row">
       <div class="form-group form-inline  col-xs-3">
         <label for="añosTabaquismo">Años de tabaquismo</label>
-        <input type="number" class="form-control input-group-lg" id="añosTabaquismo">
+        <input type="number" class="form-control input-group-lg" name="añosTabaquismo">
       </div>
 
       <div class="form-group form-inline col-xs-3">
         <label for="edadInicio">Edad de Inicio</label>
-        <input type="number" class="form-control input-group-lg" id="edadInicio">
+        <input type="number" class="form-control input-group-lg" name="edadInicio">
       </div>
 
       <div class="form-group form-inline  col-xs-3">
         <label for="edadSuspendió">Edad en que se suspendió</label>
-        <input type="number" class="form-control input-group-lg" id="edadSuspendió">
+        <input type="number" class="form-control input-group-lg" name="edadSuspendió">
       </div>
     </div>
 
@@ -143,7 +145,7 @@
 
       <div class="form-group col-xs-3">
         <label for="frecuencia">Frecuencia</label>
-        <select class="form-control" id="frecuencia">
+        <select class="form-control" name="alcohol_frecuencia">
           @foreach($bebidas_frecuencia as $frec)
           <option> {{$frec}} </option>
           @endforeach
@@ -152,7 +154,7 @@
 
       <div class="form-group col-xs-3">
         <label for="cantidad">Cantidad (cuando toma)</label>
-        <select class="form-control" id="cantidad">
+        <select class="form-control" name="alcohol_cantidad">
           @foreach($bebidas_cantidad as $cant)
           <option> {{$cant}} </option>
           @endforeach
@@ -217,13 +219,13 @@
 
     <div class="row">
       <div class="form-group col-xs-4 col-xs-offset-4">
-        <label class="form-check-label"><input class="form-check-input" type="checkbox" name="tratamiento" id="HistoriaAbuso">
+        <label class="form-check-label"><input class="form-check-input" type="checkbox" name="historiaAbuso">
           Historia de abuso de sustancias
         </label>
       </div>
 
       <div class="form-group col-xs-4">
-        <label class="form-check-label"><input class="form-check-input" type="checkbox" name="tratamiento" id="Dependencia">
+        <label class="form-check-label"><input class="form-check-input" type="checkbox" name="dependencia">
           Dependencia de sustancias
         </label>
       </div>
@@ -249,19 +251,19 @@
           <th scope="row">  {{$substancia}} </th>
 
           <td>
-            <input class="form-check-input" type="radio" name="HistoriaAbuso_{{$substancia}}" id="AbusoActual_{{$substancia}}">
+            <input class="form-check-input" type="radio" name="abusoActual">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="HistoriaAbuso_{{$substancia}}" id="AbusoAnterior_{{$substancia}}">
+            <input class="form-check-input" type="radio" name="abusoAnterior">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="Dependencia_{{$substancia}}" id="DepActual_{{$substancia}}">
+            <input class="form-check-input" type="radio" name="depActual">
           </td>
 
           <td>
-            <input class="form-check-input" type="radio" name="Dependencia_{{$substancia}}" id="DepAnterior_{{$substancia}}">
+            <input class="form-check-input" type="radio" name="depAnterior">
           </td>
 
         </tr>
@@ -273,7 +275,7 @@
 
     <div class="form-group">
       <label>PROBLEMAS RELACIONADOS AL CONSUMO DE SUSTANCIAS:</label>
-      <textarea class="form-control" id="Problemas" rows="3"></textarea>
+      <textarea class="form-control" name="problemas" rows="3"></textarea>
     </div>
 
 
