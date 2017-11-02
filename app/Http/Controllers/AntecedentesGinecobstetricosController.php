@@ -43,28 +43,34 @@ class AntecedentesGinecobstetricosController extends Controller
 
         //obtiene los campos
         $id_paciente = $request->input('id_paciente');
+        $menarca = $request->input('menarca');
         $fecha = $request->input('fecha');
         $ritmo_cardiaco = $request->input('ritmo_cardiaco');
         $tension_premenstrual = $request->input('tension_premenstrual');
         $vida_sexual = $request->input('vida_sexual');
+        $edad_inicio = $request->input('edad_inicio');
         $numero_compañeros_sexuales = $request->input('numero_compañeros_sexuales');
         $antecedentes_obstetricos = $request->input('antecedentes_obstetricos');
         $embarazo_actual = $request->input('embarazo_actual');
+        $semanas_embarazo = $request->input('semanas_embarazo');
         $lactancia = $request->input('lactancia');
         $posibilidad_embarazo = $request->input('posibilidad_embarazo');
-        $histerectomia = $request->input('histerectomia');
+        $anticonceptivos = $request->input('anticonceptivos');
 
         $antecedentes->id_paciente = $id_paciente;
+        $antecedentes->menarca = $menarca;
         $antecedentes->fecha = $fecha;
         $antecedentes->ritmo_cardiaco = $ritmo_cardiaco;
         $antecedentes->tension_premenstrual = $tension_premenstrual;
         $antecedentes->vida_sexual = $vida_sexual;
+        $antecedentes->edad_inicio = $edad_inicio;
         $antecedentes->numero_compañeros_sexuales = $numero_compañeros_sexuales;
         $antecedentes->antecedentes_obstreticos = $antecedentes_obstetricos;
         $antecedentes->embarazo_actual = $embarazo_actual;
+        $antecedentes->semanas_embarazo = $semanas_embarazo;
         $antecedentes->lactancia = $lactancia;
         $antecedentes->posibilidad_embarazo = $posibilidad_embarazo;
-        $antecedentes->histerectomia = $histerectomia;
+        $antecedentes->anticonceptivos = $anticonceptivos;
 
         $antecedentes->save();
 
@@ -110,27 +116,33 @@ class AntecedentesGinecobstetricosController extends Controller
         $antecedentes = antecedentes_ginecobstetricos::find($id);
 
         //obtiene los campos
+        $menarca = $request->input('menarca');
         $fecha = $request->input('fecha');
         $ritmo_cardiaco = $request->input('ritmo_cardiaco');
         $tension_premenstrual = $request->input('tension_premenstrual');
         $vida_sexual = $request->input('vida_sexual');
+        $edad_inicio = $request->input('edad_inicio');
         $numero_compañeros_sexuales = $request->input('numero_compañeros_sexuales');
         $antecedentes_obstetricos = $request->input('antecedentes_obstetricos');
         $embarazo_actual = $request->input('embarazo_actual');
+        $semanas_embarazo = $request->input('semanas_embarazo');
         $lactancia = $request->input('lactancia');
         $posibilidad_embarazo = $request->input('posibilidad_embarazo');
-        $histerectomia = $request->input('histerectomia');
+        $anticonceptivos = $request->input('anticonceptivos');
 
+        $antecedentes->menarca = $menarca;
         $antecedentes->fecha = $fecha;
         $antecedentes->ritmo_cardiaco = $ritmo_cardiaco;
         $antecedentes->tension_premenstrual = $tension_premenstrual;
         $antecedentes->vida_sexual = $vida_sexual;
+        $antecedentes->edad_inicio = $edad_inicio;
         $antecedentes->numero_compañeros_sexuales = $numero_compañeros_sexuales;
         $antecedentes->antecedentes_obstreticos = $antecedentes_obstetricos;
         $antecedentes->embarazo_actual = $embarazo_actual;
+        $antecedentes->semanas_embarazo = $semanas_embarazo;
         $antecedentes->lactancia = $lactancia;
         $antecedentes->posibilidad_embarazo = $posibilidad_embarazo;
-        $antecedentes->histerectomia = $histerectomia;
+        $antecedentes->anticonceptivos = $anticonceptivos;
 
         $antecedentes->save();
 
