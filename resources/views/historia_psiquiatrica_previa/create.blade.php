@@ -55,9 +55,6 @@
                            placeholder="Motivo última hospitalizacion"/>
                     <br/>
 
-
-                    <input class="form-control" type="text" name="tratamiento" placeholder="Tratamiento"/>
-
                     <textarea name="tratamiento" placeholder="Cronología de todos los episodios pasados de enfermedad mental y sus tratamientos, incluyendo los síndromes psiquiátricos no formalmente diagnosticados en ese tiempo, diagnósticos previos establecidos, tratamientos ofrecidos y respuestas a los mismos.
 Consigne dosis, duración, eficacia, efectos secundarios y adherencia del paciente a los medicamentos prescritos."></textarea>
 
