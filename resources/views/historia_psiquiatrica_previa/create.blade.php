@@ -136,10 +136,11 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
                             <label>Trastorno de Personalidad</label><br/>
                             <input type="radio" name="trastorno_personalidad" value="1">Si<br/>
 
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-
         </div> <!-- jumbotron -->
 
         <br/>
