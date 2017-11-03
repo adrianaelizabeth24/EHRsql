@@ -22,7 +22,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input placeholder="Diagnostico primario" name="diagnostico_primario"/>
+                    <input placeholder="Diagnostico Primario" name="diagnostico_primario"/>
                     <input placeholder="Código" name="codigo"/>
                     <input placeholder="ICG-S" name="icg-s"/>
 
@@ -30,18 +30,44 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label>Evaluación</label>
-                    <select name="evaluacion">
-                        <option>No se evaluó</option>
-                        <option>Normal, no enferno</option>
-                        <option>Límite</option>
-                        <option>Levemente enfermo</option>
-                        <option>Moderadamente enfermo</option>
-                        <option>Marcadamente enfermo</option>
-                        <option>Severamente enfermo</option>
-                        <option>Extremadamente enfermo</option>
-                        <option>Entre los pacientes mas ebfermos</option>
-                    </select>
+                 
+                    <h2>Diagnóstico</h2>
+                    <label>No se evaluó</label><br/>
+                            <input type="radio" name="no_se_evaluo" value="1"> Sí<br/>
+                            <input type="radio" name="no_se_evaluo" value="0"> No<br/>
+                            <br/>
+                    <label>Normal, no enferno</label><br/>
+                            <input type="radio" name="normal" value="1"> Sí<br/>
+                            <input type="radio" name="normal" value="0"> No<br/>
+                            <br/>
+                    <label>Límite</label><br/>
+                            <input type="radio" name="limite" value="1"> Sí<br/>
+                            <input type="radio" name="limite" value="0"> No<br/>
+                            <br/>
+                    <label>Levemente enfermo</label><br/>
+                            <input type="radio" name="levemente_enfermo" value="1"> Sí<br/>
+                            <input type="radio" name="levemente_enfermo" value="0"> No<br/>
+                            <br/>
+                    <label>Moderadamente enfermo</label><br/>
+                            <input type="radio" name="moderadamente_enfermo" value="1"> Sí<br/>
+                            <input type="radio" name="moderadamente_enfermo" value="0"> No<br/>
+                            <br/>
+                    <label>Marcadamente enfermo</label><br/>
+                            <input type="radio" name="marcadamente_enfermo" value="1"> Sí<br/>
+                            <input type="radio" name="marcadamente_enfermo" value="0"> No<br/>
+                            <br/>
+                    <label>Severamente enfermo</label><br/>
+                            <input type="radio" name="severamente_enfermo" value="1"> Sí<br/>
+                            <input type="radio" name="severamente_enfermo" value="0"> No<br/>
+                            <br/>
+                    <label>Extremadamente enfermo</label><br/>
+                            <input type="radio" name="extremadamente_enfermo" value="1"> Sí<br/>
+                            <input type="radio" name="extremadamente_enfermo" value="1"> No<br/>
+                            <br/>
+                    <label>Entre los pacientes mas enfermos</label><br/>
+                            <input type="radio" name="mas_enfermos" value="1"> Sí<br/>
+                            <input type="radio" name="mas_enfermos" value="0"> No<br/>
+                            <br/>
                 </div>
             </div>
             <div class="row">

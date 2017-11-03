@@ -34,8 +34,9 @@
                     <br/>
 
                     <label>Alguna vez fue hospitalizado por problemas emocionales</label><br/>
-                    <input type="radio" name="hospitalizacion" value="1"/> Sí<br/>
-                    <input type="radio" name="hospitalizacion" value="0"/> No<br/>
+                    <input type="radio" name="hospitalizacion" value="2"> Sí<br/>
+                    <input type="radio" name="hospitalizacion" value="1"> No<br/>
+                    <input type="radio" name="hospitalizacion" value="0"> Se desconoce<br/>
                     <br/>
 
                     <input class="form-control" type="number" name="primera_hospitalizacion"
@@ -64,77 +65,102 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
                         <h2>Lista de Problemas Psiquiatricos Previos</h2>
                         <div class="col-md-12">
                             <label>Ezquizofrenia</label><br/>
-                            <input type="radio" name="ezquizofrenia" value="1"> Sí<br/>
-                            <input type="radio" name="ezquizofrenia" value="0"> No<br/>
+                            <input type="radio" name="ezquizofrenia" value="2"> Sí<br/>
+                            <input type="radio" name="ezquizofrenia" value="1"> No<br/>
+                            <input type="radio" name="ezquizofrenia" value="0"> Se desconoce<br/>
                             <br/>
 
-                            <label>Bipolaridad</label><br/>
-                            <input type="radio" name="bipolaridad" value="1"> Sí <br/>
-                            <input type="radio" name="bipolaridad" value="0"> No <br/>
+                            <label>Trastorno Bipolar</label><br/>
+                            <input type="radio" name="bipolaridad" value="2"> Sí <br/>
+                            <input type="radio" name="bipolaridad" value="1"> No <br/>
+                            <input type="radio" name="bipolaridad" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Alcoholismo</label><br/>
-                            <input type="radio" name="alcoholismo" value="1">Sí<br/>
-                            <input type="radio" name="alcoholismo" value="0">No<br/>
+                            <input type="radio" name="alcoholismo" value="2">Sí<br/>
+                            <input type="radio" name="alcoholismo" value="1">No<br/>
+                            <input type="radio" name="alcoholismo" value="0"> Se desconoce<br/>
                             <br/>
 
-                            <label>Drogas</label><br/>
-                            <input type="radio" name="drogas" value="1">Sí<br/>
-                            <input type="radio" name="drogas" value="0">No<br/>
+                            <label>Drogadicción</label><br/>
+                            <input type="radio" name="drogas" value="2">Sí<br/>
+                            <input type="radio" name="drogas" value="1">No<br/>
+                            <input type="radio" name="drogas" value="0"> Se desconoce<br/>
                             <br/>
 
-                            <label>Depresión</label><br/>
-                            <input type="radio" name="depresion" value="1">Sí<br/>
-                            <input type="radio" name="depresion" value="0">No<br/>
+                            <label>Depresión Mayor</label><br/>
+                            <input type="radio" name="depresion" value="2">Sí<br/>
+                            <input type="radio" name="depresion" value="1">No<br/>
+                            <input type="radio" name="depresion" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Disimia</label><br/>
-                            <input type="radio" name="disimia" value="1">Sí<br/>
-                            <input type="radio" name="disimia" value="0">No<br/>
+                            <input type="radio" name="disimia" value="2">Sí<br/>
+                            <input type="radio" name="disimia" value="1">No<br/>
+                            <input type="radio" name="disimia" value="0"> Se desconoce<br/>
                             <br/>
 
-                            <label>Panico</label><br/>
-                            <input type="radio" name="panico" value="1">Sí<br/>
-                            <input type="radio" name="panico" value="0">No<br/>
+                            <label>Ataques de Pánico</label><br/>
+                            <input type="radio" name="panico" value="2">Sí<br/>
+                            <input type="radio" name="panico" value="1">No<br/>
+                            <input type="radio" name="panico" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Agorafobia</label><br/>
-                            <input type="radio" name="agorafobia" value="1">Sí<br/>
-                            <input type="radio" name="agorafobia" value="0">No<br/>
+                            <input type="radio" name="agorafobia" value="2">Sí<br/>
+                            <input type="radio" name="agorafobia" value="1">No<br/>
+                            <input type="radio" name="agorafobia" value="0"> Se desconoce<br/>
                             <br/>
 
-                            <label>Obsesivo Compulsivo</label><br/>
-                            <input type="radio" name="obsesion" value="1">Si<br/>
-                            <input type="radio" name="obsesion" value="0">No<br/>
+                            <label>Trastorno Obsesivo Compulsivo</label><br/>
+                            <input type="radio" name="obsesion" value="2">Si<br/>
+                            <input type="radio" name="obsesion" value="1">No<br/>
+                            <input type="radio" name="obsesion" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Fobia Social</label><br/>
-                            <input type="radio" name="fobia_social" value="1">Si<br/>
-                            <input type="radio" name="fobia_social" value="0">No<br/>
+                            <input type="radio" name="fobia_social" value="2">Si<br/>
+                            <input type="radio" name="fobia_social" value="1">No<br/>
+                            <input type="radio" name="fobia_social" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Fobia Especifica</label><br/>
-                            <input type="radio" name="fobia_especifica" value="1">Sí<br/>
-                            <input type="radio" name="fobia_especifica" value="0">No<br/>
+                            <input type="radio" name="fobia_especifica" value="2">Sí<br/>
+                            <input type="radio" name="fobia_especifica" value="1">No<br/>
+                            <input type="radio" name="fobia_especifica" value="0"> Se desconoce<br/>
                             <br/>
 
-                            <label>Ansiedad</label><br/>
-                            <input type="radio" name="Ansiedad" value="1">Si<br/>
-                            <input type="radio" name="Ansiedad" value="0">No<br/>
+                            <label>Ansiedad Generalizada</label><br/>
+                            <input type="radio" name="ansiedad" value="2">Si<br/>
+                            <input type="radio" name="ansiedad" value="1">No<br/>
+                            <input type="radio" name="ansiedad" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Demencia</label><br/>
-                            <input type="radio" name="demencia" value="1">Si<br/>
-                            <input type="radio" name="demencia" value="0">No<br/>
+                            <input type="radio" name="demencia" value="2">Si<br/>
+                            <input type="radio" name="demencia" value="1">No<br/>
+                            <input type="radio" name="demencia" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Retraso Mental</label><br/>
-                            <input type="radio" name="retraso_mental" value="1">Si<br/>
-                            <input type="radio" name="retraso_mental" value="0">No<br/>
+                            <input type="radio" name="retraso_mental" value="2">Si<br/>
+                            <input type="radio" name="retraso_mental" value="1">No<br/>
+                            <input type="radio" name="retraso_mental" value="0"> Se desconoce<br/>
                             <br/>
 
                             <label>Trastorno de Personalidad</label><br/>
-                            <input type="radio" name="trastorno_personalidad" value="1">Si<br/>
+                            <input type="radio" name="trastorno_personalidad" value="2">Si<br/>
+                            <input type="radio" name="trastorno_personalidad" value="1">No<br/>
+                            <input type="radio" name="trastorno_personalidad" value="0"> Se desconoce<br/>
+                            <input type="text" name="tratamiento_espesificacion" placeholder="Espesifique"></input> 
+                            <br/>
+
+                            <label>Otro Trastorno</label><br/>
+                            <input type="radio" name="otro_trastorno" value="2">Si<br/>
+                            <input type="radio" name="otro_trastorno" value="1">No<br/>
+                            <input type="radio" name="otro_trastorno" value="0"> Se desconoce<br/>
+                            <input type="text" name="otro_tratamiento_espesificacion" placeholder="Espesifique"></input> 
+                            <br/>
 
                         </div>
                     </div>
