@@ -70,7 +70,7 @@ class PatnoPatController extends Controller
         $antecedentes_pat_pacientes->save();
 
         $opciones = new opciones_preguntas();
-        $antecedentes = $opciones::where('pregunta','antecedentes_pat_nopats');
+        $antecedentes = $opciones::where('pregunta','=','antecedentes_pat_nopats');
 
         // obtener datos de los campos
         $antecedentes_notas = $request->input('antecedentes_notas');
