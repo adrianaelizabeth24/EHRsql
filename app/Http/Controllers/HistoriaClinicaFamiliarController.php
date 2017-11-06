@@ -56,7 +56,6 @@ class HistoriaClinicaFamiliarController extends Controller
         $historia_fam->alergias = $request->input('alergias');
         $historia_fam->cirujia_mayor = $request->input('cirujia_mayor');
         $historia_fam->cirujia_programada = $request->input('cirujia_programada');
-        $historia_fam->otro = $request->input('otro');
 
         $historia_fam->save();
 
@@ -76,7 +75,7 @@ class HistoriaClinicaFamiliarController extends Controller
     public function show($id)
     {
         $historia_fam = historia_clinica_familiar::find($id);
-        return view('historia_clinica_familiar.show', ['$historia_fam' => $historia_fam]);
+        return view('historia_clinica_familiar.show', ['historia_fam' => $historia_fam]);
     }
 
     /**
@@ -118,7 +117,6 @@ class HistoriaClinicaFamiliarController extends Controller
         $historia_fam->alergias = $request->input('alergias');
         $historia_fam->cirujia_mayor = $request->input('cirujia_mayor');
         $historia_fam->cirujia_programada = $request->input('cirujia_programada');
-        $historia_fam->otro = $request->input('otro');
 
         $historia_fam->save();
 

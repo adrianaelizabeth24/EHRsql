@@ -91,7 +91,7 @@ Route::resource('exploracion_fisica','ExploracionFisicaController');
 
 //historia clinica familiar
 Route::get('historia_clinica_familiar/paciente/{paciente}', 'HistoriaClinicaFamiliarController@create');
-Route::resource('historia_psiquiatrica', 'HistoriaClinicaFamiliarController');
+Route::resource('historia_clinica_familiar', 'HistoriaClinicaFamiliarController');
 
 //historia psiquiatrica familiar
 Route::get('historia_psiquiatrica/paciente/{paciente}', 'HistoriaPsiquiatricaFamiliarController@create');

@@ -301,22 +301,6 @@
                         @endif
                         <br/>
 
-                        <label> Otro </label><br/>
-                        @if($historia->otro == 2)
-                            <input type="radio" name="otro" value="2" checked> No<br/>
-                            <input type="radio" name="otro" value="1"> Se desconoce<br/>
-                            <input type="radio" name="otro" value="0"> Si<br/>
-                        @elseif($historia->otro == 1)
-                            <input type="radio" name="otro" value="2"> No<br/>
-                            <input type="radio" name="otro" value="1" checked> Se desconoce<br/>
-                            <input type="radio" name="otro" value="0"> Si <br/>
-                        @else
-                            <input type="radio" name="otro" value="2"> No<br/>
-                            <input type="radio" name="otro" value="1"> Se desconoce<br/>
-                            <input type="radio" name="otro" value="0" checked> Si<br/>
-
-                        @endif
-                        <br/>
 
                     </div>
                 </div>
