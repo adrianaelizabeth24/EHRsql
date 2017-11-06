@@ -13,11 +13,11 @@
             </div>
         </div>
         <div id="div_pacientes" class="container">
-            <h2>Nota Clinica</h2>
+            <h2>Plan de Tratamiento</h2>
             <div id="patient" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">
-                        < class="personal_info">
+                        <div class="personal_info">
                         <label>Seguimiento Farmacológico :</label><p>{{$plan->seguimiento_farmacologico}}</p><br/>
                         <label>Modalidad Terapeutica :</label><p>{{$plan->modalidad_terapeutica}}</p><br/>
                         <label>Comentarios :</label><p>{{$plan->comentarios}}</p><br/>
