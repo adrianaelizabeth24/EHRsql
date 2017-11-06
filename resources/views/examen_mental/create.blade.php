@@ -64,41 +64,39 @@
                         </textarea>
                         <br/>
                         <label>Acostado PT (Despues de 2 minutos) :</label> 
-                        <input type="text" placeholder="Solicitado" name="pt_acostado_solicitado">
-                        <input type="text" placeholder="Diagnosticado" name="pt_acostado_diagnosticado">
+                        <input type="number" placeholder="Sistólica" name="pt_acostado_sistolica">
+                        <input type="number" placeholder="Diastólica" name="pt_acostado_diastolica">
                         <br/>
                         <label>Acostado ST (Despues de 2 minutos) :</label> 
-                        <input type="text" placeholder="Solicitado" name="st_acostado_solicitado">
-                        <input type="text" placeholder="Diagnosticado" name="st_acostado_diagnosticado">
+                        <input type="number" placeholder="Sistólica" name="st_acostado_sistolica">
+                        <input type="number" placeholder="Diastólica" name="st_acostado_diastolica">
                         <br/>
                         <label>Parado PT (Despues de 2 minutos) :</label> 
-                        <input type="text" placeholder="Solicitado" name="pt_parado_solicitado">
-                        <input type="text" placeholder="Diagnosticado" name="pt_parado_diagnosticado">
+                        <input type="number" placeholder="Sistólica" name="pt_parado_sistolica">
+                        <input type="number" placeholder="Diastólica" name="pt_parado_diastolica">
                         <br/>
                         <label>Parado ST (Despues de 2 minutos) :</label> 
-                        <input type="text" placeholder="Solicitado" name="st_parado_solicitado">
-                        <input type="text" placeholder="Diagnosticado" name="st_parado_diagnosticado">
+                        <input type="number" placeholder="Sistólica" name="st_parado_sistolica">
+                        <input type="number" placeholder="Diastólica" name="st_parado_diastolica">
                         <br/>
                         <label>Frecuencia cardiaca :</label> 
-                        <input type="text" placeholder="Acostado (despues de 5 min)" name="frecuencia_acostado">
-                        <input type="text" placeholder="Parado (despues de 2 min)" name="frecuencia_parado">
+                        <input type="number" placeholder="Acostado (despues de 5 min)" name="frecuencia_acostado">
+                        <input type="number" placeholder="Parado (despues de 2 min)" name="frecuencia_parado">
                         <br/>
-                        <input type="text" placeholder="Ritmo regular" name="ritmo_regular">
-                        <input type="text" placeholder="Ritmo irregular" name="ritmo_irregular">
+                        <input type="number" placeholder="Ritmo regular" name="ritmo_regular">
+                        <input type="number" placeholder="Ritmo irregular" name="ritmo_irregular">
                         <br/>
-                        <input type="text" placeholder="Peso" name="peso">
-                        <input type="text" placeholder="KGS" name="kgs">
+                        <input type="number" placeholder="Peso kgs" name="peso">
                         <br/>
-                        <input type="text" placeholder="Talla" name="talla">
-                        <input type="text" placeholder="CMS" name="cms">
+                        <input type="number" placeholder="Talla cms" name="talla">
                         <br/>
-                        <input type="text" placeholder="Circunferencia abdominal (en cm)" name="circunferencia">
+                        <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circunferencia">
                         <br/>
-                        <input type="text" placeholder="Temperatura (en gc)" name="temperatura">
+                        <input type="number" placeholder="Temperatura (en gc)" name="temperatura">
                         <br/>
-                        <input type="text" placeholder="Peso usual" name="peso_usual">
+                        <input type="number" placeholder="Peso usual" name="peso_usual">
                         <br/>
-                        <input type="text" placeholder="IMC" name="imc">
+                        <input type="number" placeholder="IMC" name="imc">
                         <br/>
 
                     </div>

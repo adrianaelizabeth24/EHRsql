@@ -55,41 +55,41 @@
 
 
                     <label>Acostado PT (Despues de 2 minutos) :</label> 
-                    <input type="text" placeholder="Solicitado" name="pt_acostado_solicitado" value="{{$examen->pt_acostado_solicitado}}"/>
-                    <input type="text" placeholder="Diagnosticado" name="pt_acostado_diagnosticado" value="{{$examen->pt_acostado_diagnosticado}}"/>
+                    <input type="number" placeholder="Solicitado" name="pt_acostado_solicitado" value="{{$examen->pt_acostado_solicitado}}"/>
+                    <input type="number" placeholder="Diagnosticado" name="pt_acostado_diagnosticado" value="{{$examen->pt_acostado_diagnosticado}}"/>
                     <br/>
                     <label>Acostado ST (Despues de 2 minutos) :</label> 
-                    <input type="text" placeholder="Solicitado" name="st_acostado_solicitado" value="{{$examen->st_acostado_solicitado}}"/>
-                    <input type="text" placeholder="Diagnosticado" name="st_acostado_diagnosticado" value="{{$examen->st_acostado_diagnosticado}}"/>
+                    <input type="number" placeholder="Solicitado" name="st_acostado_solicitado" value="{{$examen->st_acostado_solicitado}}"/>
+                    <input type="number" placeholder="Diagnosticado" name="st_acostado_diagnosticado" value="{{$examen->st_acostado_diagnosticado}}"/>
                     <br/>
                     <label>Parado PT (Despues de 2 minutos) :</label> 
-                    <input type="text" placeholder="Solicitado" name="pt_parado_solicitado" value="{{$examen->pt_parado_solicitado}}"/>
-                    <input type="text" placeholder="Diagnosticado" name="pt_parado_diagnosticado" value="{{$examen->pt_parado_diagnosticado}}"/>
+                    <input type="number" placeholder="Solicitado" name="pt_parado_solicitado" value="{{$examen->pt_parado_solicitado}}"/>
+                    <input type="number" placeholder="Diagnosticado" name="pt_parado_diagnosticado" value="{{$examen->pt_parado_diagnosticado}}"/>
                     <br/>
                     <label>Parado ST (Despues de 2 minutos) :</label> 
-                    <input type="text" placeholder="Solicitado" name="st_parado_solicitado" value="{{$examen->st_parado_solicitado}}"/>
-                    <input type="text" placeholder="Diagnosticado" name="st_parado_diagnosticado" value="{{$examen->st_parado_diagnosticado}}"/>
+                    <input type="number" placeholder="Solicitado" name="st_parado_solicitado" value="{{$examen->st_parado_solicitado}}"/>
+                    <input type="number" placeholder="Diagnosticado" name="st_parado_diagnosticado" value="{{$examen->st_parado_diagnosticado}}"/>
                     <br/>
                     <label>Frecuencia cardiaca :</label> 
-                    <input type="text" placeholder="Acostado (despues de 5 min)" name="frecuencia_acostado" value="{{$examen->frecuencia_acostado}}"/>
-                    <input type="text" placeholder="Parado (despues de 2 min)" name="frecuencia_parado" value="{{$examen->frecuencia_parado}}"/>
+                    <input type="number" placeholder="Acostado (despues de 5 min)" name="frecuencia_acostado" value="{{$examen->frecuencia_acostado}}"/>
+                    <input type="number" placeholder="Parado (despues de 2 min)" name="frecuencia_parado" value="{{$examen->frecuencia_parado}}"/>
                     <br/>
-                    <input type="text" placeholder="Ritmo regular" name="ritmo_regular" value="{{$examen->ritmo_regular}}"/>
-                    <input type="text" placeholder="Ritmo irregular" name="ritmo_irregular" value="{{$examen->ritmo_irregular}}"/>
+                    <input type="number" placeholder="Ritmo regular" name="ritmo_regular" value="{{$examen->ritmo_regular}}"/>
+                    <input type="number" placeholder="Ritmo irregular" name="ritmo_irregular" value="{{$examen->ritmo_irregular}}"/>
                     <br/>
-                    <input type="text" placeholder="Peso" name="peso" value="{{$examen->peso}}"/>
-                    <input type="text" placeholder="KGS" name="kgs" value="{{$examen->kgs}}"/>
+                    <input type="number" placeholder="Peso" name="peso" value="{{$examen->peso}}"/>
+                    <input type="number" placeholder="KGS" name="kgs" value="{{$examen->kgs}}"/>
                     <br/>
-                    <input type="text" placeholder="Talla" name="talla" value="{{$examen->talla}}"/>
-                    <input type="text" placeholder="CMS" name="cms" value="{{$examen->cms}}"/>
+                    <input type="number" placeholder="Talla" name="talla" value="{{$examen->talla}}"/>
+                    <input type="number" placeholder="CMS" name="cms" value="{{$examen->cms}}"/>
                     <br/>
-                    <input type="text" placeholder="Circunferencia abdominal (en cm)" name="circunferencia" value="{{$examen->circunferencia}}"/>
+                    <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circunferencia" value="{{$examen->circunferencia}}"/>
                     <br/>
-                    <input type="text" placeholder="Temperatura (en gc)" name="temperatura" value="{{$examen->temperatura}}"/>
+                    <input type="number" placeholder="Temperatura (en gc)" name="temperatura" value="{{$examen->temperatura}}"/>
                     <br/>
-                    <input type="text" placeholder="Peso usual" name="peso_usual" value="{{$examen->peso_usual}}"/>
+                    <input type="number" placeholder="Peso usual" name="peso_usual" value="{{$examen->peso_usual}}"/>
                     <br/>
-                    <input type="text" placeholder="IMC" name="imc" value="{{$examen->imc}}"/>
+                    <input type="number" placeholder="IMC" name="imc" value="{{$examen->imc}}"/>
                     <br/>
 				
                 </div>
