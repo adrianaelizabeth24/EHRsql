@@ -152,16 +152,7 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
                             <input type="radio" name="trastorno_personalidad" value="2">Si<br/>
                             <input type="radio" name="trastorno_personalidad" value="1">No<br/>
                             <input type="radio" name="trastorno_personalidad" value="0"> Se desconoce<br/>
-                            <input type="text" name="tratamiento_espesificacion" placeholder="Espesifique"></input> 
                             <br/>
-
-                            <label>Otro Trastorno</label><br/>
-                            <input type="radio" name="otro_trastorno" value="2">Si<br/>
-                            <input type="radio" name="otro_trastorno" value="1">No<br/>
-                            <input type="radio" name="otro_trastorno" value="0"> Se desconoce<br/>
-                            <input type="text" name="otro_tratamiento_espesificacion" placeholder="Espesifique"></input> 
-                            <br/>
-
                         </div>
                     </div>
 

@@ -12,111 +12,129 @@
                 <div class="row">
 					<div class="col-md-12">
 
-						<input type="text" name="diagnostico_primario" placeholder="Diagnostico primario" value="{{$historial->diagnostico_primario}}"/>
+						<input type="text" name="diagnostico_primario" placeholder="Diagnostico primario" value="{{$diagnostico->diagnostico_primario}}"/>
 						<br/>
-						<input type="text" name="codigo" placeholder="Código" value="{{$historial->codigo}}"/>
+						<input type="text" name="codigo" placeholder="Código" value="{{$diagnostico->codigo}}"/>
 						<br/>
-						<input type="text" name="icg-s" placeholder="ICG-S" value="{{$historial->icg-s}}"/>
+						<input type="text" name="icg_s" placeholder="ICG-S" value="{{$diagnostico->icg_s}}"/>
 						<br/>
 
-						<h2>Diagnóstico</h2>
-
-						<label>No se evaluó</label><br/>
-						@if($historial->no_se_evaluo == 1)
-							<input type="radio" name="no_se_evaluo" value="1" checked> Sí<br/>
-							<input type="radio" name="no_se_evaluo" value="0"> No<br/>
+						<label>Código</label>
+						@if($diagnostico->código == "No se evaluó")
+							<input type="radio" name="diagnostico" value="No se evaluó" checked>No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "Normal, no enferno")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno" checked>Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "limite")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite" checked>limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "Levemente enfermo")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo" checked>Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "Moderadamente enfermo")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo" checked>Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "Marcadamente enfermo")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo" checked>Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "Severamente enfermo")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo" checked>Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
+						@elseif($diagnostico->código == "Extremadamente enfermo")
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo" checked>Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+							mas enfermos<br/>
+							<br/>
 						@else
-							<input type="radio" name="no_se_evaluo" value="1"> Sí<br/>
-							<input type="radio" name="no_se_evaluo" value="0" checked> No<br/>
+							<input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
+							<input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
+							<input type="radio" name="diagnostico" value="limite">limite<br/>
+							<input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+							<input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos" checked>Entre los pacientes
+							mas enfermos<br/>
+							<br/>
 						@endif
-						<br/>
 
-						<label>Normal, no enferno</label><br/>
-						@if($historial->normal == 1)
-							<input type="radio" name="normal" value="1" checked> Sí<br/>
-							<input type="radio" name="normal" value="0"> No<br/>
-						@else
-							<input type="radio" name="normal" value="1"> Sí<br/>
-							<input type="radio" name="normal" value="0" checked> No<br/>
-						@endif
+						<input type="text" name="diagnostico_secundario" placeholder="Diagnostico Secundario" value="{{$diagnostico->diagnostico_secundario}}"/>
 						<br/>
-
-						<label>Límite</label><br/>
-						@if($historial->limite == 1)
-							<input type="radio" name="limite" value="1" checked> Sí<br/>
-							<input type="radio" name="limite" value="0"> No<br/>
-						@else
-							<input type="radio" name="limite" value="1"> Sí<br/>
-							<input type="radio" name="limite" value="0" checked> No<br/>
-						@endif
+						<input type="text" name="codigo_secunadrio" placeholder="Código" value="{{$diagnostico->codigo_secunadrio}}"/>
 						<br/>
-
-						<label>Levemente enfermo</label><br/>
-						@if($historial->levemente_enfermo == 1)
-							<input type="radio" name="levemente_enfermo" value="1" checked> Sí<br/>
-							<input type="radio" name="levemente_enfermo" value="0"> No<br/>
-						@else
-							<input type="radio" name="levemente_enfermo" value="1"> Sí<br/>
-							<input type="radio" name="levemente_enfermo" value="0" checked> No<br/>
-						@endif
-						<br/>
-
-
-						<label>Moderadamente enfermo</label><br/>
-						@if($historial->moderadamente_enfermo == 1)
-							<input type="radio" name="moderadamente_enfermo" value="1" checked> Sí<br/>
-							<input type="radio" name="moderadamente_enfermo" value="0"> No<br/>
-						@else
-							<input type="radio" name="moderadamente_enfermo" value="1"> Sí<br/>
-							<input type="radio" name="moderadamente_enfermo" value="0" checked> No<br/>
-						@endif
-						<br/>
-
-						<label>Marcadamente enfermo</label><br/>
-						@if($historial->marcadamente_enfermo == 1)
-							<input type="radio" name="marcadamente_enfermo" value="1" checked> Sí<br/>
-							<input type="radio" name="marcadamente_enfermo" value="0"> No<br/>
-						@else
-							<input type="radio" name="marcadamente_enfermo" value="1"> Sí<br/>
-							<input type="radio" name="marcadamente_enfermo" value="0" checked> No<br/>
-						@endif
-						<br/>
-
-						<label>Severamente enfermo</label><br/>
-						@if($historial->severamente_enfermo == 1)
-							<input type="radio" name="severamente_enfermo" value="1" checked> Sí<br/>
-							<input type="radio" name="severamente_enfermo" value="0"> No<br/>
-						@else
-							<input type="radio" name="severamente_enfermo" value="1"> Sí<br/>
-							<input type="radio" name="severamente_enfermo" value="0" checked> No<br/>
-						@endif
-						<br/>
-
-						<label>Extremadamente enfermo</label><br/>
-						@if($historial->extremadamente_enfermo == 1)
-							<input type="radio" name="extremadamente_enfermo" value="1" checked> Sí<br/>
-							<input type="radio" name="extremadamente_enfermo" value="0"> No<br/>
-						@else
-							<input type="radio" name="extremadamente_enfermo" value="1"> Sí<br/>
-							<input type="radio" name="extremadamente_enfermo" value="0" checked> No<br/>
-						@endif
-						<br/>
-
-						<label>Entre los pacientes mas enfermos</label><br/>
-						@if($historial->mas_enfermos == 1)
-							<input type="radio" name="mas_enfermos" value="1" checked> Sí<br/>
-							<input type="radio" name="mas_enfermos" value="0"> No<br/>
-						@else
-							<input type="radio" name="mas_enfermos" value="1"> Sí<br/>
-							<input type="radio" name="mas_enfermos" value="0" checked> No<br/>
-						@endif
-						<br/>
-
-						<input type="text" name="diagnostico_secundario" placeholder="Diagnostico Secundario" value="{{$historial->diagnostico_secundario}}"/>
-						<br/>
-						<input type="text" name="codigo_secunadrio" placeholder="Código" value="{{$historial->codigo_secunadrio}}"/>
-						<br/>
-						<input type="text" name="icg-s_secunadrio" placeholder="ICG-S" value="{{$historial->icg-s_secunadrio}}"/>
+						<input type="text" name="icg_s_secunadrio" placeholder="ICG-S" value="{{$diagnostico->icg_s_secunadrio}}"/>
 						<br/>
 
 

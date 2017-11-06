@@ -120,13 +120,7 @@
 						<input type="radio" name="cirujia_programada" value="0"> Si<br/>
 						<br/>
 
-						<label> Otro </label><br/>
-						<input type="radio" name="otro" value="2"> No<br/>
-						<input type="radio" name="otro" value="1"> Se desconoce<br/>
-						<input type="radio" name="otro" value="0"> Si<br/>
-						<br/>
-
-					</div>
+						</div>
 				</div>
 			</div>
 
