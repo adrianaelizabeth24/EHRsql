@@ -31,27 +31,21 @@
                         <div class="col-md-12">
                             <h2>Listado de problemas psiquiatricos previos</h2>
                             <label>Ezquizofrenia</label><p>{{$historial->ezquizofrenia}}</p>
-                            <label>Trastorno Bipolar</label><p>{{$historial->bipolaridad}}</p>
+                            <label>Trastorno Bipolar</label><p>{{$historial->trastorno_bipolar}}</p>
                             <label>Alcoholismo</label><p>{{$historial->alcoholismo}}</p>
-                            <label>Drogadicción</label><p>{{$historial->drogas}}</p>
+                            <label>Drogadicción</label><p>{{$historial->drogadiccion}}</p>
                             <label>Depresión Mayor</label><p>{{$historial->depresion}}</p>
                             <label>Disimia</label><p>{{$historial->disimia}}</p>
-                            <label>Ataques de Pánico</label><p>{{$historial->panico}}</p>
+                            <label>Ataques de Pánico</label><p>{{$historial->ataques_de_panico}}</p>
                             <label>Agorafobia</label><p>{{$historial->agorafobia}}</p>
-                            <label>Trastorno Obsesivo Compulsivo</label><p>{{$historial->obsesion}}</p>
+                            <label>Trastorno Obsesivo Compulsivo</label><p>{{$historial->obsesivo_compulsivo}}</p>
                             <label>Fobia Social</label><p>{{$historial->fobia_social}}</p>
                             <label>Fobia Especifica</label><p>{{$historial->fobia_especifica}}</p>
                             <label>Ansiedad Generalizada</label><p>{{$historial->ansiedad}}</p>
                             <label>Demencia</label><p>{{$historial->demencia}}</p>
                             <label>Retraso Mental</label><p>{{$historial->retraso_mental}}</p>
-                            <label>Trastorno de Personalidad</label><p>{{$historial->trastorno_personalidad}}</p>
-                            <label>Espesificación</label><p>{{$historial->tratamiento_espesificacion}}</p>
-                            <label>Otro Trastorno</label><p>{{$historial->otro_trastorno}}</p>
-                            <label>Espesificación</label><p>{{$historial->otro_tratamiento_espesificacion}}</p>
-
-
-
-                        </div>
+                            <label>Trastorno de Personalidad</label><p>{{$historial->trastorno_de_personalidad}}</p>
+                            </div>
                     </div>
                 </div>
                 <a href="/paciente/{{{$historial->id_paciente}}}" class="btn btn-info">Regresar</a>

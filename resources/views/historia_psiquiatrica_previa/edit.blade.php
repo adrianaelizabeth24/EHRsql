@@ -66,11 +66,11 @@
 						<br/>
 
 						<label>Trastorno Bipolar</label><br/>
-						@if($historial->bipolaridad == 2)
+						@if($historial->trastorno_bipolar == 2)
 							<input type="radio" name="bipolaridad" value="2" checked> Sí<br/>
 							<input type="radio" name="bipolaridad" value="1"> No<br/>
 							<input type="radio" name="bipolaridad" value="0"> Se desconoce<br/>
-						@elseif($historial->bipolaridad == 1)
+						@elseif($historial->trastorno_bipolar == 1)
 							<input type="radio" name="bipolaridad" value="2"> Sí<br/>
 							<input type="radio" name="bipolaridad" value="1" checked> No<br/>
 							<input type="radio" name="bipolaridad" value="0"> Se desconoce<br/>
@@ -98,11 +98,11 @@
 						<br/>
 
 						<label>Drogadicción</label><br/>
-						@if($historial->drogas == 2)
+						@if($historial->drogadiccion == 2)
 							<input type="radio" name="drogas" value="2" checked> Sí<br/>
 							<input type="radio" name="drogas" value="1"> No<br/>
 							<input type="radio" name="drogas" value="0"> Se desconoce<br/>
-						@elseif($historial->drogas == 1)
+						@elseif($historial->drogadiccion == 1)
 							<input type="radio" name="drogas" value="2"> Sí<br/>
 							<input type="radio" name="drogas" value="1" checked> No<br/>
 							<input type="radio" name="drogas" value="0"> Se desconoce<br/>
@@ -146,11 +146,11 @@
 						<br/>
 
 						<label>Ataques de Pánico</label><br/>
-						@if($historial->panico == 2)
+						@if($historial->ataques_de_panico == 2)
 							<input type="radio" name="panico" value="2" checked> Sí<br/>
 							<input type="radio" name="panico" value="1"> No<br/>
 							<input type="radio" name="panico" value="0"> Se desconoce<br/>
-						@elseif($historial->panico == 1)
+						@elseif($historial->ataques_de_panico == 1)
 							<input type="radio" name="panico" value="2"> Sí<br/>
 							<input type="radio" name="panico" value="1" checked> No<br/>
 							<input type="radio" name="panico" value="0"> Se desconoce<br/>
@@ -178,11 +178,11 @@
 						<br/>
 
 						<label>Trastorno Obsesivo Compulsivo</label><br/>
-						@if($historial->obsesion == 2)
+						@if($historial->obsesivo_compulsivo == 2)
 							<input type="radio" name="obsesion" value="2" checked> Sí<br/>
 							<input type="radio" name="obsesion" value="1"> No<br/>
 							<input type="radio" name="obsesion" value="0"> Se desconoce<br/>
-						@elseif($historial->obsesion == 1)
+						@elseif($historial->obsesivo_compulsivo == 1)
 							<input type="radio" name="obsesion" value="2"> Sí<br/>
 							<input type="radio" name="obsesion" value="1" checked> No<br/>
 							<input type="radio" name="obsesion" value="0"> Se desconoce<br/>
@@ -206,6 +206,22 @@
 							<input type="radio" name="fobia_social" value="2"> Sí<br/>
 							<input type="radio" name="fobia_social" value="1"> No<br/>
 							<input type="radio" name="fobia_social" value="0" checked> Se desconoce<br/>
+						@endif
+						<br/>
+
+						<label>Fobia Especifica</label><br/>
+						@if($historial->fobia_especifica == 2)
+							<input type="radio" name="fobia_especifica" value="2" checked> Sí<br/>
+							<input type="radio" name="fobia_especifica" value="1"> No<br/>
+							<input type="radio" name="fobia_especifica" value="0"> Se desconoce<br/>
+						@elseif($historial->fobia_especifica == 1)
+							<input type="radio" name="fobia_especifica" value="2"> Sí<br/>
+							<input type="radio" name="fobia_especifica" value="1" checked> No<br/>
+							<input type="radio" name="fobia_especifica" value="0"> Se desconoce<br/>
+						@else
+							<input type="radio" name="fobia_especifica" value="2"> Sí<br/>
+							<input type="radio" name="fobia_especifica" value="1"> No<br/>
+							<input type="radio" name="fobia_especifica" value="0" checked> Se desconoce<br/>
 						@endif
 						<br/>
 
@@ -258,11 +274,11 @@
 						<br/>
 
 						<label>Trastorno de Personalidad</label><br/>
-						@if($historial->trastorno_personalidad == 2)
+						@if($historial->trastorno_de_personalidad == 2)
 							<input type="radio" name="trastorno_personalidad" value="2" checked> Sí<br/>
 							<input type="radio" name="trastorno_personalidad" value="1"> No<br/>
 							<input type="radio" name="trastorno_personalidad" value="0"> Se desconoce<br/>
-						@elseif($historial->trastorno_personalidad == 1)
+						@elseif($historial->trastorno_de_personalidad == 1)
 							<input type="radio" name="trastorno_personalidad" value="2"> Sí<br/>
 							<input type="radio" name="trastorno_personalidad" value="1" checked> No<br/>
 							<input type="radio" name="trastorno_personalidad" value="0"> Se desconoce<br/>
@@ -273,29 +289,6 @@
 						@endif
 						<br/>
 
-						<br/>
-						<input type="text" name="tratamiento_espesificacion" placeholder="Especifique" value="{{$historia->tratamiento_espesificacion}}"/>
-						<br/>
-
-						<label>Otro Trastorno</label><br/>
-						@if($historial->otro_trastorno == 2)
-							<input type="radio" name="otro_trastorno" value="2" checked> Sí<br/>
-							<input type="radio" name="otro_trastorno" value="1"> No<br/>
-							<input type="radio" name="otro_trastorno" value="0"> Se desconoce<br/>
-						@elseif($historial->otro_trastorno == 1)
-							<input type="radio" name="otro_trastorno" value="2"> Sí<br/>
-							<input type="radio" name="otro_trastorno" value="1" checked> No<br/>
-							<input type="radio" name="otro_trastorno" value="0"> Se desconoce<br/>
-						@else
-							<input type="radio" name="otro_trastorno" value="2"> Sí<br/>
-							<input type="radio" name="otro_trastorno" value="1"> No<br/>
-							<input type="radio" name="otro_trastorno" value="0" checked> Se desconoce<br/>
-						@endif
-						<br/>
-
-						<br/>
-						<input type="text" name="otro_tratamiento_espesificacion" placeholder="Especifique" value="{{$historia->otro_tratamiento_espesificacion}}"/>
-						<br/>
 
 					</div>
 				</div>

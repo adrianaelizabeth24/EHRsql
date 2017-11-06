@@ -62,6 +62,22 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $historial_tratamiento->duracion_hospitalizacion = $duracion_hospitalizacion;
         $historial_tratamiento->motivo_hospitalizacion = $motivo_hospitalizacion;
         $historial_tratamiento->tratamiento = $tratamiento;
+        $historial_tratamiento->ezquizofrenia = $request->input('ezquizofrenia');
+        $historial_tratamiento->trastorno_bipolar = $request->input('bipolaridad');
+        $historial_tratamiento->alcoholismo = $request->input('alcoholismo');
+        $historial_tratamiento->drogadiccion = $request->input('drogas');
+        $historial_tratamiento->depresion = $request->input('depresion');
+        $historial_tratamiento->disimia = $request->input('disimia');
+        $historial_tratamiento->ataques_de_panico = $request->input('panico');
+        $historial_tratamiento->agorafobia = $request->input('agorafobia');
+        $historial_tratamiento->obsesivo_compulsivo = $request->input('obsesion');
+        $historial_tratamiento->fobia_social = $request->input('fobia_social');
+        $historial_tratamiento->fobia_especifica = $request->input('fobia_especifica');
+        $historial_tratamiento->ansiedad = $request->input('ansiedad');
+        $historial_tratamiento->demencia = $request->input('demencia');
+        $historial_tratamiento->retraso_mental = $request->input('retraso_mental');
+        $historial_tratamiento->trastorno_de_personalidad = $request->input('trastorno_personalidad');
+
 
         $historial_tratamiento->save();
 
@@ -127,6 +143,21 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $historial_tratamiento->duracion_hospitalizacion = $duracion_hospitalizacion;
         $historial_tratamiento->motivo_hospitalizacion = $motivo_hospitalizacion;
         $historial_tratamiento->tratamiento = $tratamiento;
+        $historial_tratamiento->ezquizofrenia = $request->input('ezquizofrenia');
+        $historial_tratamiento->trastorno_bipolar = $request->input('bipolaridad');
+        $historial_tratamiento->alcoholismo = $request->input('alcoholismo');
+        $historial_tratamiento->drogadiccion = $request->input('drogas');
+        $historial_tratamiento->depresion = $request->input('depresion');
+        $historial_tratamiento->disimia = $request->input('disimia');
+        $historial_tratamiento->ataques_de_panico = $request->input('panico');
+        $historial_tratamiento->agorafobia = $request->input('agorafobia');
+        $historial_tratamiento->obsesivo_compulsivo = $request->input('obsesion');
+        $historial_tratamiento->fobia_social = $request->input('fobia_social');
+        $historial_tratamiento->fobia_especifica = $request->input('fobia_especifica');
+        $historial_tratamiento->ansiedad = $request->input('ansiedad');
+        $historial_tratamiento->demencia = $request->input('demencia');
+        $historial_tratamiento->retraso_mental = $request->input('retraso_mental');
+        $historial_tratamiento->trastorno_de_personalidad = $request->input('trastorno_personalidad');
 
         $historial_tratamiento->save();
 
