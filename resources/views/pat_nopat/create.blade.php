@@ -144,7 +144,7 @@
       <legend>BEBIDAS ALCOHOLICAS</legend>
 
       <div class="form-group col-xs-3">
-        <label for="frecuencia">Frecuencia</label>
+        <label for="alcohol_frecuencia">Frecuencia</label>
         <select class="form-control" name="alcohol_frecuencia">
           @foreach($bebidas_frecuencia as $frec)
           <option> {{$frec}} </option>
@@ -153,7 +153,7 @@
       </div>
 
       <div class="form-group col-xs-3">
-        <label for="cantidad">Cantidad (cuando toma)</label>
+        <label for="alcohol_cantidad">Cantidad (cuando toma)</label>
         <select class="form-control" name="alcohol_cantidad">
           @foreach($bebidas_cantidad as $cant)
           <option> {{$cant}} </option>
@@ -183,10 +183,10 @@
           <th scope="row">  ¿Alguna vez le dijeron o sintió que debería dejar de tomar? </th>
 
           <td>
-            <input class="form-check-input" type="radio" name="dejarTomar" id="NO">
+            <input class="form-check-input" type="radio" name="dejarTomar" id="NO" value="no">
           </td>
           <td>
-            <input class="form-check-input" type="radio" name="dejarTomar" id="SI">
+            <input class="form-check-input" type="radio" name="dejarTomar" id="SI" value="si">
           </td>
         </tr>
 
@@ -194,10 +194,10 @@
           <th scope="row">  ¿Alguna vez se sintió mal o culpable por su forma de tomar? </th>
 
           <td>
-            <input class="form-check-input" type="radio" name="formaTomar" id="NO">
+            <input class="form-check-input" type="radio" name="formaTomar" id="NO" value="no">
           </td>
           <td>
-            <input class="form-check-input" type="radio" name="formaTomar" id="SI">
+            <input class="form-check-input" type="radio" name="formaTomar" id="SI" value="si">
           </td>
         </tr>
 
@@ -205,10 +205,10 @@
           <th scope="row">  ¿Alguna vez tomo en la mañana para calmar sus nervios o cortar la cruda? </th>
 
           <td>
-            <input class="form-check-input" type="radio" name="tomarMañana" id="NO">
+            <input class="form-check-input" type="radio" name="tomarMañana" id="NO" value="no">
           </td>
           <td>
-            <input class="form-check-input" type="radio" name="tomarMañana" id="SI">
+            <input class="form-check-input" type="radio" name="tomarMañana" id="SI" value="si">
           </td>
         </tr>
 

@@ -90,7 +90,43 @@ INSERT INTO `opciones_preguntas` VALUES
 (87,'tratamiento','Barbitúricos'),
 (88,'tratamiento','TEC'),
 (89,'tratamiento','Psicoterapia'),
-(90,'tratamiento','No sabe')
+(90,'tratamiento','No sabe'),
+
+
+/* Exploración física */
+
+(100,'exploracion_fisica','Condición general'),
+(101,'exploracion_fisica','Piel'),
+(102,'exploracion_fisica','Cabeza'),
+(103,'exploracion_fisica','Ojos'),
+(104,'exploracion_fisica','Oído, nariz y garganta'),
+(105,'exploracion_fisica','Cuello/tiroides'),
+(106,'exploracion_fisica','Pulmones'),
+(107,'exploracion_fisica','Corazón'),
+(108,'exploracion_fisica','Sistema gastrointestinal'),
+(109,'exploracion_fisica','Nódulos linfáticos'),
+(110,'exploracion_fisica','Hígado/vesícula biliar'),
+(111,'exploracion_fisica','Sistema urogenital'),
+(112,'exploracion_fisica','Sistema músculo esquelético'),
+(113,'exploracion_fisica','Neurológico'),
+
+/* Historia Psiquiátrica Familiar */
+
+(120,'psiquiatrica_familiar','Esquizofrenia'),
+(121,'psiquiatrica_familiar','Trastorno bipolar'),
+(122,'psiquiatrica_familiar','Alcoholismo'),
+(123,'psiquiatrica_familiar','Drogadicción'),
+(124,'psiquiatrica_familiar','Depresión mayor'),
+(125,'psiquiatrica_familiar','Distimia'),
+(126,'psiquiatrica_familiar','Ataques de pánico'),
+(127,'psiquiatrica_familiar','Agorafobia'),
+(128,'psiquiatrica_familiar','Trastorno obsesivo-compulsivo'),
+(129,'psiquiatrica_familiar','Fobia social'),
+(130,'psiquiatrica_familiar','Fobia específica'),
+(131,'psiquiatrica_familiar','Ansiedad generalizada'),
+(132,'psiquiatrica_familiar','Demencia'),
+(133,'psiquiatrica_familiar','Retardo mental'),
+(133,'psiquiatrica_familiar','Trastorno de personalidad')
 
 ;
 /*!40000 ALTER TABLE `opciones_preguntas` ENABLE KEYS */;
