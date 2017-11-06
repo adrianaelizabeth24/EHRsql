@@ -18,37 +18,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="personal_info">
-                            <label>Diagnostico Primario :</label><p>{{$historial->diagnostico_primario}}</p>
-                            <label>Código :</label><p>{{$historial->codigo}}</p>
-                            <label>ICG-S :</label><p>{{$historial->icg-s}}</p>
+                            <label>Diagnostico Primario :</label><p>{{$diagnostico->diagnostico_primario}}</p>
+                            <label>Código :</label><p>{{$diagnostico->codigo}}</p>
+                            <label>ICG-S :</label><p>{{$diagnostico->icg_s}}</p>
 
-                            <div class="col-md-12">
-
-                                <h2>Diagnóstico</h2>
-
-                                <label>No se evaluó</label><p>{{$historial->no_se_evaluo}}</p>
-                                <label>Normal, no enferno</label><p>{{$historial->normal}}</p>
-                                <label>Límite</label><p>{{$historial->limite}}</p>
-                                <label>Levemente enfermo</label><p>{{$historial->levemente_enfermo}}</p>
-                                <label>Moderadamente enfermo</label><p>{{$historial->moderadamente_enfermo}}</p>
-                                <label>Marcadamente enfermo</label><p>{{$historial->marcadamente_enfermo}}</p>
-                                <label>Severamente enfermo</label><p>{{$historial->severamente_enfermo}}</p>
-                                <label>Extremadamente enfermo</label><p>{{$historial->extremadamente_enfermo}}</p>
-                                <label>Entre los pacientes mas enfermos</label><p>{{$historial->mas_enfermos}}</p>
-                                
-                            </div>
-
-                            <label>Diagnostico Secundario :</label><p>{{$historial->diagnostico_secundario}}</p>
-                            <label>Código :</label><p>{{$historial->codigo_secunadrio}}</p>
-                            <label>ICG-S :</label><p>{{$historial->icg-s_secundario}}</p>
+                            <label>Diagnostico Secundario :</label><p>{{$diagnostico->diagnostico_secundario}}</p>
+                            <label>Código :</label><p>{{$diagnostico->codigo_secunadrio}}</p>
+                            <label>ICG-S :</label><p>{{$diagnostico->icg_s_secundario}}</p>
 
 
                         </div>
                     </div>
                 </div>
-                <a href="/paciente/{{{$historial->id_paciente}}}" class="btn btn-info">Regresar</a>
-                <a href="/diagnostico/{{{$historial->id}}}/edit" class="btn btn-warning">Editar</a>
-                <form action="{{action('DiagnosticoController@destroy', $historial->id)}}" method="post" style="display: unset;">
+                <a href="/paciente/{{{$diagnostico->id_paciente}}}" class="btn btn-info">Regresar</a>
+                <a href="/diagnostico/{{{$diagnostico->id}}}/edit" class="btn btn-warning">Editar</a>
+                <form action="{{action('DiagnosticoController@destroy', $diagnostico->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Borrar</button>
