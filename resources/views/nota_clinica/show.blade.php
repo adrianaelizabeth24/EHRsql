@@ -17,7 +17,7 @@
             <div id="patient" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">
-                        < class="personal_info">
+                        <div class="personal_info">
                             <label>No. de Sesión</label><p>{{$nota->no_de_sesion}}</p><br/>
                             <label>Edad :</label><p>{{$nota->edad}}</p><br/>
                             <label>Fecha :</label><p>{{$nota->fecha}}</p><br/>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/paciente/{{{$nota->id_paciente}}}" class="btn btn-info">Regresar</a>
+                <a href="/nota_clinica/paciente/{{{$id_paciente}}}" class="btn btn-info">Regresar</a>
                 <a href="/nota_clinica/{{{$nota->id}}}/edit" class="btn btn-warning">Editar</a>
                 <form action="{{action('NotaClinicaController@destroy', $nota->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}

@@ -161,8 +161,13 @@
                                class="btn btn-info">Ver Plan de Tratamiento</a>
                         @endif
 
-                       <a href="/nota_clinica/{{{$paciente->id_nota_clinica}}}"
-                               class="btn btn-info">Ver Notas Clinicas</a>
+                        @if ($paciente->id_nota_clinica == 0)
+                            <a href="/nota_clinica/new/{{{$paciente->id}}}" class="btn btn-info">Agregar
+                                Notas Clínicas</a>
+                        @else
+                            <a href="/nota_clinica/paciente/{{{$paciente->id}}}"
+                               class="btn btn-info">Ver Notas Clínicas</a>
+                        @endif
 
 
 

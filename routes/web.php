@@ -102,6 +102,9 @@ Route::get('historia_psiquiatrica_previa/paciente/{paciente}', 'HistoriaPsiquiat
 Route::resource('historia_psiquiatrica_previa', 'HistoriaPsiquiatricaPreviaController');
 
 //nota clinica
+Route::get('nota_clinica/new/{paciente}', 'NotaClinicaController@newNoteBlock');
+Route::get('nota_clinica/paciente/{paciente}', 'NotaClinicaController@index');
+Route::get('nota_clinica/nota_clinica/{nota_clinica}', 'NotaClinicaController@create');
 Route::resource('nota_clinica', 'NotaClinicaController');
 
 //pacientes
