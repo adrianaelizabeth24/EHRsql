@@ -125,7 +125,7 @@
                         <a href="/pat_nopat/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Antecedentes
                             Patológicos</a>
                     @else
-                        <a href="/pat_nopat/{{{$paciente->id_peea}}}" class="btn btn-info">Ver Antecedentes
+                        <a href="/pat_nopat/{{{$paciente->id_pat_nopat}}}" class="btn btn-info">Ver Antecedentes
                             Patológicos</a>
                     @endif
 

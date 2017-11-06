@@ -70,7 +70,7 @@ class PatnoPatController extends Controller
         $antecedentes_pat_pacientes->save();
 
         $opciones = new opciones_preguntas();
-        $antecedentes = $opciones::where('pregunta','antecedentes_pat_nopats');
+        $antecedentes = $opciones::where('pregunta','antecedentes_pat_nopats')->get();
 
         // obtener datos de los campos
         $antecedentes_notas = $request->input('antecedentes_notas');
@@ -95,8 +95,12 @@ class PatnoPatController extends Controller
             
             $antecedentes_pat->id_antecedentes_pat_pacientes = $antecedentes_pat_pacientes->id;
             $antecedentes_pat->id_antecedente = $antecedente->id;
-            $antecedentes_pat->valor = $request->input($antecedente->id);
-            $antecedentes_pat->detalles = $request->input($antecedente.'_detalles');
+
+            $opcion = $antecedente->opcion;
+
+            $antecedentes_pat->valor = $request->input($opcion);
+            $antecedentes_pat->detalles = $request->input( $opcion . '_detalles' );
+
             $antecedentes_pat->save();
         }
 
@@ -141,7 +145,8 @@ class PatnoPatController extends Controller
      */
     public function show($id)
     {
-        //
+        $pat_nopat = pat_nopat::find($id);
+        return view('pat_nopat.show', ['pat_nopat' => $pat_nopat]);
     }
 
     /**
