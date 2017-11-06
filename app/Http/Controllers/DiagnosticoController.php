@@ -52,7 +52,7 @@ class DiagnosticoController extends Controller
         $diagnsotico->save();
 
         $paciente = paciente::find($id_paciente);
-        $paciente->id_examen_mental = $diagnsotico->id;
+        $paciente->id_diagnostico = $diagnsotico->id;
         $paciente->save();
         return view('paciente.show', ['paciente' => $paciente]);
     }
@@ -66,7 +66,7 @@ class DiagnosticoController extends Controller
     public function show($id)
     {
         $diagnostico = diagnostico::find($id);
-        return view('diagnostico.show', ['diagnsotico' => $diagnostico]);
+        return view('diagnostico.show', ['diagnostico' => $diagnostico]);
     }
 
     /**
@@ -90,7 +90,7 @@ class DiagnosticoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $diagnsotico = new diagnostico();
+        $diagnsotico = diagnostico::find($id);
 
 
 

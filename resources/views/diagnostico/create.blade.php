@@ -24,15 +24,15 @@
                     <div class="col-md-12">
                         <input placeholder="Diagnostico Primario" name="diagnostico_primario"/>
                         <label>Código</label><br/>
-                        <input type="radio" name="diagnostico" value="No se evaluó">No se evaluó<br/>
-                        <input type="radio" name="diagnostico" value="Normal, no enferno">Normal, no enferno<br/>
-                        <input type="radio" name="diagnostico" value="limite">limite<br/>
-                        <input type="radio" name="diagnostico" value="Levemente enfermo">Levemente enfermo<br/>
-                        <input type="radio" name="diagnostico" value="Moderadamente enfermo">Moderadamente enfermo<br/>
-                        <input type="radio" name="diagnostico" value="Marcadamente enfermo">Marcadamente enfermo<br/>
-                        <input type="radio" name="diagnostico" value="Severamente enfermo">Severamente enfermo<br/>
-                        <input type="radio" name="diagnostico" value="Extremadamente enfermo">Extremadamente enfermo<br/>
-                        <input type="radio" name="diagnostico" value="Entre los pacientes mas enfermos">Entre los pacientes
+                        <input type="radio" name="codigo" value="No se evaluó">No se evaluó<br/>
+                        <input type="radio" name="codigo" value="Normal, no enferno">Normal, no enferno<br/>
+                        <input type="radio" name="codigo" value="limite">limite<br/>
+                        <input type="radio" name="codigo" value="Levemente enfermo">Levemente enfermo<br/>
+                        <input type="radio" name="codigo" value="Moderadamente enfermo">Moderadamente enfermo<br/>
+                        <input type="radio" name="codigo" value="Marcadamente enfermo">Marcadamente enfermo<br/>
+                        <input type="radio" name="codigo" value="Severamente enfermo">Severamente enfermo<br/>
+                        <input type="radio" name="codigo" value="Extremadamente enfermo">Extremadamente enfermo<br/>
+                        <input type="radio" name="codigo" value="Entre los pacientes mas enfermos">Entre los pacientes
                         mas enfermos<br/>
                         <br/>
                         <input placeholder="ICG-S" name="icg_s"/>

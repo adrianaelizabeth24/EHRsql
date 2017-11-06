@@ -24,7 +24,7 @@
 						No
 					@endif
                     <br/>
-					<label>Antecedentes Obstetricos: </label>{{$antecedentes->antecedentes_obstetricos}}
+					<label>Antecedentes Obstetricos: </label>{{$antecedentes->antecedentes_obstreticos}}
                     <br/>
 
 					<label>Embarazo Actual</label>
@@ -52,7 +52,7 @@
 					@endif
 					<br/>
 
-					<label>Anticonceptivos : </label>{{$antecendentes->anticonceptivos}}
+					<label>Anticonceptivos : </label>{{$antecedentes->anticonceptivos}}
 					<br/>
 
 				</div>

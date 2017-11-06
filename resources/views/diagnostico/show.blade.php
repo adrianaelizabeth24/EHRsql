@@ -23,7 +23,7 @@
                             <label>ICG-S :</label><p>{{$diagnostico->icg_s}}</p>
 
                             <label>Diagnostico Secundario :</label><p>{{$diagnostico->diagnostico_secundario}}</p>
-                            <label>Código :</label><p>{{$diagnostico->codigo_secunadrio}}</p>
+                            <label>Código :</label><p>{{$diagnostico->codigo_secundario}}</p>
                             <label>ICG-S :</label><p>{{$diagnostico->icg_s_secundario}}</p>
 
 

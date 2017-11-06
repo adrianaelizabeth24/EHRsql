@@ -101,25 +101,25 @@
                         <br/>
 
                         <label>Antecedentes Obstetricos</label><br/>
-                        @if($antecedentes->antecedentes_obstetricos == 'Gesta')
+                        @if($antecedentes->antecedentes_obstreticos == 'Gesta')
                             <input type="radio" name="antecedentes_obstetricos" value="Gesta" checked>Gesta<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @elseif($antecedentes->antecedentes_obstetricos == 'Para')
+                        @elseif($antecedentes->antecedentes_obstreticos == 'Para')
                             <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Para" checked>Para<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @elseif($antecedentes->antecedentes_obstetricos == 'Cesareas')
+                        @elseif($antecedentes->antecedentes_obstreticos == 'Cesareas')
                             <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Cesareas" checked>Cesareas<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @elseif($antecedentes->antecedentes_obstetricos == 'Abortos')
+                        @elseif($antecedentes->antecedentes_obstreticos == 'Abortos')
                             <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
                             <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
