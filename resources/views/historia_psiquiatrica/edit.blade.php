@@ -142,10 +142,12 @@
 						@if($historia->agorafobia == 1)
 							<input type="radio" name="agorafobia" value="1" checked>Sí<br/>
 							<input type="radio" name="agorafobia" value="0">No<br/>
+							<input type="radio" name="agorafobia" value="2" checked>No Sé<br/>
 							<br/>
 						@elseif($historia->agorafobia == 0)
 							<input type="radio" name="agorafobia" value="1">Sí<br/>
 							<input type="radio" name="agorafobia" value="0" checked>No<br/>
+							<input type="radio" name="agorafobia" value="2" checked>No Sé<br/>
 							<br/>
 						@else
 							<input type="radio" name="agorafobia" value="1">Sí<br/>
