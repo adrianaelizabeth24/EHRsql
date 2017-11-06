@@ -69,43 +69,44 @@ Route::get('/pat_nopat', function () {
 });
 
 */
-//pacientes
-Route::resource('paciente', 'PacienteController');
-
-//substancias
-Route::resource('substancias', 'SubstanciasController');
-
-//examen exploración física
-Route::get('exploracion_fisica/paciente/{paciente}', 'ExploracionFisicaController@create');
-Route::resource('exploracion_fisica','ExploracionFisicaController');
-
-//examen mental
-Route::get('examen_mental/paciente/{paciente}', 'ExamenMentalController@create');
-Route::resource('examen_mental', 'ExamenMentalController');
-
-//historia psiquiatrica familiar
-Route::get('historia_psiquiatrica/paciente/{paciente}', 'HistoriaPsiquiatricaFamiliarController@create');
-Route::resource('historia_psiquiatrica', 'HistoriaPsiquiatricaFamiliarController');
-
-//historial tratamiento
-Route::get('historia_psiquiatrica_previa/paciente/{paciente}', 'HistoriaPsiquiatricaPreviaController@create');
-Route::resource('historia_psiquiatrica_previa', 'HistoriaPsiquiatricaPreviaController');
+//absuo_de_substancias
+Route::get('abuso_de_substancias/paciente/{paciente}', 'AbusoDeSubstanciasController@create');
+Route::resource('abuso_de_substancias', 'AbusoDeSubstanciasController');
 
 //antecedentes ginecobstetricos
 Route::get('antecedentes_ginecobstetricos/paciente/{paciente}', 'AntecedentesGinecobstetricosController@create');
 Route::resource('antecedentes_ginecobstetricos', 'AntecedentesGinecobstetricosController');
 
-//ehr
-Route::get('ehr/paciente/{paciente}', 'EHRController@create');
-Route::resource('ehr', 'EHRController');
+//diagnostico
+Route::get('diagnostico/paciente/{paciente}', 'DiagnosticoController@create');
+Route::resource('diagnostico', 'DiagnosticoController');
 
-//reporte_consulta
-Route::get('reporte_consulta/paciente/{paciente}', 'ReporteConsultaController@create');
-Route::resource('reporte_consulta', 'ReporteConsultaController');
+//examen mental
+Route::get('examen_mental/paciente/{paciente}', 'ExamenMentalController@create');
+Route::resource('examen_mental', 'ExamenMentalController');
 
-//absuo_de_substancias
-Route::get('abuso_de_substancias/paciente/{paciente}', 'AbusoDeSubstanciasController@create');
-Route::resource('abuso_de_substancias', 'AbusoDeSubstanciasController');
+//examen exploración física
+Route::get('exploracion_fisica/paciente/{paciente}', 'ExploracionFisicaController@create');
+Route::resource('exploracion_fisica','ExploracionFisicaController');
+
+//historia clinica familiar
+Route::get('historia_clinica_familiar/paciente/{paciente}', 'HistoriaClinicaFamiliarController@create');
+Route::resource('historia_psiquiatrica', 'HistoriaClinicaFamiliarController');
+
+//historia psiquiatrica familiar
+Route::get('historia_psiquiatrica/paciente/{paciente}', 'HistoriaPsiquiatricaFamiliarController@create');
+Route::resource('historia_psiquiatrica', 'HistoriaPsiquiatricaFamiliarController');
+
+//historia psiquiatrica previa
+Route::get('historia_psiquiatrica_previa/paciente/{paciente}', 'HistoriaPsiquiatricaPreviaController@create');
+Route::resource('historia_psiquiatrica_previa', 'HistoriaPsiquiatricaPreviaController');
+
+//nota clinica
+Route::resource('nota_clinica', 'NotaClinicaController');
+
+//pacientes
+Route::resource('paciente', 'PacienteController');
+
 
 /* PEEA */
 Route::get('peea/paciente/{paciente}', 'PeeaController@create');
@@ -114,3 +115,11 @@ Route::resource('peea','PeeaController');
 /* Antecedentes patológicos y no patológicos */
 Route::get('pat_nopat/paciente/{paciente}', 'PatnoPatController@create');
 Route::resource('pat_nopat','PatnoPatController');
+
+//plan de tratamiento
+Route::get('plan_tratamiento/paciente/{paciente}', 'PlanTratamientoController@create');
+Route::resource('plan_tratamiento','PlanTratamientoController');
+
+//substancias
+Route::resource('substancias', 'SubstanciasController');
+
