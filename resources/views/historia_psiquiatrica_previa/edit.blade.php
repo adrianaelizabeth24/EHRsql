@@ -130,11 +130,11 @@
 						<br/>
 
 						<label>Disimia</label><br/>
-						@if($historial->disimia == 2)
+						@if($historial->distimia == 2)
 							<input type="radio" name="disimia" value="2" checked> Sí<br/>
 							<input type="radio" name="disimia" value="1"> No<br/>
 							<input type="radio" name="disimia" value="0"> Se desconoce<br/>
-						@elseif($historial->disimia == 1)
+						@elseif($historial->distimia == 1)
 							<input type="radio" name="disimia" value="2"> Sí<br/>
 							<input type="radio" name="disimia" value="1" checked> No<br/>
 							<input type="radio" name="disimia" value="0"> Se desconoce<br/>
@@ -258,11 +258,11 @@
 						<br/>
 
 						<label>Retraso Mental</label><br/>
-						@if($historial->retraso_mental == 2)
+						@if($historial->retrado_mental == 2)
 							<input type="radio" name="retraso_mental" value="2" checked> Sí<br/>
 							<input type="radio" name="retraso_mental" value="1"> No<br/>
 							<input type="radio" name="retraso_mental" value="0"> Se desconoce<br/>
-						@elseif($historial->retraso_mental == 1)
+						@elseif($historial->retrado_mental == 1)
 							<input type="radio" name="retraso_mental" value="2"> Sí<br/>
 							<input type="radio" name="retraso_mental" value="1" checked> No<br/>
 							<input type="radio" name="retraso_mental" value="0"> Se desconoce<br/>
@@ -274,11 +274,11 @@
 						<br/>
 
 						<label>Trastorno de Personalidad</label><br/>
-						@if($historial->trastorno_de_personalidad == 2)
+						@if($historial->trastorno_de_peronsonalidad == 2)
 							<input type="radio" name="trastorno_personalidad" value="2" checked> Sí<br/>
 							<input type="radio" name="trastorno_personalidad" value="1"> No<br/>
 							<input type="radio" name="trastorno_personalidad" value="0"> Se desconoce<br/>
-						@elseif($historial->trastorno_de_personalidad == 1)
+						@elseif($historial->trastorno_de_peronsonalidad == 1)
 							<input type="radio" name="trastorno_personalidad" value="2"> Sí<br/>
 							<input type="radio" name="trastorno_personalidad" value="1" checked> No<br/>
 							<input type="radio" name="trastorno_personalidad" value="0"> Se desconoce<br/>
