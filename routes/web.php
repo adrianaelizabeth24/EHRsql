@@ -15,12 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/panel_control', function(){
+    return view('panel_control');
+});
+
 Route::get('/paciente', function (){
     return view('paciente.index');
 });
 
 Route::get('/substancias', function (){
     return view('substancias.index');
+});
+
+Route::get('/preguntasPatNoPat', function (){
+    return view('preguntasPatNoPat.index');
 });
 
 /*
@@ -122,6 +130,9 @@ Route::resource('pat_nopat','PatnoPatController');
 //plan de tratamiento
 Route::get('plan_tratamiento/paciente/{paciente}', 'PlanTratamientoController@create');
 Route::resource('plan_tratamiento','PlanTratamientoController');
+
+//Preguntas Pat no Pat
+Route::resource('preguntasPatNoPat', 'PreguntasPatNoPatController');
 
 //substancias
 Route::resource('substancias', 'SubstanciasController');

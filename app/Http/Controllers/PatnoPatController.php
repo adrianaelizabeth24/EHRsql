@@ -7,7 +7,9 @@ use App\pat_nopat;
 use App\antecedentes_pat;
 use App\antecedentes_pat_pacientes;
 use App\paciente;
+use App\preguntas_patnopat;
 use App\opciones_preguntas;
+use App\substancias;
 
 class PatnoPatController extends Controller
 {
@@ -32,49 +34,38 @@ class PatnoPatController extends Controller
 
         // Crear variables para las opciones de las preguntas correspondientes
 
-        $antecedentes = $opciones::where('pregunta','antecedentes_pat_nopats') -> pluck('opcion');
-        $tabaquismo = $opciones::where('pregunta','tabaquismo') -> pluck('opcion');
-        $bebidas_frecuencia = $opciones::where('pregunta','bebidas_alcoholicas_frecuencia') -> pluck('opcion');
-        $bebidas_cantidad = $opciones::where('pregunta','bebidas_alcoholicas_cantidad') -> pluck('opcion');
-        $substancias = $opciones::where('pregunta','substancias') -> pluck('opcion');
+        $antecedentes = preguntas_patnopat::all();
+        $tabaquismo = $opciones::where('pregunta', 'tabaquismo')->pluck('opcion');
+        $bebidas_frecuencia = $opciones::where('pregunta', 'bebidas_alcoholicas_frecuencia')->pluck('opcion');
+        $bebidas_cantidad = $opciones::where('pregunta', 'bebidas_alcoholicas_cantidad')->pluck('opcion');
+        $substancias = $opciones::where('pregunta', 'substancias')->pluck('opcion');
 
         $paciente = paciente::find($id);
 
         // Mandarle las variables a la vista
-        
-        return view('pat_nopat.create')->with(  
-            compact(
-                'antecedentes',
-                'tabaquismo',
-                'bebidas_frecuencia',
-                'bebidas_cantidad',
-                'substancias',
-                'paciente'
-                ))  ;
+
+        return view('pat_nopat.create', ['antecedentes' => $antecedentes, 'tabaquismo' => $tabaquismo,
+            'bebidas_frecuencia' => $bebidas_frecuencia, 'bebidas_cantidad' => $bebidas_cantidad,
+            'substancias' => $substancias, 'paciente' => $paciente]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         // Tabla que guarda la forma de antecedentes patológicos y no patológicos
-        
+        //creas un nuevo registro pat no pat (el que tiene toda la info)
         $pat_nopat = new pat_nopat();
 
+        //creas el nuevo registro antecedentes pat pacientes
+        //contiene el id generado --> importante + id_paciente
         $antecedentes_pat_pacientes = new antecedentes_pat_pacientes();
         $antecedentes_pat_pacientes->id_paciente = $request->input('id_paciente');
         $antecedentes_pat_pacientes->save();
-
-        $opciones = new opciones_preguntas();
-<<<<<<< HEAD
-        $antecedentes = $opciones::where('pregunta','=','antecedentes_pat_nopats');
-=======
-        $antecedentes = $opciones::where('pregunta','antecedentes_pat_nopats')->get();
->>>>>>> a953c40b5d42581af53ae23095d027c731c40ecf
 
         // obtener datos de los campos
         $antecedentes_notas = $request->input('antecedentes_notas');
@@ -91,24 +82,21 @@ class PatnoPatController extends Controller
         $tomarMañana = $request->input('tomarMañana');
 
         $problemas = $request->input('problemas');
+        //se trae las preguntas y las almacena en antecedentes
+        $antecedentes = preguntas_patnopat::all();
 
-
-        // NO GUARDA
-        foreach($antecedentes as $antecedente) {
+        //para cada pregunta
+        foreach ($antecedentes as $antecedente) {
+            //crear un nuevo registo multivalue
             $antecedentes_pat = new antecedentes_pat();
-            
             $antecedentes_pat->id_antecedentes_pat_pacientes = $antecedentes_pat_pacientes->id;
             $antecedentes_pat->id_antecedente = $antecedente->id;
-
-            $opcion = $antecedente->opcion;
-
-            $antecedentes_pat->valor = $request->input($opcion);
-            $antecedentes_pat->detalles = $request->input( $opcion . '_detalles' );
-
+            $antecedentes_pat->valor = $request->input($antecedente->id);
+            $antecedentes_pat->detalles = $request->input($antecedente->id . '_detalles');
             $antecedentes_pat->save();
         }
 
-        $pat_nopat -> id_antecedentes = $antecedentes_pat_pacientes->id;
+        $pat_nopat->id_antecedentes = $antecedentes_pat_pacientes->id;
 
         //resto de los campos
         $pat_nopat->id_paciente = $request->input('id_paciente');
@@ -129,12 +117,9 @@ class PatnoPatController extends Controller
 
         $pat_nopat->save();
 
-       
-
-        $paciente = paciente::find($antecedentes_pat_pacientes -> id_paciente  );
-        $paciente -> id_pat_nopat = $pat_nopat -> id;
+        $paciente = paciente::find($antecedentes_pat_pacientes->id_paciente);
+        $paciente->id_pat_nopat = $pat_nopat->id;
         $paciente->save();
-
 
 
         return view('paciente.show', ['paciente' => $paciente]);
@@ -144,19 +129,24 @@ class PatnoPatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $pat_nopat = pat_nopat::find($id);
-        return view('pat_nopat.show', ['pat_nopat' => $pat_nopat]);
+        $antecedentes = preguntas_patnopat::all();
+        $antecedentes_paciente = antecedentes_pat_pacientes::where('id', '=', $pat_nopat->id_antecedentes)->first();
+        $a = $antecedentes_paciente->id;
+        $antecedentes_todo = antecedentes_pat::where('id_antecedentes_pat_pacientes', '=', $a)->get();
+        return view('pat_nopat.show', ['pat_nopat' => $pat_nopat, 'antecedentes' => $antecedentes,
+            'pat_pacientes' => $antecedentes_paciente, 'antecedentes_opciones' => $antecedentes_todo]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -167,8 +157,8 @@ class PatnoPatController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -179,7 +169,7 @@ class PatnoPatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

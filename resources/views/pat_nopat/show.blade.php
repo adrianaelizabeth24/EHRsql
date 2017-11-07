@@ -12,6 +12,24 @@
     		<label>NOTAS DE ANTECEDENTES PERSONALES PATOLÓGICOS Y NO PATOLÓGICOS:</label><br> {{ $pat_nopat-> antecedentes_notas }} <br>
     	</div>
 
+
+		<div class="col-md-12">
+			@foreach($antecedentes as $ant)
+				<label>
+					{{$ant->preguntas}}
+				</label>
+				@foreach ($antecedentes_opciones as $ant_opciones)
+					@if($ant_opciones->id_antecedente == $ant->id)
+						{{$ant_opciones->valor}}
+					<br/>
+						detalles:
+						{{$ant_opciones->detalles}}
+					@endif
+				@endforeach
+				<br/>
+			@endforeach
+		</div>
+
     	<div class="row">
     		<label>No. de tazas de café o té negro al día: </label> {{ $pat_nopat-> tazasCafé  }}
     	</div>
