@@ -12,6 +12,7 @@
             <div class="links">
                 <a href='/substancias'>Configuracion Substancias</a>
                 <a href="/preguntasPatNoPat">Configuracion Preguntas Antecedentes Patologicos</a>
+                <a href="/estado_civil">Configuracion Estado Civil</a>
             </div>
         </div>
     </div>

@@ -72,12 +72,10 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>Estado Civil</h4>
-                <input type="checkbox" name="estado_civil" value="Soltero"/>Soltero<br>
-                <input type="checkbox" name="estado_civil" value="Casado"/>Casado<br>
-                <input type="checkbox" name="estado_civil" value="Separado"/>Separado<br>
-                <input type="checkbox" name="estado_civil" value="Divorciado"/>Divorciado<br>
-                <input type="checkbox" name="estado_civil" value="Viudo"/>Viudo<br>
-                <input type="checkbox" name="estado_civil" value="Union Libre"/>Union Libre<br>
+                @foreach($estado_civil as $edo)
+                    <input type="radio" name="estado_civil" value="{{$edo->id}}"/>{{$edo->nombre}}<br/>
+                @endforeach
+
             </div>
         </div>
         <br>

@@ -19,7 +19,12 @@
                             <label>Fecha de Nacimiento :</label>
                             <p>{{$paciente->nacimiento}}</p>
                             <label>Estado Civil :</label>
-                            <p>{{$paciente->estado_civil}}</p>
+                            <p>@foreach($estado_civil as $edo)
+                                    @if($paciente->estado_civil == $edo->id)
+                                    {{$edo->nombre}}
+                                    @endif
+                                @endforeach
+                            </p>
                             <label>Sustento :</label>
                             <p>{{$paciente->sustento}}</p>
                             <label>Ocupación del paciente</label>

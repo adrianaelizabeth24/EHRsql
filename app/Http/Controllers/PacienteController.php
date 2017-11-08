@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\estado_civil;
 use Illuminate\Http\Request;
 use App\paciente;
 
@@ -25,7 +26,8 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        return view('paciente.create');
+        $estado_civil = estado_civil::all();
+        return view('paciente.create', ['estado_civil' => $estado_civil]);
     }
 
     /**
@@ -92,7 +94,8 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = paciente::find($id);
-        return view('paciente.show', ['paciente' => $paciente]);
+        $estado_civil = estado_civil::all();
+        return view('paciente.show', ['paciente' => $paciente, 'estado_civil' => $estado_civil]);
     }
 
     /**
@@ -103,8 +106,9 @@ class PacienteController extends Controller
      */
     public function edit($id)
     {
+        $estado_civil = estado_civil::all();
         $paciente = paciente::find($id);
-        return view('paciente.edit', ['paciente' => $paciente, 'id' => $id]);
+        return view('paciente.edit', ['paciente' => $paciente, 'id' => $id, 'estado_civil' => $estado_civil]);
     }
 
     /**

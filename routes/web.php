@@ -30,53 +30,20 @@ Route::get('/substancias', function (){
 Route::get('/preguntasPatNoPat', function (){
     return view('preguntasPatNoPat.index');
 });
-
-/*
-
-Route::get('/peea', function () {
-
-	// Crear variables para las opciones de las preguntas correspondientes
-
-	$ep_actual = App\opciones_preguntas::where('pregunta','ep_actual') -> pluck('opcion');
-	$inicio_sintomas = App\opciones_preguntas::where('pregunta','inicio_sintomas') -> pluck('opcion');
-	$tratamiento = App\opciones_preguntas::where('pregunta','tratamiento') -> pluck('opcion');
-
-	// Mandarle las variables a la vista
-
-    return view('peea')->with(  
-    	compact(
-    		'ep_actual',
-    		'inicio_sintomas',
-    		'tratamiento'
-    		))  ;
+Route::get('/estado_civil', function (){
+    return view('estado_civil.index');
 });
-
-*/
-
-/*
-Route::get('/pat_nopat', function () {
-
-	// Crear variables para las opciones de las preguntas correspondientes
-
-	$antecedentes = App\opciones_preguntas::where('pregunta','antecedentes_pat_nopats') -> pluck('opcion');
-	$tabaquismo = App\opciones_preguntas::where('pregunta','tabaquismo') -> pluck('opcion');
-	$bebidas_frecuencia = App\opciones_preguntas::where('pregunta','bebidas_alcoholicas_frecuencia') -> pluck('opcion');
-	$bebidas_cantidad = App\opciones_preguntas::where('pregunta','bebidas_alcoholicas_cantidad') -> pluck('opcion');
-	$substancias = App\opciones_preguntas::where('pregunta','substancias') -> pluck('opcion');
-
-	// Mandarle las variables a la vista
-	
-    return view('pat_nopat')->with(  
-    	compact(
-    		'antecedentes',
-    		'tabaquismo',
-    		'bebidas_frecuencia',
-    		'bebidas_cantidad',
-    		'substancias'
-    		))  ;
-});
-
-*/
+/////////////////////////////////////////
+///
+///
+///
+///
+///
+///
+///
+///
+/// /////////////////////////////////////////
+///
 //absuo_de_substancias
 Route::get('abuso_de_substancias/paciente/{paciente}', 'AbusoDeSubstanciasController@create');
 Route::resource('abuso_de_substancias', 'AbusoDeSubstanciasController');
@@ -136,4 +103,7 @@ Route::resource('preguntasPatNoPat', 'PreguntasPatNoPatController');
 
 //substancias
 Route::resource('substancias', 'SubstanciasController');
+
+//estado civil
+Route::resource('estado_civil', 'EstadoCivilController');
 
