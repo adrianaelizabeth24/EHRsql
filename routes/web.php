@@ -37,6 +37,10 @@ Route::get('/estado_civil', function (){
 Route::get('/lugar_residencia', function (){
     return view('lugar_residencia.index');
 });
+
+Route::get('/sustento', function (){
+    return view('sustento.index');
+});
 /////////////////////////////////////////
 ///
 ///
@@ -113,4 +117,5 @@ Route::resource('estado_civil', 'EstadoCivilController');
 
 Route::resource('lugar_residencia', 'LugarResidenciaController');
 
-
+//sustento familiar
+Route::resource('sustento', 'SustentoController');

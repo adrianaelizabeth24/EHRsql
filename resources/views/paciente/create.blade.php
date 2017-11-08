@@ -82,15 +82,10 @@
         </div>
 
         <h4>¿Quién provee el sustento familiar?</h4>
-        <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-        <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-        <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-        <input type="checkbox" name="sustento" value="Padres">Padres<br>
-        <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-        <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-        <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-        <input type="checkbox" name="sustento" value="Pension">Pension<br>
-        <input type="checkbox" name="sustento" value="Otro">Otro<br>
+        @foreach($sustento as $sustento_familiar)
+            <input type="radio" name="sustento" value="{{$sustento_familiar->id}}"/>{{$sustento_familiar->nombre}}<br/>
+        @endforeach
+
         <br>
         <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del jefe de familia" name="ocupacion_sustento" required/>
         <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente" required/>
