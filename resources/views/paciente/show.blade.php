@@ -25,6 +25,13 @@
                                     @endif
                                 @endforeach
                             </p>
+                            <label>Lugar de Residencia :</label>
+                            <p>@foreach($lugar_residencia as $lugar)
+                                    @if($paciente->lugar_residencia == $lugar->id)
+                                        {{$lugar->nombre}}
+                                    @endif
+                                @endforeach
+                            </p>
                             <label>Sustento :</label>
                             <p>{{$paciente->sustento}}</p>
                             <label>Ocupación del paciente</label>

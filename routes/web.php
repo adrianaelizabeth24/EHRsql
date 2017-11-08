@@ -33,6 +33,10 @@ Route::get('/preguntasPatNoPat', function (){
 Route::get('/estado_civil', function (){
     return view('estado_civil.index');
 });
+
+Route::get('/lugar_residencia', function (){
+    return view('lugar_residencia.index');
+});
 /////////////////////////////////////////
 ///
 ///
@@ -106,4 +110,7 @@ Route::resource('substancias', 'SubstanciasController');
 
 //estado civil
 Route::resource('estado_civil', 'EstadoCivilController');
+
+Route::resource('lugar_residencia', 'LugarResidenciaController');
+
 

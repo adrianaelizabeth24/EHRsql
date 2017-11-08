@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input class="form-control" type="text" class="allwidth" placeholder="Telefono" name="telefono" required/>
+                <input class="form-control allwidth" type="text" placeholder="Telefono" name="telefono" required/>
             </div>
         </div>
         <div class="row">
@@ -53,14 +53,9 @@
 				<label>Lugar de residencia: </label>
                 <select name="residencia">
                     <option value="0">Lugar de Residencia</option>
-                    <option value="Monterrey">Monterrey</option>
-                    <option value="Guadalupe">Guadalupe</option>
-                    <option value="San Nicolás">San Nicolás</option>
-                    <option value="Garza García">Garza García</option>
-                    <option value="Apodaca">Apodaca</option>
-                    <option value="Escobedo">Escobedo</option>
-                    <option value="OtroMun">Otro (Mun. N.L.)</option>
-                    <option value="OtroEst">Otro Estado</option>
+                    @foreach($lugar_residencia as $lugar)
+                        <option value="{{$lugar->id}}">{{$lugar->nombre}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
