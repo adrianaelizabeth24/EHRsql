@@ -13,6 +13,15 @@ h2 {
   border-bottom: solid #636b6f 4px; }
 
 /* line 35, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+.jumbotron {
+  background-color: #6392bb; }
+
+/* line 39, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+.container {
+  background-color: white;
+  padding: 25px; }
+
+/* line 44, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -29,5 +38,12 @@ select {
   padding: 0 10px; }
 
 /* Overrides */
+/* line 56, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+.navbar-inverse .navbar-brand {
+  color: white; }
+
+/* line 60, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+.navbar-inverse .navbar-nav > li > a {
+  color: white; }
 
 /*# sourceMappingURL=app.css.map */
