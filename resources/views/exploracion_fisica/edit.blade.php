@@ -26,7 +26,7 @@
                             <input type="radio" name="condicion_general" value="0" checked> No examinado<br/>
                         @endif
                         <br/>
-                        <input type="text" name="txt_condicion_general"
+                        <input class="form-control" type="text" name="txt_condicion_general"
                                placeholder="Especifique condición general del paciente"
                                value="{{$examen->txt_condicion_general}}"/>
                         <br/>
@@ -48,7 +48,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_piel"
+                        <input class="form-control" type="text" name="txt_piel"
                                placeholder="Especifique la condición de la piel del paciente"
                                value="{{$examen->txt_piel}}"/>
                         <br/>
@@ -71,7 +71,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_cabeza"
+                        <input class="form-control" type="text" name="txt_cabeza"
                                placeholder="Especifique la condición de la cabeza del paciente"
                                value="{{$examen->txt_cabeza}}"/>
                         <br/>
@@ -94,7 +94,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_ojos"
+                        <input class="form-control" type="text" name="txt_ojos"
                                placeholder="Especifique la condición de los ojos del paciente"
                                value="{{$examen->txt_ojos}}"/>
                         <br/>
@@ -117,7 +117,7 @@
                             <input type="radio" name="oidos_nariz_garganta" value="0" checked> No examinado<br/>
                         @endif
                         <br/>
-                        <input type="text" name="txt_oidos_nariz_garganta"
+                        <input class="form-control" type="text" name="txt_oidos_nariz_garganta"
                                placeholder="Especifique la condición de los oídos, nariz y garganta del paciente"
                                value="{{$examen->txt_oidos_nariz_garganta}}"/>
                         <br/>
@@ -140,7 +140,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_cuello_tiroides"
+                        <input class="form-control" type="text" name="txt_cuello_tiroides"
                                placeholder="Especifique la condición del cuello y tiroides del paciente"
                                value="{{$examen->txt_cuello_tiroides}}"/>
                         <br/>
@@ -163,7 +163,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_pulmones"
+                        <input class="form-control" type="text" name="txt_pulmones"
                                placeholder="Especifique la condición de los pulmones del paciente"
                                value="{{$examen->txt_pulmones}}"/>
                         <br/>
@@ -187,7 +187,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_corazon"
+                        <input class="form-control" type="text" name="txt_corazon"
                                placeholder="Especifique la condición del corazón del paciente"
                                value="{{$examen->txt_corazon}}"/>
                         <br/>
@@ -211,7 +211,7 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_gastro"
+                        <input class="form-control" type="text" name="txt_gastro"
                                placeholder="Especifique la condición gastrointestinal del paciente"
                                value="{{$examen->txt_gastro}}"/>
                         <br/>
@@ -239,7 +239,7 @@
                             examinado<br/>
                         @endif
                         <br/>
-                        <input type="text" name="txt_lineaticos"
+                        <input class="form-control" type="text" name="txt_lineaticos"
                                placeholder="Especifique la condición lineática del paciente"
                                value="{{$examen->txt_lineaticos}}"/>
                         <br/>
@@ -265,7 +265,7 @@
                             examinado<br/>
                         @endif
                         <br/>
-                        <input type="text" name="txt_higado"
+                        <input class="form-control" type="text" name="txt_higado"
                                placeholder="Especifique la condición del hígado del paciente"
                                value="{{$examen->txt_higado}}"/>
                         <br/>
@@ -294,7 +294,7 @@
                                    value="0" checked> No examinado<br/>
                         @endif
                         <br/>
-                        <input type="text" name="txt_musculo_esqueletico"
+                        <input class="form-control" type="text" name="txt_musculo_esqueletico"
                                placeholder="Especifique la condición del musculo esquelético del paciente"
                                value="{{$examen->txt_musculo_esqueletico}}"/>
                         <br/>
@@ -325,20 +325,19 @@
 
                         @endif
                         <br/>
-                        <input type="text" name="txt_neurologico"
+                        <input class="form-control" type="text" name="txt_neurologico"
                                placeholder="Especifique la condición neurológica del paciente"
                                value="{{$examen->txt_neurologico}}"/>
                         <br/>
 
                     </div>
                 </div>
+				<br/>
+        		<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
             </div>
         </div>
 
 
         </div> <!-- jumbotron -->
-
-        <br/>
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
     </form>
 @stop
