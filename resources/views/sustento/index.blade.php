@@ -18,7 +18,7 @@
         </div>
 
         <div id="div_substancias" class="container">
-            @foreach($sustento as $sustento)
+            @foreach($sustentos as $sustento)
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">

@@ -33,7 +33,11 @@
                                 @endforeach
                             </p>
                             <label>Sustento :</label>
-                            <p>{{$paciente->sustento}}</p>
+                            <p>@foreach($sustento as $sus)
+                                    @if($paciente->sustento == $sus->id)
+                                        {{$sus->nombre}}
+                                    @endif
+                                @endforeach</p>
                             <label>Ocupación del paciente</label>
                             <p>{{$paciente->ocupacion_paciente}}</p>
                             <label>Bebidas alcoholicas consumidas frecuentemente:</label>

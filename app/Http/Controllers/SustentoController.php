@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\sustento;
+use App\sustento_familiar;
 
 class SustentoController extends Controller
 {
@@ -14,7 +14,7 @@ class SustentoController extends Controller
      */
     public function index()
     {
-        $sustentos = sustento::all();
+        $sustentos = sustento_familiar::all();
         return view('sustento.index', ['sustentos' => $sustentos]);
     }
 
@@ -37,7 +37,7 @@ class SustentoController extends Controller
     public function store(Request $request)
     {
         //crea el nuevo paciente a insertar en la base de datos
-        $sustentos = new sustento();
+        $sustentos = new sustento_familiar();
 
         //obitene los campos
         $nombre = $request->input('nombre');
@@ -57,7 +57,7 @@ class SustentoController extends Controller
      */
     public function show($id)
     {
-        $sustentos = sustento::find($id);
+        $sustentos = sustento_familiar::find($id);
         return view('sustento.show', ['sustentos' => $sustentos]);
     }
 
@@ -92,7 +92,7 @@ class SustentoController extends Controller
      */
     public function destroy($id)
     {
-        $sustentos = sustento::find($id);
+        $sustentos = sustento_familiar::find($id);
         $sustentos->delete();
         return redirect()->action('SustentoController@index');
     }
