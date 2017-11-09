@@ -6,6 +6,7 @@ use App\estado_civil;
 use App\lugar_residencia;
 use Illuminate\Http\Request;
 use App\paciente;
+use App\sustento_familiar;
 
 class PacienteController extends Controller
 {
@@ -29,7 +30,7 @@ class PacienteController extends Controller
     {
         $estado_civil = estado_civil::all();
         $lugar_residencia = lugar_residencia::all();
-        $sustento = sustento::all();
+        $sustento = sustento_familiar::all();
         return view('paciente.create', ['estado_civil' => $estado_civil, 'lugar_residencia' => $lugar_residencia, 'sustento' => $sustento]);
     }
 
@@ -99,7 +100,7 @@ class PacienteController extends Controller
         $paciente = paciente::find($id);
         $estado_civil = estado_civil::all();
         $lugar_residencia = lugar_residencia::all();
-        $sustento = sustento::all();
+        $sustento = sustento_familiar::all();
         return view('paciente.show', ['paciente' => $paciente,
             'estado_civil' => $estado_civil, 'lugar_residencia' => $lugar_residencia, 'sustento' => $sustento]);
     }
@@ -115,7 +116,7 @@ class PacienteController extends Controller
         $estado_civil = estado_civil::all();
         $paciente = paciente::find($id);
         $lugar_residencia = lugar_residencia::all();
-        $sustento = sustento::all();
+        $sustento = sustento_familiar::all();
         return view('paciente.edit', ['paciente' => $paciente, 'id' => $id,
             'estado_civil' => $estado_civil, 'lugar_residencia' => $lugar_residencia, 'sustento' => $sustento]);
     }

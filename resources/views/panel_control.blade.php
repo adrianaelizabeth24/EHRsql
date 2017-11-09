@@ -10,10 +10,11 @@
             </div>
 
             <div class="links">
-                <a href='/substancias'>Configuracion Substancias</a>
-                <a href="/preguntasPatNoPat">Configuracion Preguntas Antecedentes Patologicos</a>
-                <a href="/estado_civil">Configuracion Estado Civil</a>
-                <a href="/lugar_residencia">Configuracion Lugares de Residencia</a>
+                <a href='/substancias'>Configuracion Substancias</a><br/>
+                <a href="/preguntasPatNoPat">Configuracion Preguntas Antecedentes Patologicos</a><br/>
+                <a href="/estado_civil">Configuracion Estado Civil</a><br/>
+                <a href="/lugar_residencia">Configuracion Lugares de Residencia</a><br/>
+                <a href="/sustento">Configuracion Sustento Familiar</a><br/>
             </div>
         </div>
     </div>

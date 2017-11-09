@@ -134,108 +134,14 @@
                 </div>
 
                 <h4>¿Quién provee el sustento familiar?</h4>
-                @switch($paciente->sustento)
-                    @case('Paciente')
-                    <input type="checkbox" name="sustento" value="Paciente" checked>Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Cónyuge')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge" checked>Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Igualmente compartido')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido" checked>Igualmente compartido
-                    <br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Padres')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres" checked>Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Hermano')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano" checked>Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Parientes')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes" checked>Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Compañero')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero" checked>Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Pension')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension" checked>Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro">Otro<br>
-                    @break
-                    @case('Otro')
-                    <input type="checkbox" name="sustento" value="Paciente">Paciente<br>
-                    <input type="checkbox" name="sustento" value="Cónyuge">Cónyuge<br>
-                    <input type="checkbox" name="sustento" value="Igualmente compartido">Igualmente compartido<br>
-                    <input type="checkbox" name="sustento" value="Padres">Padres<br>
-                    <input type="checkbox" name="sustento" value="Hermano">Hermano<br>
-                    <input type="checkbox" name="sustento" value="Parientes">Parientes<br>
-                    <input type="checkbox" name="sustento" value="Compañero">Compañero<br>
-                    <input type="checkbox" name="sustento" value="Pension">Pension<br>
-                    <input type="checkbox" name="sustento" value="Otro" checked>Otro<br>
-                    @break
-                @endswitch
+                @foreach($sustento as $sus)
+                    @if($sus->id == $paciente->sustento)
+                        <input type="radio" name="sustento" value="{{$sus->id}}" checked/>{{$sus->nombre}}
+                        <br/>
+                    @else
+                        <input type="radio" name="sustento" value="{{$sus->id}}"/>{{$sus->nombre}}<br/>
+                    @endif
+                @endforeach
                 <br>
                 <label>Ocupación del jefe de familia</label>
                 <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del jefe de familia"
