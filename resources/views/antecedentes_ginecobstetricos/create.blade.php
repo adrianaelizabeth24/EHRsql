@@ -29,19 +29,15 @@
                         <br/>
 
                         <label>Ritmo</label><br/>
-                        <input type="radio" name="ritmo_cardiaco" value="Regular">Regular<br/>
-                        <input type="radio" name="ritmo_cardiaco" value="Irregular">Irregular<br/>
-                        <input type="radio" name="ritmo_cardiaco" value="Histerectomía">Histerectomía/Menopausia<br/>
-                        <input type="radio" name="ritmo_cardiaco" value="No aplicable">No aplica<br/>
-                        <br/>
+                        @foreach($ritmo_cardiaco as $opciones_ginecobstetricos_ritmo)
+                            <option value="{{$opciones_ginecobstetricos_ritmo->id}}">{{$opciones_ginecobstetricos_ritmo->nombre}}</option>
+                        @endforeach
                         <br/>
 
                         <label>Tensión Premenstrual</label><br/>
-                        <input type="radio" name="tension_premenstrual" value="Nada">Nada<br/>
-                        <input type="radio" name="tension_premenstrual" value="Ligera">Ligera<br/>
-                        <input type="radio" name="tension_premenstrual" value="Moderada">Moderada<br/>
-                        <input type="radio" name="tension_premenstrual" value="Marcada">Marcada<br/>
-                        <input type="radio" name="tension_premenstrual" value="No aplica">No aplica<br/>
+                        @foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
+                            <option value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}">{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}</option>
+                        @endforeach
                         <br/>
 
                         <label>Vida Sexual</label><br/>
@@ -55,11 +51,9 @@
                         <br/>
 
                         <label>Antecedentes Obstetricos</label><br/>
-                        <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
-                        <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
-                        <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
-                        <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
-                        <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
+                        @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
+                            <option value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}">{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}</option>
+                        @endforeach
                         <br/>
 
                         <label>Embarazo Actual</label><br/>
@@ -81,17 +75,9 @@
                         <br/>
 
                         <label>Anticonceptivos</label><br/>
-                        <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                        <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                        <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                        <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                        <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                        <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                        <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos Orales<br/>
-                        <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                        <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                        <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido<br/>
-                        <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
+                        @foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
+                            <option value="{{$opciones_ginecobstetricos_anticonceptivos->id}}">{{$opciones_ginecobstetricos_anticonceptivos->nombre}}</option>
+                        @endforeach
                         <br/>
 
                     </div>
