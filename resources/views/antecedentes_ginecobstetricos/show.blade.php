@@ -12,7 +12,7 @@
 					<br/>
 					<label>Ritmo :</label>
 					<p>@foreach($ritmo as $opciones_ginecobstetricos_ritmo)
-							@if($paciente->ritmo == $opciones_ginecobstetricos_ritmo->id)
+							@if($antecedentes->ritmo == $opciones_ginecobstetricos_ritmo->id)
 								{{$opciones_ginecobstetricos_ritmo->nombre}}
 							@endif
 						@endforeach
@@ -21,7 +21,7 @@
 					<br/>
 					<label>Tensión Premenstrual</label>
 					<p>@foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
-							@if($paciente->tension_premenstrual == $opciones_ginecobstetricos_tension_premenstrual->id)
+							@if($antecedentes->tension_premenstrual == $opciones_ginecobstetricos_tension_premenstrual->id)
 								{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
 							@endif
 						@endforeach
@@ -39,7 +39,7 @@
                     <br/>
 					<label>Antecedentes Obstetricos: </label>
 					<p>@foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
-							@if($paciente->antecedentes_obstetricos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
+							@if($antecedentes->antecedentes_obstetricos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
 								{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
 							@endif
 						@endforeach
@@ -73,7 +73,7 @@
 
 					<label>Anticonceptivos : </label>
 					<p>@foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
-							@if($paciente->anticonceptivos == $opciones_ginecobstetricos_anticonceptivos->id)
+							@if($antecedentes->anticonceptivos == $opciones_ginecobstetricos_anticonceptivos->id)
 								{{$opciones_ginecobstetricos_anticonceptivos->nombre}}
 							@endif
 						@endforeach

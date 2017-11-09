@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
+@section('content')
+    <link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
     <div class="jumbotron">
         <form method="post" action="{{action('AntecedentesGinecobstetricosController@update', $id)}}">
@@ -20,24 +21,34 @@
                         <br/>
 
                         <label>Ritmo</label><br/>
-                        @foreach($ritmo_cardiaco as $opciones_ginecobstetricos_ritmo)
-                            @if($opciones_ginecobstetricos_ritmo->id == $paciente->ritmo_cardiaco)
-                                <input type="radio" name="ritmo_cardiaco" value="{{$opciones_ginecobstetricos_ritmo->id}}" checked/>{{$opciones_ginecobstetricos_ritmo->nombre}}
+                        @foreach($ritmo as $opciones_ginecobstetricos_ritmo)
+                            @if($opciones_ginecobstetricos_ritmo->id == $antecedentes->ritmo_cardiaco)
+                                <input type="radio" name="ritmo_cardiaco"
+                                       value="{{$opciones_ginecobstetricos_ritmo->id}}"
+                                       checked/>{{$opciones_ginecobstetricos_ritmo->nombre}}
                                 <br/>
                             @else
-                                <input type="radio" name="ritmo_cardiaco" value="{{$opciones_ginecobstetricos_ritmo->id}}"/>{{$opciones_ginecobstetricos_ritmo->nombre}}<br/>
-                        @endif
+                                <input type="radio" name="ritmo_cardiaco"
+                                       value="{{$opciones_ginecobstetricos_ritmo->id}}"/>{{$opciones_ginecobstetricos_ritmo->nombre}}
+                                <br/>
+                            @endif
+                        @endforeach
                         <br/>
 
 
                         <label>Tensión Premenstrual</label><br/>
                         @foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
-                            @if($opciones_ginecobstetricos_tension_premenstrual->id == $paciente->tension_premenstrual)
-                                <input type="radio" name="tension_premenstrual" value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}" checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                            @if($opciones_ginecobstetricos_tension_premenstrual->id == $antecedentes->tension_premenstrual)
+                                <input type="radio" name="tension_premenstrual"
+                                       value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}"
+                                       checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
                                 <br/>
                             @else
-                                <input type="radio" name="tension_premenstrual" value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}<br/>
-                        @endif
+                                <input type="radio" name="tension_premenstrual"
+                                       value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                                <br/>
+                            @endif
+                        @endforeach
                         <br/>
 
                         <label>Vida Sexual</label><br/>
@@ -60,12 +71,17 @@
 
                         <label>Antecedentes Obstetricos</label><br/>
                         @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
-                            @if($opciones_ginecobstetricos_antecedentes_obstetricos->id == $paciente->antecedentes_obstetricos)
-                                <input type="radio" name="antecedentes_obstetricos" value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}" checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                            @if($opciones_ginecobstetricos_antecedentes_obstetricos->id == $antecedentes->antecedentes_obstetricos)
+                                <input type="radio" name="antecedentes_obstetricos"
+                                       value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}"
+                                       checked/>{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
                                 <br/>
                             @else
-                                <input type="radio" name="antecedentes_obstetricos" value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}<br/>
-                        @endif
+                                <input type="radio" name="antecedentes_obstetricos"
+                                       value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}"/>{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
+                                <br/>
+                            @endif
+                        @endforeach
                         <br/>
 
                         <label>Embarazo Actual</label><br/>
@@ -112,12 +128,19 @@
 
                         <label>Anticonceptivos</label><br/>
                         @foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
-                            @if($opciones_ginecobstetricos_anticonceptivos->id == $paciente->anticonceptivos)
-                                <input type="radio" name="anticonceptivos" value="{{$opciones_ginecobstetricos_anticonceptivos->id}}" checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                            @if($opciones_ginecobstetricos_anticonceptivos->id == $antecedentes->anticonceptivos)
+                                <input type="radio" name="anticonceptivos"
+                                       value="{{$opciones_ginecobstetricos_anticonceptivos->id}}"
+                                       checked/>{{$opciones_ginecobstetricos_anticonceptivos->nombre}}
                                 <br/>
                             @else
-                                <input type="radio" name="anticonceptivos" value="{{$opciones_ginecobstetricos_anticonceptivos->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}<br/>
-                        @endif
+                                <input type="radio" name="anticonceptivos"
+                                       value="{{$opciones_ginecobstetricos_anticonceptivos->id}}"/>
+                                {{$opciones_ginecobstetricos_anticonceptivos->nombre}}
+                                <br/>
+                            @endif
+                        @endforeach
+
                         <br/>
 
                     </div>

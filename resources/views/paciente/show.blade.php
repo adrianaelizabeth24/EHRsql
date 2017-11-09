@@ -38,8 +38,6 @@
 								@endforeach</p>
 							<label>Ocupación del paciente</label>
 							<p>{{$paciente->ocupacion_paciente}}</p>
-							<label>Bebidas alcoholicas consumidas frecuentemente:</label>
-							<p>{{$paciente->bebidas_alcoholicas}}</p>
 						</div>
 					</div>
 					<div class="col-md-6">
