@@ -15,6 +15,7 @@
                 <a href="/estado_civil">Configuracion Estado Civil</a><br/>
                 <a href="/lugar_residencia">Configuracion Lugares de Residencia</a><br/>
                 <a href="/sustento">Configuracion Sustento Familiar</a><br/>
+                <a href="/trastorno_mental">Configuracion Trastornos Mentales</a><br/>
             </div>
         </div>
     </div>

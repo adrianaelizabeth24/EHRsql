@@ -20,7 +20,7 @@
 
                 </div>
                 <br/>
-                <a href="/trastorno" class="btn btn-info">Regresar</a>
+                <a href="/trastorno_mental" class="btn btn-info">Regresar</a>
                 <form action="{{action('TrastornoMentalController@destroy', $trastornos->id)}}" method="post">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">

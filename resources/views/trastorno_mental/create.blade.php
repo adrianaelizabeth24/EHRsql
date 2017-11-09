@@ -2,7 +2,7 @@
 @section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
 
-    <form class="jumbotron" method="post" action="{{url('trastornol')}}">
+    <form class="jumbotron" method="post" action="{{url('trastorno_mental')}}">
         {{csrf_field()}}
 
         <div class="container">

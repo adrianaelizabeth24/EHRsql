@@ -15,7 +15,7 @@ class TrastornoMentalController extends Controller
     public function index()
     {
         $trastornos = trastorno_mental::all();
-        return view('trastorno.index', ['trastornos' => $trastornos]);
+        return view('trastorno_mental.index', ['trastornos' => $trastornos]);
     }
 
     /**
@@ -25,7 +25,7 @@ class TrastornoMentalController extends Controller
      */
     public function create()
     {
-        return view('trastorno.create');
+        return view('trastorno_mental.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class TrastornoMentalController extends Controller
     public function show($id)
     {
         $trastornos = trastorno_mental::find($id);
-        return view('sustento.show', ['trastornos' => $trastornos]);
+        return view('sustento.show', ['trastorno_mental' => $trastornos]);
     }
 
     /**

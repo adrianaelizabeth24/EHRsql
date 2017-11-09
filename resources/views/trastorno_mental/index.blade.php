@@ -29,7 +29,7 @@
                 </div> <!-- Complete patient info -->
 
             @endforeach
-            <a href="/trastorno/create" class="btn btn-info">Nuevo trastorno</a>
+            <a href="/trastorno_mental/create" class="btn btn-info">Nuevo trastorno</a>
         </div> <!-- div_pacientes -->
 
     </div> <!-- jumbotron -->

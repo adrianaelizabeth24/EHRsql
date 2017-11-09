@@ -41,6 +41,10 @@ Route::get('/lugar_residencia', function (){
 Route::get('/sustento', function (){
     return view('sustento.index');
 });
+
+Route::get('/trastorno_mental',function (){
+    return view('trastorno_mental.index');
+});
 /////////////////////////////////////////
 ///
 ///
@@ -119,3 +123,5 @@ Route::resource('lugar_residencia', 'LugarResidenciaController');
 
 //sustento familiar
 Route::resource('sustento', 'SustentoController');
+
+Route::resource('trastorno_mental', 'TrastornoMentalController');
