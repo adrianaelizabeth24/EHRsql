@@ -25,7 +25,7 @@
                     <th class="col-xs-3" align="center">ANTECEDENTE</th>
                     <th class="col-xs-5">DETALLES</th>
                     <th class="col-xs-1">NO</th>
-                    <th class="col-xs-2">SE DECONOCE</th>
+                    <th class="col-xs-2">SE DESCONOCE</th>
                     <th class="col-xs-1">SI</th>
                 </tr>
                 </thead>
