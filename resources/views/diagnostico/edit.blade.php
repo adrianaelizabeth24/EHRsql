@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
     <form method="post" action="{{action('DiagnosticoController@update', $id)}}">
         {{csrf_field()}}

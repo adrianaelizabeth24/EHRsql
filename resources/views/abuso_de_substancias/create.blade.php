@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
+
     <form class="jumbotron" method="post" action="{{url('abuso_de_substancias')}}">
         {{csrf_field()}}
 

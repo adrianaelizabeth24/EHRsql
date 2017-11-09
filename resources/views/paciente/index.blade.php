@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content')  
     <!-- Main jumbotron for a primary marketing message or call to action -->
 	<link href="{{ asset('css/paciente.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
     <div class="jumbotron">
         <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">

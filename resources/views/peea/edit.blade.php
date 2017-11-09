@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
 <form method="post" action="{{action('PeeaController@update', $id)}}">
     {{csrf_field()}}
     <input name="_method" type="hidden" value="PATCH"/>

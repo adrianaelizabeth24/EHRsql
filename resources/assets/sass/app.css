@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+/* General styles */
+/* line 23, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+* {
+  font-family: "Helvetica Neue", HelveticaNeue, "Lato", sans-serif;
+  font-weight: 300;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; }
+
+/* line 30, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+h2 {
+  font-weight: 500;
+  border-bottom: solid #636b6f 4px; }
+
+/* line 35, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/app.scss */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+select {
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  border-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  padding: 0 10px; }
+
+/* Overrides */
+
+/*# sourceMappingURL=app.css.map */

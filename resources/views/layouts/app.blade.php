@@ -70,6 +70,11 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+			
+			.navbar {
+				margin-bottom: 0px;
+			}
+			
         </style>
 
 </head>

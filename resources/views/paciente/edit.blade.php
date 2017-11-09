@@ -2,6 +2,7 @@
 @section('content')
 
     <link href="{{ asset('css/paciente.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
     <div class="jumbotron">
         <form method="post" action="{{action('PacienteController@update', $id)}}">

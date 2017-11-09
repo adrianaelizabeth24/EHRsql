@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
 
     <form class="jumbotron" method="post" action="{{url('estado_civil')}}">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
 
@@ -15,22 +15,22 @@
         </div>
         <div class="container">
             <h2>Lista de Substancias</h2>
-        </div>
 
-        <div id="div_substancias" class="container">
-            @foreach($substancias as $substancia)
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h4 class="panel-title">
-                            <a href="substancias/{{{$substancia->id}}}">{{$substancia->id}}
-                                {{$substancia->nombre}}</a>
-                        </h4>
-                    </div>
-                </div> <!-- Complete patient info -->
+			<div id="div_substancias" class="container">
+				@foreach($substancias as $substancia)
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<h4 class="panel-title">
+								<a href="substancias/{{{$substancia->id}}}">{{$substancia->id}}
+									{{$substancia->nombre}}</a>
+							</h4>
+						</div>
+					</div> <!-- Complete patient info -->
 
-            @endforeach
-            <a href="/substancias/create" class="btn btn-info">Nueva Substancia</a>
-        </div> <!-- div_pacientes -->
+				@endforeach
+				<a href="/substancias/create" class="btn btn-info">Nueva Substancia</a>
+			</div> <!-- div_substancias -->
+		</div>
 
     </div> <!-- jumbotron -->
     <hr>

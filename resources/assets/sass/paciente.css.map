@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "file": "paciente.css",
+  "sources": [
+    "paciente.scss"
+  ],
+  "mappings": ";AAAA,AAAA,UAAU,CAAC;EACV,gBAAgB,EAAE,OAAQ,GAC1B;;;AAED,AAAA,UAAU,CAAC;EACV,gBAAgB,EAAE,KAAM,GACxB;;;AAED,AAAA,IAAI,CAAC;EACH,MAAM,EAAC,IAAK,GACb;;;AAED,AAAA,KAAK,CAAC;EACJ,MAAM,EAAC,aAAc;EACrB,KAAK,EAAE,GAAI,GACZ;;;AAED,AAAK,KAAA,AAAA,SAAS,CAAC;EACb,KAAK,EAAE,eAAgB,GACxB",
+  "names": []
+}

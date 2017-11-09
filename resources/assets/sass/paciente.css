@@ -1,0 +1,22 @@
+/* line 1, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/paciente.scss */
+.jumbotron {
+  background-color: #6392bb; }
+
+/* line 5, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/paciente.scss */
+.container {
+  background-color: white; }
+
+/* line 9, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/paciente.scss */
+.row {
+  margin: auto; }
+
+/* line 13, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/paciente.scss */
+input {
+  margin: 0 20px 15px 0;
+  width: 20%; }
+
+/* line 18, D:/meyru/Documents/Coffee/EHRsql/resources/assets/sass/paciente.scss */
+input.allwidth {
+  width: 100% !important; }
+
+/*# sourceMappingURL=paciente.css.map */
