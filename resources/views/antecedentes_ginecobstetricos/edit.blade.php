@@ -20,65 +20,23 @@
                         <br/>
 
                         <label>Ritmo</label><br/>
-                        @if($antecedentes->ritmo_cardiaco == 'Regular')
-                            <input type="radio" name="ritmo_cardiaco" value="Regular" checked>Regular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Irregular">Irregular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Histerectomía">Histerectomía/Menopausia
-                            <br/>
-                            <input type="radio" name="ritmo_cardiaco" value="No aplicable">No aplica<br/>
-                        @elseif($antecedentes->ritmo_cardiaco == 'Irregular')
-                            <input type="radio" name="ritmo_cardiaco" value="Regular">Regular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Irregular" checked>Irregular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Histerectomía">Histerectomía/Menopausia
-                            <br/>
-                            <input type="radio" name="ritmo_cardiaco" value="No aplicable">No aplica<br/>
-                        @elseif($antecedentes->ritmo_cardiaco == 'Histerectomía')
-                            <input type="radio" name="ritmo_cardiaco" value="Regular">Regular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Irregular">Irregular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Histerectomía" checked>
-                            Histerectomía/Menopausia<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="No aplicable">No aplica<br/>
-                        @else
-                            <input type="radio" name="ritmo_cardiaco" value="Regular">Regular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Irregular">Irregular<br/>
-                            <input type="radio" name="ritmo_cardiaco" value="Histerectomía">Histerectomía/Menopausia
-                            <br/>
-                            <input type="radio" name="ritmo_cardiaco" value="No aplicable">No aplica<br/>
+                        @foreach($ritmo_cardiaco as $opciones_ginecobstetricos_ritmo)
+                            @if($opciones_ginecobstetricos_ritmo->id == $paciente->ritmo_cardiaco)
+                                <input type="radio" name="ritmo_cardiaco" value="{{$opciones_ginecobstetricos_ritmo->id}}" checked/>{{$opciones_ginecobstetricos_ritmo->nombre}}
+                                <br/>
+                            @else
+                                <input type="radio" name="ritmo_cardiaco" value="{{$opciones_ginecobstetricos_ritmo->id}}"/>{{$opciones_ginecobstetricos_ritmo->nombre}}<br/>
                         @endif
                         <br/>
 
 
                         <label>Tensión Premenstrual</label><br/>
-                        @if($antecedentes->tension_premenstrual == 'Nada')
-                            <input type="radio" name="tension_premenstrual" value="Nada" checked>Nada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Ligera">Ligera<br/>
-                            <input type="radio" name="tension_premenstrual" value="Moderada">Moderada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Marcada">Marcada<br/>
-                            <input type="radio" name="tension_premenstrual" value="No aplica">No aplica<br/>
-                        @elseif($antecedentes->tension_premenstrual == 'Ligera')
-                            <input type="radio" name="tension_premenstrual" value="Nada">Nada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Ligera" checked>Ligera<br/>
-                            <input type="radio" name="tension_premenstrual" value="Moderada">Moderada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Marcada">Marcada<br/>
-                            <input type="radio" name="tension_premenstrual" value="No aplica">No aplica<br/>
-                        @elseif($antecedentes->tension_premenstrual == 'Moderada')
-                            <input type="radio" name="tension_premenstrual" value="Nada">Nada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Ligera">Ligera<br/>
-                            <input type="radio" name="tension_premenstrual" value="Moderada" checked>Moderada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Marcada">Marcada<br/>
-                            <input type="radio" name="tension_premenstrual" value="No aplica">No aplica<br/>
-                        @elseif($antecedentes->tension_premenstrual == 'Marcada')
-                            <input type="radio" name="tension_premenstrual" value="Nada">Nada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Ligera">Ligera<br/>
-                            <input type="radio" name="tension_premenstrual" value="Moderada">Moderada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Marcada" checked>Marcada<br/>
-                            <input type="radio" name="tension_premenstrual" value="No aplica">No aplica<br/>
-                        @else
-                            <input type="radio" name="tension_premenstrual" value="Nada">Nada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Ligera">Ligera<br/>
-                            <input type="radio" name="tension_premenstrual" value="Moderada">Moderada<br/>
-                            <input type="radio" name="tension_premenstrual" value="Marcada">Marcada<br/>
-                            <input type="radio" name="tension_premenstrual" value="No aplica" checked>No aplica<br/>
+                        @foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
+                            @if($opciones_ginecobstetricos_tension_premenstrual->id == $paciente->tension_premenstrual)
+                                <input type="radio" name="tension_premenstrual" value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}" checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                                <br/>
+                            @else
+                                <input type="radio" name="tension_premenstrual" value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}<br/>
                         @endif
                         <br/>
 
@@ -101,36 +59,12 @@
                         <br/>
 
                         <label>Antecedentes Obstetricos</label><br/>
-                        @if($antecedentes->antecedentes_obstreticos == 'Gesta')
-                            <input type="radio" name="antecedentes_obstetricos" value="Gesta" checked>Gesta<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @elseif($antecedentes->antecedentes_obstreticos == 'Para')
-                            <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Para" checked>Para<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @elseif($antecedentes->antecedentes_obstreticos == 'Cesareas')
-                            <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Cesareas" checked>Cesareas<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @elseif($antecedentes->antecedentes_obstreticos == 'Abortos')
-                            <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Abortos" checked>Abortos<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="No Aplica">No Aplica<br/>
-                        @else
-                            <input type="radio" name="antecedentes_obstetricos" value="Gesta">Gesta<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Para">Para<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Cesareas">Cesareas<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="Abortos">Abortos<br/>
-                            <input type="radio" name="antecedentes_obstetricos" value="No Aplica" checked>No Aplica<br/>
+                        @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
+                            @if($opciones_ginecobstetricos_antecedentes_obstetricos->id == $paciente->antecedentes_obstetricos)
+                                <input type="radio" name="antecedentes_obstetricos" value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}" checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                                <br/>
+                            @else
+                                <input type="radio" name="antecedentes_obstetricos" value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}<br/>
                         @endif
                         <br/>
 
@@ -177,162 +111,12 @@
                         <br/>
 
                         <label>Anticonceptivos</label><br/>
-                        @if($antecedentes->anticonceptivos == 'Ninguno')
-                            <input type="radio" name="anticonceptivos" value="Ninguno" checked>Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Histerectomia')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia" checked>Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Salpingoclasia')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia" checked>Salpingoclasia
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Menopausia')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia" checked>Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Ritmo')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo" checked>Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'DIU')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU" checked>DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Anticonceptivos Orales')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales" checked>
-                            Anticonceptivos Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Inyectables')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables" checked>Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Espermaticidas')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas" checked>Espermaticidas
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @elseif($antecedentes->anticonceptivos == 'Coito Interrumpido')
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido" checked>Coito
-                            Interrumpido<br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
-                        @else
-                            <input type="radio" name="anticonceptivos" value="Ninguno">Ninguno<br/>
-                            <input type="radio" name="anticonceptivos" value="Histerectomia">Histerectomia<br/>
-                            <input type="radio" name="anticonceptivos" value="Salpingoclasia">Salpingoclasia<br/>
-                            <input type="radio" name="anticonceptivos" value="Menopausia">Menopausia<br/>
-                            <input type="radio" name="anticonceptivos" value="Ritmo">Ritmo<br/>
-                            <input type="radio" name="anticonceptivos" value="DIU">DIU<br/>
-                            <input type="radio" name="anticonceptivos" value="Anticonceptivos Orales">Anticonceptivos
-                            Orales<br/>
-                            <input type="radio" name="anticonceptivos" value="Inyectables">Inyectables<br/>
-                            <input type="radio" name="anticonceptivos" value="Espermaticidas">Espermaticidas<br/>
-                            <input type="radio" name="anticonceptivos" value="Coito Interrumpido">Coito Interrumpido
-                            <br/>
-                            <input type="radio" name="anticonceptivos" value="Perservativo">Perservativo<br/>
+                        @foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
+                            @if($opciones_ginecobstetricos_anticonceptivos->id == $paciente->anticonceptivos)
+                                <input type="radio" name="anticonceptivos" value="{{$opciones_ginecobstetricos_anticonceptivos->id}}" checked/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+                                <br/>
+                            @else
+                                <input type="radio" name="anticonceptivos" value="{{$opciones_ginecobstetricos_anticonceptivos->id}}"/>{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}<br/>
                         @endif
                         <br/>
 

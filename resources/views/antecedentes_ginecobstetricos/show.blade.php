@@ -10,9 +10,22 @@
                     <br/>
 					<label>Fecha : </label>{{$antecedentes->fecha}}
 					<br/>
-					<label>Ritmo :</label>{{$antecedentes->ritmo_cardiaco}}
+					<label>Ritmo :</label>
+					<p>@foreach($ritmo as $opciones_ginecobstetricos_ritmo)
+							@if($paciente->ritmo == $opciones_ginecobstetricos_ritmo->id)
+								{{$opciones_ginecobstetricos_ritmo->nombre}}
+							@endif
+						@endforeach
+					</p>
+					
 					<br/>
-					<label>Tensión Premenstrual</label>{{$antecedentes->tension_premenstrual}}
+					<label>Tensión Premenstrual</label>
+					<p>@foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
+							@if($paciente->tension_premenstrual == $opciones_ginecobstetricos_tension_premenstrual->id)
+								{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+							@endif
+						@endforeach
+					</p>
                     <br/>
 					<label>Vida Sexual</label>
 					@if($antecedentes->vida_sexual == 1)
@@ -24,7 +37,13 @@
 						No
 					@endif
                     <br/>
-					<label>Antecedentes Obstetricos: </label>{{$antecedentes->antecedentes_obstreticos}}
+					<label>Antecedentes Obstetricos: </label>
+					<p>@foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
+							@if($paciente->antecedentes_obstetricos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
+								{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
+							@endif
+						@endforeach
+					</p>
                     <br/>
 
 					<label>Embarazo Actual</label>
@@ -52,7 +71,13 @@
 					@endif
 					<br/>
 
-					<label>Anticonceptivos : </label>{{$antecedentes->anticonceptivos}}
+					<label>Anticonceptivos : </label>
+					<p>@foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
+							@if($paciente->anticonceptivos == $opciones_ginecobstetricos_anticonceptivos->id)
+								{{$opciones_ginecobstetricos_anticonceptivos->nombre}}
+							@endif
+						@endforeach
+					</p>
 					<br/>
 
 				</div>

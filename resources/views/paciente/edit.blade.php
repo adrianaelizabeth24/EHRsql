@@ -95,7 +95,7 @@
                         <select name="residencia">
                             @foreach($lugar_residencia as $lugar)
                                 @if($paciente->lugar_residencia == $lugar->id)
-                                <option value="{{$lugar->id}}" selected>{{$lugar->nombre}}</option>
+                                    <option value="{{$lugar->id}}" selected>{{$lugar->nombre}}</option>
                                 @else
                                     <option value="{{$lugar->id}}" >{{$lugar->nombre}}</option>
                                 @endif
