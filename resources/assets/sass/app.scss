@@ -32,6 +32,15 @@ h2 {
 	border-bottom: solid #636b6f 4px;
 }
 
+.jumbotron {
+	background-color: #6392bb;
+}
+
+.container {
+	background-color: white;
+	padding:25px;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -43,3 +52,12 @@ select {
 }
 
 /* Overrides */
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+

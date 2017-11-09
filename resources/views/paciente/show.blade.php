@@ -8,7 +8,6 @@
     <div class="jumbotron">
         <div class="container">
             <h2>Detalle del Paciente</h2>
-			<br>
 			<div id="patient" role="tabpanel">
 				<div class="row">
 					<div class="col-md-6">
