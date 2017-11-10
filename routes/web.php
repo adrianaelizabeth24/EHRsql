@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/panel_control', function(){
@@ -125,3 +125,12 @@ Route::resource('lugar_residencia', 'LugarResidenciaController');
 Route::resource('sustento', 'SustentoController');
 
 Route::resource('trastorno_mental', 'TrastornoMentalController');
+
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register/', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register/', 'Auth\RegisterController@register');
