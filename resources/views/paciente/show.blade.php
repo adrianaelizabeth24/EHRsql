@@ -54,93 +54,154 @@
 					</div>
 				</div>
 				</br>
-				<a href="/paciente" class="btn btn-info">Regresar</a>
-				<a href="/paciente/{{{$paciente->id}}}/edit" class="btn btn-warning">Editar Datos</a>
-				<form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post"
-					  style="display: unset;">
-					{{csrf_field()}}
-					<input name="_method" type="hidden" value="DELETE">
-					<button class="btn btn-danger" type="submit">Borrar</button>
-				</form>
 
-				<br/>
+				<div class="row">
+					<div class="col-xs-2">
+						<a href="/paciente" class="btn btn-info btn-lg btn-block"><strong>Regresar</strong></a>
+					</div>
 
-				<h3>Examenes</h3>
-				<br/>
+					<div class="col-xs-2">
+					<a href="/paciente/{{{$paciente->id}}}/edit" class="btn btn-warning btn-lg btn-block"><strong>Editar Datos</strong></a>
+					</div>
 
-				<div id="examenes">
+					
+					<form action="{{action('PacienteController@destroy', $paciente->id)}}" method="post"
+						  style="display: unset;">
+						{{csrf_field()}}
+						<input name="_method" type="hidden" value="DELETE">
 
-					@if ($paciente->id_exploracion_fisica == 0)
-						<a href="/exploracion_fisica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen
-							Exploracion Fisica</a>
-					@else
-						<a href="/exploracion_fisica/{{{$paciente->id_exploracion_fisica}}}" class="btn btn-info">Ver
-							Examen Exploracion Fisica</a>
-					@endif
+						<div class="col-xs-2">
+							<button class="btn btn-danger btn-lg btn-block" type="submit"><strong>Borrar</strong></button>
+						</div>
+					</form>
+				</div>
+				
 
-					@if ($paciente->id_examen_mental == 0)
-						<a href="/examen_mental/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Examen
-							Mental</a>
-					@else
-						<a href="/examen_mental/{{{$paciente->id_examen_mental}}}" class="btn btn-info">Ver Examen
-							Mental</a>
-					@endif
+				<div class="row">
+					<h3>Examenes</h3>
 				</div>
 
-				<h3>Historial</h3>
-				<br/>
+				<div id="examenes">
+					<div class="row">
+
+						@if ($paciente->id_exploracion_fisica == 0)
+
+							<div class="col-xs-4">
+								<a href="/exploracion_fisica/paciente/{{{$paciente->id}}}"
+								class="btn btn-info btn-lg btn-block"><strong>Agregar Examen Exploracion Fisica</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/exploracion_fisica/{{{$paciente->id_exploracion_fisica}}}"
+								class="btn btn-success btn-lg btn-block"><strong>Ver Examen Exploracion Fisica</strong></a>
+							</div>
+						@endif
+
+						@if ($paciente->id_examen_mental == 0)
+							<div class="col-xs-4">
+								<a href="/examen_mental/paciente/{{{$paciente->id}}}"
+								class="btn btn-info btn-lg btn-block"><strong>Agregar Examen Mental</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/examen_mental/{{{$paciente->id_examen_mental}}}"
+								class="btn btn-success btn-lg btn-block"><strong>Ver Examen Mental</strong></a>
+							</div>
+						@endif
+					</div>
+				</div>
+
+				<div class="row">
+					<h3>Historial</h3>
+				</div>
 
 				<div id="historial">
+					<div class="row">
 
-					@if ($paciente->id_historia_psiquiatrica_fam == 0)
-						<a href="/historia_psiquiatrica/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-							Historial Psiquiatrico</a>
-					@else
-						<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}"
-						   class="btn btn-info">Ver Historial Psiquiatrico</a>
-					@endif
-					@if ($paciente->id_historia_previa == 0)
-						<a href="/historia_psiquiatrica_previa/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-							Historia Psiquiatrica Previa</a>
-					@else
-						<a href="/historia_psiquiatrica_previa/{{{$paciente->id_historia_previa}}}"
-						   class="btn btn-info">Ver Historia Psiquiatrica Previa</a>
-					@endif
-					@if ($paciente->id_historia_clinica_familiar == 0)
-						<a href="/historia_clinica_familiar/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-							Historia Clinico Familiar</a>
-					@else
-						<a href="/historia_clinica_familiar/{{{$paciente->id_historia_clinica_familiar}}}"
-						   class="btn btn-info">Ver Historia Clínico Familiar</a>
-					@endif
-
-
-					@if ($paciente->id_abuso_de_substancias == 0)
-						<a href="/abuso_de_substancias/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-							Reporte Substancias</a>
-					@else
-						<a href="/abuso_de_substancias/{{{$paciente->id_abuso_de_substancias}}}" class="btn btn-info">Ver
-							Reporte Substancias</a>
-					@endif
+						@if ($paciente->id_historia_psiquiatrica_fam == 0)
+							<div class="col-xs-4">
+								<a href="/historia_psiquiatrica/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Historial Psiquiatrico</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/historia_psiquiatrica/{{{$paciente->id_historia_psiquiatrica_fam}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Historial Psiquiatrico</strong></a>
+							</div>
+						@endif
 
 
 
-					@if ($paciente->id_peea == 0)
-						<a href="/peea/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar PEEA</a>
-					@else
-						<a href="/peea/{{{$paciente->id_peea}}}" class="btn btn-info">Ver PEEA</a>
-					@endif
+
+						@if ($paciente->id_historia_previa == 0)
+							<div class="col-xs-4">
+								<a href="/historia_psiquiatrica_previa/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Historia Psiquiatrica Previa</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/historia_psiquiatrica_previa/{{{$paciente->id_historia_previa}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Historia Psiquiatrica Previa</strong></a>
+							</div>
+						@endif
 
 
 
-					@if ($paciente->id_pat_nopat == 0)
-						<a href="/pat_nopat/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar Antecedentes
-							Patológicos</a>
-					@else
-						<a href="/pat_nopat/{{{$paciente->id_pat_nopat}}}" class="btn btn-info">Ver Antecedentes
-							Patológicos</a>
-					@endif
+						@if ($paciente->id_historia_clinica_familiar == 0)
+							<div class="col-xs-4">
+								<a href="/historia_clinica_familiar/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Historia Clinico Familiar</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/historia_clinica_familiar/{{{$paciente->id_historia_clinica_familiar}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Historia Clínico Familiar</strong></a>
+							</div>
+						@endif
+					</div>
 
+					<br>
+
+					<div class="row">
+
+
+						@if ($paciente->id_abuso_de_substancias == 0)
+							<div class="col-xs-4">
+								<a href="/abuso_de_substancias/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Reporte Substancias</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/abuso_de_substancias/{{{$paciente->id_abuso_de_substancias}}}" class="btn btn-success btn-lg btn-block"><strong>Ver
+									Reporte Substancias</strong></a>
+							</div>
+						@endif
+
+
+						@if ($paciente->id_peea == 0)
+							<div class="col-xs-4">
+								<a href="/peea/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar PEEA</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/peea/{{{$paciente->id_peea}}}" class="btn btn-success btn-lg btn-block"><strong>Ver PEEA</strong></a>
+							</div>
+						@endif
+
+
+
+						@if ($paciente->id_pat_nopat == 0)
+							<div class="col-xs-4">
+								<a href="/pat_nopat/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar Antecedentes
+									Patológicos</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/pat_nopat/{{{$paciente->id_pat_nopat}}}" class="btn btn-success btn-lg btn-block"><strong>Ver Antecedentes
+									Patológicos</strong></a>
+							</div>
+						@endif
+					</div>
 
 				</div>
 
@@ -149,40 +210,63 @@
 
 				<div id="antecedentes">
 
-					@if ($paciente->id_antecedentes_ginecobstetricos == 0)
-						<a href="/antecedentes_ginecobstetricos/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-							Antecedentes Ginecobstetricos</a>
-					@else
-						<a href="/antecedentes_ginecobstetricos/{{{$paciente->id_antecedentes_ginecobstetricos}}}"
-						   class="btn btn-info">Ver Antecedentes Ginecobstetricos</a>
-					@endif
+					<div class="row">
+
+						@if ($paciente->id_antecedentes_ginecobstetricos == 0)
+							<div class="col-xs-4">
+								<a href="/antecedentes_ginecobstetricos/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Antecedentes Ginecobstetricos</strong></a>
+							</div>
+						@else
+							<div class="col-xs-4">
+								<a href="/antecedentes_ginecobstetricos/{{{$paciente->id_antecedentes_ginecobstetricos}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Antecedentes Ginecobstetricos</strong></a>
+							</div>
+						@endif
+
 
 						@if ($paciente->id_diagnostico == 0)
-							<a href="/diagnostico/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-								Diagnostico</a>
+							<div class="col-xs-4">
+								<a href="/diagnostico/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Diagnostico</strong></a>
+							</div>
 						@else
-							<a href="/diagnostico/{{{$paciente->id_diagnostico}}}"
-							   class="btn btn-info">Ver Diagnóstico</a>
+							<div class="col-xs-4">
+								<a href="/diagnostico/{{{$paciente->id_diagnostico}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Diagnóstico</strong></a>
+							</div>
 						@endif
 
 						@if ($paciente->id_plan_tratamiento == 0)
-							<a href="/plan_tratamiento/paciente/{{{$paciente->id}}}" class="btn btn-info">Agregar
-								Plan de Tratamiento</a>
+							<div class="col-xs-4">
+								<a href="/plan_tratamiento/paciente/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Plan de Tratamiento</strong></a>
+							</div>
 						@else
-							<a href="/plan_tratamiento/{{{$paciente->id_plan_tratamiento}}}"
-							   class="btn btn-info">Ver Plan de Tratamiento</a>
+							<div class="col-xs-4">
+								<a href="/plan_tratamiento/{{{$paciente->id_plan_tratamiento}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Plan de Tratamiento</strong></a>
+							</div>
 						@endif
+					</div>
+
+					<br>
+
+					<div class="row">
 
 						@if ($paciente->id_nota_clinica == 0)
-							<a href="/nota_clinica/new/{{{$paciente->id}}}" class="btn btn-info">Agregar
-								Notas Clínicas</a>
+							<div class="col-xs-4">
+								<a href="/nota_clinica/new/{{{$paciente->id}}}" class="btn btn-info btn-lg btn-block"><strong>Agregar
+									Notas Clínicas</strong></a>
+							</div>
 						@else
-							<a href="/nota_clinica/paciente/{{{$paciente->id}}}"
-							   class="btn btn-info">Ver Notas Clínicas</a>
+							<div class="col-xs-4">
+								<a href="/nota_clinica/paciente/{{{$paciente->id}}}"
+								   class="btn btn-success btn-lg btn-block"><strong>Ver Notas Clínicas</strong></a>
+							</div>
 						@endif
 
-
-
+					</div>
 
 
 				</div>

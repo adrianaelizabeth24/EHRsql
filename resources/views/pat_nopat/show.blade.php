@@ -7,87 +7,136 @@
 	<div class="container">
     	<h2>Antecedentes Personales Patológicos y no Patológicos</h2>
 
+        <br>
 
-    	<div class="row">
-    		<label>NOTAS DE ANTECEDENTES PERSONALES PATOLÓGICOS Y NO PATOLÓGICOS:</label><br> {{ $pat_nopat-> antecedentes_notas }} <br>
-    	</div>
+        <h4><strong>HISTORIA CLÍNICA GENERAL</strong></h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-3" align="center">ANTECEDENTE</th>
+                    <th class="col-xs-5">DETALLES</th>
+                    <th class="col-xs-4">¿PRESENTA ANTECEDENTE?</th>
+                </tr>
+            </thead>
+            <tbody>
 
+                @foreach($antecedentes as $ant)
+                <tr>
+                    <td><label>{{$ant->preguntas}}</label></td>
 
-		<div class="col-md-12">
-			@foreach($antecedentes as $ant)
-				<label>
-					{{$ant->preguntas}}
-				</label>
-				@foreach ($antecedentes_opciones as $ant_opciones)
-					@if($ant_opciones->id_antecedente == $ant->id)
-						{{$ant_opciones->valor}}
-					<br/>
-						detalles:
-						{{$ant_opciones->detalles}}
-					@endif
-				@endforeach
-				<br/>
-			@endforeach
-		</div>
+                    @foreach ($antecedentes_opciones as $ant_opciones)
+                        @if($ant_opciones->id_antecedente == $ant->id)
+                            <td>{{$ant_opciones->detalles}}</td>
+                            <td>{{$ant_opciones->valor}}</td>
+                        @endif
+                    @endforeach
 
-    	<div class="row">
-    		<label>No. de tazas de café o té negro al día: </label> {{ $pat_nopat-> tazasCafé  }}
-    	</div>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 
-    	<br>
-
-
-    	<div class="row">
-    		<legend>TABAQUISMO</legend>
-    	</div>
-
-    	<div class="row">
-    		<label>Nivel: </label> {{ $pat_nopat-> tabaquismo  }} cigarros por día
-    	</div>
-
-    	<div class="row">
-    		<label>Consumo diario de tabaco: </label> {{ $pat_nopat-> consumoDiario  }} cigarros por día
-    	</div>
-
-    	<div class="row">
-    		<label>Años de tabaquismo: </label> {{ $pat_nopat-> añosTabaquismo  }} años
-    	</div>
-
-    	<div class="row">
-    		<label>Edad de Inicio: </label> {{ $pat_nopat-> edadInicio  }} años
-    	</div>
-
-    	<div class="row">
-    		<label>Edad en que se suspendió: </label> {{ $pat_nopat-> edadSuspendió  }} años
-    	</div>
-
-    	<br>
-
-    	<div class="row">
-    		<legend>BEBIDAS ALCOHOLICAS</legend>
-    	</div>
-
-    	<div class="row">
-    		<label>Frecuencia: </label> {{ $pat_nopat-> alcohol_frecuencia  }}
-    	</div>
-
-    	<div class="row">
-    		<label>Cantidad: </label> {{ $pat_nopat-> alcohol_cantidad  }}
-    	</div>
+        <div class="row">
+            <label>NOTAS DE ANTECEDENTES PERSONALES PATOLÓGICOS Y NO PATOLÓGICOS:</label>
+            <textarea disabled class="form-control" name="antecedentes_notas" rows="3">{{ $pat_nopat-> antecedentes_notas }}</textarea>
+        </div>
 
 
-    	<div class="row">
-    		<label>¿Alguna vez le dijeron o sintió que debería dejar de tomar? </label> {{ $pat_nopat-> dejarTomar  }}
-    	</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-4" align="center"></th>
+                    <th class="col-xs-6"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><label>No. de tazas de café o té negro al día: </label></td>
+                    <td>{{ $pat_nopat-> tazasCafé  }}</td>
+                </tr>
+            </tbody>
+        </table>
 
 
-    	<div class="row">
-    		<label>¿Alguna vez tomo en la mañana para calmar sus nervios o cortar la cruda? </label> {{ $pat_nopat-> formaTomar  }}
-    	</div>
 
-    	<div class="row">
-    		<label>¿Alguna vez se sintió mal o culpable por su forma de tomar? </label> {{ $pat_nopat-> tomarMañana  }}
-    	</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-4" align="center">TABAQUISMO</th>
+                    <th class="col-xs-6"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><label>Nivel: </label></td>
+                    <td>{{ $pat_nopat-> tabaquismo  }}</td>
+                </tr>
+
+                <tr>
+                    <td><label>Consumo diario de tabaco: </label></td>
+                    <td>{{ $pat_nopat-> consumoDiario  }} cigarros por día</td>
+                </tr>
+
+                <tr>
+                    <td><label>Años de tabaquismo: </label></td>
+                    <td>{{ $pat_nopat-> añosTabaquismo  }} años</td>
+                </tr>
+
+                <tr>
+                    <td><label>Edad de Inicio: </label></td>
+                    <td>{{ $pat_nopat-> edadInicio  }} años</td>
+                </tr>
+
+
+                <tr>
+                    <td><label>Edad en que se suspendió: </label></td>
+                    <td>{{ $pat_nopat-> edadSuspendió  }} años</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-4" align="center">BEBIDAS ALCOHOLICAS</th>
+                    <th class="col-xs-6"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><label>Frecuencia: </label></td>
+                    <td>{{ $pat_nopat-> alcohol_frecuencia  }}</td>
+                </tr>
+
+                <tr>
+                    <td><label>Cantidad: </label></td>
+                    <td>{{ $pat_nopat-> alcohol_cantidad  }}</td>
+                </tr>
+
+                <tr>
+                    <td><label>¿Alguna vez le dijeron o sintió que debería dejar de tomar? </label></td>
+                    <td>{{ $pat_nopat-> dejarTomar  }}</td>
+                </tr>
+
+                <tr>
+                    <td><label>¿Alguna vez tomo en la mañana para calmar sus nervios o cortar la cruda? </label></td>
+                    <td>{{ $pat_nopat-> formaTomar  }}</td>
+                </tr>
+
+                <tr>
+                    <td><label>¿Alguna vez se sintió mal o culpable por su forma de tomar? </label></td>
+                    <td>{{ $pat_nopat-> tomarMañana  }}</td>
+                </tr>
+
+            </tbody>
+        </table>
 
 
 
@@ -96,6 +145,23 @@
     		<label>PROBLEMAS RELACIONADOS AL CONSUMO DE SUSTANCIAS: </label> {{ $pat_nopat-> problemas  }}
     	</div>
 
+
+        <div class="col-xs-2">
+            <a href="/paciente/{{{$pat_nopat->id_paciente}}}" class="btn btn-info btn-lg btn-block"> <strong>Regresar</strong> </a>
+        </div>
+
+        <div class="col-xs-2">
+            <a href="/pat_nopat/{{{$pat_nopat->id}}}/edit" class="btn btn-warning btn-lg btn-block"><strong>Editar</strong></a>
+        </div>
+
+        <form action="{{action('PatnoPatController@destroy', $pat_nopat->id)}}" method="post" style="display:unset;"> {{csrf_field()}}
+            <input name="_method" type="hidden" value="DELETE">
+
+            <div class="col-xs-2">
+                <button class="btn btn-danger btn-lg btn-block" type="submit"><strong>Borrar</strong></button>
+            </div>
+        </form>
+        </div>
 
 
 
