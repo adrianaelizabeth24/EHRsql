@@ -35,8 +35,7 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
     /**
      * Store a newly created resource in storage.
      *     * @return \Illuminate\Http\Response
-
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -46,12 +45,12 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
         $historia->save();
 
         $trastronos = trastorno_mental::all();
-        foreach ($trastronos as $tras){
+        foreach ($trastronos as $tras) {
             $valores = new trastorno_historia_psiquiatrica_fam_values();
             $valores->id_trastorno_historia_psiquiatrica_fam = $historia->id;
             $valores->id_trastorno = $tras->id;
             $valores->valor = $request->input($tras->id);
-            $valores->fam_trastorno = $request->input( 'fam_' . $tras->id);
+            $valores->fam_trastorno = $request->input('fam_' . $tras->id);
             $valores->save();
         }
 
@@ -69,27 +68,29 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $historia = historia_psiquiatrica_familiar::find($id);
-        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam','=',$historia->id_tabla_trastorno)->get();
+        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=',
+            $historia->id_tabla_trastorno)->get();
         $trastorno = trastorno_mental::all();
-        return view('historia_psiquiatrica.show', ['historia' => $historia, 'trastorno' => $trastorno, 'valores' => $values]);
+        return view('historia_psiquiatrica.show', ['historia' => $historia, 'trastorno' =>
+            $trastorno, 'valores' => $values]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $historia = historia_psiquiatrica_familiar::find($id);
-        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam','=',$historia->id_tabla_trastorno)->get();
+        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=', $historia->id_tabla_trastorno)->get();
         $trastorno = trastorno_mental::all();
         return view('historia_psiquiatrica.edit', ['historia' => $historia, 'id' => $id, 'trastorno' => $trastorno, 'valores' => $values]);
     }
@@ -97,8 +98,8 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -106,7 +107,7 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
 
 
         $historia = historia_psiquiatrica_familiar::find($id);
-        $tablaValores = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam' , '=', $historia->id_tabla_trastorno)->get();
+        $tablaValores = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=', $historia->id_tabla_trastorno)->get();
         $trastronos = trastorno_mental::all();
         foreach ($trastronos as $tras) {
             foreach ($tablaValores as $values) {
@@ -122,7 +123,7 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -136,7 +137,7 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
         $historiaTrastornoPaciente->delete();
 
         $historiaValues = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=', $historia->id_tabla_trastorno)->get();
-        foreach ($historiaValues as $values){
+        foreach ($historiaValues as $values) {
             $values->delete();
         }
 

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\historia_clinica_familiar;
 use Illuminate\Http\Request;
 use App\paciente;
+use App\preguntas_patnopat;
+use App\historia_clinica_paciente;
+use App\historia_clinica_valores;
 
 class HistoriaClinicaFamiliarController extends Controller
 {
@@ -26,7 +29,8 @@ class HistoriaClinicaFamiliarController extends Controller
     public function create($id)
     {
         $paciente = paciente::find($id);
-        return view('historia_clinica_familiar.create', ['paciente' => $paciente]);
+        $preguntas = preguntas_patnopat::all();
+        return view('historia_clinica_familiar.create', ['paciente' => $paciente, 'preguntas' => $preguntas]);
     }
 
     /**
@@ -37,33 +41,30 @@ class HistoriaClinicaFamiliarController extends Controller
      */
     public function store(Request $request)
     {
-        $historia_fam = new historia_clinica_familiar();
 
-        $historia_fam->id_paciente = $request->input('id_paciente');
-        $historia_fam->snc = $request->input('snc');
-        $historia_fam->trastornos_convulsivos = $request->input('trastornos_convulsivos');
-        $historia_fam->respiratorias = $request->input('respiratorias');
-        $historia_fam->cardiovasculares = $request->input('cardiovasculares');
-        $historia_fam->hematopoyeticas_linfaticas = $request->input('hematopoyeticas_linfaticas');
-        $historia_fam->ojos_oidos_nariz_garganta = $request->input('ojos_oidos_nariz_garganta');
-        $historia_fam->hepaticas = $request->input('hepaticas');
-        $historia_fam->dermatologicas_tejido_conectivo = $request->input('dermatologicas_tejido_conectivo');
-        $historia_fam->musculo_esqueleticas = $request->input('musculo_esqueleticas');
-        $historia_fam->endocrinas_metabolicas = $request->input('endocrinas_metabolicas');
-        $historia_fam->gastro = $request->input('gastro');
-        $historia_fam->renales_genitourinarias = $request->input('renales_genitourinarias');
-        $historia_fam->cancer = $request->input('cancer');
-        $historia_fam->alergias = $request->input('alergias');
-        $historia_fam->cirujia_mayor = $request->input('cirujia_mayor');
-        $historia_fam->cirujia_programada = $request->input('cirujia_programada');
+        $historia_pac = new historia_clinica_paciente();
+        $historia_pac->id_paciente = $request->input('id_paciente');
+        $historia_pac->save();
 
-        $historia_fam->save();
+        $preguntas = preguntas_patnopat::all();
+        foreach ($preguntas as $ques) {
+            $valores = new historia_clinica_valores();
+            $valores->id_historia_paciente = $historia_pac->id;
+            $valores->id_pregunta = $ques->id;
+            $valores->valor = $request->input($ques->id);
+            $valores->save();
+        }
 
-        $id_paciente = $request->input('id_paciente');
-        $paciente = paciente::find($id_paciente);
-        $paciente->id_historia_clinica_familiar = $historia_fam->id;
+        $historia = new historia_clinica_familiar();
+        $historia->id_paciente = $historia_pac->id_paciente;
+        $historia->id_tabla_valores = $historia_pac->id;
+        $historia->save();
+
+        $paciente = paciente::find($historia->id_paciente);
+        $paciente->id_historia_clinica_familiar = $historia->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('PacienteController@index');
+
     }
 
     /**
@@ -74,8 +75,12 @@ class HistoriaClinicaFamiliarController extends Controller
      */
     public function show($id)
     {
-        $historia_fam = historia_clinica_familiar::find($id);
-        return view('historia_clinica_familiar.show', ['historia_fam' => $historia_fam]);
+        $historia = historia_clinica_familiar::find($id);
+        $valores = historia_clinica_valores::where('id_historia_paciente', '=',
+            $historia->id_tabla_valores)->get();
+        $preguntas = preguntas_patnopat::all();
+        return view('historia_clinica_familiar.show', ['historia' => $historia, 'valores' => $valores,
+            'preguntas' => $preguntas]);
     }
 
     /**
@@ -87,7 +92,9 @@ class HistoriaClinicaFamiliarController extends Controller
     public function edit($id)
     {
         $historia = historia_clinica_familiar::find($id);
-        return view('historia_clinica_familiar.edit', ['historia' => $historia, 'id' => $id]);
+        $values = historia_clinica_valores::where('id_historia_paciente', '=', $historia->id_tabla_valores)->get();
+        $preguntas = preguntas_patnopat::all();
+        return view('historia_clinica_familiar.edit', ['historia' => $historia, 'id' => $id, 'valores' => $values, 'preguntas' => $preguntas]);
     }
 
     /**
@@ -99,29 +106,17 @@ class HistoriaClinicaFamiliarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $historia_fam = historia_clinica_familiar::find($id);
-
-        $historia_fam->snc = $request->input('snc');
-        $historia_fam->trastornos_convulsivos = $request->input('trastornos_convulsivos');
-        $historia_fam->respiratorias = $request->input('respiratorias');
-        $historia_fam->cardiovasculares = $request->input('cardiovasculares');
-        $historia_fam->hematopoyeticas_linfaticas = $request->input('hematopoyeticas_linfaticas');
-        $historia_fam->ojos_oidos_nariz_garganta = $request->input('ojos_oidos_nariz_garganta');
-        $historia_fam->hepaticas = $request->input('hepaticas');
-        $historia_fam->dermatologicas_tejido_conectivo = $request->input('dermatologicas_tejido_conectivo');
-        $historia_fam->musculo_esqueleticas = $request->input('musculo_esqueleticas');
-        $historia_fam->endocrinas_metabolicas = $request->input('endocrinas_metabolicas');
-        $historia_fam->gastro = $request->input('gastro');
-        $historia_fam->renales_genitourinarias = $request->input('renales_genitourinarias');
-        $historia_fam->cancer = $request->input('cancer');
-        $historia_fam->alergias = $request->input('alergias');
-        $historia_fam->cirujia_mayor = $request->input('cirujia_mayor');
-        $historia_fam->cirujia_programada = $request->input('cirujia_programada');
-
-        $historia_fam->save();
-
-        $paciente = paciente::find($historia_fam->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        $historia = historia_clinica_familiar::find($id);
+        $tablaValores = historia_clinica_valores::where('id_historia_paciente', '=', $historia->id_tabla_valores)->get();
+        $preguntas= preguntas_patnopat::all();
+        foreach ($preguntas as $ques) {
+            foreach ($tablaValores as $values) {
+                $values->valor = $request->input($ques->id);
+                $values->save();
+            }
+        }
+        $paciente = paciente::find($historia->id_paciente);
+        return redirect()->action('PacienteController@index');
     }
 
     /**
@@ -133,10 +128,22 @@ class HistoriaClinicaFamiliarController extends Controller
     public function destroy($id)
     {
         $historia = historia_clinica_familiar::find($id);
+
         $paciente = paciente::find($historia->id_paciente);
         $paciente->id_historia_clinica_familiar = 0;
         $paciente->save();
+
+        $historia_pac = historia_clinica_paciente::where('id_paciente', '=', $historia->id_paciente)->first();
+        $historia_pac->delete();
+
+        $historiaValues = historia_clinica_valores::where('id_historial_paciente', '=', $historia->id_tabla_valores)->get();
+        foreach ($historiaValues as $values) {
+            $values->delete();
+        }
+
         $historia->delete();
+
+
         return redirect()->action('PacienteController@index');
     }
 }
