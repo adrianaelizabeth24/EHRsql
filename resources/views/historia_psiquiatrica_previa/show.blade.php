@@ -38,51 +38,18 @@
                         </div>
                         <div class="col-md-12">
                             <h2>Listado de problemas psiquiatricos previos</h2>
-                            <label>Ezquizofrenia</label>
-                            <p>@if($historial->ezquizofrenia == 2) Si @elseif($historial->ezquizofrenia == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Trastorno Bipolar</label>
-                            <p>@if($historial->trastorno_bipolar == 2) Si @elseif($historial->trastorno_bipolar == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Alcoholismo</label>
-                            <p>@if($historial->alcoholismo == 2) Si @elseif($historial->alcoholismo == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Drogadicción</label>
-                            <p>@if($historial->drogadiccion == 2) Si @elseif($historial->drogadiccion == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Depresión Mayor</label>
-                            <p>@if($historial->depresion == 2) Si @elseif($historial->depresion == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Disimia</label>
-                            <p>@if($historial->distimia == 2) Si @elseif($historial->distimia == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Ataques de Pánico</label>
-                            <p>@if($historial->ataques_de_panico == 2) Si @elseif($historial->ataques_de_panico == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Agorafobia</label>
-                            <p>@if($historial->agorafobia == 2) Si @elseif($historial->agorafobia == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Trastorno Obsesivo Compulsivo</label>
-                            <p>@if($historial->obsesivo_compulsivo == 2) Si @elseif($historial->obsesivo_compulsivo == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Fobia Social</label>
-                            <p>@if($historial->fobia_social == 2) Si @elseif($historial->fobia_social == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Fobia Especifica</label>
-                            <p>@if($historial->fobia_especifica == 2) Si @elseif($historial->fobia_especifica == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Ansiedad Generalizada</label>
-                            <p>@if($historial->ansiedad == 2) Si @elseif($historial->ansiedad == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Demencia</label>
-                            <p>@if($historial->demencia == 2) Si @elseif($historial->demencia == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Retraso Mental</label>
-                            <p>@if($historial->retardo_mental == 2) Si @elseif($historial->retardo_mental == 1) No @else
-                                    Se desconoce @endif</p>
-                            <label>Trastorno de Personalidad</label>
-                            <p>@if($historial->trastorno_de_peronsonalidad == 2) Si @elseif($historial->trastorno_de_peronsonalidad == 1) No @else
-                                    Se desconoce @endif</p>
+                             @foreach($trastorno as $tras_previo)
+                                <label>
+                                    {{$tras_previo->nombre}}
+                                </label>
+                                @foreach($valores as $val)
+                                    @if($val->id_trastorno == $tras_previo->id)
+                                        {{$val->valor}}
+                                    <br/>
+                                    @endif
+                                @endforeach
+                                <br/>
+                            @endforeach
                         </div>
                     </div>
                 </div>
