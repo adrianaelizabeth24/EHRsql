@@ -4,90 +4,181 @@
 <div class="jumbotron">
 		<div class="container">
 			<h2>Antecedentes Ginecobstetricos</h2>
-			<div class="row">
-				<div class="col-md-12">
-					<label>Menarca :</label>{{$antecedentes->menarca}}
-                    <br/>
-					<label>Fecha : </label>{{$antecedentes->fecha}}
-					<br/>
-					<label>Ritmo :</label>
-					<p>@foreach($ritmo as $opciones_ginecobstetricos_ritmo)
-							@if($antecedentes->ritmo == $opciones_ginecobstetricos_ritmo->id)
-								{{$opciones_ginecobstetricos_ritmo->nombre}}
+
+
+
+
+			<table class="table">
+                <thead>
+                <tr>
+                    <th class="col-xs-4"></th>
+                    <th class="col-xs-6"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr>
+                        <td>
+                            <label>Menarca</label>
+                        </td>
+                        <td>
+                            {{$antecedentes->menarca}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                   		<td>
+                            <label>Ritmo :</label>
+                        </td>
+                        <td>
+                            @foreach($ritmo as $opciones_ginecobstetricos_ritmo)
+								@if($antecedentes->ritmo == $opciones_ginecobstetricos_ritmo->id)
+									{{$opciones_ginecobstetricos_ritmo->nombre}}
+								@endif
+							@endforeach
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                    	<td>
+                            <label>Tensión Premenstrual</label>
+                        </td>
+                        <td>
+                            @foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
+								@if($antecedentes->tension_premenstrual == $opciones_ginecobstetricos_tension_premenstrual->id)
+									{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
+								@endif
+							@endforeach
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                    	<td>
+                            <label>Vida Sexual</label>
+                        </td>
+                        <td>
+                            @if($antecedentes->vida_sexual == 1)
+								Si
+							@else
+								No
 							@endif
-						@endforeach
-					</p>
-					
-					<br/>
-					<label>Tensión Premenstrual</label>
-					<p>@foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
-							@if($antecedentes->tension_premenstrual == $opciones_ginecobstetricos_tension_premenstrual->id)
-								{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}
-							@endif
-						@endforeach
-					</p>
-                    <br/>
-					<label>Vida Sexual</label>
+						</td>
+					</tr>
+
+
 					@if($antecedentes->vida_sexual == 1)
-						Si
-                        <label>Edad Inicio: </label>{{$antecedentes->edad_inicio}}
-                        <br/>
-                        <label>Número de Compañeros Sexuales:</label>{{$antecedentes->numero_compañeros_sexuales}}
-					@else
-						No
+					<tr>
+                        <td><label>Edad Inicio: </label></td>
+                        <td>{{$antecedentes->edad_inicio}}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Número de Compañeros Sexuales:</label></td>
+                        <td>{{$antecedentes->numero_compañeros_sexuales}}</td>
+                    </tr>
 					@endif
-                    <br/>
-					<label>Antecedentes Obstetricos: </label>
-					<p>@foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
-							@if($antecedentes->antecedentes_obstetricos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
-								{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
-							@endif
-						@endforeach
-					</p>
-                    <br/>
 
-					<label>Embarazo Actual</label>
+					<tr>
+                    	<td>
+                            <label>Antecedentes Obstetricos: </label>
+                        </td>
+                        <td>
+                            @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
+								@if($antecedentes->antecedentes_obstetricos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
+									{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
+								@endif
+							@endforeach
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                    	<td>
+                            <label>Embarazo Actual</label>
+                        </td>
+                        <td>
+                            @if($antecedentes->embarazo_actual == 1)
+								Si
+							@else
+								No
+							@endif
+						</td>
+					</tr>
+
+
 					@if($antecedentes->embarazo_actual == 1)
-						Si
-                        <label>Semanas de Embarazo : </label>{{$antecedentes->semanas_embarazo}}
-					@else
-						No
+					<tr>
+                        <td><label>Semanas de Embarazo</label></td>
+                        <td>{{$antecedentes->semanas_embarazo}}</td>
+                    </tr>
 					@endif
-					<br/>
 
-					<label>Lactancia : </label>
-					@if($antecedentes->lactancia == 1)
-						Si
-					@else
-						No
-					@endif
-					<br/>
 
-					<label>Posibilidad de Embarazo :</label><br/>
-					@if($antecedentes->posibilidad_embarazo == 1)
-						Si
-					@else
-						No
-					@endif
-					<br/>
 
-					<label>Anticonceptivos : </label>
-					<p>@foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
-							@if($antecedentes->anticonceptivos == $opciones_ginecobstetricos_anticonceptivos->id)
-								{{$opciones_ginecobstetricos_anticonceptivos->nombre}}
+					<tr>
+                    	<td>
+                            <label>Lactancia : </label>
+                        </td>
+                        <td>
+                            @if($antecedentes->lactancia == 1)
+								Si
+							@else
+								No
 							@endif
-						@endforeach
-					</p>
-					<br/>
+						</td>
+					</tr>
 
-				</div>
-			</div>
-		<a href="/paciente/{{{$antecedentes->id_paciente}}}" class="btn btn-info">Regresar</a>
-		<a href="/antecedentes_ginecobstetricos/{{{$antecedentes->id}}}/edit" class="btn btn-warning">Editar</a>
+
+
+					<tr>
+                    	<td>
+                            <label>Posibilidad de Embarazo</label>
+                        </td>
+                        <td>
+                            @if($antecedentes->posibilidad_embarazo == 1)
+								Si
+							@else
+								No
+							@endif
+						</td>
+					</tr>
+
+
+					<tr>
+                    	<td>
+                            <label>Anticonceptivos</label>
+                        </td>
+                        <td>
+                            @foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
+								@if($antecedentes->anticonceptivos == $opciones_ginecobstetricos_anticonceptivos->id)
+									{{$opciones_ginecobstetricos_anticonceptivos->nombre}}
+								@endif
+							@endforeach
+						</td>
+					</tr>
+
+            	</tbody>
+            </table>
+
+        <div class="col-xs-2">
+			<a href="/paciente/{{{$antecedentes->id_paciente}}}" class="btn btn-info btn-lg btn-block"><strong>Regresar</strong></a>
+		</div>
+
+		<div class="col-xs-2">
+			<a href="/antecedentes_ginecobstetricos/{{{$antecedentes->id}}}/edit" class="btn btn-warning btn-lg btn-block"><strong>Editar</strong></a>
+		</div>
+
 		<form action="{{action('AntecedentesGinecobstetricosController@destroy', $antecedentes->id)}}" method="post" style="display:unset;">
 			{{csrf_field()}}
 			<input name="_method" type="hidden" value="DELETE">
-			<button class="btn btn-danger" type="submit">Borrar</button>
+
+			<div class="col-xs-2">
+				<button class="btn btn-danger btn-lg btn-block" type="submit"><strong>Borrar</strong></button>
+			</div>
 		</form>
 		
 	</div>

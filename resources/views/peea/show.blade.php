@@ -26,17 +26,6 @@
                     </tr>
 
 
-
-                    <tr>
-                        <td>
-                            <label>El episodio actual es: </label>
-                        </td>
-                        <td>
-                            {{$peea->ep_actual}}
-                        </td>
-                    </tr>
-
-
                     <tr>
                         <td>
                             <label>Número de episodios previos: </label>

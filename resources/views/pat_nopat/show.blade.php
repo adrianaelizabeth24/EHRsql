@@ -13,7 +13,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th class="col-xs-3" align="center">ANTECEDENTE</th>
+                    <th class="col-xs-3">ANTECEDENTE</th>
                     <th class="col-xs-5">DETALLES</th>
                     <th class="col-xs-4">¿PRESENTA ANTECEDENTE?</th>
                 </tr>
