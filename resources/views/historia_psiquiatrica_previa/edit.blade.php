@@ -48,40 +48,50 @@
 
 
 						<h2>Lista de Problemas Psiquiatricos Previos</h2>
+						<table class="table">
+							<thead>
+							<tr>
+								<th class="col-xs-3" align="center">Problemas</th>
+								<th class="col-xs-1">Si</th>
+								<th class="col-xs-1">No</th>
+							</tr>
+							</thead>
+							<tbody>
 
 						@foreach($trastorno as $tras_previo)
-                            <label>
+							<tr>
+								<th scope="row">
                                 {{$tras_previo->nombre}}
-                            </label><br/>
+								</th>
+
                             @foreach ($valores as $values)
+
                                 @if($tras_previo->id == $values->id_trastorno)
-                                    @if($values->valor == 'Si')
-                                        <input type="radio" name="{{$tras_previo->id}}" value="Si" checked> Sí<br/>
-                                        <input type="radio" name="{{$tras_previo->id}}" value="No"> No<br/>
-                                        <input type="radio" name="{{$tras_previo->id}}" value="No sé">No Sé<br/>
-                                    @elseif($values->valor == 'No')
-                                        <input type="radio" name="{{$tras_previo->id}}" value="Si"> Sí<br/>
-                                        <input type="radio" name="{{$tras_previo->id}}" value="No" checked> No<br/>
-                                        <input type="radio" name="{{$tras_previo->id}}" value="No sé">No Sé<br/>
-                                    @else
-                                        <input type="radio" name="{{$tras_previo->id}}" value="Si"> Sí<br/>
-                                        <input type="radio" name="{{$tras_previo->id}}" value="No"> No<br/>
-                                        <input type="radio" name="{{$tras_previo->id}}" value="No sé" checked>No Sé<br/>
-                                    @endif
+                                    @if($values->value == 'Si')
+											<td><input type="radio" name="{{$tras_previo->id}}" value="Si" checked></td>
+											<td><input type="radio" name="{{$tras_previo->id}}" value="No"></td>
+									@else
+											td><input type="radio" name="{{$tras_previo->id}}" value="Si"></td>
+											<td><input type="radio" name="{{$tras_previo->id}}" value="No" checked></td>
+									@endif
                                 @endif
                             @endforeach
-                            <br/>
+								</tr>
                         @endforeach
+							</tbody>
+						</table>
 
 
 					</div>
 				</div>
+				<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
 			</div>
 
 
-        </div> <!-- jumbotron -->
+
 
         <br/>
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+
+		</div> <!-- jumbotron -->
     </form>
 @stop

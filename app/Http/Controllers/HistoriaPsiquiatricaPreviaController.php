@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\historia_psiquiatrica_previa;
+use App\trastorno_mental;
+use App\trastorno_historia_psiquiatrica_previa;
+use App\trastorno_historia_psiquiatrica_previa_values;
 use App\paciente;
 
 class HistoriaPsiquiatricaPreviaController extends Controller
@@ -28,8 +31,8 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function create($id)
     {
         $paciente = paciente::find($id);
-        $preguntas = preguntas_patnopat::all();
-        return view('historia_psiquiatrica_previa.create', ['paciente' => $paciente, 'preguntas' => $preguntas]);
+        $trastorno = trastorno_mental::all();
+        return view('historia_psiquiatrica_previa.create', ['paciente' => $paciente, 'trastorno' => $trastorno]);
     }
 
     /**
@@ -41,34 +44,36 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function store(Request $request)
     {
 
-        $historia_pac = new historia_psiquiatrica_previa();
-        $historia_pac->id_paciente = $request->input('id_paciente');
-        $historia_pac->save();
+        $historia = new trastorno_historia_psiquiatrica_previa();
+        $historia->id_paciente = $request->input('id_paciente');
+        $historia->save();
 
-        $historial_tratamiento->id_paciente = $id_paciente;
-        $historial_tratamiento->tratamiento_previo = $tratamiento_previo;
-        $historial_tratamiento->quien_lo_trato = $quien_lo_trato;
-        $historial_tratamiento->hospitalizacion = $hospitalizacion;
-        $historial_tratamiento->primera_hospitalizacion = $primera_hospitalizacion;
-        $historial_tratamiento->no_hospitalizaciones = $no_hospitalizaciones;
-        $historial_tratamiento->duracion_hospitalizacion = $duracion_hospitalizacion;
-        $historial_tratamiento->motivo_hospitalizacion = $motivo_hospitalizacion;
-        $historial_tratamiento->tratamiento = $tratamiento;
-
-        $preguntas = preguntas_historia_priquiatrica_previa::all();
-        foreach ($preguntas as $tras_previo) {
-            $valores = new historia_priquiatrica_previa_valores();
-            $valores->id_historia_paciente = $historia_pac->id;
-            $valores->id_pregunta = $tras_previo->id;
-            $valores->valor = $request->input($tras_previo->id);
+        $trastronos = trastorno_mental::all();
+        foreach ($trastronos as $tras) {
+            $valores = new trastorno_historia_psiquiatrica_previa_values();
+            $valores->id_trastorno_historia_psiquiatrica_previa = $historia->id;
+            $valores->id_trastorno = $tras->id;
+            $valores->value = $request->input($tras->id);
             $valores->save();
         }
 
-        $paciente = paciente::find($historia->id_paciente);
-        $paciente->id_historia_clinica_familiar = $historia->id;
+        $historial_tratamiento = new historia_psiquiatrica_previa();
+        $historial_tratamiento->id_paciente = $request->input('id_paciente');
+        $historial_tratamiento->tratamiento_previo = $request->input('tratamiento_previo');
+        $historial_tratamiento->quien_lo_trato = $request->input('quien_lo_trato');
+        $historial_tratamiento->hospitalizacion = $request->input('hospitalizacion');
+        $historial_tratamiento->primera_hospitalizacion = $request->input('primera_hospitalizacion');
+        $historial_tratamiento->no_hospitalizaciones = $request->input('no_hospitalizaciones');
+        $historial_tratamiento->duracion_hospitalizacion = $request->input('duracion_hospitalizacion');
+        $historial_tratamiento->motivo_hospitalizacion = $request->input('motivo_hospitalizacion');
+        $historial_tratamiento->tratamiento = $request->input('tratamiento');
+        $historial_tratamiento->id_trastorno_tabla = $historia->id;
+        $historial_tratamiento->save();
+
+        $paciente = paciente::find($historial_tratamiento->id_paciente);
+        $paciente->id_historia_previa = $historial_tratamiento->id;
         $paciente->save();
         return redirect()->action('PacienteController@index');
-
     }
 
     /**
@@ -80,11 +85,10 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function show($id)
     {
         $historia = historia_psiquiatrica_previa::find($id);
-        $valores = historia_psiquiatrica_previa::where('id_historia_paciente', '=',
-            $historia->id_tabla_valores)->get();
-        $preguntas = preguntas_historia_priquiatrica_previa::all();
-        return view('historia_psiquiatrica_previa.show', ['historia' => $historia, 'valores' => $valores,
-            'preguntas' => $preguntas]);
+        $trastornos = trastorno_mental::all();
+        $values = trastorno_historia_psiquiatrica_previa_values::where('id_trastorno_historia_psiquiatrica_previa', '=', $historia->id_trastorno_tabla)->get();
+        return view('historia_psiquiatrica_previa.show', ['historial' => $historia, 'valor' => $values,
+            'trastorno' => $trastornos]);
     }
 
     /**
@@ -96,9 +100,11 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function edit($id)
     {
         $historia = historia_psiquiatrica_previa::find($id);
-        $values = historia_priquiatrica_previa_valores::where('id_historia_paciente', '=', $historia->id_tabla_valores)->get();
-        $preguntas = preguntas_historia_priquiatrica_previa::all();
-        return view('historia_psiquiatrica_previa.edit', ['historia' => $historia, 'id' => $id, 'valores' => $values, 'preguntas' => $preguntas]);
+        $values = trastorno_historia_psiquiatrica_previa_values::where('id_trastorno_historia_psiquiatrica_previa', '=',
+            $historia->id_trastorno_tabla)->get();
+        $trastornos = trastorno_mental::all();
+        return view('historia_psiquiatrica_previa.edit', ['historial' => $historia, 'valores' => $values,
+            'trastorno' => $trastornos, 'id' => $id]);
     }
 
     /**
@@ -111,24 +117,31 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function update(Request $request, $id)
     {
         $historia = historia_psiquiatrica_previa::find($id);
-        $tablaValores = historia_priquiatrica_previa_valores::where('id_historia_paciente', '=', $historia->id_tabla_valores)->get();
-        $preguntas= preguntas_historia_priquiatrica_previa::all();
 
-        $historial_tratamiento->tratamiento_previo = $tratamiento_previo;
-        $historial_tratamiento->quien_lo_trato = $quien_lo_trato;
-        $historial_tratamiento->hospitalizacion = $hospitalizacion;
-        $historial_tratamiento->primera_hospitalizacion = $primera_hospitalizacion;
-        $historial_tratamiento->no_hospitalizaciones = $no_hospitalizaciones;
-        $historial_tratamiento->duracion_hospitalizacion = $duracion_hospitalizacion;
-        $historial_tratamiento->motivo_hospitalizacion = $motivo_hospitalizacion;
-        $historial_tratamiento->tratamiento = $tratamiento;
-        foreach ($preguntas as $tras_previo) {
-            foreach ($tablaValores as $values) {
-                $values->valor = $request->input($tras_previo->id);
-                $values->save();
+
+        $tablaValores = trastorno_historia_psiquiatrica_previa_values::where(
+            'id_trastorno_historia_psiquiatrica_previa', '=', $historia->id_trastorno_tabla)->get();
+        $trastronos = trastorno_mental::all();
+        foreach ($trastronos as $tras) {
+            foreach ($tablaValores as $valores){
+                $valores->value = $request->input($tras->id);
+                $valores->save();
             }
         }
+
+        $historia->tratamiento_previo = $request->input('tratamiento_previo');
+        $historia->quien_lo_trato = $request->input('quien_lo_trato');
+        $historia->hospitalizacion = $request->input('hospitalizacion');
+        $historia->primera_hospitalizacion = $request->input('primera_hospitalizacion');
+        $historia->no_hospitalizaciones = $request->input('no_hospitalizaciones');
+        $historia->duracion_hospitalizacion = $request->input('duracion_hospitalizacion');
+        $historia->motivo_hospitalizacion = $request->input('motivo_hospitalizacion');
+        $historia->tratamiento = $request->input('tratamiento');
+        $historia->save();
+
         $paciente = paciente::find($historia->id_paciente);
+        $paciente->id_historia_previa = $historia->id;
+        $paciente->save();
         return redirect()->action('PacienteController@index');
     }
 
@@ -141,23 +154,22 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     public function destroy($id)
     {
         $historia = historia_psiquiatrica_previa::find($id);
-
         $paciente = paciente::find($historia->id_paciente);
-        $paciente->id_historia_psiquiatrica_previa = 0;
+        $paciente->id_historia_previa = 0;
         $paciente->save();
 
-        $historia_pac = historia_psiquiatrica_previa_paciente::where('id_paciente', '=', $historia->id_paciente)->first();
-        $historia_pac->delete();
+        $historiaTrastornoPaciente = trastorno_historia_psiquiatrica_previa::where('id_paciente', '=', $historia->id_paciente)->first();
+        $historiaTrastornoPaciente->delete();
 
-        $historiaValues = historia_priquiatrica_previa_valores::where('id_historial_paciente', '=', $historia->id_tabla_valores)->get();
+        $historiaValues = trastorno_historia_psiquiatrica_previa_values::where('id_trastorno_historia_psiquiatrica_previa', '=', $historia->id_tabla_trastorno)->get();
         foreach ($historiaValues as $values) {
             $values->delete();
         }
 
         $historia->delete();
 
-
         return redirect()->action('PacienteController@index');
     }
+
 }
 

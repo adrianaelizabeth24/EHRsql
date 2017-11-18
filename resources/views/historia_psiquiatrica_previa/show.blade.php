@@ -4,14 +4,6 @@
 
 
     <div class="jumbotron">
-        <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
-            <input type="text" class="form-control" placeholder="Buscar paciente">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
         <div id="div_pacientes" class="container">
             <h2>Historial Tratamiento</h2>
             <div id="patient" role="tabpanel">
@@ -38,18 +30,33 @@
                         </div>
                         <div class="col-md-12">
                             <h2>Listado de problemas psiquiatricos previos</h2>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-3" align="center">Problemas</th>
+                                    <th class="col-xs-1">Si</th>
+                                    <th class="col-xs-1">No</th>
+                                </tr>
+                                </thead>
+                                <tbody>
                              @foreach($trastorno as $tras_previo)
-                                <label>
-                                    {{$tras_previo->nombre}}
-                                </label>
-                                @foreach($valores as $val)
-                                    @if($val->id_trastorno == $tras_previo->id)
-                                        {{$val->valor}}
-                                    <br/>
+                                 <tr>
+                                 <th scope="row">{{$tras_previo->nombre}}</th>
+                                 @foreach($valor as $value)
+                                     @if($value->id_trastorno == $tras_previo->id)
+                                        @if($value->value == 'Si')
+                                            <td>X</td>
+                                            <td></td>
+                                         @else
+                                            <td></td>
+                                            <td>X</td>
+                                        @endif
                                     @endif
                                 @endforeach
-                                <br/>
+                                </tr>
                             @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

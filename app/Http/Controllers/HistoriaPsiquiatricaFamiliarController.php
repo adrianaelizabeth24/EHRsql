@@ -111,9 +111,11 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
         $trastronos = trastorno_mental::all();
         foreach ($trastronos as $tras) {
             foreach ($tablaValores as $values) {
-                $values->valor = $request->input($tras->id);
-                $values->fam_trastorno = $request->input('fam_' . $tras->id);
-                $values->save();
+                if($values->id_trastorno == $tras->id) {
+                    $values->valor = $request->input($tras->id);
+                    $values->fam_trastorno = $request->input('fam_' . $tras->id);
+                    $values->save();
+                }
             }
         }
         $paciente = paciente::find($historia->id_paciente);

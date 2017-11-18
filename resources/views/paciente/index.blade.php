@@ -22,8 +22,11 @@
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab">
 						<h4 class="panel-title">
-							<a href="paciente/{{{$paciente->id}}}">{{$paciente->id}}
-							{{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}</a>
+							<a href="paciente/{{{$paciente->id}}}">
+							{{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							{{$paciente->nacimiento}}</a>
 						</h4>
 					</div>
 				</div> <!-- Complete patient info -->

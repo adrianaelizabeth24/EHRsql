@@ -63,20 +63,31 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
 
                     <div class="row">
                         <h2>Lista de Problemas Psiquiatricos Previos</h2>
-                        <div class="col-md-12">
-                            @foreach($trastorno as $tras_previo)
-                                <label>{{$tras_previo->nombre}}</label><br/>
-                                <input type="radio" name="{{$tras_previo->id}}" value="Si"> Sí<br/>
-                                <input type="radio" name="{{$tras_previo->id}}" value="No"> No<br/>
-                                <input type="radio" name="{{$tras_previo->id}}" value="No sé">No Sé<br/>
-                                <br/>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="col-xs-3" align="center">Problemas</th>
+                                <th class="col-xs-1">Si</th>
+                                <th class="col-xs-1">No</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($trastorno as $tras)
+                                <tr>
+                                    <th scope="row">{{$tras->nombre}}</th>
+                                    <td><input type="radio" name="{{$tras->id}}" value="Si"></td>
+                                    <td><input type="radio" name="{{$tras->id}}" value="No"></td>
+                                </tr>
                             @endforeach
+                            </tbody>
+                        </table>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div> <!-- jumbotron -->
+
 
         <br/>
         <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">

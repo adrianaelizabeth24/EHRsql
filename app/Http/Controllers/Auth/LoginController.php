@@ -25,7 +25,7 @@ class LoginController extends Controller
 
         if (Auth::attempt(['name' => $request->input('name'), 'password' => $request->input('password') ])) {
             // Authentication passed...
-            return redirect()->intended('/');
+            return redirect()->intended('/paciente');
         }
 
         $errors = new MessageBag(['password' => ['Wrong name or password']]);
