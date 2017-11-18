@@ -3,34 +3,33 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h2>Lista de Substancias Abusadas</h2>
-
+            <h2>Reporte de Abuso de Substancias de </h2>
+            <h4 style="color: #3097D1">{{$paciente->nombre}}{{$paciente->apellido_paterno}}</h4>
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="col-xs-4"></th>
-                    <th class="col-xs-6"></th>
+                    <th class="col-xs-6" align="center">Substancia</th>
+                    <th class="col-xs-2">Si</th>
+                    <th class="col-xs-2">No</th>
                 </tr>
                 </thead>
                 <tbody>
-
                     @foreach($substancias as $subs)
                     <tr>
-                        <td><label>{{$subs->nombre}}</label></td>
-
+                        <th scope="row">{{$subs->nombre}}</th>
                         @foreach ($substancia_abusada as $substancia_abs)
                             @if($substancia_abs->id_substancia == $subs->id)
                                 @if($substancia_abs->valor == 1)
-                                    <td>Si</td>
+                                    <td>X</td>
+                                    <td></td>
                                 @else
-                                    <td>No</td>
+                                    <td></td>
+                                    <td>X</td>
                                 @endif
                             @endif
                         @endforeach
-
                     </tr>
                     @endforeach
-
                 </tbody>
             </table>
 

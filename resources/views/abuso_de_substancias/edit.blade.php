@@ -8,31 +8,39 @@
         <div class="jumbotron">
 
             <div class="container">
-                <h2>Reporte Abuso de Substancias</h2>
+                <h2>Reporte Abuso de Substancias de</h2>
+				<h2 style="color: #3097D1">{{$paciente->nombre}}{{$paciente->apellido_paterno}}</h2>
 				<div class="row">
-					<div class="col-md-12">
+					<table class="table">
+						<thead>
+						<tr>
+							<th class="col-xs-6" align="center">Substancia</th>
+							<th class="col-xs-2">Si</th>
+							<th class="col-xs-2">No</th>
+						</tr>
+						</thead>
+						<tbody>
 						@foreach($substancias as $subs)
-							<label>
-								{{$subs->nombre}}
-							</label><br/>
+							<tr>
+								<th scope="row">{{$subs->nombre}}</th>
 							@foreach ($substancia_abusada as $substancia_abs)
 								@if($substancia_abs->id_substancia == $subs->id)
 									@if($substancia_abs->valor == 1)
-										<input type="radio" name="{{$subs->id}}" value="1" checked> Sí<br/>
-										<input type="radio" name="{{$subs->id}}" value="0"> No<br/>
+											<td><input type="radio" name="{{$substancia->id}}" value="1" checked/></td>
+											<td><input type="radio" name="{{$substancia->id}}" value="0"/></td>
 									@else
-										<input type="radio" name="{{$subs->id}}" value="1"> Sí<br/>
-										<input type="radio" name="{{$subs->id}}" value="0" checked> No<br/>
+											<td><input type="radio" name="{{$substancia->id}}" value="1"/></td>
+											<td><input type="radio" name="{{$substancia->id}}" value="0" checked/></td>
 									@endif
 								@endif
 							@endforeach
-							<br/>
+							</tr>
 						@endforeach
+						</tbody>
+					</table>
 					</div>
+				<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
 				</div>
 			</div>
-            <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-        </div> <!-- jumbotron -->
-
     </form>
 @stop

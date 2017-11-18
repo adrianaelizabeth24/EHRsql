@@ -56,7 +56,8 @@ class AbusoDeSubstanciasController extends Controller
         $paciente = paciente::find($abuso_de_substancias->id_paciente);
         $paciente->id_abuso_de_substancias = $abuso_de_substancias->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+
+        return redirect()->action('AbusoDeSubstanciasController@show',$abuso_de_substancias->id);
 
     }
 
@@ -69,10 +70,11 @@ class AbusoDeSubstanciasController extends Controller
     public function show($id)
     {
         $abuso_de_substancias = abuso_de_substancias::find($id);
+        $paciente = paciente::find($abuso_de_substancias->id_paciente);
         $substancia_abusada = substancia_abusada::where('id_abuso_de_substancias','=',$id)->get();
         $substancias = substancias::all();
         return view('abuso_de_substancias.show', ['abuso_de_substancias' => $abuso_de_substancias,
-            'substancia_abusada' => $substancia_abusada, 'substancias' => $substancias]);
+            'substancia_abusada' => $substancia_abusada, 'substancias' => $substancias, 'paciente' => $paciente]);
     }
 
     /**
@@ -84,10 +86,11 @@ class AbusoDeSubstanciasController extends Controller
     public function edit($id)
     {
         $abuso_de_substancias = abuso_de_substancias::find($id);
+        $paciente = paciente::find($abuso_de_substancias->id_paciente);
         $substancia_abusada = substancia_abusada::where('id_abuso_de_substancias','=',$id)->get();
         $substancias = substancias::all();
         return view('abuso_de_substancias.edit', ['abuso_de_substancias' => $abuso_de_substancias,
-            'substancia_abusada' => $substancia_abusada, 'substancias' => $substancias, 'id' => $id]);
+            'substancia_abusada' => $substancia_abusada, 'substancias' => $substancias, 'id' => $id, 'paciente' => $paciente]);
     }
 
     /**
@@ -108,7 +111,7 @@ class AbusoDeSubstanciasController extends Controller
             }
         }
 
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('AbusoDeSubstanciasController@show',$id);
     }
 
     /**
@@ -128,6 +131,6 @@ class AbusoDeSubstanciasController extends Controller
             $subs->delete();
         }
         $abuso_de_substancias->delete();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }
