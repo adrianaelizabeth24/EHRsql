@@ -6,64 +6,74 @@
     <div class="jumbotron">
         <div class="container">
             <h2>Examen Mental</h2>
-        </div>
-        <div id="div_pacientes" class="container">
-            <div id="patient" role="tabpanel">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="personal_info">
-                            <label>Persona que realizó las escalas : </label><p>{{$examen->escalas_realizadas}}</p>
-                            <label>HAM-D : </label><p>{{$examen->ham_d}}</p>
-                            <label>HAM-A : </label><p>{{$examen->ham_a}}</p>
-                            <label>Y-BOCS : </label><p>{{$examen->y_bocs}}</p>
-                            <label>Q-LES-Q : </label><p>{{$examen->q_les_q}}</p>
-                            <label>GADI : </label><p>{{$examen->gadi}}</p>
-                            <label>BDI : </label><p>{{$examen->bdi}}</p>
-                            <label>SPIN : </label><p>{{$examen->spin}}</p>
-                            <label>PAS : </label><p>{{$examen->pas}}</p>            
-                            <label>Descripción de hallazgos físicos o neurológicos que no hayan sido documentados en otra parte de la historia :</label><p>{{$examen->hallazgos}}</p>
-                            <label>Acostado PT (Despues de 2 minutos) :</label>
-                            <label>Solicitado : </label><p>{{$examen->pt_acostado_solicitado}}</p>
-                            <label>Diagnosticado : </label><p>{{$examen->pt_acostado_diagnosticado}}</p>                     
-                            <label>Acostado ST (Despues de 2 minutos) :</label> 
-                            <label>Solicitado : </label><p>{{$examen->st_acostado_solicitado}}</p>
-                            <label>Diagnosticado : </label><p>{{$examen->st_acostado_diagnosticado}}</p>   
-                            <label>Parado PT (Despues de 2 minutos) :</label> 
-                            <label>Solicitado : </label><p>{{$examen->pt_parado_solicitado}}</p>
-                            <label>Diagnosticado : </label><p>{{$examen->pt_parado_diagnosticado}}</p> 
-                            <label>Parado ST (Despues de 2 minutos) :</label> 
-                            <label>Solicitado : </label><p>{{$examen->st_parado_solicitado}}</p>
-                            <label>Diagnosticado : </label><p>{{$examen->st_parado_diagnosticado}}</p> 
-                            <label>Frecuencia cardiaca :</label> 
-                            <label>Acostado (despues de 5 min) : </label><p>{{$examen->frecuencia_acostado}}</p>
-                            <label>Parado (despues de 2 min) : </label><p>{{$examen->frecuencia_parado}}</p> 
-                            <label>Ritmo regular : </label><p>{{$examen->ritmo_regular}}</p>
-                            <label>Ritmo irregular : </label><p>{{$examen->ritmo_irregular}}</p> 
-                            <label>Peso : </label><p>{{$examen->peso}}</p>
-                            <label>KGS : </label><p>{{$examen->kgs}}</p> 
-                            <label>Talla : </label><p>{{$examen->talla}}</p>
-                            <label>CMS : </label><p>{{$examen->cms}}</p> 
-                            <label>Circunferencia abdominal (en cm) : </label><p>{{$examen->circunferencia}}</p>
-                            <label>Temperatura (en gc) : </label><p>{{$examen->temperatura}}</p> 
-                            <label>Peso usual : </label><p>{{$examen->peso}}</p>
-                            <label>IMC : </label><p>{{$examen->imc}}</p> 
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="col-xs-2"></th>
+                        <th class="col-xs-4"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                            <tr><td><label>Persona que realizó las escalas : </label></td><td>{{$examen->escalas_realizadas}}</td>
+                            <tr><td><label>HAM-D : </label></td><td>{{$examen->ham_d}}</td></tr>
+                            <tr><td><label>HAM-A : </label></td><td>{{$examen->ham_a}}</td></tr>
+                            <tr><td><label>Y-BOCS : </label></td><td>{{$examen->y_bocs}}</td></tr>
+                            <tr><td><label>Q-LES-Q : </label></td><td>{{$examen->q_les_q}}</td></tr>
+                            <tr><td><label>GADI : </label></td><td>{{$examen->gadi}}</td></tr>
+                            <tr><td><label>BDI : </label></td><td>{{$examen->bdi}}</td></tr>
+                            <tr><td><label>SPIN : </label></td><td>{{$examen->spin}}</td></tr>
+                            <tr><td><label>PAS : </label></td><td>{{$examen->pas}}</td></tr>
+                            <tr><td><label>Descripción de hallazgos físicos o neurológicos que no hayan sido documentados en otra parte de la historia :</label></td><td>{{$examen->hallazgos}}</td></tr>
+                            <tr><td><label>Acostado PT (Despues de 2 minutos) :</label></td>
+                            <tr><td><label>Solicitado : </label></td><td>{{$examen->pt_acostado_solicitado}}</td></tr>
+                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->pt_acostado_diagnosticado}}</td></tr>                  
+                            <tr><td><label>Acostado ST (Despues de 2 minutos) :</label></td>
+                            <tr><td><label>Solicitado : </label></td><td>{{$examen->st_acostado_solicitado}}</td></tr>
+                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->st_acostado_diagnosticado}}</td></tr> 
+                            <tr><td><label>Parado PT (Despues de 2 minutos) :</label>
+                            <tr><td><label>Solicitado : </label></td><td>{{$examen->pt_parado_solicitado}}</td></tr>
+                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->pt_parado_diagnosticado}}</td></tr>
+                            <tr><td><label>Parado ST (Despues de 2 minutos) :</label></td>
+                            <tr><td><label>Solicitado : </label></td><td>{{$examen->st_parado_solicitado}}</td></tr>
+                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->st_parado_diagnosticado}} </td></tr>
+                            <tr><td><label>Frecuencia cardiaca :</label></td>
+                            <tr><td><label>Acostado (despues de 5 min) : </label></td><td>{{$examen->frecuencia_acostado}}</td></tr>
+                            <tr><td><label>Parado (despues de 2 min) : </label></td><td>{{$examen->frecuencia_parado}}</td></tr>
+                            <tr><td><label>Ritmo regular : </label></td><td>{{$examen->ritmo_regular}}</td></tr>
+                            <tr><td><label>Ritmo irregular : </label></td><td>{{$examen->ritmo_irregular}}</td></tr>
+                            <tr><td><label>Peso : </label></td><td>{{$examen->peso}}</td></tr>
+                            <tr><td><label>KGS : </label></td><td>{{$examen->kgs}}</td></tr>
+                            <tr><td><label>Talla : </label></td><td>{{$examen->talla}}</td></tr>
+                            <tr><td><label>CMS : </label></td><td>{{$examen->cms}}</td></tr>
+                            <tr><td><label>Circunferencia abdominal (en cm) : </label></td><td>{{$examen->circunferencia}}</td></tr>
+                            <tr><td><label>Temperatura (en gc) : </label></td><td>{{$examen->temperatura}}</td></tr>
+                            <tr><td><label>Peso usual : </label></td><td>{{$examen->peso}}</td></tr>
+                            <tr><td><label>IMC : </label></td><td>{{$examen->imc}}</td></tr>
+                        </tbody>
+                    </thead>
+                </table>
 
 
-                        </div>
-                    </div>
+                <div class="col-xs-2">
+                    <a href="/paciente/{{{$examen->id_paciente}}}" class="btn btn-info btn-lg btn-block"><strong>Regresar</strong></a>
                 </div>
-                <a href="/paciente/{{{$examen->id_paciente}}}" class="btn btn-info">Regresar</a>
-				<a href="/examen_mental/{{{$examen->id}}}/edit" class="btn btn-warning">Editar</a>
+
+                <div class="col-xs-2">
+				    <a href="/examen_mental/{{{$examen->id}}}/edit" class="btn btn-warning btn-lg btn-block"><strong>Editar</strong></a>
+                </div>
+
                 <form action="{{action('ExamenMentalController@destroy', $examen->id)}}" method="post" style="display: unset;">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
-                    <button class="btn btn-danger" type="submit">Borrar</button>
+                    <div class="col-xs-2">
+                        <button class="btn btn-danger btn-lg btn-block" type="submit"><strong>Borrar</strong></button>
+                    </div>
                 </form>
-            </div>
-        </div> <!-- Complete patient info -->
+
     </div> <!-- div_pacientes -->
     </div> <!-- jumbotron -->
-    <hr>
+
 @stop
 
 

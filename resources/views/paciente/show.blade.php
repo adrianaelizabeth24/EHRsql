@@ -8,52 +8,138 @@
     <div class="jumbotron">
         <div class="container">
             <h2>Detalle del Paciente</h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="col-xs-2"></th>
+                    <th class="col-xs-4"></th>
+                    <th class="col-xs-2"></th>
+                    <th class="col-xs-4"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <label>Nombre Completo</label>
+                        </td>
+                        <td>
+                            <h4>{{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}</h4>
+                        </td>
+
+
+                        <td>
+                            <label>Sexo</label>
+                        </td>
+                        <td>
+                            <h4>{{$paciente->sexo}}</h4>
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td>
+                            <label>Fecha de Nacimiento</label>
+                        </td>
+                        <td>
+                            <h4>{{$paciente->nacimiento}}</h4>
+                        </td>
+
+
+
+                        <td>
+                            <label>Estado Civil</label>
+                        </td>
+                        <td>
+                            @foreach($estado_civil as $edo)
+									@if($paciente->estado_civil == $edo->id)
+									<h4>{{$edo->nombre}}</h4>
+									@endif
+							@endforeach
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <label>Lugar de Residencia</label>
+                        </td>
+                        <td>
+                            @foreach($lugar_residencia as $lugar)
+									@if($paciente->lugar_residencia == $lugar->id)
+										<h4>{{$lugar->nombre}}</h4>
+									@endif
+							@endforeach
+                        </td>
+
+
+                        <td>
+                            <label>Sustento</label>
+                        </td>
+                        <td>
+                            @foreach($sustento as $sus)
+									@if($paciente->sustento == $sus->id)
+										<h4>{{$sus->nombre}}</h4>
+									@endif
+							@endforeach
+                        </td>
+                    </tr>
+
+
+
+
+
+                    <tr>
+                        <td>
+                            <label>Ocupación del paciente</label>
+                        </td>
+                        <td>
+                            <h4>{{$paciente->ocupacion_paciente}}</h4>
+                        </td>
+
+                        <td>
+                            <label>Religion</label>
+                        </td>
+                        <td>
+                            <h4><h4>{{$paciente->religion}}</h4>
+                        </td>
+                    </tr>
+
+
+
+
+
+                    <tr>
+                        <td>
+                            <label>Escolaridad</label>
+                        </td>
+                        <td>
+                            <h4>{{$paciente->escolaridad}}</h4>
+                        </td>
+                        <td>
+                            <label>Ocupación del sustento</label>
+                        </td>
+                        <td>
+                            <h4>{{$paciente->ocupacion_sustento}}</h4>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
 			<div id="patient" role="tabpanel">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="personal_info">
-							<label>Nombre Completo :</label>
-							<p>{{$paciente->nombre}} {{$paciente->apellido_paterno}}  {{$paciente->apellido_materno}}</p>
-							<label>Fecha de Nacimiento :</label>
-							<p>{{$paciente->nacimiento}}</p>
-							<label>Estado Civil :</label>
-							<p>@foreach($estado_civil as $edo)
-									@if($paciente->estado_civil == $edo->id)
-									{{$edo->nombre}}
-									@endif
-								@endforeach
-							</p>
-							<label>Lugar de Residencia :</label>
-							<p>@foreach($lugar_residencia as $lugar)
-									@if($paciente->lugar_residencia == $lugar->id)
-										{{$lugar->nombre}}
-									@endif
-								@endforeach
-							</p>
-							<label>Sustento :</label>
-							<p>@foreach($sustento as $sus)
-									@if($paciente->sustento == $sus->id)
-										{{$sus->nombre}}
-									@endif
-								@endforeach</p>
-							<label>Ocupación del paciente</label>
-							<p>{{$paciente->ocupacion_paciente}}</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="personal_info">
-							<label>Sexo :</label>
-							<p>{{$paciente->sexo}}</p>
-							<label>Religion :</label>
-							<p>{{$paciente->religion}}</p>
-							<label>Escolaridad :</label>
-							<p>{{$paciente->escolaridad}}</p>
-							<label>Ocupación del sustento</label>
-							<p>{{$paciente->ocupacion_sustento}}</p>
-						</div>
-					</div>
-				</div>
-				</br>
+
+
 
 				<div class="row">
 					<div class="col-xs-2">

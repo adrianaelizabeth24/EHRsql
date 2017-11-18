@@ -71,7 +71,7 @@
 											<td><input type="radio" name="{{$tras_previo->id}}" value="Si" checked></td>
 											<td><input type="radio" name="{{$tras_previo->id}}" value="No"></td>
 									@else
-											td><input type="radio" name="{{$tras_previo->id}}" value="Si"></td>
+											<td><input type="radio" name="{{$tras_previo->id}}" value="Si"></td>
 											<td><input type="radio" name="{{$tras_previo->id}}" value="No" checked></td>
 									@endif
                                 @endif
