@@ -22,7 +22,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
-                            <a href="sustento/{{{$sustento->id}}}">{{$sustento->id}}
+                            <a href="sustento/{{{$sustento->id}}}">
                                 {{$sustento->nombre}}</a>
                         </h4>
                     </div>

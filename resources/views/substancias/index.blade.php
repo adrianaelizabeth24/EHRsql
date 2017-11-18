@@ -21,7 +21,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab">
 							<h4 class="panel-title">
-								<a href="substancias/{{{$substancia->id}}}">{{$substancia->id}}
+								<a href="substancias/{{{$substancia->id}}}">
 									{{$substancia->nombre}}</a>
 							</h4>
 						</div>

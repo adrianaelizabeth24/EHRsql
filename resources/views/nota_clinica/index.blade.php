@@ -22,7 +22,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
-                            <a href="/nota_clinica/{{{$nota->id}}}">{{$nota->id}}
+                            <a href="/nota_clinica/{{{$nota->id}}}">
                                 Nota Clínica</a>
                         </h4>
                     </div>

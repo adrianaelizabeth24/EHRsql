@@ -22,7 +22,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
-                            <a href="trastorno/{{{$trastorno->id}}}">{{$trastorno->id}}
+                            <a href="trastorno/{{{$trastorno->id}}}">
                                 {{$trastorno->nombre}}</a>
                         </h4>
                     </div>

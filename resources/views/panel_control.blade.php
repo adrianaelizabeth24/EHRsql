@@ -16,8 +16,10 @@
                 <a href="/lugar_residencia">Configuracion Lugares de Residencia</a><br/>
                 <a href="/sustento">Configuracion Sustento Familiar</a><br/>
                 <a href="/trastorno_mental">Configuracion Trastornos Mentales</a><br/>
+                <a href="/opciones_exploracion_fisica">Configuracion Preguntas Exploracion Fisica</a><br/>
             </div>
         </div>
+
     </div>
 
 @endsection

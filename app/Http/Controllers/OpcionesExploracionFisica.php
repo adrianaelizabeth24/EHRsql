@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\trastorno_mental;
+use App\opciones_exploracion_fisica;
 
-class TrastornoMentalController extends Controller
+
+class OpcionesExploracionFisica extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class TrastornoMentalController extends Controller
      */
     public function index()
     {
-        $trastornos = trastorno_mental::all();
-        return view('trastorno_mental.index', ['trastornos' => $trastornos]);
+        $opciones = opciones_exploracion_fisica::all();
+        return view('opciones_exploracion_fisica.index', ['opciones' => $opciones]);
     }
 
     /**
@@ -25,7 +26,7 @@ class TrastornoMentalController extends Controller
      */
     public function create()
     {
-        return view('trastorno_mental.create');
+        return view('opciones_exploracion_fisica.create');
     }
 
     /**
@@ -37,16 +38,16 @@ class TrastornoMentalController extends Controller
     public function store(Request $request)
     {
         //crea el nuevo paciente a insertar en la base de datos
-        $trastornos = new trastorno_mental();
+        $opciones = new opciones_exploracion_fisica();
 
         //obitene los campos
         $nombre = $request->input('nombre');
 
         //guarda los campos del form en el querybuiler
-        $trastornos->nombre = $nombre;
-        $trastornos->save();
+        $opciones->nombre = $nombre;
+        $opciones->save();
 
-        return redirect()->action('TrastornoMentalController@index');
+        return redirect()->action('OpcionesExploracionFisica@index');
     }
 
     /**
@@ -57,8 +58,8 @@ class TrastornoMentalController extends Controller
      */
     public function show($id)
     {
-        $trastornos = trastorno_mental::find($id);
-        return view('trastorno_mental.show', ['trastorno_mental' => $trastornos]);
+        $opciones = opciones_exploracion_fisica::find($id);
+        return view('opciones_exploracion_fisica.show', ['opciones' => $opciones]);
     }
 
     /**
@@ -92,8 +93,8 @@ class TrastornoMentalController extends Controller
      */
     public function destroy($id)
     {
-        $trastornos = trastorno_mental::find($id);
-        $trastornos->delete();
-        return redirect()->action('TrastornoMentalController@index');
+        $opciones = opciones_exploracion_fisica::find($id);
+        $opciones->delete();
+        return redirect()->action('OpcionesExploracionFisica@index');
     }
 }

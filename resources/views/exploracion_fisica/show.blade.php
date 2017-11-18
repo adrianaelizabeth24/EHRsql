@@ -12,41 +12,48 @@
                 </button>
             </div>
         </div>
-        <div class="container">
-            <h2>Examen Exploracion Fisica</h2>
-        </div>
         <div id="div_pacientes" class="container">
-            <h2>Resultados del Examen</h2>
+            <h2>Examen Exploracion Fisica</h2>
             <div id="patient" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="personal_info">
-                            <label>Condicion General :</label><p>{{$examen->condicion_general}}</p>
-                            <label>Especificaciones condicion general</label><p>{{$examen->txt_condicion_general}}</p>
-                            <label>Estado de la piel :</label><p>{{$examen->piel}}</p>
-                            <label>Especificaciones del estado de la piel</label><p>{{$examen->txt_piel}}</p>
-                            <label>Estado de la cabeza :</label><p>{{$examen->cabeza}}</p>
-                            <label>Especificaciones del estado de la cabeza</label><p>{{$examen->txt_cabeza}}</p>
-                            <label>Estado de los ojos :</label><p>{{$examen->ojos}}</p>
-                            <label>Especificaciones del estado de los ojos</label><p>{{$examen->txt_ojos}}</p>
-                            <label>Estado de los oidos, nariza y garganta :</label><p>{{$examen->oidos_nariz_garganta}}</p>
-                            <label>Especificaciones del estado de los los oidos, nariza y garganta</label><p>{{$examen->txt_oidos_nariz_garganta}}</p>
-                            <label>Estado del cuello y tiroides :</label><p>{{$examen->cuello_tiroides}}</p>
-                            <label>Especificaciones del estado del cuello y tiroides</label><p>{{$examen->txt_cuello_tiroides}}</p>
-                            <label>Estado de los pulmones :</label><p>{{$examen->pulmones}}</p>
-                            <label>Especificaciones del estado de los pulmones</label><p>{{$examen->txt_pulmones}}</p>
-                            <label>Estado del corazón</label><p>{{$examen->corazon}}</p>
-                            <label>Especificaciones del estado del corazón</label><p>{{$examen->txt_corazon}}</p>
-                            <label>Estado gastrointerino</label><p>{{$examen->gastro}}</p>
-                            <label>Especificaciones del estado gastrointerino</label><p>{{$examen->txt_gastro}}</p>
-                            <label>Estado de los linéaticos :</label><p>{{$examen->lineaticos}}</p>
-                            <label>Especificaciones del estado linéatico</label><p>{{$examen->txt_lineaticos}}</p>
-                            <label>Estado del hígado:</label><p>{{$examen->higado}}</p>
-                            <label>Especificaciones del estado del hígado</label><p>{{$examen->txt_higado}}</p>
-                            <label>Estado del musculo esquelético:</label><p>{{$examen->musculo_esqueletico}}</p>
-                            <label>Especificaciones del estado del musculo esquelético</label><p>{{$examen->txt_musculo_esqueletico}}</p>
-                            <label>Estado neurológico</label><p>{{$examen->neurologico}}</p>
-                            <label>Especificaciones del estado neurológico</label><p>{{$examen->txt_neurologico}}</p>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-6" align="center">Condicion</th>
+                                    <th class="col-xs-1">Normal</th>
+                                    <th class="col-xs-1">Anormal</th>
+                                    <th class="col-xs-2">No Examinado</th>
+                                    <th class="col-xs-5">Especificar Hallazgos</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($preguntas as $quest)
+                                    @foreach($valores as $valor)
+                                        <tr>
+                                            @if($valor->id_opciones == $quest->id)
+                                                <th scope="row"> {{$quest->nombre}} </th>
+                                                @if($valor->valor == 'Normal')
+                                                    <td>X</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                @elseif($valor->valor == 'Anormal')
+                                                    <td></td>
+                                                    <td>X</td>
+                                                    <td></td>
+                                                @else
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>X</td>
+                                                @endif
+                                                <td>{{$valor->detalles}}</td>
+                                            @endif
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
@@ -61,8 +68,6 @@
             </div>
         </div> <!-- Complete patient info -->
     </div> <!-- div_pacientes -->
-    </div> <!-- jumbotron -->
-    <hr>
 @stop
 
 

@@ -104,8 +104,6 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
         $historia = historia_psiquiatrica_familiar::find($id);
         $tablaValores = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=', $historia->id_tabla_trastorno)->get();
         $trastronos = trastorno_mental::all();

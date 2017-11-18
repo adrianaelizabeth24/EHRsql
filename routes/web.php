@@ -45,6 +45,10 @@ Route::get('/sustento', function (){
 Route::get('/trastorno_mental',function (){
     return view('trastorno_mental.index');
 });
+
+Route::get('/opciones_exploracion_fisica',function (){
+    return view('opciones_exploracion_fisica.index');
+});
 /////////////////////////////////////////
 ///
 ///
@@ -125,6 +129,8 @@ Route::resource('lugar_residencia', 'LugarResidenciaController');
 Route::resource('sustento', 'SustentoController');
 
 Route::resource('trastorno_mental', 'TrastornoMentalController');
+
+Route::resource('opciones_exploracion_fisica', 'OpcionesExploracionFisica');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
