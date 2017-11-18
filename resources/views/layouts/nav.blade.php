@@ -4,7 +4,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Centro de Ludopatía</a>
+      <a class="navbar-brand" href="/"><img style="margin-top: -15px;margin-left: -15px" height="50" width="150" src={{asset('images/logo.jpg')}}></a>
     </div>
     <ul class="nav navbar-nav">
       <!-- Authentication Links -->
