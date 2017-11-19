@@ -29,8 +29,19 @@
                 </div> <!-- Complete patient info -->
 
             @endforeach
-                <a href="/nota_clinica/nota_clinica/{{{$helper}}}" class="btn btn-info">Agregar
-                    Nota Clinica</a>
+
+            <div class="row col-xs-offset-2">
+
+                <div class="form-group col-xs-4">
+                    <button type="submit" class="btn btn-default btn-lg btn-block">Cancelar</button>
+                </div>
+
+                <div class="form-group col-xs-4">
+                    <a href="/nota_clinica/nota_clinica/{{{$helper}}}" class="btn btn-primary btn-lg btn-block">Agregar Nota Clinica</a>
+
+                </div>
+            </div>
+                
         </div> <!-- div_pacientes -->
 
     </div> <!-- jumbotron -->

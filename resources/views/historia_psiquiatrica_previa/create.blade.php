@@ -90,6 +90,15 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
 
 
         <br/>
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+        <div class="row col-xs-offset-2">
+
+            <div class="form-group col-xs-4">
+                <button type="submit" class="btn btn-default btn-lg btn-block">Cancelar</button>
+            </div>
+
+            <div class="form-group col-xs-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
+            </div>
+        </div>
     </form>
 @stop
