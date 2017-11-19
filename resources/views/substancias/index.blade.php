@@ -28,7 +28,19 @@
 					</div> <!-- Complete patient info -->
 
 				@endforeach
-				<a href="/substancias/create" class="btn btn-info">Nueva Substancia</a>
+
+				<div class="row col-xs-offset-2">
+
+                    <div class="form-group col-xs-4">
+                        <button type="submit" class="btn btn-default btn-lg btn-block">Cancelar</button>
+                    </div>
+
+                    <div class="form-group col-xs-4">
+                        <a href="/substancias/create" class="btn btn-primary btn-lg btn-block">Nueva Substancia</a>
+                    </div>
+                </div>
+
+				
 			</div> <!-- div_substancias -->
 		</div>
 

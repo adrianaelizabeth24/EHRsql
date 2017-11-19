@@ -32,8 +32,19 @@
                         </tbody>
                     </table>
 
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-		</div>
+        <div class="row col-xs-offset-2">
+
+            <div class="form-group col-xs-4">
+                <button type="submit" class="btn btn-default btn-lg btn-block">Cancelar</button>
+            </div>
+
+            <div class="form-group col-xs-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
+            </div>
+        
+        </div>
+		
+        </div>
             </div>
             </div>
     </form>
