@@ -20,24 +20,12 @@
 
                 </div>
                 <br/>
-
-                <div class="col-xs-2">
-                    <a href="/estado_civil/{{{$estados->id_paciente}}}" class="btn btn-info btn-lg btn-block"><strong>Regresar</strong></a>
-                </div>
-
-                <div class="col-xs-2">
-                    <a href="/estado_civil/{{{$estados->id}}}/edit" class="btn btn-warning btn-lg btn-block"><strong>Editar</strong></a>
-                </div>
-
-                <form action="{{action('EstadoCivilController@destroy', $estados->id)}}" method="post" style="display:unset;">
+                <a href="/estado_civil" class="btn btn-info">Regresar</a>
+                <form action="{{action('EstadoCivilController@destroy', $estados->id)}}" method="post">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
-
-                    <div class="col-xs-2">
-                        <button class="btn btn-danger btn-lg btn-block" type="submit"><strong>Borrar</strong></button>
-                    </div>
+                    <button class="btn btn-danger" type="submit">Borrar</button>
                 </form>
-                
 
                 <br/>
 

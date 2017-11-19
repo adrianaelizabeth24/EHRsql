@@ -29,18 +29,7 @@
                 </div> <!-- Complete patient info -->
 
             @endforeach
-
-            <div class="row col-xs-offset-2">
-
-                <div class="form-group col-xs-4">
-                    <button type="submit" class="btn btn-default btn-lg btn-block">Cancelar</button>
-                </div>
-
-                <div class="form-group col-xs-4">
-                    <a href="/trastorno_mental/create" class="btn btn-primary btn-lg btn-block">Nuevo trastorno</a>
-                </div>
-            </div>
-            
+            <a href="/trastorno_mental/create" class="btn btn-info">Nuevo trastorno</a>
         </div> <!-- div_pacientes -->
 
     </div> <!-- jumbotron -->

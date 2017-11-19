@@ -1,0 +1,61 @@
+﻿Revert "fix"
+
+This reverts commit 1574ca73495a4dcba1e03a8d98f1db3016810da3, reversing
+changes made to a5f9521bc9fbf510a221e5524a06cbf5555a5bcb.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   resources/views/abuso_de_substancias/create.blade.php
+#	modified:   resources/views/abuso_de_substancias/edit.blade.php
+#	modified:   resources/views/antecedentes_ginecobstetricos/create.blade.php
+#	modified:   resources/views/antecedentes_ginecobstetricos/edit.blade.php
+#	modified:   resources/views/diagnostico/edit.blade.php
+#	modified:   resources/views/diagnostico/show.blade.php
+#	modified:   resources/views/estado_civil/create.blade.php
+#	modified:   resources/views/estado_civil/index.blade.php
+#	modified:   resources/views/estado_civil/show.blade.php
+#	modified:   resources/views/examen_mental/create.blade.php
+#	modified:   resources/views/examen_mental/edit.blade.php
+#	modified:   resources/views/exploracion_fisica/create.blade.php
+#	modified:   resources/views/exploracion_fisica/edit.blade.php
+#	modified:   resources/views/exploracion_fisica/show.blade.php
+#	modified:   resources/views/historia_clinica_familiar/create.blade.php
+#	modified:   resources/views/historia_clinica_familiar/edit.blade.php
+#	modified:   resources/views/historia_psiquiatrica/create.blade.php
+#	modified:   resources/views/historia_psiquiatrica/edit.blade.php
+#	modified:   resources/views/historia_psiquiatrica_previa/create.blade.php
+#	modified:   resources/views/historia_psiquiatrica_previa/edit.blade.php
+#	modified:   resources/views/lugar_residencia/create.blade.php
+#	modified:   resources/views/lugar_residencia/index.blade.php
+#	modified:   resources/views/lugar_residencia/show.blade.php
+#	modified:   resources/views/nota_clinica/create.blade.php
+#	modified:   resources/views/nota_clinica/edit.blade.php
+#	modified:   resources/views/nota_clinica/index.blade.php
+#	modified:   resources/views/nota_clinica/show.blade.php
+#	modified:   resources/views/opciones_exploracion_fisica/create.blade.php
+#	modified:   resources/views/opciones_exploracion_fisica/index.blade.php
+#	modified:   resources/views/opciones_exploracion_fisica/show.blade.php
+#	modified:   resources/views/paciente/create.blade.php
+#	modified:   resources/views/paciente/edit.blade.php
+#	modified:   resources/views/paciente/index.blade.php
+#	modified:   resources/views/plan_tratamiento/create.blade.php
+#	modified:   resources/views/plan_tratamiento/edit.blade.php
+#	modified:   resources/views/plan_tratamiento/show.blade.php
+#	modified:   resources/views/preguntasPatNoPat/create.blade.php
+#	modified:   resources/views/preguntasPatNoPat/index.blade.php
+#	modified:   resources/views/preguntasPatNoPat/show.blade.php
+#	modified:   resources/views/substancias/create.blade.php
+#	modified:   resources/views/substancias/index.blade.php
+#	modified:   resources/views/substancias/show.blade.php
+#	modified:   resources/views/sustento/create.blade.php
+#	modified:   resources/views/sustento/index.blade.php
+#	modified:   resources/views/sustento/show.blade.php
+#	modified:   resources/views/trastorno_mental/create.blade.php
+#	modified:   resources/views/trastorno_mental/index.blade.php
+#	modified:   resources/views/trastorno_mental/show.blade.php
+#
+

@@ -29,18 +29,8 @@
                 </div> <!-- Complete patient info -->
 
             @endforeach
-        </div>
-        
-        <div class="row col-xs-offset-2">
-
-            <div class="form-group col-xs-4">
-                <button type="submit" class="btn btn-default btn-lg btn-block">Cancelar</button>
-            </div>
-
-            <div class="form-group col-xs-4">
-                <a href="/lugar_residencia/create" class="btn btn-primary btn-lg btn-block">Nuevo Lugar Residencia</button>
-            </div>
-        </div>
+            <a href="/lugar_residencia/create" class="btn btn-info">Nuevo Lugar Residencia</a>
+        </div> <!-- div_pacientes -->
 
     </div> <!-- jumbotron -->
     <hr>

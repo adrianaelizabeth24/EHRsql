@@ -20,22 +20,11 @@
 
                 </div>
                 <br/>
-
-                <div class="col-xs-2">
-                    <a href="/lugar_residencia/{{{$lugares->id_paciente}}}" class="btn btn-info btn-lg btn-block"><strong>Regresar</strong></a>
-                </div>
-
-                <div class="col-xs-2">
-                    <a href="/antecedentes_ginecobstetricos/{{{$lugares->id}}}/edit" class="btn btn-warning btn-lg btn-block"><strong>Editar</strong></a>
-                </div>
-
-                <form action="{{action('LugarResidenciaController@destroy', $lugares->id)}}" method="post" style="display:unset;">
+                <a href="/lugar_residencia" class="btn btn-info">Regresar</a>
+                <form action="{{action('LugarResidenciaController@destroy', $lugares->id)}}" method="post">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
-
-                    <div class="col-xs-2">
-                        <button class="btn btn-danger btn-lg btn-block" type="submit"><strong>Borrar</strong></button>
-                    </div>
+                    <button class="btn btn-danger" type="submit">Borrar</button>
                 </form>
 
                 <br/>
