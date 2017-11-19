@@ -153,7 +153,8 @@
                        value="{{$paciente->ocupacion_paciente}}" required/>
             </div>
             <br/>
-            <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
+            <input type="submit" value="Guardar" class="btn btn-info"/>
+            <a href="/paciente/{{{$id}}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
         </form>
     </div>
 @stop

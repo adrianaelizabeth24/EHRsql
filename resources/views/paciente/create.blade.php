@@ -90,8 +90,9 @@
         <br>
         <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del jefe de familia" name="ocupacion_sustento" required/>
         <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del paciente" name="ocupacion_paciente" required/>
-    </div>
     <br/>
-    <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+    <input type="submit" value="Guardar" class="btn btn-info btn-lg btn-block">
+    <a href="/paciente" class="btn btn-default btn-lg btn-block">Cancelar</a>
+    </div>
     </form>
 @stop

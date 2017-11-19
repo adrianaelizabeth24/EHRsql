@@ -24,6 +24,7 @@
             @endforeach
                 <a href="/nota_clinica/nota_clinica/{{{$helper}}}" class="btn btn-info">Agregar
                     Nota Clinica</a>
+                <a href="/paciente" class="btn btn-default btn-lg btn-block">Regresar</a>
         </div> <!-- div_pacientes -->
 
     </div> <!-- jumbotron -->

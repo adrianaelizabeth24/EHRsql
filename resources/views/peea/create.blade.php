@@ -8,7 +8,7 @@
     	{{csrf_field()}}
 
     	<h2>PEEA del Episodio Actual <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
-        <form>
+        <div>
             <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
         <div class="row">
 			<div class="form-group col-md-12">
@@ -107,7 +107,8 @@
           <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
         </div>
       </div>
-  </div>
+        </div>
+    </div>
 
 </form> <!-- jumbotron -->
 @stop

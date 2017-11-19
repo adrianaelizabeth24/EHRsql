@@ -29,6 +29,7 @@
                     <input type="text" name="pronostico" placeholder="Pronostico">
                     <br/>
                     <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+                    <a href="/paciente/{{$paciente->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
                 </div>
             </div>
         </div>

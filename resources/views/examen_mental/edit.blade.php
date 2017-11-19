@@ -94,6 +94,7 @@
             </div>
         <br/>
         <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
+                <a href="/examen_mental/{{$examen->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
         </div>
         </div>
     </form>

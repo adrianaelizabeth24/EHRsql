@@ -32,12 +32,12 @@
 				</div> <!-- Complete patient info -->
 
 				@endforeach
-				<a href="/paciente/create" class="btn btn-info">Nuevo Paciente</a>
+				<a href="/paciente/create" class="btn btn-info btn-lg btn-block"><strong>Nuevo Paciente</strong></a>
 			</div> <!-- div_pacientes -->
 		</div>
 
     </div> <!-- jumbotron -->
-    <hr>
+
 @stop
 
 

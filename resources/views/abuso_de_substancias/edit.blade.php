@@ -39,6 +39,7 @@
 					</table>
 					</div>
 				<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+				<a href="/abuso_de_substancias/{{$abuso_de_substancias->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
 				</div>
 			</div>
     </form>

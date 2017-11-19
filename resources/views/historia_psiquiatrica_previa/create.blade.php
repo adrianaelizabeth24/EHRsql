@@ -1,12 +1,14 @@
 @extends('layouts.app')
-@section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
-
-    <form class="jumbotron" method="post" action="{{url('historia_psiquiatrica_previa')}}">
+@section('content')
+    <link href="{{ asset('css/app.css')}}" rel="stylesheet">
+<form>
+    <div class="jumbotron" method="post" action="{{url('historia_psiquiatrica_previa')}}">
         {{csrf_field()}}
 
 
         <div class="container">
-            <h2>Historial Tratamiento <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+            <h2>Historial Tratamiento <span
+                        style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
             <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
             <div class="row">
                 <div class="col-md-12">
@@ -71,14 +73,12 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
                             @endforeach
                             </tbody>
                         </table>
-                        </div>
                     </div>
-
                 </div>
+                <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+                <a href="/paciente/{{$paciente->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
             </div>
-
-
-        <br/>
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-    </form>
+        </div>
+    </div>
+        </form>
 @stop
