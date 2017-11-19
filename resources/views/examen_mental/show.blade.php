@@ -5,7 +5,7 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h2>Examen Mental</h2>
+            <h2>Examen Mental <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
                 <table class="table">
                     <thead>
@@ -42,13 +42,11 @@
                             <tr><td><label>Parado (despues de 2 min) : </label></td><td>{{$examen->frecuencia_parado}}</td></tr>
                             <tr><td><label>Ritmo regular : </label></td><td>{{$examen->ritmo_regular}}</td></tr>
                             <tr><td><label>Ritmo irregular : </label></td><td>{{$examen->ritmo_irregular}}</td></tr>
-                            <tr><td><label>Peso : </label></td><td>{{$examen->peso}}</td></tr>
-                            <tr><td><label>KGS : </label></td><td>{{$examen->kgs}}</td></tr>
-                            <tr><td><label>Talla : </label></td><td>{{$examen->talla}}</td></tr>
-                            <tr><td><label>CMS : </label></td><td>{{$examen->cms}}</td></tr>
-                            <tr><td><label>Circunferencia abdominal (en cm) : </label></td><td>{{$examen->circunferencia}}</td></tr>
+                            <tr><td><label>Peso : </label></td><td>{{$examen->peso}} kg</td></tr>
+                            <tr><td><label>Talla : </label></td><td>{{$examen->talla}} cm</td></tr>
+                            <tr><td><label>Circunferencia abdominal (en cm) : </label></td><td>{{$examen->circumferencia}}</td></tr>
                             <tr><td><label>Temperatura (en gc) : </label></td><td>{{$examen->temperatura}}</td></tr>
-                            <tr><td><label>Peso usual : </label></td><td>{{$examen->peso}}</td></tr>
+                            <tr><td><label>Peso usual : </label></td><td>{{$examen->peso_usual}}</td></tr>
                             <tr><td><label>IMC : </label></td><td>{{$examen->imc}}</td></tr>
                         </tbody>
                     </thead>

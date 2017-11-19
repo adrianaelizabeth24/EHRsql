@@ -4,35 +4,40 @@
 
 
     <div class="jumbotron">
-        <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
-            <input type="text" class="form-control" placeholder="Buscar paciente">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="container">
-            <h2>Historia Clínica Familiar</h2>
+         <div class="container">
+            <h2>Historia Clínica Familiar <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
             <br>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="col-xs-3">ANTECEDENTE</th>
-                        <th class="col-xs-9">¿PRESENTA ANTECEDENTE?</th>
-                    </tr>
-                </thead>
-                <tbody>
+             <table class="table">
+                 <thead>
+                 <tr>
+                     <th class="col-xs-6" align="center"></th>
+                     <th class="col-xs-1">Si</th>
+                     <th class="col-xs-1">No</th>
+                     <th class="col-xs-2">Se desconoce</th>
+                     <th class="col-xs-5">Especificación</th>
+                 </tr>
+                 </thead>
+                 <tbody>
 
                     @foreach($preguntas as $quest)
-                    <tr>
-                        <td><label>{{$quest->preguntas}}</label></td>
-
+                        <tr>
+                            <th scope="row"> {{$quest->preguntas}} </th>
                         @foreach ($valores as $val)
                             @if($val->id_pregunta == $quest->id)
-                                <td>{{$val->valor}}</td>
+                                @if($val->valor == 'Si')
+                                    <td>X</td>
+                                    <td></td>
+                                    <td></td>
+                                @elseif($val->valor == 'No')
+                                    <td></td>
+                                    <td>X</td>
+                                    <td></td>
+                                @else
+                                    <td></td>
+                                    <td></td>
+                                    <td>X</td>
+                                @endif
+                                <td>{{$val->detalles}}</td>
                             @endif
                         @endforeach
 

@@ -73,7 +73,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $paciente = paciente::find($historial_tratamiento->id_paciente);
         $paciente->id_historia_previa = $historial_tratamiento->id;
         $paciente->save();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('HistoriaPsiquiatricaPreviaController@show', $historia->id);
     }
 
     /**
@@ -86,9 +86,11 @@ class HistoriaPsiquiatricaPreviaController extends Controller
     {
         $historia = historia_psiquiatrica_previa::find($id);
         $trastornos = trastorno_mental::all();
-        $values = trastorno_historia_psiquiatrica_previa_values::where('id_trastorno_historia_psiquiatrica_previa', '=', $historia->id_trastorno_tabla)->get();
+        $values = trastorno_historia_psiquiatrica_previa_values::where('id_trastorno_historia_psiquiatrica_previa',
+            '=', $historia->id_trastorno_tabla)->get();
+        $paciente = paciente::find($historia->id_paciente);
         return view('historia_psiquiatrica_previa.show', ['historial' => $historia, 'valor' => $values,
-            'trastorno' => $trastornos]);
+            'trastorno' => $trastornos, 'paciente' => $paciente]);
     }
 
     /**
@@ -103,8 +105,9 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $values = trastorno_historia_psiquiatrica_previa_values::where('id_trastorno_historia_psiquiatrica_previa', '=',
             $historia->id_trastorno_tabla)->get();
         $trastornos = trastorno_mental::all();
+        $paciente = paciente::find($historia->id_paciente);
         return view('historia_psiquiatrica_previa.edit', ['historial' => $historia, 'valores' => $values,
-            'trastorno' => $trastornos, 'id' => $id]);
+            'trastorno' => $trastornos, 'id' => $id, 'paciente' => $paciente]);
     }
 
     /**
@@ -124,8 +127,10 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $trastronos = trastorno_mental::all();
         foreach ($trastronos as $tras) {
             foreach ($tablaValores as $valores){
-                $valores->value = $request->input($tras->id);
-                $valores->save();
+                if($tras->id == $valores->id_trastorno) {
+                    $valores->value = $request->input($tras->id);
+                    $valores->save();
+                }
             }
         }
 
@@ -139,10 +144,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $historia->tratamiento = $request->input('tratamiento');
         $historia->save();
 
-        $paciente = paciente::find($historia->id_paciente);
-        $paciente->id_historia_previa = $historia->id;
-        $paciente->save();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('HistoriaPsiquiatricaPreviaController@show', $historia->id);
     }
 
     /**
@@ -168,7 +170,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
 
         $historia->delete();
 
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 
 }

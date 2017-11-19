@@ -56,7 +56,7 @@ class ExploracionFisicaController extends Controller
         $paciente = paciente::find($examen_exploracion_fisica->id_paciente);
         $paciente->id_exploracion_fisica = $examen_exploracion_fisica->id;
         $paciente->save();
-        return redirect()->action('PacienteController@show', $paciente->id);
+        return redirect()->action('ExploracionFisicaController@show', $examen_exploracion_fisica->id);
 
     }
 
@@ -71,8 +71,9 @@ class ExploracionFisicaController extends Controller
         $exploracion_fisica = exploracion_fisica::find($id);
         $values = exploracion_fisica_values::where('id_exploracion_fisica', '=', $exploracion_fisica->id)->get();
         $preguntas = opciones_exploracion_fisica::all();
+        $paciente = paciente::find($exploracion_fisica->id_paciente);
         return view('exploracion_fisica.show', ['examen' => $exploracion_fisica,
-            'valores' => $values, 'preguntas' => $preguntas]);
+            'valores' => $values, 'preguntas' => $preguntas, 'paciente' => $paciente]);
     }
 
     /**
@@ -86,8 +87,9 @@ class ExploracionFisicaController extends Controller
         $exploracion_fisica = exploracion_fisica::find($id);
         $values = exploracion_fisica_values::where('id_exploracion_fisica', '=', $exploracion_fisica->id)->get();
         $preguntas = opciones_exploracion_fisica::all();
+        $paciente = paciente::find($exploracion_fisica->id_paciente);
         return view('exploracion_fisica.edit', ['examen' => $exploracion_fisica,
-            'valores' => $values, 'preguntas' => $preguntas, 'id' => $id]);
+            'valores' => $values, 'preguntas' => $preguntas, 'id' => $id, 'paciente' => $paciente]);
 
     }
 
@@ -113,8 +115,7 @@ class ExploracionFisicaController extends Controller
                 }
             }
         }
-        $paciente = paciente::find($examen_exploracion_fisica->id_paciente);
-        return redirect()->action('PacienteController@show', $paciente->id);
+        return redirect()->action('ExploracionFisicaController@show', $examen_exploracion_fisica->id);
     }
 
     /**

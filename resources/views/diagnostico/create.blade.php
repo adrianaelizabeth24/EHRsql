@@ -4,20 +4,9 @@
     <form class="jumbotron" method="post" action="{{url('diagnostico')}}">
         {{csrf_field()}}
 
-        <div class="row">
-            <div class="col-md-8">
-                <label>{{$paciente->id}}</label>
-                <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-                <label>{{$paciente->nombre}}</label>
-                <label>{{$paciente->apellido_paterno}}</label>
-                <label>{{$paciente->apellido_materno}}</label>
-            </div>
-        </div>
-
-
         <div class="container">
-            <h2>Diagnóstico</h2>
-
+            <h2>Diagnóstico <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+            <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
 
             <fieldset class="form-group col-xs-12">
             <div class="row">

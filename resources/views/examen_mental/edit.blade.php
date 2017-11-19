@@ -8,8 +8,8 @@
         <div class="jumbotron">
 
             <div class="container">
-                <h2>Examen Mental</h2>
-            </div>
+                <h2>Examen Mental <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+
             <div class="row">
                 <div class="col-md-12">
                     <label> 
@@ -78,12 +78,10 @@
                     <input type="number" placeholder="Ritmo irregular" name="ritmo_irregular" value="{{$examen->ritmo_irregular}}"/>
                     <br/>
                     <input type="number" placeholder="Peso" name="peso" value="{{$examen->peso}}"/>
-                    <input type="number" placeholder="KGS" name="kgs" value="{{$examen->kgs}}"/>
                     <br/>
                     <input type="number" placeholder="Talla" name="talla" value="{{$examen->talla}}"/>
-                    <input type="number" placeholder="CMS" name="cms" value="{{$examen->cms}}"/>
                     <br/>
-                    <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circunferencia" value="{{$examen->circunferencia}}"/>
+                    <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circumferencia" value="{{$examen->circumferencia}}"/>
                     <br/>
                     <input type="number" placeholder="Temperatura (en gc)" name="temperatura" value="{{$examen->temperatura}}"/>
                     <br/>
@@ -96,6 +94,7 @@
             </div>
         <br/>
         <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
+        </div>
         </div>
     </form>
 @stop

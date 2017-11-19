@@ -9,10 +9,9 @@
         <div class="jumbotron">
             <div class="container">
 
-				<h2>Crear Reporte Abuso de Substancias de</h2>
-				<h2 style="color: #3097D1">{{$paciente->nombre}}{{$paciente->apellido_paterno}}</h2>
-
+				<h2>Crear Reporte Abuso de Substancias de <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 				<div class="row">
+					<input type="hidden" name="id_paciente" value="{{$paciente->id}}">
 						<table class="table">
 							<thead>
 							<tr>

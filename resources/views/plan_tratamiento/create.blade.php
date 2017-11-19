@@ -6,23 +6,15 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h2>Datos del paciente</h2>
-                <div class="row">
-                    <div class="col-md-8">
-                        <label>{{$paciente->id}}</label>
-                        <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-                        <label>{{$paciente->nombre}}</label>
-                        <label>{{$paciente->apellido_paterno}}</label>
-                        <label>{{$paciente->apellido_materno}}</label>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <h2>Plan de Tratamiento</h2>
-            </div>
+                <h2>Plan de Tratamiento <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+            <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
 
             <div class="row">
                 <div class="col-md-12">
+                    <input type="text" placeholder="diagnostico primario" name="diagnostico_primario"/>
+                    <br/>
+                    <input type="text" placeholder="diagnostico secundario" name="diagnostico_secundario"/>
+                    <br/>
                     <input type="text" placeholder="Seguimiento Farmacológico" name="seguimiento_farmacologico"/>
                     <br/>
                     <input type="text" placeholder="Modalidad Terapeutica" name="modalidad_terapeutica"/>
@@ -39,6 +31,7 @@
                     <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
                 </div>
             </div>
+        </div>
         </div>
     </form>
 @stop

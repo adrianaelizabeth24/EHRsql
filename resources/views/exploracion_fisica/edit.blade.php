@@ -8,7 +8,7 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h2>Exploración Física</h2>
+                <h2>Exploración Física <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
                 <div class="row">
                     <div class="col-md-12">
 
@@ -46,8 +46,7 @@
                                                 <td><input type="radio" name="{{$quest->id}}" value="No Examinado"
                                                            checked/></td>
                                             @endif
-                                            <td><input type="text" name="{{$quest->id}}_detalles" value="{{$valor->detalles}}"
-                                                       placeholder="Especifica Hallazgos"/></td>
+                                            <td><input type="text" name="{{$quest->id}}_detalles" value="{{$valor->detalles}}"/></td>
                                         @endif
                                         @endforeach
                                     </tr>

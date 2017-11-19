@@ -3,8 +3,7 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h2>Reporte de Abuso de Substancias de </h2>
-            <h4 style="color: #3097D1">{{$paciente->nombre}}{{$paciente->apellido_paterno}}</h4>
+            <h2>Reporte de Abuso de Substancias de <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -32,7 +31,8 @@
                     @endforeach
                 </tbody>
             </table>
-
+            <br/>
+            <br/>
 
             <div class="col-xs-2">
                 <a href="/paciente/{{{$abuso_de_substancias->id_paciente}}}" class="btn btn-info btn-lg btn-block"><strong>Regresar</strong></a>

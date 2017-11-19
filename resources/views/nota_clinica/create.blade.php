@@ -14,7 +14,7 @@
             </div>
             <div class="container">
                 <h2>Nota Clinica</h2>
-            </div>
+
 
             <div class="row">
                 <div class="col-md-12">
@@ -43,6 +43,7 @@
                     <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
                 </div>
             </div>
+        </div>
         </div>
     </form>
 @stop

@@ -5,26 +5,39 @@
 
     <div class="jumbotron">
         <div id="div_pacientes" class="container">
-            <h2>Historia Psiquiatrica Familiar</h2>
+            <h2>Historia Psiquiatrica Familiar <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="col-xs-4">Historia Familiar de:</th>
-                    <th class="col-xs-2"></th>
-                    <th class="col-xs-6">¿Quién?</th>
+                    <th class="col-xs-6" align="center"></th>
+                    <th class="col-xs-1">Si</th>
+                    <th class="col-xs-1">No</th>
+                    <th class="col-xs-2">No sé</th>
+                    <th class="col-xs-5">Especificar Parentezco</th>
                 </tr>
                 </thead>
                 <tbody>
 
                     @foreach($trastorno as $tras)
-                    <tr>
-                        <td><label>{{$tras->nombre}}</label></td>
-
+                        <tr>
+                            <th scope="row"> {{$tras->nombre}} </th>
                             @foreach($valores as $val)
                                 @if($val->id_trastorno == $tras->id)
-                                    <td>{{$val->valor}}</td>
-                                    <td>{{$val->fam_trastorno}}</td>
+                                    @if($val->valor == 'Si')
+                                        <td>X</td>
+                                    <td></td>
+                                    <td></td>
+                                    @elseif($val->valor == 'No')
+                                        <td></td>
+                                    <td>X</td>
+                                    <td></td>
+                                    @else
+                                        <td></td>
+                                    <td></td>
+                                    <td>X</td>
+                                    @endif
+                                        <td>{{$val->fam_trastorno}}</td>
                                 @endif
                             @endforeach
                         </tr>

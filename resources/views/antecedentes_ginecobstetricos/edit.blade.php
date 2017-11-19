@@ -9,7 +9,7 @@
 
             <div class="container">
 
-                <h2>Antecedentes Ginecobstetricos</h2>
+                <h2>Antecedentes Ginecobstetricos <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
                 <div class="row">
                     <div class="col-md-12">

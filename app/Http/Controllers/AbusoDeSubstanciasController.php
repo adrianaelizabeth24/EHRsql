@@ -90,7 +90,7 @@ class AbusoDeSubstanciasController extends Controller
         $substancia_abusada = substancia_abusada::where('id_abuso_de_substancias','=',$id)->get();
         $substancias = substancias::all();
         return view('abuso_de_substancias.edit', ['abuso_de_substancias' => $abuso_de_substancias,
-            'substancia_abusada' => $substancia_abusada, 'substancias' => $substancias, 'id' => $id, 'paciente' => $paciente]);
+            'substancia_abusada' => $substancia_abusada, 'substancia' => $substancias, 'id' => $id, 'paciente' => $paciente]);
     }
 
     /**
@@ -106,8 +106,10 @@ class AbusoDeSubstanciasController extends Controller
         $substancias = substancias::all();
         foreach($substancias as $susbtancia) {
             foreach ($substancias_abusadas as $subs_abusada) {
-                $subs_abusada->valor = $request->input($susbtancia->id);
-                $subs_abusada->save();
+                if($susbtancia->id == $subs_abusada->id_substancia) {
+                    $subs_abusada->valor = $request->input($susbtancia->id);
+                    $subs_abusada->save();
+                }
             }
         }
 

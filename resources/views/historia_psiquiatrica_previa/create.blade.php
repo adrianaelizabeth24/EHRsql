@@ -6,19 +6,8 @@
 
 
         <div class="container">
-            <h2>Datos del paciente</h2>
-
-            <div class="row">
-                <div class="col-md-8">
-                    <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-                    <label>{{$paciente->nombre}}</label>
-                    <label>{{$paciente->apellido_paterno}}</label>
-                    <label>{{$paciente->apellido_materno}}</label>
-                </div>
-            </div>
-
-            <h2>Historial Tratamiento</h2>
-
+            <h2>Historial Tratamiento <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+            <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
             <div class="row">
                 <div class="col-md-12">
                     <input type="text" name="tratamiento_previo"

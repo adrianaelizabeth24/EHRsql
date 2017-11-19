@@ -7,23 +7,10 @@
 	<div class="container">
     	{{csrf_field()}}
 
-		<div class="row">
-			<div class="col-md-8">
-				<label>{{$paciente->id}}</label>
-				<input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-				<label>{{$paciente->nombre}}</label>
-				<label>{{$paciente->apellido_paterno}}</label>
-				<label>{{$paciente->apellido_materno}}</label>
-			</div>
-		</div>
-
-
-    	<h2>PEEA del Episodio Actual</h2>
-
-   		<form>
-
-
-		  <div class="row">
+    	<h2>PEEA del Episodio Actual <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+        <form>
+            <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
+        <div class="row">
 			<div class="form-group col-md-12">
 			  <label for="ep_actual">El episodio actual es:</label>
 			  <select class="form-control" name="ep_actual">

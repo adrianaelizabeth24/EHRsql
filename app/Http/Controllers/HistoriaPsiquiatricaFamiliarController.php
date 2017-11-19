@@ -62,7 +62,7 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
         $paciente = paciente::find($historia->id_paciente);
         $paciente->id_historia_psiquiatrica_fam = $historiaPsiquiatricaFam->id;
         $paciente->save();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('HistoriaPsiquiatricaFamiliarController@show', $historiaPsiquiatricaFam->id);
     }
 
     /**
@@ -74,11 +74,11 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
     public function show($id)
     {
         $historia = historia_psiquiatrica_familiar::find($id);
-        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=',
-            $historia->id_tabla_trastorno)->get();
+        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=', $historia->id_tabla_trastorno)->get();
         $trastorno = trastorno_mental::all();
+        $paciente = paciente::find($historia->id_paciente);
         return view('historia_psiquiatrica.show', ['historia' => $historia, 'trastorno' =>
-            $trastorno, 'valores' => $values]);
+            $trastorno, 'valores' => $values, 'paciente' => $paciente]);
     }
 
     /**
@@ -90,9 +90,12 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
     public function edit($id)
     {
         $historia = historia_psiquiatrica_familiar::find($id);
-        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam', '=', $historia->id_tabla_trastorno)->get();
+        $values = trastorno_historia_psiquiatrica_fam_values::where('id_trastorno_historia_psiquiatrica_fam',
+            '=', $historia->id_tabla_trastorno)->get();
         $trastorno = trastorno_mental::all();
-        return view('historia_psiquiatrica.edit', ['historia' => $historia, 'id' => $id, 'trastorno' => $trastorno, 'valores' => $values]);
+        $paciente = paciente::find($historia->id_paciente);
+        return view('historia_psiquiatrica.edit', ['historia' => $historia,
+            'id' => $id, 'trastorno' => $trastorno, 'valores' => $values, 'paciente' => $paciente]);
     }
 
     /**
@@ -116,8 +119,7 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
                 }
             }
         }
-        $paciente = paciente::find($historia->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('HistoriaPsiquiatricaFamiliarController@show', $historia->id);
     }
 
     /**
@@ -143,6 +145,6 @@ class HistoriaPsiquiatricaFamiliarController extends Controller
 
         $historia->delete();
 
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

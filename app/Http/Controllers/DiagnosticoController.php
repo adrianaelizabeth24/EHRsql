@@ -54,7 +54,7 @@ class DiagnosticoController extends Controller
         $paciente = paciente::find($id_paciente);
         $paciente->id_diagnostico = $diagnsotico->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('DiagnosticoController@show', $diagnsotico->id);
     }
 
     /**
@@ -66,7 +66,8 @@ class DiagnosticoController extends Controller
     public function show($id)
     {
         $diagnostico = diagnostico::find($id);
-        return view('diagnostico.show', ['diagnostico' => $diagnostico]);
+        $paciente = paciente::find($diagnostico->id_paciente);
+        return view('diagnostico.show', ['diagnostico' => $diagnostico, 'paciente' => $paciente]);
     }
 
     /**
@@ -78,7 +79,8 @@ class DiagnosticoController extends Controller
     public function edit($id)
     {
         $diagnostico = diagnostico::find($id);
-        return view('diagnostico.edit', ['diagnostico' => $diagnostico, 'id' => $id]);
+        $paciente = paciente::find($diagnostico->id_paciente);
+        return view('diagnostico.edit', ['diagnostico' => $diagnostico, 'id' => $id, 'paciente' => $paciente]);
     }
 
     /**
@@ -103,8 +105,7 @@ class DiagnosticoController extends Controller
         $diagnsotico->icg_s_secundario = $request->input('icg_s_secundario');
         $diagnsotico->save();
 
-        $paciente = paciente::find($diagnsotico->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('DiagnosticoController@show', $diagnsotico->id);
     }
 
     /**
@@ -120,6 +121,6 @@ class DiagnosticoController extends Controller
         $paciente->id_diagnostico = 0;
         $paciente->save();
         $diagnostico->delete();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

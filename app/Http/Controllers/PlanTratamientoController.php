@@ -46,6 +46,8 @@ class PlanTratamientoController extends Controller
 
         //guarda los campos del form en el querybuiler
         $plan->id_paciente = $id_paciente;
+        $plan->diagnostico_primario = $request->input('diagnostico_primario');
+        $plan->diagnsotico_secundario = $request->input('diagnostico_secundario');
         $plan->seguimiento_farmacologico = $request->input('seguimiento_farmacologico');
         $plan->modalidad_terapeutica = $request->input('modalidad_terapeutica');
         $plan->comentarios = $request->input('comentarios');
@@ -56,7 +58,7 @@ class PlanTratamientoController extends Controller
         $paciente = paciente::find($id_paciente);
         $paciente->id_plan_tratamiento = $plan->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('PlanTratamientoController@show', $plan->id);
     }
 
     /**
@@ -68,7 +70,8 @@ class PlanTratamientoController extends Controller
     public function show($id)
     {
         $plan = plan_tratamiento::find($id);
-        return view('plan_tratamiento.show', ['plan' => $plan]);
+        $paciente = paciente::find($plan->id_paciente);
+        return view('plan_tratamiento.show', ['plan' => $plan, 'paciente' => $paciente]);
     }
 
     /**
@@ -80,7 +83,8 @@ class PlanTratamientoController extends Controller
     public function edit($id)
     {
         $plan = plan_tratamiento::find($id);
-        return view('plan_tratamiento.edit', ['plan' => $plan, 'id' => $id]);
+        $paciente = paciente::find($plan->id_paciente);
+        return view('plan_tratamiento.edit', ['plan' => $plan, 'id' => $id, 'paciente' => $paciente]);
     }
 
     /**
@@ -96,6 +100,8 @@ class PlanTratamientoController extends Controller
         $plan = plan_tratamiento::find($id);
 
         //guarda los campos del form en el querybuiler
+        $plan->diagnsotico_primario = $request->input('diagnostico_primario');
+        $plan->diagnsotico_secundario = $request->input('diagnostico_secundario');
         $plan->seguimiento_farmacologico = $request->input('seguimiento_farmacologico');
         $plan->modalidad_terapeutica = $request->input('modalidad_terapeutica');
         $plan->comentarios = $request->input('comentarios');
@@ -103,8 +109,7 @@ class PlanTratamientoController extends Controller
 
         $plan->save();
 
-        $paciente = paciente::find($plan->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('PlanTratamientoController@show', $plan->id);
     }
 
     /**
@@ -120,6 +125,6 @@ class PlanTratamientoController extends Controller
         $paciente->id_plan_tratamiento = 0;
         $paciente->save();
         $plan->delete();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

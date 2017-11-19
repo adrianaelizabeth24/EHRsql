@@ -6,19 +6,8 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h2>Informacion personal</h2>
-
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <label>{{$paciente->id}}</label>
-                        <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-                        <label>{{$paciente->nombre}}</label>
-                        <label>{{$paciente->apellido_paterno}}</label>
-                        <label>{{$paciente->apellido_materno}}</label>
-                    </div>
-                </div>
-                <h2>Examen mental</h2>
+                <h2>Examen mental <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+                <input type="hidden" value="{{$paciente->id}}" name="id_paciente">
                 <div class="row">
                     <div class="col-md-12">
                       <label> 
@@ -90,7 +79,7 @@
                         <br/>
                         <input type="number" placeholder="Talla cms" name="talla">
                         <br/>
-                        <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circunferencia">
+                        <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circumferencia">
                         <br/>
                         <input type="number" placeholder="Temperatura (en gc)" name="temperatura">
                         <br/>

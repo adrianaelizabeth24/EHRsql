@@ -32,7 +32,8 @@ class PacienteController extends Controller
         $estado_civil = estado_civil::all();
         $lugar_residencia = lugar_residencia::all();
         $sustento = sustento_familiar::all();
-        return view('paciente.create', ['estado_civil' => $estado_civil, 'lugar_residencia' => $lugar_residencia, 'sustento' => $sustento]);
+        return view('paciente.create', ['estado_civil' => $estado_civil,
+            'lugar_residencia' => $lugar_residencia, 'sustento' => $sustento]);
     }
 
     /**
@@ -87,7 +88,7 @@ class PacienteController extends Controller
 
         $paciente->save();
 
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 
     /**
@@ -175,7 +176,7 @@ class PacienteController extends Controller
         $paciente->save();
 
 
-       return redirect()->action('PacienteController@index');
+       return redirect()->action('PacienteController@show', $paciente->id);
 
     }
 

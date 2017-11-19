@@ -3,7 +3,7 @@
 
 <div class="jumbotron">
 		<div class="container">
-			<h2>Antecedentes Ginecobstetricos</h2>
+			<h2>Antecedentes Ginecobstetricos <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
 
 
@@ -33,7 +33,7 @@
                         </td>
                         <td>
                             @foreach($ritmo as $opciones_ginecobstetricos_ritmo)
-								@if($antecedentes->ritmo == $opciones_ginecobstetricos_ritmo->id)
+								@if($antecedentes->ritmo_cardiaco == $opciones_ginecobstetricos_ritmo->id)
 									{{$opciones_ginecobstetricos_ritmo->nombre}}
 								@endif
 							@endforeach
@@ -86,7 +86,7 @@
                         </td>
                         <td>
                             @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
-								@if($antecedentes->antecedentes_obstetricos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
+								@if($antecedentes->antecedentes_obstreticos == $opciones_ginecobstetricos_antecedentes_obstetricos->id)
 									{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
 								@endif
 							@endforeach

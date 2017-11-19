@@ -52,6 +52,7 @@ class HistoriaClinicaFamiliarController extends Controller
             $valores->id_historia_paciente = $historia_pac->id;
             $valores->id_pregunta = $ques->id;
             $valores->valor = $request->input($ques->id);
+            $valores->detalles = $request->input($ques->id . '_detalles');
             $valores->save();
         }
 
@@ -63,7 +64,7 @@ class HistoriaClinicaFamiliarController extends Controller
         $paciente = paciente::find($historia->id_paciente);
         $paciente->id_historia_clinica_familiar = $historia->id;
         $paciente->save();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('HistoriaClinicaFamiliarController@show', $historia->id);
 
     }
 
@@ -79,8 +80,9 @@ class HistoriaClinicaFamiliarController extends Controller
         $valores = historia_clinica_valores::where('id_historia_paciente', '=',
             $historia->id_tabla_valores)->get();
         $preguntas = preguntas_patnopat::all();
+        $paciente = paciente::find($historia->id_paciente);
         return view('historia_clinica_familiar.show', ['historia' => $historia, 'valores' => $valores,
-            'preguntas' => $preguntas]);
+            'preguntas' => $preguntas, 'paciente' => $paciente]);
     }
 
     /**
@@ -94,7 +96,9 @@ class HistoriaClinicaFamiliarController extends Controller
         $historia = historia_clinica_familiar::find($id);
         $values = historia_clinica_valores::where('id_historia_paciente', '=', $historia->id_tabla_valores)->get();
         $preguntas = preguntas_patnopat::all();
-        return view('historia_clinica_familiar.edit', ['historia' => $historia, 'id' => $id, 'valores' => $values, 'preguntas' => $preguntas]);
+        $paciente = paciente::find($historia->id_paciente);
+        return view('historia_clinica_familiar.edit', ['historia' => $historia,
+            'id' => $id, 'valores' => $values, 'preguntas' => $preguntas, 'paciente' => $paciente]);
     }
 
     /**
@@ -111,12 +115,14 @@ class HistoriaClinicaFamiliarController extends Controller
         $preguntas= preguntas_patnopat::all();
         foreach ($preguntas as $ques) {
             foreach ($tablaValores as $values) {
-                $values->valor = $request->input($ques->id);
-                $values->save();
+                if($ques->id == $values->id_pregunta) {
+                    $values->valor = $request->input($ques->id);
+                    $values->detalles = $request->input($ques->id . '_detalles');
+                    $values->save();
+                }
             }
         }
-        $paciente = paciente::find($historia->id_paciente);
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('HistoriaClinicaFamiliarController@show', $historia->id);
     }
 
     /**
@@ -144,6 +150,6 @@ class HistoriaClinicaFamiliarController extends Controller
         $historia->delete();
 
 
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

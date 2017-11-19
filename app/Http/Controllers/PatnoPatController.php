@@ -122,7 +122,7 @@ class PatnoPatController extends Controller
         $paciente->save();
 
 
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('PatnoPatController@show', $pat_nopat->id);
 
     }
 
@@ -139,8 +139,9 @@ class PatnoPatController extends Controller
         $antecedentes_paciente = antecedentes_pat_pacientes::where('id', '=', $pat_nopat->id_antecedentes)->first();
         $a = $antecedentes_paciente->id;
         $antecedentes_todo = antecedentes_pat::where('id_antecedentes_pat_pacientes', '=', $a)->get();
+        $paciente = paciente::find($pat_nopat->id_paciente);
         return view('pat_nopat.show', ['pat_nopat' => $pat_nopat, 'antecedentes' => $antecedentes,
-            'pat_pacientes' => $antecedentes_paciente, 'antecedentes_opciones' => $antecedentes_todo]);
+            'pat_pacientes' => $antecedentes_paciente, 'antecedentes_opciones' => $antecedentes_todo, 'paciente' => $paciente]);
     }
 
     /**

@@ -7,7 +7,7 @@
         <div class="jumbotron">
 
             <div class="container">
-                <h2>Historial Tratamiento</h2>
+                <h2>Historial Tratamiento <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
 				<div class="row">
 					<div class="col-md-12">

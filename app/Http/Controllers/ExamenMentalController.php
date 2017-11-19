@@ -40,27 +40,44 @@ class ExamenMentalController extends Controller
         //crea el nuevo examen a insertar en la base de datos
         $examen_mental = new examen_mental();
 
-        //obitene los campos
-        $hallazgos = $request->input('hallazgos');
-        $diagnostico_primario = $request->input('diagnostico_primario');
-        $diagnostico_secundario = $request->input('diagnostico_secundario');
-        $plan_tratamiento = $request->input('plan_tratamiento');
         $id_paciente = $request->input('id_paciente');
-        $escalas = $request->input('escalas');
 
         //guarda los campos del form en el querybuiler
-        $examen_mental->escalas = $escalas;
         $examen_mental->id_paciente = $id_paciente;
-        $examen_mental->hallazgos = $hallazgos;
-        $examen_mental->diagnostico_primario = $diagnostico_primario;
-        $examen_mental->diagnostico_secundario = $diagnostico_secundario;
-        $examen_mental->plan_tratamiento = $plan_tratamiento;
+        $examen_mental->escalas_realizadas = $request->input('escalas_realizadas');
+        $examen_mental->ham_d = $request->input('ham_d');
+        $examen_mental->ham_a = $request->input('ham_a');
+        $examen_mental->y_bocs = $request->input('y_bocs');
+        $examen_mental->q_les_q = $request->input('q_les_q');
+        $examen_mental->gadi = $request->input('gadi');;
+        $examen_mental->bdi=  $request->input('bdi');
+        $examen_mental->spin =$request->input('spin');
+        $examen_mental->pas = $request->input('pas');
+        $examen_mental->pt_acostado_sistolica = $request->input('pt_acostado_sistolica');
+        $examen_mental->pt_acostado_diastolica = $request->input('pt_acostado_diastolica');
+        $examen_mental->st_acostado_sistolica = $request->input('st_acostado_sistolica');
+        $examen_mental->st_acostado_diastolica= $request->input('st_acostado_diastolica');
+        $examen_mental->pt_parado_sistolica = $request->input('pt_parado_sistolica');
+        $examen_mental->pt_parado_diastolica = $request->input('pt_parado_diastolica');
+        $examen_mental->st_parado_sistolica = $request->input('st_parado_sistolica');
+        $examen_mental->st_parado_diastolica = $request->input('st_parado_diastolica');
+        $examen_mental->frecuencia_acostado = $request->input('frecuencia_acostado');
+        $examen_mental->frecuencia_parado = $request->input('frecuencia_parado');
+        $examen_mental->ritmo_regular = $request->input('ritmo_regular');
+        $examen_mental->ritmo_irregular = $request->input('ritmo_irregular');
+        $examen_mental->peso = $request->input('peso');
+        $examen_mental->talla = $request->input('talla');
+        $examen_mental->circumferencia = $request->input('circumferencia');
+        $examen_mental->temperatura = $request->input('temperatura');
+        $examen_mental->peso_usual = $request->input('peso_usual');
+        $examen_mental->imc = $request->input('imc');
         $examen_mental->save();
 
         $paciente = paciente::find($id_paciente);
         $paciente->id_examen_mental = $examen_mental->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+
+        return redirect()->action('ExamenMentalController@show', $examen_mental->id);
     }
 
     /**
@@ -72,7 +89,8 @@ class ExamenMentalController extends Controller
     public function show($id)
     {
         $examen_mental = examen_mental::find($id);
-        return view('examen_mental.show', ['examen' => $examen_mental]);
+        $paciente = paciente::find($examen_mental->id_paciente);
+        return view('examen_mental.show', ['examen' => $examen_mental, 'paciente' => $paciente]);
     }
 
     /**
@@ -84,7 +102,8 @@ class ExamenMentalController extends Controller
     public function edit($id)
     {
         $examen_mental = examen_mental::find($id);
-        return view('examen_mental.edit', ['examen' => $examen_mental, 'id' => $id]);
+        $paciente = paciente::find($examen_mental->id_paciente);
+        return view('examen_mental.edit', ['examen' => $examen_mental, 'id' => $id, 'paciente'=> $paciente]);
     }
 
     /**
@@ -98,22 +117,36 @@ class ExamenMentalController extends Controller
     {
         $examen_mental = examen_mental::find($id);
 
-        //obtiene los campos
-        $escalas = $request->input('escalas');
-		$hallazgos = $request->input('hallazgos');
-        $diagnostico_primario = $request->input('diagnostico_primario');
-        $diagnostico_secundario = $request->input('diagnostico_secundario');
-        $plan_tratamiento = $request->input('plan_tratamiento');
-
-        $examen_mental->escalas = $escalas;
-        $examen_mental->hallazgos = $hallazgos;
-        $examen_mental->diagnostico_primario = $diagnostico_primario;
-        $examen_mental->diagnostico_secundario = $diagnostico_secundario;
-        $examen_mental->plan_tratamiento = $plan_tratamiento;
+        $examen_mental->escalas_realizadas = $request->input('escalas_realizadas');
+        $examen_mental->ham_d = $request->input('ham_d');
+        $examen_mental->ham_a = $request->input('ham_a');
+        $examen_mental->y_bocs = $request->input('y_bocs');
+        $examen_mental->q_les_q = $request->input('q_les_q');
+        $examen_mental->gadi = $request->input('gadi');;
+        $examen_mental->bdi=  $request->input('bdi');
+        $examen_mental->spin =$request->input('spin');
+        $examen_mental->pas = $request->input('pas');
+        $examen_mental->pt_acostado_sistolica = $request->input('pt_acostado_sistolica');
+        $examen_mental->pt_acostado_diastolica = $request->input('pt_acostado_diastolica');
+        $examen_mental->st_acostado_sistolica = $request->input('st_acostado_sistolica');
+        $examen_mental->st_acostado_diastolica= $request->input('st_acostado_diastolica');
+        $examen_mental->pt_parado_sistolica = $request->input('pt_parado_sistolica');
+        $examen_mental->pt_parado_diastolica = $request->input('pt_parado_diastolica');
+        $examen_mental->st_parado_sistolica = $request->input('st_parado_sistolica');
+        $examen_mental->st_parado_diastolica = $request->input('st_parado_diastolica');
+        $examen_mental->frecuencia_acostado = $request->input('frecuencia_acostado');
+        $examen_mental->frecuencia_parado = $request->input('frecuencia_parado');
+        $examen_mental->ritmo_regular = $request->input('ritmo_regular');
+        $examen_mental->ritmo_irregular = $request->input('ritmo_irregular');
+        $examen_mental->peso = $request->input('peso');
+        $examen_mental->talla = $request->input('talla');
+        $examen_mental->circumferencia = $request->input('circumferencia');
+        $examen_mental->temperatura = $request->input('temperatura');
+        $examen_mental->peso_usual = $request->input('peso_usual');
+        $examen_mental->imc = $request->input('imc');
         $examen_mental->save();
 
-        $paciente = paciente::find($examen_mental->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('ExamenMentalController@show', $examen_mental->id);
     }
 
     /**
@@ -129,6 +162,6 @@ class ExamenMentalController extends Controller
         $paciente->id_examen_mental = 0;
         $paciente->save();
         $examen_mental->delete();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

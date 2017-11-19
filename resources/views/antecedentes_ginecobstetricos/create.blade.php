@@ -6,21 +6,8 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h2>Datos del paciente</h2>
-
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <label>{{$paciente->id}}</label>
-                        <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
-                        <label>{{$paciente->nombre}}</label>
-                        <label>{{$paciente->apellido_paterno}}</label>
-                        <label>{{$paciente->apellido_materno}}</label>
-                    </div>
-                </div>
-
-                <h2>Antecedentes Ginecobstetricos</h2>
-
+                <h2>Crear Antecedentes Ginecobstetricos de <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+                <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
                 <div class="row">
                     <div class="col-md-12">
                         <input class="form-control" type="number" name="menarca" placeholder="Menarca">
@@ -29,15 +16,19 @@
                         <br/>
 
                         <label>Ritmo</label><br/>
+                        <select name="ritmo_cardiaco">
                         @foreach($ritmo_cardiaco as $opciones_ginecobstetricos_ritmo)
                             <option value="{{$opciones_ginecobstetricos_ritmo->id}}">{{$opciones_ginecobstetricos_ritmo->nombre}}</option>
                         @endforeach
+                        </select>
                         <br/>
 
                         <label>Tensión Premenstrual</label><br/>
+                        <select name="tension_premenstrual">
                         @foreach($tension_premenstrual as $opciones_ginecobstetricos_tension_premenstrual)
                             <option value="{{$opciones_ginecobstetricos_tension_premenstrual->id}}">{{$opciones_ginecobstetricos_tension_premenstrual->nombre}}</option>
                         @endforeach
+                        </select>
                         <br/>
 
                         <label>Vida Sexual</label><br/>
@@ -51,9 +42,11 @@
                         <br/>
 
                         <label>Antecedentes Obstetricos</label><br/>
+                        <select name="antecedentes_obstetricos">
                         @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
                             <option value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}">{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}</option>
                         @endforeach
+                        </select>
                         <br/>
 
                         <label>Embarazo Actual</label><br/>
@@ -75,9 +68,11 @@
                         <br/>
 
                         <label>Anticonceptivos</label><br/>
+                        <select name="anticonceptivos">
                         @foreach($anticonceptivos as $opciones_ginecobstetricos_anticonceptivos)
                             <option value="{{$opciones_ginecobstetricos_anticonceptivos->id}}">{{$opciones_ginecobstetricos_anticonceptivos->nombre}}</option>
                         @endforeach
+                        </select>
                         <br/>
 
                     </div>

@@ -83,7 +83,7 @@ class PeeaController extends Controller
         $paciente = paciente::find($id_paciente);
         $paciente->id_peea = $datos_peea->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('PeeaController@show', $datos_peea->id);
     }
 
     /**
@@ -95,7 +95,8 @@ class PeeaController extends Controller
     public function show($id)
     {
         $peea = peea::find($id);
-        return view('peea.show', ['peea' => $peea]);
+        $paciente = paciente::find($peea->id_paciente);
+        return view('peea.show', ['peea' => $peea, 'paciente' => $paciente]);
     }
 
     /**
@@ -114,9 +115,8 @@ class PeeaController extends Controller
         $inicio_sintomas = $opciones::where('pregunta','inicio_sintomas') -> pluck('opcion');
         $tratamiento = $opciones::where('pregunta','tratamiento') -> pluck('opcion');
 
-        $paciente = paciente::find($id);
-
         $peea = peea::find($id);
+        $paciente = paciente::find($peea->id_paciente);
 
         // Mandarle las variables a la vista
         return view('peea.edit')->with(  
@@ -162,8 +162,7 @@ class PeeaController extends Controller
         $datos_peea->psicofármacos = $psicofármacos;
         $datos_peea->save();
 
-        $paciente = paciente::find($datos_peea->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('PeeaController@show', $datos_peea->id);
     }
 
     /**
@@ -179,6 +178,6 @@ class PeeaController extends Controller
         $paciente->id_peea = 0;
         $paciente->save();
         $peea->delete();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

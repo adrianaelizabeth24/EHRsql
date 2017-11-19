@@ -5,14 +5,7 @@
 
 
     <div class="jumbotron">
-        <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
-            <input type="text" class="form-control" placeholder="Buscar substancia">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
+
         <div class="container">
             <h2>Notas Clínicas del Paciente</h2>
         </div>
@@ -23,7 +16,7 @@
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
                             <a href="/nota_clinica/{{{$nota->id}}}">
-                                Nota Clínica</a>
+                                Nota Clínica {{$nota->no_de_sesion}}</a>
                         </h4>
                     </div>
                 </div> <!-- Complete patient info -->

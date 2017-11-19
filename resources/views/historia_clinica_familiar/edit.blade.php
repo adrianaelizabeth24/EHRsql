@@ -7,32 +7,45 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h2>Historia Clínica Familiar</h2>
+                <h2>Historia Clínica Familiar <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
                 <div class="row">
                     <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="col-xs-6" align="center"></th>
+                                <th class="col-xs-1">Si</th>
+                                <th class="col-xs-1">No</th>
+                                <th class="col-xs-2">Se desconoce</th>
+                                <th class="col-xs-5">Especificación</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         @foreach($preguntas as $quest)
-                            <label>
-                                {{$quest->preguntas}}
-                            </label><br/>
+                            <tr>
+                                <th scope="row"> {{$quest->preguntas}} </th>
                             @foreach ($valores as $values)
                                 @if($quest->id == $values->id_pregunta)
                                     @if($values->valor == 'Si')
-                                        <input type="radio" name="{{$quest->id}}" value="Si" checked> Sí<br/>
-                                        <input type="radio" name="{{$quest->id}}" value="No"> No<br/>
-                                        <input type="radio" name="{{$quest->id}}" value="Se desconoce">Se desconoce<br/>
+                                            <td><input type="radio" name="{{$quest->id}}" value="Si" checked></td>
+                                            <td><input type="radio" name="{{$quest->id}}" value="No"></td>
+                                            <td><input type="radio" name="{{$quest->id}}" value="Se desconoce"></td>
                                     @elseif($values->valor == 'No')
-                                        <input type="radio" name="{{$quest->id}}" value="Si"> Sí<br/>
-                                        <input type="radio" name="{{$quest->id}}" value="No" checked> No<br/>
-                                        <input type="radio" name="{{$quest->id}}" value="Se desconoce">Se desconoce<br/>
+                                            <td><input type="radio" name="{{$quest->id}}" value="Si"></td>
+                                            <td><input type="radio" name="{{$quest->id}}" value="No" checked></td>
+                                            <td><input type="radio" name="{{$quest->id}}" value="Se desconoce"></td>
                                     @else
-                                        <input type="radio" name="{{$quest->id}}" value="Si"> Sí<br/>
-                                        <input type="radio" name="{{$quest->id}}" value="No"> No<br/>
-                                        <input type="radio" name="{{$quest->id}}" value="Se desconoce" checked>Se desconoce<br/>
+                                            <td><input type="radio" name="{{$quest->id}}" value="Si"></td>
+                                            <td><input type="radio" name="{{$quest->id}}" value="No"></td>
+                                            <td><input type="radio" name="{{$quest->id}}" value="Se desconoce" checked></td>
                                     @endif
+                                        <td><input type="text" name="{{$quest->id}}_detalles" value="{{$values->detalles}}"/></td>
                                 @endif
                             @endforeach
-                            <br/>
+                            </tr>
                         @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

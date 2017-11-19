@@ -15,7 +15,7 @@
         {{csrf_field()}}
         <div class="container">
 
-            <h2>Antecedentes Personales Patológicos y no Patológicos</h2>
+            <h2>Antecedentes Personales Patológicos y no Patológicos <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
             <input type="hidden" name="id_paciente" value="{{$paciente->id}}"/>
 
@@ -24,9 +24,9 @@
                 <tr>
                     <th class="col-xs-3" align="center">ANTECEDENTE</th>
                     <th class="col-xs-5">DETALLES</th>
-                    <th class="col-xs-1">NO</th>
-                    <th class="col-xs-2">SE DESCONOCE</th>
                     <th class="col-xs-1">SI</th>
+                    <th class="col-xs-2">NO</th>
+                    <th class="col-xs-1">SE DESCONOCE</th>
                 </tr>
                 </thead>
                 <tbody>

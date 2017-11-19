@@ -35,8 +35,8 @@ class AntecedentesGinecobstetricosController extends Controller
         $ritmo = opciones_ginecobstetricos_ritmo::all();
         $tension_premenstrual = opciones_ginecobstetricos_tension_premenstrual::all();
         return view('antecedentes_ginecobstetricos.create', ['paciente' => $paciente,
-            'antecedentes' => $antecedentes_obstetricos, 'anticonceptivos' => $anticonceptivos,
-            'ritmo'=> $ritmo, 'tension_premenstrual' => $tension_premenstrual]);
+            'antecedentes_obstetricos' => $antecedentes_obstetricos, 'anticonceptivos' => $anticonceptivos,
+            'ritmo_cardiaco'=> $ritmo, 'tension_premenstrual' => $tension_premenstrual]);
     }
 
     /**
@@ -87,7 +87,7 @@ class AntecedentesGinecobstetricosController extends Controller
         $paciente = paciente::find($id_paciente);
         $paciente->id_antecedentes_ginecobstetricos = $antecedentes->id;
         $paciente->save();
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('AntecedentesGinecobstetricosController@show', $antecedentes->id);
     }
 
     /**
@@ -103,9 +103,10 @@ class AntecedentesGinecobstetricosController extends Controller
         $anticonceptivos = opciones_ginecobstetricos_anticonceptivos::all();
         $ritmo = opciones_ginecobstetricos_ritmo::all();
         $tension_premenstrual = opciones_ginecobstetricos_tension_premenstrual::all();
+        $paciente = paciente::find($antecedentes->id_paciente);
         return view('antecedentes_ginecobstetricos.show', ['antecedentes' => $antecedentes,
             'antecedentes_obstetricos' => $antecedentes_obstetricos, 'anticonceptivos' => $anticonceptivos,
-            'ritmo'=> $ritmo, 'tension_premenstrual' => $tension_premenstrual]);
+            'ritmo'=> $ritmo, 'tension_premenstrual' => $tension_premenstrual, 'paciente' => $paciente]);
     }
 
     /**
@@ -121,9 +122,10 @@ class AntecedentesGinecobstetricosController extends Controller
         $anticonceptivos = opciones_ginecobstetricos_anticonceptivos::all();
         $ritmo = opciones_ginecobstetricos_ritmo::all();
         $tension_premenstrual = opciones_ginecobstetricos_tension_premenstrual::all();
+        $paciente = paciente::find($antecedentes->id);
         return view('antecedentes_ginecobstetricos.edit', ['antecedentes' => $antecedentes, 'id' => $id,
         'antecedentes_obstetricos' => $antecedentes_obstetricos, 'anticonceptivos' => $anticonceptivos,
-            'ritmo'=> $ritmo, 'tension_premenstrual' => $tension_premenstrual]);
+            'ritmo'=> $ritmo, 'tension_premenstrual' => $tension_premenstrual, 'paciente' => $paciente]);
     }
 
     /**
@@ -169,7 +171,7 @@ class AntecedentesGinecobstetricosController extends Controller
         $antecedentes->save();
 
         $paciente = paciente::find($antecedentes->id_paciente);
-        return view('paciente.show', ['paciente' => $paciente]);
+        return redirect()->action('AntecedentesGinecobstetricosController@show', $antecedentes->id);
     }
 
     /**
@@ -185,6 +187,6 @@ class AntecedentesGinecobstetricosController extends Controller
         $paciente->id_antecedentes_ginecobstetricos = 0;
         $paciente->save();
         $antecedentes->delete();
-        return redirect()->action('PacienteController@index');
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }

@@ -4,16 +4,9 @@
 
 
     <div class="jumbotron">
-        <div class="input-group" style="width:20%;right:56px;padding-right:15px;position:absolute;">
-            <input type="text" class="form-control" placeholder="Buscar paciente">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
+
         <div id="div_pacientes" class="container">
-            <h2>Diagnósitico</h2>
+            <h2>Diagnósitico <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
             <div id="patient" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">
@@ -40,6 +33,4 @@
             </div>
         </div> <!-- Complete patient info -->
     </div> <!-- div_pacientes -->
-    </div> <!-- jumbotron -->
-    <hr>
 @stop

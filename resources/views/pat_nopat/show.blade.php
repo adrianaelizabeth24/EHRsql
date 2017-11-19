@@ -5,7 +5,7 @@
 
 <div class="jumbotron">
 	<div class="container">
-    	<h2>Antecedentes Personales Patológicos y no Patológicos</h2>
+    	<h2>Antecedentes Personales Patológicos y no Patológicos <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
         <br>
 
