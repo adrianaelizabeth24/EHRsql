@@ -84,13 +84,9 @@
 
 					</div>
 				</div>
-				<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-				<a href="/historia_psiquiatrica_previa/{{$historial->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+				<input type="submit" value="Guardar" class="btn btn-info">
+				<a href="/historia_psiquiatrica_previa/{{$historial->id}}" class="btn btn-default">Cancelar</a>
 			</div>
-
-
-
-
         <br/>
 
 		</div> <!-- jumbotron -->

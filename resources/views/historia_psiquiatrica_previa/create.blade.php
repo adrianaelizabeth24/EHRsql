@@ -12,8 +12,7 @@
             <input type="hidden" name="id_paciente" value="{{$paciente->id}}">
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" name="tratamiento_previo"
-                           placeholder="Tratamiento previo por problemas emocionales"/>
+                    <input class="form-control" type="text" name="tratamiento_previo" placeholder="Tratamiento previo por problemas emocionales"/>
                     <br/>
                     <label>Ha sido tratado por</label><br/>
                     <input type="radio" name="quien_lo_trato" value="psiquiatra">Psiquiatra<br/>
@@ -46,9 +45,9 @@
                     <input class="form-control" type="text" name="motivo_hospitalizacion"
                            placeholder="Motivo última hospitalizacion"/>
                     <br/>
-
-                    <textarea name="tratamiento" placeholder="Cronología de todos los episodios pasados de enfermedad mental y sus tratamientos, incluyendo los síndromes psiquiátricos no formalmente diagnosticados en ese tiempo, diagnósticos previos establecidos, tratamientos ofrecidos y respuestas a los mismos.
-Consigne dosis, duración, eficacia, efectos secundarios y adherencia del paciente a los medicamentos prescritos."></textarea>
+					
+					<label>Cronología de todos los episodios pasados de enfermedad mental y sus tratamientos, incluyendo los síndromes psiquiátricos no formalmente diagnosticados en ese tiempo, diagnósticos previos establecidos, tratamientos ofrecidos y respuestas a los mismos.Consigne dosis, duración, eficacia, efectos secundarios y adherencia del paciente a los medicamentos prescritos</label>
+                    <textarea name="tratamiento" cols="100" rows="8" ></textarea>
 
                     <br/>
 
@@ -75,8 +74,8 @@ Consigne dosis, duración, eficacia, efectos secundarios y adherencia del pacien
                         </table>
                     </div>
                 </div>
-                <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-                <a href="/paciente/{{$paciente->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+                <input type="submit" value="Guardar" class="btn btn-info">
+                <a href="/paciente/{{$paciente->id}}" class="btn btn-default">Cancelar</a>
             </div>
         </div>
     </div>
