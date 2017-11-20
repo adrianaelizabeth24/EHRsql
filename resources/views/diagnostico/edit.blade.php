@@ -7,7 +7,7 @@
         <div class="jumbotron">
 
             <div class="container">
-                <h2>Diagnósitico <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
+                <h2>Diagnóstico <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
                 <div class="row">
                     <div class="col-md-12">
@@ -156,8 +156,8 @@
 
                     </div>
                 </div>
-                <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-                <a href="/diagnostico/{{$diagnostico->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+                <input type="submit" value="Guardar" class="btn btn-info">
+                <a href="/diagnostico/{{$diagnostico->id}}" class="btn btn-default">Cancelar</a>
             </div>
 
 
