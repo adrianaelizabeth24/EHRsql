@@ -14,7 +14,7 @@
             </div>
 
 			<br/>
-			<input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+			<input type="submit" value="Guardar" class="btn btn-info">
         </div>
     </form>
 @stop

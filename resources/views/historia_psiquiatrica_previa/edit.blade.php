@@ -11,8 +11,8 @@
 
 				<div class="row">
 					<div class="col-md-12">
-
-						<input type="text" name="quien_lo_trato" placeholder="Doctor Responsable" value="{{$historial->quien_lo_trato}}"/>
+						<label>Doctor responsable</label>
+						<input class="form-control" type="text" name="quien_lo_trato" placeholder="Doctor Responsable" value="{{$historial->quien_lo_trato}}"/>
 						<br/>
 
 						<label>Hospitalización</label><br/>
@@ -30,19 +30,24 @@
 							<input type="radio" name="hospitalizacion" value="0" checked> Se desconoce<br/>
 						@endif
 						<br/>
-
+						
+						<label>Edad primera hospitalización</label>
 						<input class="form-control" type="number" name="primera_hospitalizacion" placeholder="Edad Primera Hospitalizacion" value="{{$historial->primera_hospitalizacion}}"/>
 						<br/>
-
+						
+						<label>Número de hospitalizaciones</label>
 						<input class="form-control" type="number" name="no_hospitalizaciones" placeholder="Número de Hospitalizaciones" value="{{$historial->no_hospitalizaciones}}"/>
 						<br/>
-
+						
+						<label>Duración hospitalización</label>
 						<input class="form-control" type="number" name="duracion_hospitalizacion" placeholder="Duración de la última hospitalizacion" value="{{$historial->duracion_hospitalizacion}}"/>
 						<br/>
-
+						
+						<label>Motivo hospitalización</label>
 						<input class="form-control" type="text" name="motivo_hospitalizacion" placeholder="Motivo última hospitalizacion" value="{{$historial->motivo_hospitalizacion}}"/>
 						<br/>
-
+						
+						<label>Tratamiento</label>
 						<input class="form-control" type="text" name="tratamiento" placeholder="Tratamiento" value="{{$historial->tratamiento}}"/>
 						<br/>
 
