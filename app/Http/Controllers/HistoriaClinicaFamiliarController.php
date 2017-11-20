@@ -139,14 +139,14 @@ class HistoriaClinicaFamiliarController extends Controller
         $paciente->id_historia_clinica_familiar = 0;
         $paciente->save();
 
-        $historia_pac = historia_clinica_paciente::where('id_paciente', '=', $historia->id_paciente)->first();
-        $historia_pac->delete();
+        $historia_pac = historia_clinica_paciente::find($historia->id_tabla_valores);
 
-        $historiaValues = historia_clinica_valores::where('id_historial_paciente', '=', $historia->id_tabla_valores)->get();
+        $historiaValues = historia_clinica_valores::where('id_historia_paciente', '=', $historia_pac->id)->get();
         foreach ($historiaValues as $values) {
             $values->delete();
         }
 
+        $historia_pac->delete();
         $historia->delete();
 
 

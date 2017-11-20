@@ -71,7 +71,7 @@
 
                         <label>Antecedentes Obstetricos</label><br/>
                         @foreach($antecedentes_obstetricos as $opciones_ginecobstetricos_antecedentes_obstetricos)
-                            @if($opciones_ginecobstetricos_antecedentes_obstetricos->id == $antecedentes->antecedentes_obstetricos)
+                            @if($opciones_ginecobstetricos_antecedentes_obstetricos->id == $antecedentes->antecedentes_obstreticos)
                                 <input type="radio" name="antecedentes_obstetricos"
                                        value="{{$opciones_ginecobstetricos_antecedentes_obstetricos->id}}"
                                        checked/>{{$opciones_ginecobstetricos_antecedentes_obstetricos->nombre}}
