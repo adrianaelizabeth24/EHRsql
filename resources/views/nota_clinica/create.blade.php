@@ -18,29 +18,29 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" placeholder="No. de sesión" name="no_de_sesion"/>
+                    <input class="form-control" type="text" placeholder="No. de sesión" name="no_de_sesion"/>
                     <br/>
-                    <input type="number" placeholder="Edad" name="edad"/>
+                    <input class="form-control" type="number" placeholder="Edad" name="edad"/>
                     <br/>
-                    <input type="date" placeholder="Fecha" name="fecha"/>
-
-
+					<label>Fecha de la sesión</label>
+                    <input class="form-control" type="date" placeholder="Fecha" name="fecha"/>
+					<br/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input placeholder="Horario de consulta" type="time" name="horario_consulta"/>
+					<label>Horario de la consulta</label>
+                    <input class="form-control" placeholder="Horario de consulta" type="time" name="horario_consulta"/>
                     <br/>
-                    <input placeholder="Modalidad terapeutica" type="text" name="modalidad_terapeutica"/>
+                    <input class="form-control" placeholder="Modalidad terapeutica" type="text" name="modalidad_terapeutica"/>
                     <br/>
-                    <textarea name="comentarios" rows="10"
-                              cols="40" placeholder="Escribe aquí tus notas de evolución"></textarea>
+                    <textarea class="form-control" name="comentarios" rows="10" cols="40" placeholder="Escribe aquí tus notas de evolución"></textarea>
                     <br/>
-                    <textarea name="diagnostico" placeholder="diagnostico"></textarea>
+                    <textarea class="form-control" name="diagnostico" placeholder="Diagnostico"></textarea>
                     <br/>
-                    <textarea name="planes_tratamiento" placeholder="Planes y/o Tratamiento"></textarea>
+                    <textarea class="form-control" name="planes_tratamiento" placeholder="Planes y/o Tratamiento"></textarea>
                     <br/>
-                    <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
+                    <input type="submit" value="Guardar" class="btn btn-info">
                 </div>
             </div>
         </div>
