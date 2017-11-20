@@ -73,7 +73,7 @@ class HistoriaPsiquiatricaPreviaController extends Controller
         $paciente = paciente::find($historial_tratamiento->id_paciente);
         $paciente->id_historia_previa = $historial_tratamiento->id;
         $paciente->save();
-        return redirect()->action('HistoriaPsiquiatricaPreviaController@show', $historia->id);
+        return redirect()->action('HistoriaPsiquiatricaPreviaController@show', $historial_tratamiento->id);
     }
 
     /**

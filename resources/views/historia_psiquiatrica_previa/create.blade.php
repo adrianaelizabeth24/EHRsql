@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
-<form>
-    <div class="jumbotron" method="post" action="{{url('historia_psiquiatrica_previa')}}">
+<form method="post" action="{{url('historia_psiquiatrica_previa')}}">
+    <div class="jumbotron">
         {{csrf_field()}}
 
 
@@ -79,5 +79,5 @@
             </div>
         </div>
     </div>
-        </form>
+</form>
 @stop
