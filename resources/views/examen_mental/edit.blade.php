@@ -74,27 +74,36 @@
                     <input type="number" placeholder="Acostado (despues de 5 min)" name="frecuencia_acostado" value="{{$examen->frecuencia_acostado}}"/>
                     <input type="number" placeholder="Parado (despues de 2 min)" name="frecuencia_parado" value="{{$examen->frecuencia_parado}}"/>
                     <br/>
+					<label>Ritmo regular :</label>
                     <input type="number" placeholder="Ritmo regular" name="ritmo_regular" value="{{$examen->ritmo_regular}}"/>
+					<label>Ritmo irregular :</label>
                     <input type="number" placeholder="Ritmo irregular" name="ritmo_irregular" value="{{$examen->ritmo_irregular}}"/>
                     <br/>
+					<label>Peso :</label>
                     <input type="number" placeholder="Peso" name="peso" value="{{$examen->peso}}"/>
                     <br/>
+					<label>Talla :</label>
                     <input type="number" placeholder="Talla" name="talla" value="{{$examen->talla}}"/>
                     <br/>
+					<label>Circunferencia abdominal (en cm) :</label>
                     <input type="number" placeholder="Circunferencia abdominal (en cm)" name="circumferencia" value="{{$examen->circumferencia}}"/>
                     <br/>
+					<label>Temperatura :</label>
                     <input type="number" placeholder="Temperatura (en gc)" name="temperatura" value="{{$examen->temperatura}}"/>
                     <br/>
+					<label>Peso usual :</label>
                     <input type="number" placeholder="Peso usual" name="peso_usual" value="{{$examen->peso_usual}}"/>
                     <br/>
+					<label>IMC :</label>
                     <input type="number" placeholder="IMC" name="imc" value="{{$examen->imc}}"/>
                     <br/>
-				
+					
+					<input type="submit" value="Guardar" class="btn btn-info"/>
+                	<a href="/examen_mental/{{$examen->id}}" class="btn btn-default">Cancelar</a>
                 </div>
             </div>
         <br/>
-        <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;"/>
-                <a href="/examen_mental/{{$examen->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+        
         </div>
         </div>
     </form>

@@ -48,9 +48,7 @@
                         <input type="text" placeholder="SPIN" name="spin">
                         <input type="text" placeholder="PAS" name="pas">
                         <br/>
-                        <textarea class="form-control" placeholder="Descripción de hallazgos físicos o neurológicos que no hayan sido documentados en otra parte de la historia " cols="100" rows="8"
-                                  name="hallazgos">
-                        </textarea>
+                        <textarea class="form-control" placeholder="Descripción de hallazgos físicos o neurológicos que no hayan sido documentados en otra parte de la historia" cols="100" rows="8" name="hallazgos"></textarea>
                         <br/>
                         <label>Acostado PT (Despues de 2 minutos) :</label> 
                         <input type="number" placeholder="Sistólica" name="pt_acostado_sistolica">
@@ -87,11 +85,12 @@
                         <br/>
                         <input type="number" placeholder="IMC" name="imc">
                         <br/>
+						
+						<input type="submit" value="Guardar" class="btn btn-info">
+                    	<a href="/paciente/{{{$paciente->id}}}" class="btn btn-default">Cancelar</a>
 
                     </div>
-                    <br/>
-                    <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-                    <a href="/paciente/{{{$paciente->id}}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+                    
                 </div>
             </div>
         </div>
