@@ -11,25 +11,24 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" placeholder="diagnostico primario" name="diagnostico_primario"/>
+                    <input class="form-control" type="text" placeholder="Diagnostico primario" name="diagnostico_primario"/>
                     <br/>
-                    <input type="text" placeholder="diagnostico secundario" name="diagnostico_secundario"/>
+                    <input class="form-control" type="text" placeholder="Diagnostico secundario" name="diagnostico_secundario"/>
                     <br/>
-                    <input type="text" placeholder="Seguimiento Farmacológico" name="seguimiento_farmacologico"/>
+                    <input class="form-control" type="text" placeholder="Seguimiento Farmacológico" name="seguimiento_farmacologico"/>
                     <br/>
-                    <input type="text" placeholder="Modalidad Terapeutica" name="modalidad_terapeutica"/>
+                    <input class="form-control" type="text" placeholder="Modalidad Terapeutica" name="modalidad_terapeutica"/>
                     <br/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <textarea name="comentarios" rows="10"
-                              cols="40" placeholder="Comentarios"></textarea>
+                    <textarea class="form-control" name="comentarios" rows="10" cols="40" placeholder="Comentarios"></textarea>
                     <br/>
-                    <input type="text" name="pronostico" placeholder="Pronostico">
+                    <input class="form-control" type="text" name="pronostico" placeholder="Pronostico">
                     <br/>
-                    <input type="submit" value="Guardar" class="btn btn-info" style="margin-left:20%;">
-                    <a href="/paciente/{{$paciente->id}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+                    <input type="submit" value="Guardar" class="btn btn-info">
+                    <a href="/paciente/{{$paciente->id}}" class="btn btn-default">Cancelar</a>
                 </div>
             </div>
         </div>
