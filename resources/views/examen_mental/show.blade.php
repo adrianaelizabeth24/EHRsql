@@ -25,21 +25,27 @@
                             <tr><td><label>SPIN : </label></td><td>{{$examen->spin}}</td></tr>
                             <tr><td><label>PAS : </label></td><td>{{$examen->pas}}</td></tr>
                             <tr><td><label>Descripción de hallazgos físicos o neurológicos que no hayan sido documentados en otra parte de la historia :</label></td><td>{{$examen->hallazgos}}</td></tr>
-                            <tr><td><label>Acostado PT (Despues de 2 minutos) :</label></td>
-                            <tr><td><label>Solicitado : </label></td><td>{{$examen->pt_acostado_solicitado}}</td></tr>
-                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->pt_acostado_diagnosticado}}</td></tr>                  
-                            <tr><td><label>Acostado ST (Despues de 2 minutos) :</label></td>
-                            <tr><td><label>Solicitado : </label></td><td>{{$examen->st_acostado_solicitado}}</td></tr>
-                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->st_acostado_diagnosticado}}</td></tr> 
-                            <tr><td><label>Parado PT (Despues de 2 minutos) :</label>
-                            <tr><td><label>Solicitado : </label></td><td>{{$examen->pt_parado_solicitado}}</td></tr>
-                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->pt_parado_diagnosticado}}</td></tr>
-                            <tr><td><label>Parado ST (Despues de 2 minutos) :</label></td>
-                            <tr><td><label>Solicitado : </label></td><td>{{$examen->st_parado_solicitado}}</td></tr>
-                            <tr><td><label>Diagnosticado : </label></td><td>{{$examen->st_parado_diagnosticado}} </td></tr>
-                            <tr><td><label>Frecuencia cardiaca :</label></td>
+                            <tr></tr>
+                            <tr><td><label>Acostado PT (Despues de 2 minutos)</label></td>
+                            <tr><td><label>Sistolica : </label></td><td>{{$examen->pt_acostado_sistolica}}</td></tr>
+                            <tr><td><label>Diastolica : </label></td><td>{{$examen->pt_acostado_diastolica}}</td></tr>
+                            <tr></tr>
+                            <tr><td><label>Acostado ST (Despues de 2 minutos)</label></td></tr>
+                            <tr><td><label>Sistolica : </label></td><td>{{$examen->st_acostado_sistolica}}</td></tr>
+                            <tr><td><label>Diastolica : </label></td><td>{{$examen->st_acostado_diastolica}}</td></tr>
+                            <tr></tr>
+                            <tr><td><label>Parado PT (Despues de 2 minutos)</label>
+                            <tr><td><label>Sistolica : </label></td><td>{{$examen->pt_parado_sistolica}}</td></tr>
+                            <tr><td><label>Diastolica : </label></td><td>{{$examen->pt_parado_diastolica}}</td></tr>
+                            <tr></tr>
+                            <tr><td><label>Parado ST (Despues de 2 minutos)</label></td>
+                            <tr><td><label>Sistolica : </label></td><td>{{$examen->st_parado_sistolica}}</td></tr>
+                            <tr><td><label>Diastolica : </label></td><td>{{$examen->st_parado_diastolica}} </td></tr>
+                            <tr></tr>
+                            <tr><td><label>Frecuencia cardiaca</label></td>
                             <tr><td><label>Acostado (despues de 5 min) : </label></td><td>{{$examen->frecuencia_acostado}}</td></tr>
                             <tr><td><label>Parado (despues de 2 min) : </label></td><td>{{$examen->frecuencia_parado}}</td></tr>
+                            <tr></tr>
                             <tr><td><label>Ritmo regular : </label></td><td>{{$examen->ritmo_regular}}</td></tr>
                             <tr><td><label>Ritmo irregular : </label></td><td>{{$examen->ritmo_irregular}}</td></tr>
                             <tr><td><label>Peso : </label></td><td>{{$examen->peso}} kg</td></tr>

@@ -126,6 +126,7 @@ class ExamenMentalController extends Controller
         $examen_mental->bdi=  $request->input('bdi');
         $examen_mental->spin =$request->input('spin');
         $examen_mental->pas = $request->input('pas');
+        $examen_mental->hallazgos = $request->input('hallazgos');
         $examen_mental->pt_acostado_sistolica = $request->input('pt_acostado_sistolica');
         $examen_mental->pt_acostado_diastolica = $request->input('pt_acostado_diastolica');
         $examen_mental->st_acostado_sistolica = $request->input('st_acostado_sistolica');
