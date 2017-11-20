@@ -46,7 +46,7 @@ class PlanTratamientoController extends Controller
 
         //guarda los campos del form en el querybuiler
         $plan->id_paciente = $id_paciente;
-        $plan->diagnostico_primario = $request->input('diagnostico_primario');
+        $plan->diagnsotico_primario = $request->input('diagnostico_primario');
         $plan->diagnsotico_secundario = $request->input('diagnostico_secundario');
         $plan->seguimiento_farmacologico = $request->input('seguimiento_farmacologico');
         $plan->modalidad_terapeutica = $request->input('modalidad_terapeutica');
