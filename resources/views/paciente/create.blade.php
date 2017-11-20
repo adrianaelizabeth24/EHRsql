@@ -11,7 +11,7 @@
         <h2>Datos Generales</h2>
         <div class="row">
             <div class="col-md-12">
-                <input class="form-control" type="text" placeholder="Nombre Completo" name="nombre" required/>
+                <input class="form-control" type="text" placeholder="Nombre(s)" name="nombre" required/>
                 <input class="form-control" type="text" placeholder="Apellido Paterno" name="apellido_paterno" required/>
                 <input class="form-control" type="text" placeholder="Apellido Materno" name="apellido_materno" required/>
             </div>

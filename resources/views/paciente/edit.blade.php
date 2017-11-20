@@ -54,7 +54,7 @@
                     <div class="col-md-12">
                         <label>Motivo de consulta</label>
                         <input class="form-control" type="text" placeholder="Motivo de consulta"
-                               name="motivo_consulta"/>
+                               name="motivo_consulta" value="{{$paciente->motivo_consulta}}"/>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                         <input class="form-control" type="number" placeholder="Edad" name="edad"
                                value="{{$paciente->edad}}" required/>
                         <label>Referido por</label>
-                        <input class="form-control" type="text" placeholder="Referido por" name="referido"/>
+                        <input class="form-control" type="text" placeholder="Referido por" name="referido" value="{{$paciente->referido_por}}"/>
                     </div>
                 </div>
                 <div class="row">
@@ -151,10 +151,11 @@
                 <input class="form-control" type="text" class="allwidth" placeholder="Ocupación del paciente"
                        name="ocupacion_paciente"
                        value="{{$paciente->ocupacion_paciente}}" required/>
+				<input type="submit" value="Guardar" class="btn btn-info"/>
+            	<a href="/paciente/{{{$id}}}" class="btn btn-default">Cancelar</a>
             </div>
             <br/>
-            <input type="submit" value="Guardar" class="btn btn-info"/>
-            <a href="/paciente/{{{$id}}}" class="btn btn-default btn-lg btn-block">Cancelar</a>
+            
         </form>
     </div>
 @stop

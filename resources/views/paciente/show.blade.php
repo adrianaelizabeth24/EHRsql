@@ -36,31 +36,48 @@
                         <h4>{{$paciente->sexo}}</h4>
                     </td>
                 </tr>
-
-
-                <tr>
+				
+				<tr>
                     <td>
+                        <label>Edad</label>
+                    </td>
+                    <td>
+                        <h4><h4>{{$paciente->edad}}</h4>
+                    </td>
+						
+					<td>
                         <label>Fecha de Nacimiento</label>
                     </td>
                     <td>
                         <h4>{{$paciente->nacimiento}}</h4>
                     </td>
-
-
-                    <td>
-                        <label>Estado Civil</label>
-                    </td>
-                    <td>
-                        @foreach($estado_civil as $edo)
-                            @if($paciente->estado_civil == $edo->id)
-                                <h4>{{$edo->nombre}}</h4>
-                            @endif
-                        @endforeach
-                    </td>
                 </tr>
 
-
                 <tr>
+					<td>
+                        <label>Motivo de Consulta</label>
+                    </td>
+                    <td>
+                        <h4>{{$paciente->motivo_consulta}}</h4>
+                    </td>
+					
+					<td>
+                        <label>Referido por</label>
+                    </td>
+                    <td>
+                        <h4>{{$paciente->referido_por}}</h4>
+                    </td>
+
+              
+                </tr>
+					
+				<tr>
+					<td>
+                        <label>Dirección</label>
+                    </td>
+                    <td>
+                        <h4><h4>{{$paciente->direccion}}</h4>
+                    </td>
                     <td>
                         <label>Lugar de Residencia</label>
                     </td>
@@ -71,7 +88,20 @@
                             @endif
                         @endforeach
                     </td>
+                </tr>
 
+
+                <tr>
+					<td>
+                        <label>Estado Civil</label>
+                    </td>
+                    <td>
+                        @foreach($estado_civil as $edo)
+                            @if($paciente->estado_civil == $edo->id)
+                                <h4>{{$edo->nombre}}</h4>
+                            @endif
+                        @endforeach
+                    </td>
 
                     <td>
                         <label>Sustento</label>
@@ -117,6 +147,17 @@
                         <h4>{{$paciente->ocupacion_sustento}}</h4>
                     </td>
                 </tr>
+					
+				<tr>
+                    <td>
+                        <label>Telefono del paciente</label>
+                    </td>
+                    <td>
+                        <h4>{{$paciente->telefono}}</h4>
+                    </td>
+                </tr>
+					
+				
 
                 </tbody>
             </table>
