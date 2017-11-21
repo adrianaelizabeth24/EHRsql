@@ -20,19 +20,52 @@
             </thead>
             <tbody>
 
-                @foreach($antecedentes as $ant)
-                <tr>
-                    <td><label>{{$ant->preguntas}}</label></td>
+                <?php
+                    $antecedentes_detalles = explode(",",$pat_nopat->antecedentes_detalles );
+                    $ant = explode(",",$pat_nopat->antecedentes);
+                ?>
 
-                    @foreach ($antecedentes_opciones as $ant_opciones)
-                        @if($ant_opciones->id_antecedente == $ant->id)
-                            <td>{{$ant_opciones->detalles}}</td>
-                            <td>{{$ant_opciones->valor}}</td>
+                @foreach($antecedentes as $antecedente)
+                    
+                    <tr>
+                        <th scope="row"> {{$antecedente->preguntas}} </th>
+
+                        <?php
+                            $detalle =  array_shift($antecedentes_detalles);
+                            $opcion = array_shift($ant);
+                        ?>
+
+                        @if ($opcion == "null")
+                            <?php $opcion = ""; ?>
                         @endif
-                    @endforeach
 
-                </tr>
+                        <td>{{$detalle}}</td>
+                        <td>{{$opcion}}</td>
+                    </tr>
+
                 @endforeach
+
+                @if ($pat_nopat->otro != "")
+
+                    <tr>
+                        <th scope="row"> {{$pat_nopat->otro}} </th>
+
+                        <?php
+                            $detalle =  array_shift($antecedentes_detalles);
+                            $opcion = array_shift($ant);
+                        ?>
+
+                        @if ($opcion == "null")
+                            <?php $opcion = ""; ?>
+                        @endif
+
+                        <td>{{$detalle}}</td>
+                        <td>{{$opcion}}</td>
+                    </tr>
+
+                @endif
+
+
             </tbody>
         </table>
 
@@ -140,10 +173,69 @@
 
 
 
+        <?php
+            $abuso_actAnt = explode(',', $pat_nopat->abuso_actAnt);
+            $dep_actAnt = explode(',', $pat_nopat->dep_actAnt);
+        ?>
 
-    	<div class="row">
-    		<label>PROBLEMAS RELACIONADOS AL CONSUMO DE SUSTANCIAS: </label> {{ $pat_nopat-> problemas  }}
-    	</div>
+        <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th class="col-xs-4" align="center">Sustancia</th>
+                    <th class="col-xs-2">Actual</th>
+                    <th class="col-xs-2">Anterior</th>
+                    <th class="col-xs-2">Actual</th>
+                    <th class="col-xs-2">Anterior</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    @foreach($substancias as $substancia)
+
+                        <tr>
+                            <th scope="row">  {{$substancia}} </th>
+
+                            <?php 
+                                $abuso = array_shift($abuso_actAnt);
+                                $dependencia = array_shift($dep_actAnt);
+                            ?>
+
+                            @if($abuso == 'actual')
+                                <td>X</td>
+                                <td></td>
+                            @elseif($abuso == 'anterior')
+                                <td></td>
+                                <td>X</td>
+                            @else
+                                <td></td>
+                                <td></td>
+                            @endif
+
+
+                            @if($dependencia == 'actual')
+                                <td>X</td>
+                                <td></td>
+                            @elseif($dependencia == 'anterior')
+                                <td></td>
+                                <td>X</td>
+                            @else
+                                <td></td>
+                                <td></td>
+                            @endif
+
+                            
+                        </tr>
+                    @endforeach
+                </tbody>
+        </table>
+
+        <div class="row">
+            <label>PROBLEMAS RELACIONADOS AL CONSUMO DE SUSTANCIAS: </label>
+            <textarea disabled class="form-control" name="antecedentes_notas" rows="3">{{ $pat_nopat-> problemas }}</textarea>
+        </div>
+
+
+        <br>
 
 
         <div class="col-xs-2">

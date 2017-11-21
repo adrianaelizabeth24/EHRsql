@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')  	<link href="{{ asset('css/app.css')}}" rel="stylesheet">
+<form method="post" action="{{action('PatnoPatController@update', $id)}}">
+    {{csrf_field()}}
+    <input name="_method" type="hidden" value="PATCH"/>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-
-    <form class="jumbotron" method="post" action="{{url('pat_nopat')}}">
-        {{csrf_field()}}
-        <div class="container">
+<div class="jumbotron">
+<div class="container">
 
             <h2>Antecedentes Personales Patológicos y no Patológicos <span style="color: #3097D1">{{$paciente->nombre}} {{$paciente->apellido_paterno}}</span></h2>
 
@@ -23,59 +23,79 @@
                 </thead>
                 <tbody>
 
+                <?php
+                    $antecedentes_detalles = explode(",",$pat_nopat->antecedentes_detalles );
+                    $ant = explode(",",$pat_nopat->antecedentes);
+                ?>
+
                 @foreach($antecedentes as $antecedente)
 
                     <tr>
                         <th scope="row"> {{$antecedente->preguntas}} </th>
 
+                        <?php
+                            $detalle =  array_shift($antecedentes_detalles);
+                            $opcion = array_shift($ant);
+                        ?>
+
                         <td>
-                            <input type="text" name="antecedentes_detalles[{{$antecedente->preguntas}}]" class="form-control mx-sm-3">
+                            <input type="text" name="antecedentes_detalles[{{$antecedente->preguntas}}]" class="form-control mx-sm-3" value="{{$detalle}}">
                         </td>
 
 
 
                         <input type="hidden" name="antecedentes[{{$antecedente->preguntas}}]" value="null">
-                        
+
                         <td>
-                            <input class="form-check-input" type="radio" name="antecedentes[{{$antecedente->preguntas}}]" value="si"/>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="radio" name="antecedentes[{{$antecedente->preguntas}}]" value="no"/>
+                            <input type="radio" class="form" name="antecedentes[{{$antecedente->preguntas}}]"  value="si" 
+                              {{ $opcion == 'si' ? 'checked' : '' }} >
                         </td>
 
                         <td>
-                            <input class="form-check-input" type="radio" name="antecedentes[{{$antecedente->preguntas}}]"
-                                   value="se desconoce"/>
+                            <input type="radio" class="form" name="antecedentes[{{$antecedente->preguntas}}]"  value="no" 
+                              {{ $opcion == 'no' ? 'checked' : '' }} >
                         </td>
+
+                        <td>
+                            <input type="radio" class="form" name="antecedentes[{{$antecedente->preguntas}}]"  value="se desconoce" 
+                              {{ $opcion == 'se desconoce' ? 'checked' : '' }} >
+                        </td>
+
 
 
                     </tr>
 
                 @endforeach
 
+                <?php
+                    $detalle =  array_shift($antecedentes_detalles);
+                    $opcion = array_shift($ant);
+                ?>
+
                 <tr>
                     <th scope="row">
 
-                    <input type="text" name="otro" class="form-control mx-sm-3" placeholder="Otro"></th>
+
+                    <input type="text" name="otro" class="form-control mx-sm-3" placeholder="Otro" value="{{$pat_nopat->otro}}"></th>
+
 
                     <td>
-                        <input type="text" name="antecedentes_detalles['otro']" class="form-control mx-sm-3"/>
-                    </td>
-
-
-
-                    <input type="hidden" name="antecedentes['otro']" value="null">
-
-                    <td>
-                        <input class="form-check-input" type="radio" name="antecedentes['otro']" id="NO" value="no">
+                        <input type="text" name="antecedentes_detalles['otro']" class="form-control mx-sm-3"/ value="{{$detalle}}">
                     </td>
 
                     <td>
-                        <input class="form-check-input" type="radio" name="antecedentes['otro']" id="SE DESCONOCE" value="se desconoce">
+                        <input type="radio" class="form" name="antecedentes['otro']"  value="si" 
+                          {{ $opcion == 'si' ? 'checked' : '' }} >
                     </td>
 
                     <td>
-                        <input class="form-check-input" type="radio" name="antecedentes['otro']" id="SI" value="si">
+                        <input type="radio" class="form" name="antecedentes['otro']"  value="no" 
+                          {{ $opcion == 'no' ? 'checked' : '' }} >
+                    </td>
+
+                    <td>
+                        <input type="radio" class="form" name="antecedentes['otro']"  value="se desconoce" 
+                          {{ $opcion == 'se desconoce' ? 'checked' : '' }} >
                     </td>
 
                 </tr>
@@ -86,14 +106,14 @@
             <div class="row">
                 <div class="form-group">
                     <label>NOTAS DE ANTECEDENTES PERSONALES PATOLÓGICOS Y NO PATOLÓGICOS:</label>
-                    <textarea class="form-control" name="antecedentes_notas" rows="3"></textarea>
+                    <textarea class="form-control" name="antecedentes_notas" rows="3"> {{$pat_nopat->antecedentes_notas}}</textarea>
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-xs-3">
                     <label for="tazasCafé">No. de tazas de café o té negro al día:</label>
-                    <input type="number" class="form-control input-group-lg" name="tazasCafé">
+                    <input type="number" class="form-control input-group-lg" name="tazasCafé" value= {{$pat_nopat->tazasCafé}}>
                 </div>
             </div>
 
@@ -105,14 +125,19 @@
                     <label for="tabaquismo">Nivel</label>
                     <select class="form-control" name="tabaquismo">
                         @foreach($tabaquismo as $nivel)
-                            <option> {{$nivel}} </option>
+                            <option value= "{{ $nivel }}" 
+                            @if ($nivel == old('tabaquismo', $pat_nopat->tabaquismo))
+                                selected="selected"
+                            @endif
+                            > {{ $nivel }} </option>
                         @endforeach
                     </select>
                 </div>
 
+
                 <div class="form-group form-inline col-xs-3">
                     <label for="consumoDiario">Consumo diario de tabaco</label>
-                    <input type="number" class="form-control input-group-lg" name="consumoDiario">
+                    <input type="number" class="form-control input-group-lg" name="consumoDiario" value = {{$pat_nopat->consumoDiario}}>
                     <small>
                         Cigarros por día
                     </small>
@@ -122,17 +147,17 @@
             <div class="row">
                 <div class="form-group form-inline  col-xs-3">
                     <label for="añosTabaquismo">Años de tabaquismo</label>
-                    <input type="number" class="form-control input-group-lg" name="añosTabaquismo">
+                    <input type="number" class="form-control input-group-lg" name="añosTabaquismo" value = {{$pat_nopat->añosTabaquismo}}>
                 </div>
 
                 <div class="form-group form-inline col-xs-3">
                     <label for="edadInicio">Edad de Inicio</label>
-                    <input type="number" class="form-control input-group-lg" name="edadInicio">
+                    <input type="number" class="form-control input-group-lg" name="edadInicio" value = {{$pat_nopat->edadInicio}}>
                 </div>
 
                 <div class="form-group form-inline  col-xs-3">
                     <label for="edadSuspendió">Edad en que se suspendió</label>
-                    <input type="number" class="form-control input-group-lg" name="edadSuspendió">
+                    <input type="number" class="form-control input-group-lg" name="edadSuspendió" value = {{$pat_nopat->edadSuspendió}}>
                 </div>
             </div>
 
@@ -144,16 +169,25 @@
                     <label for="alcohol_frecuencia">Frecuencia</label>
                     <select class="form-control" name="alcohol_frecuencia">
                         @foreach($alcohol_frecuencia as $frec)
-                            <option> {{$frec}} </option>
+                            <option value= "{{ $frec }}" 
+                            @if ($frec == old('alcohol_frecuencia', $pat_nopat->alcohol_frecuencia))
+                                selected="selected"
+                            @endif
+                            > {{ $frec }} </option>
                         @endforeach
                     </select>
+
                 </div>
 
                 <div class="form-group col-xs-3">
                     <label for="alcohol_cantidad">Cantidad (cuando toma)</label>
                     <select class="form-control" name="alcohol_cantidad">
                         @foreach($alcohol_cantidad as $cant)
-                            <option> {{$cant}} </option>
+                            <option value= "{{ $cant }}" 
+                            @if ($cant == old('alcohol_cantidad', $pat_nopat->alcohol_cantidad))
+                                selected="selected"
+                            @endif
+                            > {{ $cant }} </option>
                         @endforeach
                     </select>
                 </div>
@@ -176,32 +210,43 @@
                     <th scope="row"> ¿Alguna vez le dijeron o sintió que debería dejar de tomar?</th>
 
                     <td>
-                        <input class="form-check-input" type="radio" name="dejarTomar" id="NO" value="no">
+                        <input type="radio" class="form" name="dejarTomar"  value="no" 
+                          {{ $pat_nopat->dejarTomar == 'no' ? 'checked' : '' }} >
                     </td>
                     <td>
-                        <input class="form-check-input" type="radio" name="dejarTomar" id="SI" value="si">
+                        <input type="radio" class="form" name="dejarTomar"  value="si" 
+                          {{ $pat_nopat->dejarTomar == 'si' ? 'checked' : '' }} >
                     </td>
+
+                    
+
                 </tr>
 
                 <tr>
                     <th scope="row"> ¿Alguna vez se sintió mal o culpable por su forma de tomar?</th>
 
                     <td>
-                        <input class="form-check-input" type="radio" name="formaTomar" id="NO" value="no">
+                        <input type="radio" class="form" name="formaTomar"  value="no" 
+                          {{ $pat_nopat->formaTomar == 'no' ? 'checked' : '' }} >
                     </td>
                     <td>
-                        <input class="form-check-input" type="radio" name="formaTomar" id="SI" value="si">
+                        <input type="radio" class="form" name="formaTomar"  value="si" 
+                          {{ $pat_nopat->formaTomar == 'si' ? 'checked' : '' }} >
                     </td>
+                    
                 </tr>
 
                 <tr>
                     <th scope="row"> ¿Alguna vez tomo en la mañana para calmar sus nervios o cortar la cruda?</th>
 
+                    
                     <td>
-                        <input class="form-check-input" type="radio" name="tomarMañana" id="NO" value="no">
+                        <input type="radio" class="form" name="tomarMañana"  value="no" 
+                          {{ $pat_nopat->tomarMañana == 'no' ? 'checked' : '' }} >
                     </td>
                     <td>
-                        <input class="form-check-input" type="radio" name="tomarMañana" id="SI" value="si">
+                        <input type="radio" class="form" name="tomarMañana"  value="si" 
+                          {{ $pat_nopat->tomarMañana == 'si' ? 'checked' : '' }} >
                     </td>
                 </tr>
 
@@ -220,6 +265,14 @@
             </div>
 
 
+
+
+            <?php
+                $abuso_actAnt = explode(',', $pat_nopat->abuso_actAnt);
+                $dep_actAnt = explode(',', $pat_nopat->dep_actAnt);
+            ?>
+
+
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -232,35 +285,43 @@
                 </thead>
                 <tbody>
 
-
                 @foreach($substancias as $substancia)
 
                     <tr>
-                        <th scope="row">  {{$substancia}} </th>
+                        <th scope="row"> {{$substancia}} </th>
+
+                        <?php
+                            $abuso = array_shift($abuso_actAnt);
+                            $dependencia = array_shift($dep_actAnt);
+                        ?>
 
                         <input type="hidden" name="abuso_actAnt[{{$substancia}}]" value="null">
 
                         <td>
-                            <input class="form-check-input" type="radio" name="abuso_actAnt[{{$substancia}}]" value="actual">
+                            <input type="radio" class="form" name="abuso_actAnt[{{$substancia}}]"  value="actual" 
+                              {{ $abuso == 'actual' ? 'checked' : '' }} >
                         </td>
 
                         <td>
-                            <input class="form-check-input" type="radio" name="abuso_actAnt[{{$substancia}}]" value="anterior">
+                            <input class="form-check-input" type="radio" name="abuso_actAnt[{{$substancia}}]" value="anterior"
+                            {{ $abuso == 'anterior' ? 'checked' : '' }} >
                         </td>
+
 
                            <input type="hidden" name="dep_actAnt[{{$substancia}}]" value="null">
 
                         <td>
-                            <input class="form-check-input" type="radio" name="dep_actAnt[{{$substancia}}]" value="actual">
+                            <input class="form-check-input" type="radio" name="dep_actAnt[{{$substancia}}]" value="actual"
+                            {{ $dependencia == 'actual' ? 'checked' : '' }} >
                         </td>
 
                         <td>
-                            <input class="form-check-input" type="radio" name="dep_actAnt[{{$substancia}}]" value="anterior">
+                            <input class="form-check-input" type="radio" name="dep_actAnt[{{$substancia}}]" value="anterior"
+                            {{ $dependencia == 'anterior' ? 'checked' : '' }} >
                         </td>
-
-                            
-
+    
                     </tr>
+
                 @endforeach
 
                 </tbody>
@@ -269,7 +330,7 @@
 
             <div class="form-group">
                 <label>PROBLEMAS RELACIONADOS AL CONSUMO DE SUSTANCIAS:</label>
-                <textarea class="form-control" name="problemas" rows="3"></textarea>
+                <textarea class="form-control" name="problemas" rows="3">{{ $pat_nopat-> problemas }}</textarea>
             </div>
 
 

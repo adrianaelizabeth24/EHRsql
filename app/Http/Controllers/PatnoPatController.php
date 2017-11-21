@@ -36,8 +36,8 @@ class PatnoPatController extends Controller
 
         $antecedentes = preguntas_patnopat::all();
         $tabaquismo = $opciones::where('pregunta', 'tabaquismo')->pluck('opcion');
-        $bebidas_frecuencia = $opciones::where('pregunta', 'bebidas_alcoholicas_frecuencia')->pluck('opcion');
-        $bebidas_cantidad = $opciones::where('pregunta', 'bebidas_alcoholicas_cantidad')->pluck('opcion');
+        $alcohol_frecuencia = $opciones::where('pregunta', 'bebidas_alcoholicas_frecuencia')->pluck('opcion');
+        $alcohol_cantidad = $opciones::where('pregunta', 'bebidas_alcoholicas_cantidad')->pluck('opcion');
         $substancias = $opciones::where('pregunta', 'substancias')->pluck('opcion');
 
         $paciente = paciente::find($id);
@@ -45,7 +45,7 @@ class PatnoPatController extends Controller
         // Mandarle las variables a la vista
 
         return view('pat_nopat.create', ['antecedentes' => $antecedentes, 'tabaquismo' => $tabaquismo,
-            'bebidas_frecuencia' => $bebidas_frecuencia, 'bebidas_cantidad' => $bebidas_cantidad,
+            'alcohol_frecuencia' => $alcohol_frecuencia, 'alcohol_cantidad' => $alcohol_cantidad,
             'substancias' => $substancias, 'paciente' => $paciente]);
     }
 
@@ -61,11 +61,12 @@ class PatnoPatController extends Controller
         //creas un nuevo registro pat no pat (el que tiene toda la info)
         $pat_nopat = new pat_nopat();
 
-        //creas el nuevo registro antecedentes pat pacientes
-        //contiene el id generado --> importante + id_paciente
-        $antecedentes_pat_pacientes = new antecedentes_pat_pacientes();
-        $antecedentes_pat_pacientes->id_paciente = $request->input('id_paciente');
-        $antecedentes_pat_pacientes->save();
+        $id_paciente = $request->input('id_paciente');
+
+        $otro = $request->input('otro');
+
+        $antecedentes_detalles = implode(",",$_POST["antecedentes_detalles"]);
+        $antecedentes = implode(",",$_POST["antecedentes"]);
 
         // obtener datos de los campos
         $antecedentes_notas = $request->input('antecedentes_notas');
@@ -81,25 +82,19 @@ class PatnoPatController extends Controller
         $formaTomar = $request->input('formaTomar');
         $tomarMañana = $request->input('tomarMañana');
 
+
+        $abuso_actAnt = implode(",",$_POST["abuso_actAnt"]);
+        $dep_actAnt = implode(",",$_POST["dep_actAnt"]);
+
         $problemas = $request->input('problemas');
-        //se trae las preguntas y las almacena en antecedentes
-        $antecedentes = preguntas_patnopat::all();
-
-        //para cada pregunta
-        foreach ($antecedentes as $antecedente) {
-            //crear un nuevo registo multivalue
-            $antecedentes_pat = new antecedentes_pat();
-            $antecedentes_pat->id_antecedentes_pat_pacientes = $antecedentes_pat_pacientes->id;
-            $antecedentes_pat->id_antecedente = $antecedente->id;
-            $antecedentes_pat->valor = $request->input($antecedente->id);
-            $antecedentes_pat->detalles = $request->input($antecedente->id . '_detalles');
-            $antecedentes_pat->save();
-        }
-
-        $pat_nopat->id_antecedentes = $antecedentes_pat_pacientes->id;
 
         //resto de los campos
         $pat_nopat->id_paciente = $request->input('id_paciente');
+
+        $pat_nopat->antecedentes_detalles = $antecedentes_detalles;
+        $pat_nopat->antecedentes = $antecedentes;
+        $pat_nopat->otro = $otro;
+
         $pat_nopat->antecedentes_notas = $antecedentes_notas;
         $pat_nopat->tazasCafé = $tazasCafé;
         $pat_nopat->tabaquismo = $tabaquismo;
@@ -113,11 +108,13 @@ class PatnoPatController extends Controller
         $pat_nopat->formaTomar = $formaTomar;
         $pat_nopat->tomarMañana = $tomarMañana;
 
-        $pat_nopat->problemas = $problemas;
+        $pat_nopat->abuso_actAnt = $abuso_actAnt;
+        $pat_nopat->dep_actAnt = $dep_actAnt;
 
+        $pat_nopat->problemas = $problemas;
         $pat_nopat->save();
 
-        $paciente = paciente::find($antecedentes_pat_pacientes->id_paciente);
+        $paciente = paciente::find($id_paciente);
         $paciente->id_pat_nopat = $pat_nopat->id;
         $paciente->save();
 
@@ -136,12 +133,13 @@ class PatnoPatController extends Controller
     {
         $pat_nopat = pat_nopat::find($id);
         $antecedentes = preguntas_patnopat::all();
-        $antecedentes_paciente = antecedentes_pat_pacientes::where('id', '=', $pat_nopat->id_antecedentes)->first();
-        $a = $antecedentes_paciente->id;
-        $antecedentes_todo = antecedentes_pat::where('id_antecedentes_pat_pacientes', '=', $a)->get();
+
         $paciente = paciente::find($pat_nopat->id_paciente);
-        return view('pat_nopat.show', ['pat_nopat' => $pat_nopat, 'antecedentes' => $antecedentes,
-            'pat_pacientes' => $antecedentes_paciente, 'antecedentes_opciones' => $antecedentes_todo, 'paciente' => $paciente]);
+
+        $opciones = new opciones_preguntas();
+        $substancias = $opciones::where('pregunta', 'substancias')->pluck('opcion');
+
+        return view('pat_nopat.show', ['pat_nopat' => $pat_nopat, 'antecedentes' => $antecedentes, 'substancias' => $substancias, 'paciente' => $paciente]);
     }
 
     /**
@@ -152,7 +150,32 @@ class PatnoPatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $opciones = new opciones_preguntas();
+
+        // Crear variables para las opciones de las preguntas correspondientes
+
+        $antecedentes = preguntas_patnopat::all();
+        $tabaquismo = $opciones::where('pregunta', 'tabaquismo')->pluck('opcion');
+        $alcohol_frecuencia = $opciones::where('pregunta', 'bebidas_alcoholicas_frecuencia')->pluck('opcion');
+        $alcohol_cantidad = $opciones::where('pregunta', 'bebidas_alcoholicas_cantidad')->pluck('opcion');
+        $substancias = $opciones::where('pregunta', 'substancias')->pluck('opcion');
+
+        $pat_nopat = pat_nopat::find($id);
+        $paciente = paciente::find($pat_nopat->id_paciente);
+
+        // Mandarle las variables a la vista
+
+        return view('pat_nopat.edit')->with(  
+            compact(
+                'antecedentes',
+                'tabaquismo',
+                'alcohol_frecuencia',
+                'alcohol_cantidad',
+                'substancias',
+                'paciente',
+                'pat_nopat',
+                'id'
+                ))  ;
     }
 
     /**
@@ -164,7 +187,72 @@ class PatnoPatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Tabla que guarda la forma de antecedentes patológicos y no patológicos
+        //creas un nuevo registro pat no pat (el que tiene toda la info)
+        $pat_nopat = pat_nopat::find($id);
+
+        $id_paciente = $request->input('id_paciente');
+
+
+        $otro = $request->input('otro');
+
+        $antecedentes_detalles = implode(",",$_POST["antecedentes_detalles"]);
+        $antecedentes = implode(",",$_POST["antecedentes"]);
+
+
+        // obtener datos de los campos
+        $antecedentes_notas = $request->input('antecedentes_notas');
+        $tazasCafé = $request->input('tazasCafé');
+        $tabaquismo = $request->input('tabaquismo');
+        $consumoDiario = $request->input('consumoDiario');
+        $añosTabaquismo = $request->input('añosTabaquismo');
+        $edadInicio = $request->input('edadInicio');
+        $edadSuspendió = $request->input('edadSuspendió');
+        $alcohol_frecuencia = $request->input('alcohol_frecuencia');
+        $alcohol_cantidad = $request->input('alcohol_cantidad');
+        $dejarTomar = $request->input('dejarTomar');
+        $formaTomar = $request->input('formaTomar');
+        $tomarMañana = $request->input('tomarMañana');
+
+
+        $abuso_actAnt = implode(",",$_POST["abuso_actAnt"]);
+        $dep_actAnt = implode(",",$_POST["dep_actAnt"]);
+
+        $problemas = $request->input('problemas');
+
+        //resto de los campos
+        $pat_nopat->id_paciente = $request->input('id_paciente');
+
+        $pat_nopat->antecedentes_detalles = $antecedentes_detalles;
+        $pat_nopat->antecedentes = $antecedentes;
+
+        $pat_nopat->otro = $otro;
+
+        $pat_nopat->antecedentes_notas = $antecedentes_notas;
+        $pat_nopat->tazasCafé = $tazasCafé;
+        $pat_nopat->tabaquismo = $tabaquismo;
+        $pat_nopat->consumoDiario = $consumoDiario;
+        $pat_nopat->añosTabaquismo = $añosTabaquismo;
+        $pat_nopat->edadInicio = $edadInicio;
+        $pat_nopat->edadSuspendió = $edadSuspendió;
+        $pat_nopat->alcohol_frecuencia = $alcohol_frecuencia;
+        $pat_nopat->alcohol_cantidad = $alcohol_cantidad;
+        $pat_nopat->dejarTomar = $dejarTomar;
+        $pat_nopat->formaTomar = $formaTomar;
+        $pat_nopat->tomarMañana = $tomarMañana;
+
+        $pat_nopat->abuso_actAnt = $abuso_actAnt;
+        $pat_nopat->dep_actAnt = $dep_actAnt;
+
+        $pat_nopat->problemas = $problemas;
+        $pat_nopat->save();
+
+        $paciente = paciente::find($id_paciente);
+        $paciente->id_pat_nopat = $pat_nopat->id;
+        $paciente->save();
+
+
+        return redirect()->action('PatnoPatController@show', $pat_nopat->id);
     }
 
     /**
@@ -175,6 +263,14 @@ class PatnoPatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patnopat = pat_nopat::find($id);
+
+        $paciente = paciente::find($patnopat->id_paciente);
+        $paciente->id_pat_nopat = 0;
+        $paciente->save();
+
+        $patnopat->delete();
+
+        return redirect()->action('PacienteController@show', $paciente->id);
     }
 }
