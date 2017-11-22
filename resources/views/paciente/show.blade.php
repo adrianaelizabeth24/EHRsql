@@ -406,6 +406,18 @@
                                     @endif
 
                                 </div>
+                                <br/>
+                                <div class="row">
+                                    @if(($paciente->id_nota_clinica != 0)&&($paciente->id_diagnostico != 0)&&($paciente->id_plan_tratamiento != 0)&&($paciente->id_antecedentes_ginecobstetricos != 0)
+                                    &&($paciente->id_pat_nopat != 0)&&($paciente->id_peea != 0)&&($paciente->id_abuso_de_substancias != 0)&&($paciente->id_historia_clinica_familiar != 0)
+                                    &&($paciente->id_historia_previa != 0)&&($paciente->id_historia_psiquiatrica_fam != 0)&&($paciente->id_examen_mental != 0)&&($paciente->id_exploracion_fisica != 0))
+                                        <div class="col-xs-4">
+                                            <a href="/showall/{{{$paciente->id}}}"
+                                               class="btn btn-success btn-lg btn-block"><strong>Ver
+                                                    Todo</strong></a>
+                                        </div>
+                                    @endif
+                                </div>
 
 
                             </div>

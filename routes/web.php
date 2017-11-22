@@ -132,6 +132,8 @@ Route::resource('trastorno_mental', 'TrastornoMentalController');
 
 Route::resource('opciones_exploracion_fisica', 'OpcionesExploracionFisica');
 
+Route::resource('showall', 'ShowAllController');
+
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
